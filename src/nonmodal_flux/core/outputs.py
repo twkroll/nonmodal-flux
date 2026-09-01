@@ -1,9 +1,9 @@
 """Signed finite-horizon output operators.
 
 This module keeps the physical transport observable separate from the positive
-input/energy metrics.  It implements the terminal signed-output operator for
-constant linear dynamics and its positive-input-metric whitening.  Eigenvalue
-optimization belongs to a later step.
+input/energy metrics. It implements the terminal signed-output operator for
+constant linear dynamics, its positive-input-metric whitening, and the signed
+terminal extrema. Optimizer reconstruction belongs to a later step.
 """
 
 from __future__ import annotations
@@ -46,7 +46,7 @@ def terminal_signed_output_operator(problem: TransportProblem, T: Real) -> Array
 
     Notes
     -----
-    The result is *not* explicitly symmetrized.  Hermiticity should follow from
+    The result is *not* explicitly symmetrized. Hermiticity should follow from
     the validated Hermiticity of ``Q`` and the algebra itself; tests measure any
     numerical defect rather than hiding it.
     """
@@ -66,8 +66,8 @@ def whitened_terminal_signed_output_operator(problem: TransportProblem, T: Real)
     ``K = B^H Phi(T)^H Q Phi(T) B``
 
     and factor the positive input metric as ``Rin = L L^H`` with a lower
-    Cholesky factor ``L``.  The change of variables ``v = L^H u`` turns the
-    denominator ``u^H Rin u`` into ``v^H v``.  The corresponding Hermitian
+    Cholesky factor ``L``. The change of variables ``v = L^H u`` turns the
+    denominator ``u^H Rin u`` into ``v^H v``. The corresponding Hermitian
     operator is
 
     ``H = L^{-1} K L^{-H}``.
@@ -86,3 +86,33 @@ def whitened_terminal_signed_output_operator(problem: TransportProblem, T: Real)
         left_whitened.conj().T,
         lower=True,
     ).conj().T
+
+
+def terminal_signed_extrema(problem: TransportProblem, T: Real) -> tuple[Array, Array]:
+    """Return the minimum and maximum normalized terminal signed transport.
+
+    The generalized Rayleigh quotient
+
+    ``u^H K_Q^term(T) u / (u^H Rin u)``
+
+    is equivalent, after Cholesky whitening, to the ordinary Rayleigh quotient
+    of ``H_Q^term(T)``. Since this matrix is Hermitian, its smallest and largest
+    eigenvalues are respectively the most negative and most positive terminal
+    signed outputs under unit input cost.
+
+    Returns
+    -------
+    (jax.Array, jax.Array)
+        ``(lambda_min, lambda_max)`` of the whitened terminal operator.
+
+    Notes
+    -----
+    No eigenvector is returned here, and no optimizer is transformed back to
+    physical input coordinates. The operator is also not explicitly
+    symmetrized before calling ``eigvalsh``; any loss of Hermiticity should be
+    exposed by validation tests rather than silently hidden.
+    """
+
+    operator = whitened_terminal_signed_output_operator(problem, T)
+    eigenvalues = jnp.linalg.eigvalsh(operator)
+    return eigenvalues[0], eigenvalues[-1]
