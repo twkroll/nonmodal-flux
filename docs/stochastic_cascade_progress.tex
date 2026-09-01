@@ -174,15 +174,90 @@ HW $y$ & 0.09816 & [0.08597,\,0.11034]\\
 \end{center}
 The extrapolation itself is only a resolution diagnostic. The appropriate conclusion is that the present $32^2$ data do not justify a Pawula/Fokker--Planck truncation.
 
+\section{C3: resolution and scale-coordinate gate}
+C3 tests whether the failed small-step gate is mainly a resolution problem or a coordinate problem. The mHW benchmark is repeated at $64^2$. To keep the physical separations fixed relative to C2, the increment sequence becomes
+\[
+16\to14,12,10,8
+\]
+grid points, corresponding to $r=10\to8.75,7.5,6.25,5$.
+
+Seed 1 undergoes a strong late reorganization and is excluded from the plateau-coordinate comparison; seeds 0, 2 and 3 have late ZF fractions near a plateau. A dedicated seed-1 control with half the time step, $\Delta t=0.025$, reproduces the $380\le t\le490$ statistics to approximately four significant digits, so the analysis-window reorganization is not a visible RK4-step artifact.
+
+\subsection{Resolution-only test}
+The mean fitted $b_0$ values over plateau-like seeds 0, 2 and 3 are
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+case & $10\to8.75$ & $10\to7.5$ & $10\to6.25$ & $10\to5$\\
+\midrule
+$64^2$ mHW $x$ & 0.2580 & 0.3498 & 0.3306 & 0.2797\\
+$64^2$ mHW $y$ & 0.1429 & 0.2187 & 0.2180 & 0.1660\\
+\bottomrule
+\end{tabular}
+\end{center}
+No small-step plateau appears. The mean within-seed coefficient of variation across these steps is about 0.164 in $x$ and 0.210 in $y$.
+
+The fitted fourth-order extrapolation becomes smaller on average,
+\[
+\bar c_{0,x}\simeq0.00746,
+\qquad
+\bar c_{0,y}\simeq0.00656,
+\]
+versus 0.03186 and 0.02196 at $32^2$, but the individual fits scatter strongly. Therefore resolution improves the Pawula tendency without establishing convergence.
+
+\subsection{Smooth Gaussian coarse-graining}
+Define a nested filtered field
+\[
+X_\ell=\mathcal F^{-1}\!\left[
+\exp\!\left(-\frac12\left(\frac{k\ell}{2\pi}\right)^2\right)
+\widehat\phi_{NZ}\right].
+\]
+For $\ell=10,7.5,5$, the mean Chapman--Kolmogorov TV error is 0.0389, compared with 0.1042 and 0.1041 for the radial and poloidal increment coordinates at comparable physical scales. Thus the smooth coordinate appears substantially more Markovian.
+
+However its finite-step moments scale as
+\[
+D^{(2)}_{\Delta s}(0)\propto\Delta s^{p_2},
+\qquad
+p_2\in[0.78,0.83],
+\]
+and
+\[
+D^{(4)}_{\Delta s}(0)\propto\Delta s^{p_4},
+\qquad
+p_4\in[2.68,2.86].
+\]
+This is close to the differentiable-scale expectation $\Delta X=O(\Delta s)$, for which $D^{(2)}=O(\Delta s)$ and $D^{(4)}=O(\Delta s^3)$. Hence the improved closure is bought by a degenerate diffusion limit,
+\[
+\lim_{\Delta s\to0}D^{(2)}_{\Delta s}=0.
+\]
+The Gaussian coordinate is therefore rejected as a nontrivial Fokker--Planck cascade coordinate.
+
+\subsection{Sharp spectral cumulative coordinate}
+A non-smooth control,
+\[
+X_K=\sum_{|k|\le K,\,k_y\ne0}\phi_k e^{i k\cdot x},
+\]
+with $K=0.6,0.7,0.8,0.9,1.0$ gives a mean CK error of about 0.0896, only modestly below the increment value. Its central $D^{(2)}$ is again strongly step dependent and no nonzero plateau is observed.
+
+\subsection{C3 methodological conclusion}
+C3 shows that ``more Markovian'' is not by itself a sufficient coordinate-selection criterion. A useful scale representation must satisfy both
+\[
+\text{closure}
+\quad\text{and}\quad
+\text{non-degenerate generator behavior}.
+\]
+A smooth coordinate may reduce conditional memory while trivializing the stochastic generator. Future mode/coordinate objectives therefore need a Markov-closure term together with a generator regularity or non-degeneracy constraint.
+
 \section{Current gate decision}
 \begin{itemize}
-\item \textbf{Passed:} a ZF-conditioned reduction of the finite-step second conditional moment survives independent seeds, anisotropy separation, and an original-HW control after self-normalization.
-\item \textbf{Falsified:} a general claim that stronger ZF improves Markov closure.
-\item \textbf{Failed at current resolution:} convergence of $D^{(1)}$, $D^{(2)}$ as $\Delta s\to0$ and a Pawula justification for truncation at second order.
+\item \textbf{Passed and retained:} the finite-scale ZF-conditioned transition-kernel viewpoint remains meaningful.
+\item \textbf{Falsified:} stronger ZF does not generally improve Markov closure.
+\item \textbf{C3a failed:} $64^2$ alone does not produce a step-independent $D^{(2)}$ plateau.
+\item \textbf{C3b Gaussian rejected:} better CK closure is accompanied by $D^{(2)}\to0$, i.e. a differentiable and degenerate scale flow.
+\item \textbf{C3b sharp spectral failed:} the cumulative spectral coordinate remains strongly step dependent.
+\item \textbf{GENE transfer of a Fokker--Planck claim remains blocked.}
 \end{itemize}
-The robust object at this stage is therefore the \emph{ZF-conditioned finite-scale transition kernel}, not yet a Fokker--Planck cascade.
-
-Before transfer to GENE, the next gate is higher spatial resolution together with alternative filtered/wavelet scale variables. Only if $D^{(2)}$ develops a small-step plateau and $D^{(4)}$ moves toward zero should the finite-step quantities be promoted to genuine Kramers--Moyal coefficients.
+The next branch should compare scale-normalized orthogonal/wavelet variables with an explicitly non-Markov generalized-Langevin or Mori--Zwanzig description. This is now a model-selection problem, not merely a resolution problem.
 
 \section{References}
 R. Numata, R. Ball, and R. L. Dewar, \emph{Nonlinear Simulation of Drift Wave Turbulence}, arXiv:physics/0703274 (2007).
