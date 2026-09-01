@@ -2,8 +2,9 @@
 
 This module keeps the physical transport observable separate from the positive
 input/energy metrics. It implements the terminal signed-output operator for
-constant linear dynamics, its positive-input-metric whitening, and the signed
-terminal extrema. Optimizer reconstruction belongs to a later step.
+constant linear dynamics, its positive-input-metric whitening, and signed
+terminal extrema and extremal modes. Reconstruction in physical input
+coordinates belongs to a later step.
 """
 
 from __future__ import annotations
@@ -116,3 +117,42 @@ def terminal_signed_extrema(problem: TransportProblem, T: Real) -> tuple[Array, 
     operator = whitened_terminal_signed_output_operator(problem, T)
     eigenvalues = jnp.linalg.eigvalsh(operator)
     return eigenvalues[0], eigenvalues[-1]
+
+
+def terminal_signed_extremal_modes(
+    problem: TransportProblem,
+    T: Real,
+) -> tuple[Array, Array, Array, Array]:
+    """Return signed terminal extrema and their whitened extremal modes.
+
+    If ``H_Q^term(T)`` denotes the Cholesky-whitened terminal operator, this
+    function solves the Hermitian eigenproblem
+
+    ``H_Q^term(T) v = lambda v``
+
+    and returns the modes associated with its smallest and largest eigenvalues.
+    The eigenvectors are represented in the Euclidean, whitened coordinates
+    ``v = L^H u`` and therefore have unit Euclidean norm.
+
+    Returns
+    -------
+    (jax.Array, jax.Array, jax.Array, jax.Array)
+        ``(lambda_min, v_min, lambda_max, v_max)``. The vectors ``v_min`` and
+        ``v_max`` are normalized eigenvectors in whitened input coordinates.
+
+    Notes
+    -----
+    Eigenvector phase is arbitrary. If an extremal eigenvalue is degenerate,
+    the returned vector is one orthonormal representative of the corresponding
+    eigenspace and should not be interpreted as a unique optimizer. No
+    transformation back to physical input coordinates is performed here.
+    """
+
+    operator = whitened_terminal_signed_output_operator(problem, T)
+    eigenvalues, eigenvectors = jnp.linalg.eigh(operator)
+    return (
+        eigenvalues[0],
+        eigenvectors[:, 0],
+        eigenvalues[-1],
+        eigenvectors[:, -1],
+    )
