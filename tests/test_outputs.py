@@ -6,6 +6,7 @@ import scipy.linalg as sp_linalg
 
 from nonmodal_flux.core.outputs import (
     terminal_signed_extrema,
+    terminal_signed_extremal_inputs,
     terminal_signed_extremal_modes,
     terminal_signed_output_operator,
     whitened_terminal_signed_output_operator,
@@ -308,3 +309,63 @@ def test_terminal_extremal_modes_are_orthogonal_in_nondegenerate_case() -> None:
         rtol=0.0,
         atol=1.0e-13,
     )
+
+
+def test_reconstructed_extremal_inputs_have_unit_input_cost() -> None:
+    problem = _nontrivial_metric_problem()
+    horizon = 0.44
+
+    _, u_min, _, u_max = terminal_signed_extremal_inputs(problem, horizon)
+    u_min_np = np.asarray(u_min)
+    u_max_np = np.asarray(u_max)
+
+    cost_min = np.vdot(u_min_np, problem.Rin @ u_min_np)
+    cost_max = np.vdot(u_max_np, problem.Rin @ u_max_np)
+
+    np.testing.assert_allclose(cost_min, 1.0, rtol=1.0e-12, atol=1.0e-12)
+    np.testing.assert_allclose(cost_max, 1.0, rtol=1.0e-12, atol=1.0e-12)
+
+
+def test_reconstructed_extremal_inputs_satisfy_generalized_eigenproblem() -> None:
+    problem = _nontrivial_metric_problem()
+    horizon = 0.52
+
+    lambda_min, u_min, lambda_max, u_max = terminal_signed_extremal_inputs(problem, horizon)
+    raw = np.asarray(terminal_signed_output_operator(problem, horizon))
+    u_min_np = np.asarray(u_min)
+    u_max_np = np.asarray(u_max)
+
+    np.testing.assert_allclose(
+        raw @ u_min_np,
+        np.asarray(lambda_min) * (problem.Rin @ u_min_np),
+        rtol=1.0e-12,
+        atol=1.0e-12,
+    )
+    np.testing.assert_allclose(
+        raw @ u_max_np,
+        np.asarray(lambda_max) * (problem.Rin @ u_max_np),
+        rtol=1.0e-12,
+        atol=1.0e-12,
+    )
+
+
+def test_reconstructed_extremal_inputs_reproduce_direct_terminal_outputs() -> None:
+    problem = _nontrivial_metric_problem()
+    horizon = 0.36
+
+    lambda_min, u_min, lambda_max, u_max = terminal_signed_extremal_inputs(problem, horizon)
+    phi = np.asarray(constant_propagator(problem.A, horizon))
+
+    for eigenvalue, optimizer in ((lambda_min, u_min), (lambda_max, u_max)):
+        u = np.asarray(optimizer)
+        x_terminal = phi @ problem.B @ u
+        direct_output = np.vdot(x_terminal, problem.Q @ x_terminal)
+        input_cost = np.vdot(u, problem.Rin @ u)
+
+        np.testing.assert_allclose(input_cost, 1.0, rtol=1.0e-12, atol=1.0e-12)
+        np.testing.assert_allclose(
+            direct_output,
+            np.asarray(eigenvalue),
+            rtol=1.0e-12,
+            atol=1.0e-12,
+        )
