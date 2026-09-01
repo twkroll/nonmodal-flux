@@ -186,3 +186,37 @@ No broad parameter sweep is allowed before the model-independent core passes, in
 **Revisit trigger:** Reconsider only after the model-independent library is validated and the plasma pilot has produced a robust transport-specific result, or if an independent collaborator/application creates a compelling reason to open a separate AI workstream.
 
 **Escape route:** Keep all AI notes in `research/ai_applications.md`; no AI-specific dependencies or model code are added to the core package during P1.
+
+---
+
+## D8 — First spectrally stable HW single-case pilot
+
+**Status:** Accepted for the first falsification calculation
+
+**Decision:** Use exactly one D2-A Fourier mode with
+
+```text
+kx = 0.5
+ky = 1.0
+C = 1.0
+kappa = 1.0
+nu_k = 0.15
+```
+
+before any parameter sweep. The damping is an explicit single-mode perpendicular damping rate and remains part of the physical sink in the exact energy balance.
+
+The case is spectrally stable, metric-nonnormal, and strictly energy-contractive. For the first transport-neutral diagnostic use the pure-potential input map
+
+```math
+B_\phi=(1,0)^T,
+```
+
+with the natural input metric `R_in=B_phi^† M B_phi=1.25`. This line has exactly zero initial particle flux but positive first transport-generation coefficient.
+
+**Reason:** The case provides a deliberately strong falsification setting: all eigenvalues are stable and physical energy decreases monotonically, so positive signed particle transport cannot be explained as ordinary transient energy amplification. The pure-potential line tests dynamic cross-phase/flux generation without inserting initial transport.
+
+**Structural warning:** For one complex two-field mode, `Q_Gamma` has signature `(1,1)`. A complex-linear totally `Q_Gamma`-isotropic subspace therefore has dimension at most one. The selected neutral line is suitable for transport-generation diagnostics but cannot support a nontrivial directional comparison between energy-optimal and transport-optimal disturbances within the same neutral subspace.
+
+**Revision trigger:** Failure of the locked diagnostics, evidence that the chosen damping obscures the intended mechanism, or a decision that the headline pilot must contain a multidimensional transport-neutral optimization space rather than using the neutral line only as a generation diagnostic.
+
+**Escape route:** Keep D2-A unchanged and enlarge the pilot state/input space, preferably by a physically justified multi-mode construction or a richer reduced model, so that a multidimensional transport-neutral admissible space can exist.
