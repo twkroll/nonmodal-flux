@@ -7,14 +7,14 @@
 \usepackage{amsmath,amssymb,bm}
 \usepackage{booktabs}
 \usepackage[hidelinks]{hyperref}
-\title{Stochastic-cascade parallel track: modified Hasegawa--Wakatani bridge pilot}
+\title{Stochastic-cascade parallel track: Hasegawa--Wakatani bridge}
 \author{Living project note}
 \date{1 September 2026}
 \begin{document}
 \maketitle
 
 \section{Purpose}
-This note records an exploratory parallel track to the canonical finite-dimensional nonmodal theory. Its purpose is to test whether a drift-wave/zonal-flow model can support the sequence
+This note records the exploratory stochastic-cascade parallel track to the canonical finite-dimensional nonmodal theory. The proposed chain is
 \[
 \text{field dynamics}\to\text{zonal/nonzonal split}\to\text{scale process}
 \to\text{Markov test}\to\text{Kramers--Moyal diagnostics}.
@@ -22,7 +22,7 @@ This note records an exploratory parallel track to the canonical finite-dimensio
 It does not choose the final plasma convention for the main project and it does not constitute a converged turbulence calculation.
 
 \section{Benchmark equations}
-The pilot uses the Numata-style modified Hasegawa--Wakatani equations
+The modified Hasegawa--Wakatani (mHW) pilot uses
 \begin{align}
 \partial_t\zeta+\{\phi,\zeta\}
  &=\alpha(\widetilde\phi-\widetilde n)-D_\zeta\nabla^4\zeta,\\
@@ -34,82 +34,17 @@ with
 \zeta=\nabla_\perp^2\phi,\qquad
 \widetilde f=f-\langle f\rangle_y.
 \]
-The defining modification is that the parallel/resistive coupling is absent for the zonal modes $k_y=0$.
+The Numata-style modification removes the resistive/adiabatic coupling from zonal modes $k_y=0$. C2 also uses an original-HW control in which the same coupling is retained on zonal modes.
 
-The reference numerical run uses a $32^2$ periodic grid with $L_x=L_y=40$, $\alpha=\kappa=1$, $D_\zeta=D_n=0.02$, a pseudo-spectral Poisson bracket, two-thirds dealiasing, and fourth-order Runge--Kutta with $\Delta t=0.05$. The initial perturbations are random with amplitude $10^{-3}$ and seed 3.
+All C2 runs use a $32^2$ periodic grid with $L_x=L_y=40$, $\alpha=\kappa=1$, $D_\zeta=D_n=0.02$, a pseudo-spectral Poisson bracket, two-thirds dealiasing, RK4 with $\Delta t=0.05$, and random initial perturbations of amplitude $10^{-3}$.
 
-\section{Zonal and shell diagnostics}
-The $E\times B$ kinetic energy is partitioned as
-\[
-E_K=E_{ZF}+E_{NZ},\qquad
-f_{ZF}=\frac{E_{ZF}}{E_{ZF}+E_{NZ}}.
-\]
-For the analysis window $120\le t\le310$, the median split is
-\[
-f_{ZF,\mathrm{median}}=0.84656.
-\]
-The low-ZF ensemble has mean $f_{ZF}=0.61492$ (191 snapshots), while the high-ZF ensemble has mean $f_{ZF}=0.90633$ (190 snapshots).
-
-The nonzonal kinetic energy is strongly reduced in the high-ZF ensemble. For representative radial Fourier shells:
-\begin{center}
-\begin{tabular}{rrrr}
-\toprule
-$|k|$ shell & low ZF & high ZF & high/low\\
-\midrule
-$0.0$--$0.4$ & 0.002388 & 0.001234 & 0.517\\
-$0.4$--$0.8$ & 0.024953 & 0.013018 & 0.522\\
-$0.8$--$1.2$ & 0.072721 & 0.019795 & 0.272\\
-$1.2$--$1.6$ & 0.034627 & 0.010959 & 0.316\\
-$1.6$--$2.0$ & 0.010620 & 0.003630 & 0.342\\
-$2.0$--$2.6$ & 0.000446 & 0.000101 & 0.225\\
-\bottomrule
-\end{tabular}
-\end{center}
-
-\section{Scale process and Markov diagnostics}
-Zonal modes are removed from $\phi$, and increments of the nonzonal potential are formed at separations
-\[
-r/\Delta x\in\{8,4,2,1\},\qquad \Delta s=\ln2,
-\]
-with the process directed from large to small separation. The present pilot pools $x$- and $y$-directed increments; later plasma-quality work must keep anisotropy explicit.
-
-A Gaussian conditional-mutual-information proxy gives
-\begin{center}
-\begin{tabular}{rrr}
-\toprule
-triplet & low ZF & high ZF\\
-\midrule
-$8$--$4$--$2$ & 0.05034 & 0.01010\\
-$4$--$2$--$1$ & 0.21144 & 0.20541\\
-\bottomrule
-\end{tabular}
-\end{center}
-where values are in nats and zero is the Gaussian-Markov limit.
-
-A discrete Chapman--Kolmogorov test compares the direct transition matrix with the composition
-\[
-P(X_2\mid X_0)\stackrel{?}{=}P(X_2\mid X_1)P(X_1\mid X_0).
-\]
-The occupancy-weighted total-variation errors are
-\begin{center}
-\begin{tabular}{rrr}
-\toprule
-triplet & low ZF & high ZF\\
-\midrule
-$8$--$4$--$2$ & 0.09387 & 0.06119\\
-$4$--$2$--$1$ & 0.08364 & 0.08688\\
-\bottomrule
-\end{tabular}
-\end{center}
-Thus the larger tested triplet becomes more nearly Markovian in the high-ZF ensemble, whereas the smaller triplet does not.
-
-\section{Finite-step drift and diffusion}
-For the scale step $4\Delta x\to2\Delta x$, increments are normalized by the same low-ZF reference standard deviation. Conditional moments are fitted as
+\section{C1: single-realization bridge pilot}
+The first pilot used seed 3 and the transient window $120\le t\le310$. It established that the full diagnostic chain can be implemented and gave an initial low/high-zonal-flow split. For the scale step $4\Delta x\to2\Delta x$, fits of
 \[
 D^{(1)}(u)\approx a_1u+a_3u^3,\qquad
-D^{(2)}(u)\approx b_0+b_2u^2.
+D^{(2)}(u)\approx b_0+b_2u^2
 \]
-The resulting finite-step coefficients are
+gave
 \begin{center}
 \begin{tabular}{rrr}
 \toprule
@@ -122,12 +57,132 @@ $b_2$ & 0.19309 & 0.17742\\
 \bottomrule
 \end{tabular}
 \end{center}
-The main pilot signal is an approximately threefold reduction of the diffusion intercept $b_0$, while the fitted drift changes very little. This is compatible with suppression of stochastic nonzonal fluctuations by strong zonal organization, but these finite-scale fits are not yet converged Kramers--Moyal coefficients.
+The factor-of-three drop of $b_0$ was treated only as a hypothesis because ZF strength was strongly confounded with time.
 
-\section{Current interpretation and gate}
-The pilot establishes that the proposed observable chain can be implemented in a controlled drift-wave/zonal-flow model and that conditioning on zonal-flow strength changes measurable scale statistics. It does \emph{not} establish causality because the low/high-ZF split is partially confounded with temporal evolution in a single realization.
+\section{C2: independent-seed falsification}
+C2 integrates four independent seeds, $0,1,2,3$, from $t=0$ to $500$ and analyzes only $380\le t\le490$. The mean zonal kinetic-energy fractions are
+\begin{center}
+\begin{tabular}{rrr}
+\toprule
+seed & mHW & HW\\
+\midrule
+0 & 0.93080 & 0.05864\\
+1 & 0.95111 & 0.04578\\
+2 & 0.95755 & 0.04193\\
+3 & 0.90398 & 0.04823\\
+\bottomrule
+\end{tabular}
+\end{center}
+The mHW ZF fraction is near a late plateau, although the residual nonzonal energy still has seed-dependent slow trends. The window is therefore called late or quasi-stationary, not rigorously stationary.
 
-Before transfer to GENE, the next gate is therefore: independent or stationary ensembles; separate radial/poloidal increments; bootstrap uncertainty; local $D^{(1)}$, $D^{(2)}$, and $D^{(4)}$ at several scale ratios with small-$\Delta s$ extrapolation; and an original-HW control in which the zonal coupling modification is disabled.
+\subsection{Direction-resolved diffusion signal}
+Each mHW seed is split at its own median ZF fraction. Radial ($x$) and poloidal ($y$) increments are analyzed separately. Seed-level bootstrap intervals use 20,000 resamples of the four independent realization-level estimates.
+
+For the $4\Delta x\to2\Delta x$ step,
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+direction & mean $b_0^{\rm high}/b_0^{\rm low}$ & 95\% interval\\
+\midrule
+$x$ & 0.80188 & [0.71009,\,0.89366]\\
+$y$ & 0.86447 & [0.84857,\,0.88448]\\
+\bottomrule
+\end{tabular}
+\end{center}
+All four seeds have $b_0^{\rm high}<b_0^{\rm low}$ in both directions. The original C1 magnitude was therefore too large, but the sign of the diffusion modulation survives the independent-seed and anisotropy controls.
+
+The corresponding radial $a_1$ change is consistent with zero; hence the dominant reproducible C2 signal remains diffusion-like rather than drift-like.
+
+\subsection{Markov-improvement hypothesis is falsified}
+A discrete Chapman--Kolmogorov test compares
+\[
+P(X_2\mid X_0)
+\quad\text{with}\quad
+P(X_2\mid X_1)P(X_1\mid X_0).
+\]
+For the $8$--$4$--$2$ triplet, the high-minus-low ZF change in occupancy-weighted total-variation error is
+\[
+\Delta_{\rm CK}^{x}=-0.00306
+\quad [ -0.00745,\,0.00452],
+\]
+while
+\[
+\Delta_{\rm CK}^{y}=+0.01341
+\quad [0.00366,\,0.02119].
+\]
+Thus stronger ZF does not generally improve Markov closure. The radial change is unresolved at this seed count and the poloidal error becomes worse. Markov closure must remain scale- and direction-dependent and is an independent gate.
+
+\subsection{Original-HW control}
+Each model, seed and direction is normalized by its own $r=8\Delta x$ standard deviation so that the comparison is not merely a comparison of raw fluctuation amplitudes. Even after this self-normalization, mHW has lower finite-step diffusion intercept than HW:
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+step & $x$: mHW/HW & 95\% interval & $y$: mHW/HW & 95\% interval\\
+\midrule
+$8\to7$ & 0.70686 & [0.67239,\,0.73490] & 0.52698 & [0.48195,\,0.57200]\\
+$8\to4$ & 0.73844 & [0.64518,\,0.83361] & 0.61841 & [0.57258,\,0.68577]\\
+\bottomrule
+\end{tabular}
+\end{center}
+The conservative interpretation is therefore
+\[
+\boxed{\text{strong zonal organization is associated with reduced finite-step
+stochastic spreading of the nonzonal scale process}.}
+\]
+This remains an association statement: changing from HW to mHW changes the equations, not only the instantaneous ZF amplitude.
+
+\section{Small-step and Pawula gate}
+At fixed current separation $r=8\Delta x$, C2 evaluates next separations
+\[
+r'=7,6,5,4\;\Delta x,
+\qquad
+\Delta s=\ln(8/r').
+\]
+The smallest available scale step is $\ln(8/7)\simeq0.1335$.
+
+The mean fitted $b_0$ values do not form a scale-step-independent plateau:
+\begin{center}
+\begin{tabular}{lrrrr}
+\toprule
+case & $8\to7$ & $8\to6$ & $8\to5$ & $8\to4$\\
+\midrule
+mHW $x$ & 0.52627 & 0.66145 & 0.55804 & 0.41018\\
+mHW $y$ & 0.51473 & 0.65760 & 0.61463 & 0.45771\\
+HW $x$ & 0.74600 & 0.92691 & 0.77099 & 0.55781\\
+HW $y$ & 0.98276 & 1.21100 & 1.01931 & 0.74598\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For the finite-step fourth coefficient
+\[
+D^{(4)}_{\Delta s}(u)=
+\frac{\langle(\Delta u)^4\mid u\rangle}{24\,\Delta s},
+\]
+a simple linear extrapolation of its constant fit coefficient gives nonzero $\Delta s\to0$ intercepts:
+\begin{center}
+\begin{tabular}{lrr}
+\toprule
+case & extrapolated $c_0$ & 95\% interval\\
+\midrule
+mHW $x$ & 0.03186 & [0.02945,\,0.03426]\\
+mHW $y$ & 0.02196 & [0.01266,\,0.03125]\\
+HW $x$ & 0.05968 & [0.05430,\,0.06444]\\
+HW $y$ & 0.09816 & [0.08597,\,0.11034]\\
+\bottomrule
+\end{tabular}
+\end{center}
+The extrapolation itself is only a resolution diagnostic. The appropriate conclusion is that the present $32^2$ data do not justify a Pawula/Fokker--Planck truncation.
+
+\section{Current gate decision}
+\begin{itemize}
+\item \textbf{Passed:} a ZF-conditioned reduction of the finite-step second conditional moment survives independent seeds, anisotropy separation, and an original-HW control after self-normalization.
+\item \textbf{Falsified:} a general claim that stronger ZF improves Markov closure.
+\item \textbf{Failed at current resolution:} convergence of $D^{(1)}$, $D^{(2)}$ as $\Delta s\to0$ and a Pawula justification for truncation at second order.
+\end{itemize}
+The robust object at this stage is therefore the \emph{ZF-conditioned finite-scale transition kernel}, not yet a Fokker--Planck cascade.
+
+Before transfer to GENE, the next gate is higher spatial resolution together with alternative filtered/wavelet scale variables. Only if $D^{(2)}$ develops a small-step plateau and $D^{(4)}$ moves toward zero should the finite-step quantities be promoted to genuine Kramers--Moyal coefficients.
 
 \section{References}
 R. Numata, R. Ball, and R. L. Dewar, \emph{Nonlinear Simulation of Drift Wave Turbulence}, arXiv:physics/0703274 (2007).
