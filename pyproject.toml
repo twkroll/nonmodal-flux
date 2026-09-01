@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nonmodal-flux"
+version = "0.0.1"
+description = "Research tools for transport-optimal nonmodal stability with physics-derived signed flux observables."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "jax>=0.4.30",
+    "numpy>=1.26",
+    "scipy>=1.13",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
