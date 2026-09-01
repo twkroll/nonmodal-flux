@@ -60,7 +60,7 @@ Implemented and tested before any plasma sweep:
 
 ## Package D — Plasma convention and pilot
 
-**Status: active; D2-A frozen, convention-locked, and implemented**
+**Status: active; first stable single-case pilot selected, structural input-space gate reached**
 
 - [x] Compare candidate Hasegawa-Wakatani conventions for the first non-zonal linear pilot.
 - [x] Freeze D2-A: `x` radial, `y` poloidal, `v_E=e_z x grad(phi)`, Fourier `exp(i k dot x)`, state `(phi_k,n_k)`.
@@ -70,9 +70,17 @@ Implemented and tested before any plasma sweep:
 - [x] Verify the exact linear energy/particle-flux balance algebraically in the convention audit.
 - [x] Add convention-lock tests for `L_k`, `M_k`, `Q_{Gamma,k}`, the cross-phase identity, and the exact balance, including uniform perpendicular damping.
 - [x] Implement the minimal Hasegawa-Wakatani model constructor without adding ad-hoc observables; model-level tests reproduce the frozen matrices and balance.
-- [ ] Choose and document the first spectrally stable parameter/dissipation case.
-- [ ] Run one single-case pilot comparing energy-optimal and signed transport-optimal disturbances.
+- [x] Select and document one spectrally stable pilot case: `(kx,ky,C,kappa,nu_k)=(0.5,1.0,1.0,1.0,0.15)`.
+- [x] Verify spectral stability, metric nonnormality, exact balance, strict energy contraction, and positive flux generation from a pure-potential transport-neutral input.
+- [ ] Decide whether the single-mode transport-neutral line is sufficient as a generation diagnostic while optimizer separation is tested on the full state, or whether the headline pilot must be enlarged to a multidimensional transport-neutral input space.
+- [ ] Run the corresponding single-case finite-horizon optimizer comparison after that gate decision.
 - [ ] Only after the single-case pilot passes, consider parameter maps.
+
+### Structural gate discovered in D2.3
+
+For one complex two-field Fourier mode, `Q_Gamma` has signature `(1,1)`. Therefore a complex-linear totally transport-neutral subspace satisfying `B^† Q_Gamma B=0` can have dimension at most one. The selected pure-potential line is a valid T1 transport-generation diagnostic, but it cannot contain distinct energy-optimal and transport-optimal directions.
+
+This creates a genuine branch point rather than a numerical implementation issue.
 
 ## Package E — Living theory note
 
@@ -87,8 +95,7 @@ Update this note after each material theorem, modeling decision, or gate decisio
 
 ## Immediate next order
 
-1. Select one explicitly documented spectrally stable D2-A pilot case; do not start a broad sweep.
-2. Verify its eigenvalues, energy balance, nonnormality, and transport-neutral admissible input choice before optimization.
-3. Run one single-case comparison of finite-horizon energy and signed-particle-flux optimals.
-4. Use the result as the next Gate-0 falsification point and then repeat targeted citation chasing around the exact frozen convention.
-5. Only after the single-case pilot passes, consider parameter maps.
+1. Resolve the structural input-space gate: single-mode neutral-line diagnostic plus full-state optimizer comparison, versus enlargement to a multidimensional transport-neutral pilot.
+2. After that decision, run exactly one finite-horizon optimizer comparison; do not start a broad sweep.
+3. Use the result as the next Gate-0 falsification point and repeat targeted citation chasing around the exact frozen convention.
+4. Only after the single-case pilot passes, consider parameter maps.
