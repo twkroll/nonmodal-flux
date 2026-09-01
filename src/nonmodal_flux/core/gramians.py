@@ -9,9 +9,10 @@ and computes the finite-horizon state-space operator
     P_Q(T) = integral_0^T exp(A^H t) Q exp(A t) dt,
 
 its projection to the admissible input space, Cholesky whitening by the
-positive input metric, and the signed cumulative extrema. The physical signed
-observable ``Q`` remains separate from positive metrics. No optimizer
-reconstruction or model-specific construction of ``Q`` is performed in this
+positive input metric, and the signed cumulative extrema together with their
+whitened extremal modes. The physical signed observable ``Q`` remains separate
+from positive metrics. No optimizer reconstruction in physical input
+coordinates or model-specific construction of ``Q`` is performed in this
 module.
 """
 
@@ -198,3 +199,43 @@ def accumulated_signed_extrema(problem: TransportProblem, T: Real) -> tuple[Arra
     operator = whitened_accumulated_input_transport_operator(problem, T)
     eigenvalues = jnp.linalg.eigvalsh(operator)
     return eigenvalues[0], eigenvalues[-1]
+
+
+def accumulated_signed_extremal_modes(
+    problem: TransportProblem,
+    T: Real,
+) -> tuple[Array, Array, Array, Array]:
+    """Return cumulative signed extrema and their whitened extremal modes.
+
+    If ``H_Q^acc(T)`` denotes the Cholesky-whitened accumulated transport
+    operator, this function solves the Hermitian eigenproblem
+
+    ``H_Q^acc(T) v = lambda v``
+
+    and returns the modes associated with its smallest and largest eigenvalues.
+    The eigenvectors are represented in the Euclidean, whitened coordinates
+    ``v = L^H u`` and therefore have unit Euclidean norm.
+
+    Returns
+    -------
+    (jax.Array, jax.Array, jax.Array, jax.Array)
+        ``(lambda_min, v_min, lambda_max, v_max)``. The vectors ``v_min`` and
+        ``v_max`` are normalized eigenvectors in whitened input coordinates.
+
+    Notes
+    -----
+    Eigenvector phase is arbitrary. If an extremal eigenvalue is degenerate,
+    the returned vector is one orthonormal representative of the corresponding
+    eigenspace and should not be interpreted as a unique optimizer. No
+    transformation back to physical input coordinates is performed here. The
+    operator is not explicitly symmetrized before ``eigh``.
+    """
+
+    operator = whitened_accumulated_input_transport_operator(problem, T)
+    eigenvalues, eigenvectors = jnp.linalg.eigh(operator)
+    return (
+        eigenvalues[0],
+        eigenvectors[:, 0],
+        eigenvalues[-1],
+        eigenvectors[:, -1],
+    )
