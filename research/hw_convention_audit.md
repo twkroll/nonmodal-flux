@@ -1,7 +1,7 @@
 # Hasegawa–Wakatani convention audit for the first plasma pilot
 
 **Date:** 2026-09-01  
-**Status:** convention comparison complete; D2 not yet frozen
+**Status:** convention comparison complete; D2-A accepted and frozen
 
 ## Purpose
 
@@ -37,7 +37,7 @@ For the first single-mode pilot we require `k_y != 0`. Such a Fourier mode is no
 
 The flux-balanced HW model changes the nonlinear/zonal structure and has better asymptotic behavior toward the modified Hasegawa–Mima limit. It is valuable for later nonlinear or zonal-flow studies. However, published comparisons state that the linear drift instability of the non-zonal sector is the same as in the modified HW model. It is therefore not necessary as the first finite-dimensional pilot unless the research question is specifically about zonal feedback.
 
-## Recommended first-pilot convention
+## Frozen first-pilot convention: D2-A
 
 For the first linear non-zonal mode, use the standard/modified HW subsystem with the following explicit coordinate convention:
 
@@ -73,7 +73,7 @@ C-i\kappa k_y & -C
 \end{pmatrix}.
 ```
 
-This convention should be treated as provisional until D2 is explicitly frozen, but it has the advantage that the energy and radial particle-flux balance close exactly and transparently.
+This convention is now the repository standard for the first plasma pilot under decision D2-A.
 
 ## Physical energy/free-energy metric
 
@@ -124,11 +124,11 @@ Q_{\Gamma,k}
 \end{pmatrix}.
 ```
 
-This matrix is Hermitian and indefinite for `k_y != 0`. Its sign reverses if the radial direction, magnetic-field direction, or Fourier convention is reversed; those changes are convention changes, not changes in the physics. The outward-flux sign must therefore remain tied to the explicit coordinate convention above.
+This matrix is Hermitian and indefinite for `k_y != 0`. Its sign reverses if the radial direction, magnetic-field direction, or Fourier convention is reversed; those changes are convention changes, not changes in the physics. Under D2-A, outward flux is fixed by the orientation above and the sign must not be changed silently in model code.
 
 ## Exact linear energy balance
 
-For the proposed `L_k` and `M_k`, direct calculation gives
+For the frozen `L_k` and `M_k`, direct calculation gives
 
 ```math
 L_k^\dagger M_k+M_kL_k
@@ -148,7 +148,7 @@ Consequently
 =\kappa\Gamma_k-C|\phi_k-n_k|^2.
 ```
 
-This identity is the main reason to prefer this convention for the first pilot: `M_k` and `Q_{Gamma,k}` are obtained independently from the continuous physical energy and flux, and the resulting matrices satisfy the expected physical balance without fitted weights.
+This identity is the main reason for D2-A: `M_k` and `Q_{Gamma,k}` are obtained independently from the continuous physical energy and flux, and the resulting matrices satisfy the expected physical balance without fitted weights.
 
 In the abstract project notation,
 
@@ -178,19 +178,25 @@ and the balance gains the additional positive semidefinite sink
 D_{\perp,k}=2\nu_k M_k.
 ```
 
-This is a clean way to obtain a spectrally stable pilot if the undamped resistive-drift mode is unstable at the chosen parameters. The precise dissipation model should be frozen together with the numerical pilot, rather than inserted merely to force stability.
+D2-A freezes the undamped base generator and the sign conventions. A later spectrally stable pilot may add perpendicular dissipation, but the precise form and parameters must be stated explicitly and retained in the physical balance rather than inserted merely to force a desired numerical outcome.
 
-## What is and is not decided by this audit
+## Decision status and implementation consequence
 
-The audit removes one apparent ambiguity: for a single `k_y != 0` linear pilot, original HW and modified HW coincide in the sector being studied. It also fixes the algebraic consequences of one explicit spatial/Fourier orientation.
+D2-A was explicitly accepted on 2026-09-01. The convention audit is therefore no longer an implementation blocker. Model code may now be added, provided it is locked against the frozen formulas by tests before any parameter sweep.
 
-A genuine D2 decision remains before implementation: whether to freeze this convention as the repository standard, including the outward radial sign and the chosen perpendicular dissipation model. No `hasegawa_wakatani.py` implementation should be added before that freeze.
+The first implementation tests should verify independently:
 
-## Recommended D2 freeze
+1. the exact entries and signs of `L_k`;
+2. positivity and physical normalization of `M_k`;
+3. Hermiticity, indefiniteness, and cross-phase sign of `Q_{Gamma,k}`;
+4. the identity `z^dagger Q_{Gamma,k} z = k_y Im(n_k^* phi_k)`;
+5. the matrix balance `L_k^dagger M_k + M_k L_k = 2 kappa Q_{Gamma,k} - 2 C S`.
 
-Recommended wording:
+Only after those convention-lock tests pass should the minimal model constructor be used in finite-horizon optimization.
 
-> **D2.** For the first plasma pilot use the non-zonal (`k_y != 0`) linear Hasegawa–Wakatani subsystem with `x` radial, `y` poloidal, `v_E=e_z x grad phi`, Fourier convention `exp(i k dot x)`, state `(phi_k,n_k)`, physical energy `E_k=(k^2|phi_k|^2+|n_k|^2)/2`, and outward particle flux `Gamma_k=k_y Im(n_k^* phi_k)`. The exact matrices are derived from these definitions before discretization. Original and modified HW are equivalent for this single non-zonal linear mode. Any perpendicular dissipation used to make the pilot spectrally stable must be stated explicitly and retained in the physical balance.
+## Frozen D2-A wording
+
+> **D2-A.** For the first plasma pilot use the non-zonal (`k_y != 0`) linear Hasegawa–Wakatani subsystem with `x` radial, `y` poloidal, `v_E=e_z x grad phi`, Fourier convention `exp(i k dot x)`, state `(phi_k,n_k)`, physical energy `E_k=(k^2|phi_k|^2+|n_k|^2)/2`, and outward particle flux `Gamma_k=k_y Im(n_k^* phi_k)`. The exact matrices are derived from these definitions before discretization. Original and modified HW are equivalent for this single non-zonal linear mode. Any perpendicular dissipation used to make the pilot spectrally stable must be stated explicitly and retained in the physical balance.
 
 ## References used in the convention audit
 
