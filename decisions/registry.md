@@ -21,21 +21,77 @@ Requirements:
 
 ---
 
-## D2 — No frozen Hasegawa–Wakatani convention yet
+## D2 — Hasegawa–Wakatani first-pilot convention
 
-**Status:** Open
+**Status:** Accepted as D2-A
 
-**Decision required:** Select one documented PDE convention and derive the Fourier-space dynamical operator, free-energy metric, and particle-flux form from that convention before implementation.
+**Decision:** For the first plasma pilot use the non-zonal (`k_y != 0`) linear Hasegawa–Wakatani subsystem with the following fixed orientation and Fourier convention:
 
-Requirements before model code is accepted:
+- `x` is radial and `y` is poloidal;
+- the magnetic field points along `+e_z`;
+- normalized `E x B` velocity is `v_E = e_z x grad(phi)`, hence `v_x = -partial_y(phi)`;
+- Fourier amplitudes use `exp(i k_x x + i k_y y)`;
+- `k^2 = k_x^2 + k_y^2`;
+- the state is `z_k = (phi_k, n_k)^T`.
 
-1. source convention is cited;
-2. signs and normalizations are derived from the PDEs;
-3. dissipation and drive terms are explicit;
-4. the energy/free-energy balance is verified;
-5. the flux matrix reproduces the continuous cross-phase expression.
+With no added perpendicular dissipation, the frozen linear generator is
 
-**Escape route:** If no two-field convention supports the needed physical balance cleanly, use a better documented reduced drift-fluid model rather than forcing the pilot.
+```math
+L_k=
+\begin{pmatrix}
+-C/k^2 & C/k^2\\
+C-i\kappa k_y & -C
+\end{pmatrix}.
+```
+
+The physical single-mode energy and signed outward radial particle flux are
+
+```math
+E_k=\frac12\left(k^2|\phi_k|^2+|n_k|^2\right)
+=\frac12 z_k^\dagger M_k z_k,
+```
+
+```math
+M_k=\begin{pmatrix}k^2&0\\0&1\end{pmatrix},
+```
+
+and
+
+```math
+\Gamma_k=k_y\,\operatorname{Im}(n_k^*\phi_k)
+=z_k^\dagger Q_{\Gamma,k}z_k,
+```
+
+```math
+Q_{\Gamma,k}
+=\frac{k_y}{2}
+\begin{pmatrix}
+0&i\\
+-i&0
+\end{pmatrix}.
+```
+
+These objects must continue to be derived from the physical PDE energy and flux, not fitted or reweighted. They satisfy
+
+```math
+L_k^\dagger M_k+M_kL_k
+=2\kappa Q_{\Gamma,k}-2C
+\begin{pmatrix}1&-1\\-1&1\end{pmatrix},
+```
+
+so that
+
+```math
+\frac{dE_k}{dt}=\kappa\Gamma_k-C|\phi_k-n_k|^2.
+```
+
+For a single non-zonal linear mode, standard and modified HW have the same subsystem used here. Any perpendicular dissipation introduced later for a spectrally stable pilot must be stated explicitly and retained in the physical balance; it is not part of the base D2-A generator unless a later decision says so.
+
+**Reason:** This convention closes the physical energy/particle-flux balance exactly while preserving the outward-flux sign and the project rule that `M` and `Q` are independently physics-derived.
+
+**Revision trigger:** A source-level inconsistency in the stated orientation/sign convention, failure of the derived balance, or evidence that the two-field pilot cannot represent the intended transport question without a different reduced model.
+
+**Escape route:** Add a new decision entry documenting the alternative convention or reduced drift-fluid model, including the transformation of `L_k`, `M_k`, `Q_{Gamma,k}`, and the outward-flux sign. Do not silently alter D2-A.
 
 ---
 
