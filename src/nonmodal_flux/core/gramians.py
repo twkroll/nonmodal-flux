@@ -8,10 +8,11 @@ and computes the finite-horizon state-space operator
 
     P_Q(T) = integral_0^T exp(A^H t) Q exp(A t) dt,
 
-its projection to the admissible input space, and Cholesky whitening by the
-positive input metric. The physical signed observable ``Q`` remains separate
-from positive metrics. No eigenvalue optimization or model-specific
-construction of ``Q`` is performed in this module.
+its projection to the admissible input space, Cholesky whitening by the
+positive input metric, and the signed cumulative extrema. The physical signed
+observable ``Q`` remains separate from positive metrics. No optimizer
+reconstruction or model-specific construction of ``Q`` is performed in this
+module.
 """
 
 from __future__ import annotations
@@ -168,3 +169,32 @@ def whitened_accumulated_input_transport_operator(
         left_whitened.conj().T,
         lower=True,
     ).conj().T
+
+
+def accumulated_signed_extrema(problem: TransportProblem, T: Real) -> tuple[Array, Array]:
+    """Return minimum and maximum normalized accumulated signed transport.
+
+    For the cumulative generalized Rayleigh quotient
+
+    ``u^H K_Q^acc(T) u / (u^H Rin u)``,
+
+    Cholesky whitening produces the ordinary Rayleigh quotient of the
+    Hermitian operator ``H_Q^acc(T)``. Its smallest and largest eigenvalues are
+    therefore respectively the most negative and most positive accumulated
+    signed transports under unit input cost.
+
+    Returns
+    -------
+    (jax.Array, jax.Array)
+        ``(lambda_min, lambda_max)`` of the whitened cumulative operator.
+
+    Notes
+    -----
+    No optimizer is returned or reconstructed in physical input coordinates in
+    this step. The operator is not explicitly symmetrized before ``eigvalsh``;
+    any loss of Hermiticity should remain visible to validation tests.
+    """
+
+    operator = whitened_accumulated_input_transport_operator(problem, T)
+    eigenvalues = jnp.linalg.eigvalsh(operator)
+    return eigenvalues[0], eigenvalues[-1]
