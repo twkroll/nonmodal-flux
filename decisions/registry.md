@@ -220,3 +220,24 @@ with the natural input metric `R_in=B_phi^† M B_phi=1.25`. This line has exact
 **Revision trigger:** Failure of the locked diagnostics, evidence that the chosen damping obscures the intended mechanism, or a decision that the headline pilot must contain a multidimensional transport-neutral optimization space rather than using the neutral line only as a generation diagnostic.
 
 **Escape route:** Keep D2-A unchanged and enlarge the pilot state/input space, preferably by a physically justified multi-mode construction or a richer reduced model, so that a multidimensional transport-neutral admissible space can exist.
+
+---
+
+## D9 — Evaluate single- and multi-mode HW branches in parallel
+
+**Status:** Accepted as a falsification strategy; no headline branch selected yet
+
+**Decision:** Do not choose between the minimal single-mode pilot and a multidimensional transport-neutral pilot before calculating both. Keep two explicit diagnostic branches:
+
+1. **Branch S:** the D8 single mode, using the one-dimensional neutral pure-potential line to test dynamic signed-flux generation during monotone energy decay, and the full state separately to measure energy/transport optimizer separation;
+2. **Branch M:** a minimal two-mode direct sum of D2-A blocks, using pure-potential input in each mode so that the complete two-dimensional admissible input space satisfies `B^† Q B = 0` and can support a genuine directional energy-versus-transport optimization.
+
+For the first Branch-M falsification point use the already accepted D8 mode together with a second D2-A mode having the same `ky=1`, `C=1`, `kappa=1`, and `nu_k=0.15`, but `kx=1.5`. This second mode is a diagnostic comparison point, not a parameter-sweep result and not yet a new frozen physical calibration.
+
+**Reason:** Branch S is maximally transparent physically but cannot contain two independent neutral directions. Branch M removes only that dimensional obstruction while preserving exactly the same physics-derived metric and particle-flux form in each block. Calculating both prevents the project from hiding either the single-mode limitation or the extra structural simplicity of the uncoupled two-mode construction.
+
+**Current result:** In Branch M, the natural neutral input space is two-dimensional. At short time the energy criterion selects the `kx=1.5` mode while the transport criterion selects the `kx=0.5` mode. At `T=1` the ranking remains reversed, giving orthogonal whitened optimal inputs. This establishes energy/transport separation inside the same exactly transport-neutral space, but the present `90 degree` result arises from competition between uncoupled blocks.
+
+**Revision trigger:** A coupled-mode or richer physical model removes the direct-sum simplification, or targeted prior art shows that the two-mode neutral optimization contains no useful novelty beyond a trivial modal selection problem.
+
+**Escape route:** Retain Branch S as the minimal transport-generation result and replace Branch M by a physically coupled/sheared multi-mode model or a richer reduced drift-fluid system. D2-A remains unchanged unless separately revised.
