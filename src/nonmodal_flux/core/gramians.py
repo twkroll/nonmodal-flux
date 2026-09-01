@@ -8,10 +8,10 @@ and computes the finite-horizon state-space operator
 
     P_Q(T) = integral_0^T exp(A^H t) Q exp(A t) dt,
 
-as well as its projection to the admissible input space. The physical signed
-observable ``Q`` remains separate from positive metrics. No whitening,
-eigenvalue optimization, or model-specific construction of ``Q`` is performed
-in this module.
+its projection to the admissible input space, and Cholesky whitening by the
+positive input metric. The physical signed observable ``Q`` remains separate
+from positive metrics. No eigenvalue optimization or model-specific
+construction of ``Q`` is performed in this module.
 """
 
 from __future__ import annotations
@@ -120,3 +120,51 @@ def accumulated_input_transport_operator(problem: TransportProblem, T: Real) -> 
     p_q = accumulated_transport_operator(problem, T)
     b = jnp.asarray(problem.B)
     return b.conj().T @ p_q @ b
+
+
+def whitened_accumulated_input_transport_operator(
+    problem: TransportProblem,
+    T: Real,
+) -> Array:
+    """Return cumulative transport in unit input-metric coordinates.
+
+    Let
+
+    ``K = B^H P_Q(T) B``
+
+    and factor the positive input metric as ``Rin = L L^H`` with a lower
+    Cholesky factor ``L``. The coordinate change ``v = L^H u`` turns the input
+    cost ``u^H Rin u`` into the Euclidean cost ``v^H v``. The corresponding
+    Hermitian cumulative-transport operator is
+
+    ``H_Q^acc(T) = L^{-1} K L^{-H}``.
+
+    Both congruence factors are applied with triangular solves. Neither
+    ``Rin^{-1}`` nor ``L^{-1}`` is formed explicitly, and the result is not
+    explicitly symmetrized.
+
+    Parameters
+    ----------
+    problem:
+        Validated transport problem containing the positive input metric
+        ``Rin``.
+    T:
+        Finite, non-negative accumulation horizon.
+
+    Returns
+    -------
+    jax.Array
+        Hermitian cumulative-transport operator in Euclidean whitened input
+        coordinates.
+    """
+
+    operator = accumulated_input_transport_operator(problem, T)
+    rin = jnp.asarray(problem.Rin)
+    lower = jnp.linalg.cholesky(rin)
+
+    left_whitened = jsp_linalg.solve_triangular(lower, operator, lower=True)
+    return jsp_linalg.solve_triangular(
+        lower,
+        left_whitened.conj().T,
+        lower=True,
+    ).conj().T
