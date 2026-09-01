@@ -4,13 +4,14 @@ The first implementation covers constant linear dynamics
 
     x_dot = A x
 
-and computes the finite-horizon operator
+and computes the finite-horizon state-space operator
 
-    P_Q(T) = integral_0^T exp(A^H t) Q exp(A t) dt.
+    P_Q(T) = integral_0^T exp(A^H t) Q exp(A t) dt,
 
-The physical signed observable ``Q`` remains separate from positive metrics.
-No whitening, eigenvalue optimization, or model-specific construction of ``Q``
-is performed in this module.
+as well as its projection to the admissible input space. The physical signed
+observable ``Q`` remains separate from positive metrics. No whitening,
+eigenvalue optimization, or model-specific construction of ``Q`` is performed
+in this module.
 """
 
 from __future__ import annotations
@@ -39,7 +40,7 @@ def accumulated_transport_operator(problem: TransportProblem, T: Real) -> Array:
 
     ``P_Q(T) = integral_0^T exp(A^H t) Q exp(A t) dt``.
 
-    The integral is evaluated through a Van Loan block-matrix exponential.  If
+    The integral is evaluated through a Van Loan block-matrix exponential. If
 
     ``F = [[A^H, Q], [0, -A]]``
 
@@ -48,7 +49,7 @@ def accumulated_transport_operator(problem: TransportProblem, T: Real) -> Array:
     ``P_Q(T) = C(T) exp(A T)``.
 
     This construction is valid at finite horizon without assuming that ``A``
-    is Hurwitz.  ``Q`` may be indefinite.
+    is Hurwitz. ``Q`` may be indefinite.
 
     Parameters
     ----------
@@ -84,3 +85,38 @@ def accumulated_transport_operator(problem: TransportProblem, T: Real) -> Array:
     n = a.shape[0]
     cross_block = augmented_propagator[:n, n:]
     return cross_block @ phi
+
+
+def accumulated_input_transport_operator(problem: TransportProblem, T: Real) -> Array:
+    """Return accumulated signed transport projected to admissible inputs.
+
+    With ``x(0) = B u``, the cumulative signed transport is
+
+    ``integral_0^T x(t)^H Q x(t) dt = u^H K_Q^acc(T) u``
+
+    where
+
+    ``K_Q^acc(T) = B^H P_Q(T) B``.
+
+    The result is the raw input-space operator before any whitening by the
+    positive input metric ``Rin``. As for ``P_Q(T)``, no explicit
+    symmetrization is applied.
+
+    Parameters
+    ----------
+    problem:
+        Validated transport problem containing ``A``, ``Q``, and the admissible
+        input map ``B``.
+    T:
+        Finite, non-negative accumulation horizon.
+
+    Returns
+    -------
+    jax.Array
+        Raw Hermitian cumulative-transport operator in admissible input
+        coordinates.
+    """
+
+    p_q = accumulated_transport_operator(problem, T)
+    b = jnp.asarray(problem.B)
+    return b.conj().T @ p_q @ b
