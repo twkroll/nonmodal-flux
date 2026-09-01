@@ -6,6 +6,7 @@ import scipy.linalg as sp_linalg
 
 from nonmodal_flux.core.outputs import (
     terminal_signed_extrema,
+    terminal_signed_extremal_modes,
     terminal_signed_output_operator,
     whitened_terminal_signed_output_operator,
 )
@@ -245,5 +246,65 @@ def test_terminal_signed_extrema_retain_both_transport_signs() -> None:
         np.asarray([lambda_min, lambda_max]),
         np.array([-1.0, 1.0]),
         rtol=1.0e-13,
+        atol=1.0e-13,
+    )
+
+
+def test_terminal_extremal_modes_are_unit_norm_and_satisfy_eigenproblem() -> None:
+    problem = _nontrivial_metric_problem()
+    horizon = 0.47
+
+    lambda_min, v_min, lambda_max, v_max = terminal_signed_extremal_modes(problem, horizon)
+    operator = np.asarray(whitened_terminal_signed_output_operator(problem, horizon))
+    v_min_np = np.asarray(v_min)
+    v_max_np = np.asarray(v_max)
+
+    np.testing.assert_allclose(np.vdot(v_min_np, v_min_np), 1.0, rtol=1.0e-12, atol=1.0e-12)
+    np.testing.assert_allclose(np.vdot(v_max_np, v_max_np), 1.0, rtol=1.0e-12, atol=1.0e-12)
+    np.testing.assert_allclose(
+        operator @ v_min_np,
+        float(lambda_min) * v_min_np,
+        rtol=1.0e-12,
+        atol=1.0e-12,
+    )
+    np.testing.assert_allclose(
+        operator @ v_max_np,
+        float(lambda_max) * v_max_np,
+        rtol=1.0e-12,
+        atol=1.0e-12,
+    )
+
+
+def test_terminal_extremal_mode_rayleigh_quotients_equal_extrema() -> None:
+    problem = _nontrivial_metric_problem()
+    horizon = 0.39
+
+    lambda_min, v_min, lambda_max, v_max = terminal_signed_extremal_modes(problem, horizon)
+    operator = np.asarray(whitened_terminal_signed_output_operator(problem, horizon))
+    v_min_np = np.asarray(v_min)
+    v_max_np = np.asarray(v_max)
+    rq_min = np.vdot(v_min_np, operator @ v_min_np) / np.vdot(v_min_np, v_min_np)
+    rq_max = np.vdot(v_max_np, operator @ v_max_np) / np.vdot(v_max_np, v_max_np)
+
+    np.testing.assert_allclose(rq_min, np.asarray(lambda_min), rtol=1.0e-12, atol=1.0e-12)
+    np.testing.assert_allclose(rq_max, np.asarray(lambda_max), rtol=1.0e-12, atol=1.0e-12)
+
+
+def test_terminal_extremal_modes_are_orthogonal_in_nondegenerate_case() -> None:
+    problem = TransportProblem(
+        A=np.diag([-0.2, -0.9]),
+        M=np.eye(2),
+        Q=np.diag([-1.0, 2.0]),
+        B=np.eye(2),
+        Rin=np.diag([1.5, 0.7]),
+    )
+
+    lambda_min, v_min, lambda_max, v_max = terminal_signed_extremal_modes(problem, 0.6)
+
+    assert float(lambda_min) < float(lambda_max)
+    np.testing.assert_allclose(
+        np.vdot(np.asarray(v_min), np.asarray(v_max)),
+        0.0,
+        rtol=0.0,
         atol=1.0e-13,
     )
