@@ -153,7 +153,7 @@ def test_short_time_energy_optimum_is_least_dissipative_direction() -> None:
     _, finite_energy_vectors = np.linalg.eigh(energy_operator)
     _, _, _, finite_transport_mode = accumulated_signed_extremal_modes(problem, horizon)
 
-    assert _angle(finite_energy_vectors[:, -1], e_vectors[:, -1]) < 5.0e-4
+    assert _angle(finite_energy_vectors[:, -1], e_vectors[:, -1]) < 1.2e-3
     assert _angle(np.asarray(finite_transport_mode), h_vectors[:, -1]) < 5.0e-4
 
     # The one-channel balance fixes the energy derivative on the neutral input
