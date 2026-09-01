@@ -6,6 +6,7 @@ import scipy.linalg as sp_linalg
 
 from nonmodal_flux.core.gramians import (
     accumulated_input_transport_operator,
+    accumulated_signed_extrema,
     accumulated_transport_operator,
     whitened_accumulated_input_transport_operator,
 )
@@ -285,3 +286,71 @@ def test_accumulated_whitening_supports_complex_positive_input_metric() -> None:
 
     np.testing.assert_allclose(whitened, expected, rtol=1.0e-12, atol=1.0e-12)
     assert hermiticity_error(whitened) < 1.0e-12
+
+
+def test_accumulated_signed_extrema_match_analytic_diagonal_case() -> None:
+    rates = np.array([-0.5, -1.25])
+    weights = np.array([3.0, -2.0])
+    rin_diagonal = np.array([2.0, 0.5])
+    horizon = 0.4
+    problem = TransportProblem(
+        A=np.diag(rates),
+        M=np.eye(2),
+        Q=np.diag(weights),
+        B=np.eye(2),
+        Rin=np.diag(rin_diagonal),
+    )
+
+    lambda_min, lambda_max = accumulated_signed_extrema(problem, horizon)
+    accumulated_diagonal = weights * (np.exp(2.0 * rates * horizon) - 1.0) / (2.0 * rates)
+    expected = accumulated_diagonal / rin_diagonal
+
+    np.testing.assert_allclose(
+        np.asarray([lambda_min, lambda_max]),
+        np.asarray([expected.min(), expected.max()]),
+        rtol=1.0e-12,
+        atol=1.0e-12,
+    )
+
+
+def test_accumulated_signed_extrema_match_generalized_hermitian_eigenproblem() -> None:
+    problem = TransportProblem(
+        A=np.array([[-0.7, 1.4], [-0.2, -1.6]]),
+        M=np.array([[2.0, 0.2], [0.2, 1.3]]),
+        Q=np.array([[0.3, 0.8], [0.8, -0.4]]),
+        B=np.array([[1.0, 0.3], [-0.2, 1.0]]),
+        Rin=np.array([[2.4, 0.35], [0.35, 1.2]]),
+    )
+    horizon = 0.53
+
+    raw = np.asarray(accumulated_input_transport_operator(problem, horizon))
+    reference = sp_linalg.eigh(raw, problem.Rin, eigvals_only=True)
+    lambda_min, lambda_max = accumulated_signed_extrema(problem, horizon)
+
+    np.testing.assert_allclose(
+        np.asarray([lambda_min, lambda_max]),
+        np.asarray([reference[0], reference[-1]]),
+        rtol=1.0e-12,
+        atol=1.0e-12,
+    )
+
+
+def test_accumulated_signed_extrema_retain_both_transport_signs() -> None:
+    problem = TransportProblem(
+        A=np.zeros((2, 2), dtype=float),
+        M=np.eye(2),
+        Q=np.array([[0.0, 1.0], [1.0, 0.0]]),
+        B=np.eye(2),
+        Rin=np.eye(2),
+    )
+    horizon = 0.7
+
+    lambda_min, lambda_max = accumulated_signed_extrema(problem, horizon)
+
+    assert float(lambda_min) < 0.0 < float(lambda_max)
+    np.testing.assert_allclose(
+        np.asarray([lambda_min, lambda_max]),
+        np.array([-horizon, horizon]),
+        rtol=1.0e-13,
+        atol=1.0e-13,
+    )
