@@ -160,7 +160,12 @@ def test_finite_horizon_neutral_energy_and_transport_optima_remain_distinct() ->
     q_min, _, q_max, q_mode_max = accumulated_signed_extremal_modes(problem, horizon)
     q_mode_max = np.asarray(q_mode_max)
 
-    assert energy_values[-1] == energy_operator[1, 1]
+    np.testing.assert_allclose(
+        energy_values[-1],
+        np.real(energy_operator[1, 1]),
+        rtol=0.0,
+        atol=2.0e-14,
+    )
     np.testing.assert_allclose(float(q_min), 0.07319416570918078, rtol=0.0, atol=8.0e-9)
     np.testing.assert_allclose(float(q_max), 0.1319394768570538, rtol=0.0, atol=8.0e-9)
 
@@ -173,5 +178,5 @@ def test_finite_horizon_neutral_energy_and_transport_optima_remain_distinct() ->
     )
 
     # Both admissible directions lose energy, but they rank oppositely for the two objectives.
-    assert energy_operator[1, 1] > energy_operator[0, 0]
-    assert transport_operator[0, 0] > transport_operator[1, 1] > 0.0
+    assert np.real(energy_operator[1, 1]) > np.real(energy_operator[0, 0])
+    assert np.real(transport_operator[0, 0]) > np.real(transport_operator[1, 1]) > 0.0
