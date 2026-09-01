@@ -46,7 +46,7 @@ def test_nu2_witness_has_first_nonzero_generation_at_second_lie_derivative() -> 
     rin = 2.2
     problem = _nu2_witness(kappa1=kappa1, kappa2=kappa2, rin=rin)
 
-    np.testing.assert_allclose(np.linalg.eigvals(problem.A), [-1.0, -2.0, -3.0])
+    np.testing.assert_allclose(np.sort(np.linalg.eigvals(problem.A)), [-3.0, -2.0, -1.0])
     q_eigenvalues = np.linalg.eigvalsh(problem.Q)
     assert q_eigenvalues[0] < 0.0 < q_eigenvalues[-1]
 
