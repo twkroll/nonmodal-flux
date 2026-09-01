@@ -29,18 +29,20 @@ The canonical theorem directory is `research/theorems/`. New theorem statements 
 - [x] First claim/literature audit.
 - [x] Targeted prior-art audits for T1, T3, and T4.
 - [x] Consolidate theorem-note layout and remove duplicate T1 drafts.
-- [ ] Repeat citation chasing after the frozen plasma convention is instantiated numerically.
+- [ ] Repeat citation chasing around the exact frozen HW convention and the now-computed pilot observables.
 
 ## Package B — Finite-dimensional theory
 
-**Status: abstract core validated; physical instantiation next**
+**Status: abstract core validated; first physical instantiations now available**
 
 - [x] T1: short-time transport generation from a transport-neutral input space, including transport-generation order and coordinate invariance.
 - [x] T2: exact balance identity and elementary signed bounds.
 - [x] T3: multichannel non-identifiability and channel-resolved bounds, with global and reachable-subspace versions separated.
 - [x] T4: short-time separation of energy-optimal and transport-optimal disturbances.
 - [x] Synthetic proof-of-principle that reachable-subspace leakage constants can be substantially sharper than global constants.
-- [ ] Test whether that sharpening survives in the physical plasma pilot.
+- [x] Physical HW realization of T1/T4 transport generation during strict physical-energy contraction.
+- [x] Physical two-mode D2-A realization of energy/transport optimizer separation inside the same multidimensional transport-neutral input space.
+- [ ] Test whether the two-mode separation persists when the modal direct-sum simplification is removed.
 - [ ] Formalize terminal signed gain and cumulative signed gain as a common theorem package.
 
 ## Package C — Model-independent JAX core
@@ -60,7 +62,7 @@ Implemented and tested before any plasma sweep:
 
 ## Package D — Plasma convention and pilot
 
-**Status: active; first stable single-case pilot selected, structural input-space gate reached**
+**Status: both initial diagnostic branches computed; next gate is physical nontriviality beyond an uncoupled modal direct sum**
 
 - [x] Compare candidate Hasegawa-Wakatani conventions for the first non-zonal linear pilot.
 - [x] Freeze D2-A: `x` radial, `y` poloidal, `v_E=e_z x grad(phi)`, Fourier `exp(i k dot x)`, state `(phi_k,n_k)`.
@@ -72,15 +74,20 @@ Implemented and tested before any plasma sweep:
 - [x] Implement the minimal Hasegawa-Wakatani model constructor without adding ad-hoc observables; model-level tests reproduce the frozen matrices and balance.
 - [x] Select and document one spectrally stable pilot case: `(kx,ky,C,kappa,nu_k)=(0.5,1.0,1.0,1.0,0.15)`.
 - [x] Verify spectral stability, metric nonnormality, exact balance, strict energy contraction, and positive flux generation from a pure-potential transport-neutral input.
-- [ ] Decide whether the single-mode transport-neutral line is sufficient as a generation diagnostic while optimizer separation is tested on the full state, or whether the headline pilot must be enlarged to a multidimensional transport-neutral input space.
-- [ ] Run the corresponding single-case finite-horizon optimizer comparison after that gate decision.
-- [ ] Only after the single-case pilot passes, consider parameter maps.
+- [x] Branch S: compute the single-mode neutral-line transport generation and full-state finite-horizon energy/transport optimizer separation.
+- [x] Branch M: compute a two-mode direct-sum pilot with a two-dimensional exactly transport-neutral pure-potential input space.
+- [x] Document the branch comparison in `research/hw_branch_comparison.md` and record the parallel strategy as D9.
+- [ ] Decide what physically justified coupling/enrichment should replace the direct-sum simplification for the next falsification test.
+- [ ] Repeat targeted prior-art chasing against the exact frozen convention and branch results.
+- [ ] Only after that gate, consider any parameter map.
 
-### Structural gate discovered in D2.3
+### Results of the parallel branch calculation
 
-For one complex two-field Fourier mode, `Q_Gamma` has signature `(1,1)`. Therefore a complex-linear totally transport-neutral subspace satisfying `B^† Q_Gamma B=0` can have dimension at most one. The selected pure-potential line is a valid T1 transport-generation diagnostic, but it cannot contain distinct energy-optimal and transport-optimal directions.
+**Branch S — single mode.** The neutral pure-potential line has zero initial flux, normalized first transport-generation coefficient `0.8`, accumulated flux `0.13193948` at `T=1`, terminal flux `0.14460273`, and terminal energy ratio `0.56555978`. On the unrestricted two-state space, the top terminal-energy and accumulated-transport directions differ by about `27.66 deg`.
 
-This creates a genuine branch point rather than a numerical implementation issue.
+**Branch M — two uncoupled modes.** Use `kx=0.5` and `kx=1.5` with common `ky=1`, `C=1`, `kappa=1`, `nu_k=0.15`, and pure-potential input in each mode. The two-dimensional input space is exactly transport-neutral. At short time the energy criterion selects the `kx=1.5` mode while the transport criterion selects `kx=0.5`; at `T=1` the whitened terminal-energy values are approximately `(0.56555978, 0.65428728)` while accumulated transport values are `(0.13193948, 0.07319417)`, giving orthogonal optimal neutral directions.
+
+The Branch-M result is structurally stronger for the Gate-0 wording, but its exact `90 deg` separation currently comes from competition between uncoupled modal blocks. That simplicity is now the next falsification target rather than something to hide.
 
 ## Package E — Living theory note
 
@@ -95,7 +102,7 @@ Update this note after each material theorem, modeling decision, or gate decisio
 
 ## Immediate next order
 
-1. Resolve the structural input-space gate: single-mode neutral-line diagnostic plus full-state optimizer comparison, versus enlargement to a multidimensional transport-neutral pilot.
-2. After that decision, run exactly one finite-horizon optimizer comparison; do not start a broad sweep.
-3. Use the result as the next Gate-0 falsification point and repeat targeted citation chasing around the exact frozen convention.
-4. Only after the single-case pilot passes, consider parameter maps.
+1. Choose a physically justified way to remove the uncoupled two-mode direct-sum simplification without changing D2-A silently; likely candidates are a documented shearing/coupled-mode construction or a richer reduced drift-fluid model.
+2. Re-test transport neutrality, energy contraction, and energy/transport optimizer separation in that less decomposable setting.
+3. Repeat targeted citation chasing against the exact frozen convention and the specific mechanism found.
+4. Only after this physical-nontriviality gate passes, consider a controlled parameter map.
