@@ -116,3 +116,17 @@ No broad parameter sweep is allowed before the model-independent core passes, in
 - signed-extremal ordering checks.
 
 **Reason:** Numerical exploration must falsify or support precise theory rather than substitute for it.
+
+---
+
+## D7 — AI applications are a parking-lot idea, not current scope
+
+**Status:** Accepted
+
+**Decision:** Potential applications to recurrent networks, neural ODEs, state-space models, or representation-transfer analysis remain documented as an exploratory idea only. They do not enter P1, the Gate-0 novelty claim, the current implementation milestones, or the plasma model-selection process.
+
+**Reason:** The analogy may be useful later, but adding AI now would broaden the project before the physical transport theory and plasma pilot have passed their gates.
+
+**Revisit trigger:** Reconsider only after the model-independent library is validated and the plasma pilot has produced a robust transport-specific result, or if an independent collaborator/application creates a compelling reason to open a separate AI workstream.
+
+**Escape route:** Keep all AI notes in `research/ai_applications.md`; no AI-specific dependencies or model code are added to the core package during P1.
