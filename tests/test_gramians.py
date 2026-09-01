@@ -4,7 +4,10 @@ import numpy as np
 import scipy.integrate as sp_integrate
 import scipy.linalg as sp_linalg
 
-from nonmodal_flux.core.gramians import accumulated_transport_operator
+from nonmodal_flux.core.gramians import (
+    accumulated_input_transport_operator,
+    accumulated_transport_operator,
+)
 from nonmodal_flux.core.problem import TransportProblem, hermiticity_error
 from nonmodal_flux.core.propagators import constant_propagator
 
@@ -118,3 +121,77 @@ def test_accumulated_transport_operator_time_derivative_matches_lyapunov_rhs() -
     lyapunov_rhs = A.conj().T @ operator + operator @ A + Q
 
     np.testing.assert_allclose(derivative, lyapunov_rhs, rtol=2.0e-9, atol=2.0e-10)
+
+
+def test_accumulated_input_operator_matches_explicit_projection_and_is_hermitian() -> None:
+    problem = TransportProblem(
+        A=np.array([[-0.7, 1.4], [-0.2, -1.6]]),
+        M=np.eye(2),
+        Q=np.array([[0.3, 0.8], [0.8, -0.4]]),
+        B=np.array([[1.0, 0.3], [-0.2, 1.0]]),
+        Rin=np.eye(2),
+    )
+    horizon = 0.52
+
+    p_q = np.asarray(accumulated_transport_operator(problem, horizon))
+    projected = np.asarray(accumulated_input_transport_operator(problem, horizon))
+    expected = problem.B.conj().T @ p_q @ problem.B
+
+    np.testing.assert_allclose(projected, expected, rtol=1.0e-12, atol=1.0e-12)
+    assert hermiticity_error(projected) < 1.0e-12
+
+
+def test_accumulated_input_quadratic_form_matches_direct_time_integral() -> None:
+    A = np.array(
+        [[-0.6 + 0.4j, 0.9 - 0.2j], [0.1j, -1.1 - 0.3j]],
+        dtype=np.complex128,
+    )
+    Q = np.array([[0.2, 0.7j], [-0.7j, -0.3]], dtype=np.complex128)
+    B = np.array([[1.0, 0.2j], [-0.3j, 0.8]], dtype=np.complex128)
+    problem = TransportProblem(A=A, M=np.eye(2), Q=Q, B=B, Rin=np.eye(2))
+    horizon = 0.46
+    u = np.array([0.7 - 0.2j, -1.1 + 0.4j], dtype=np.complex128)
+
+    projected = np.asarray(accumulated_input_transport_operator(problem, horizon))
+    input_space_value = np.vdot(u, projected @ u)
+
+    def scalar_integrand(t: float) -> complex:
+        x = sp_linalg.expm(A * t) @ B @ u
+        return np.vdot(x, Q @ x)
+
+    direct_value_real, _ = sp_integrate.quad(
+        lambda t: float(np.real(scalar_integrand(t))),
+        0.0,
+        horizon,
+        epsabs=1.0e-12,
+        epsrel=1.0e-12,
+    )
+    direct_value_imag, _ = sp_integrate.quad(
+        lambda t: float(np.imag(scalar_integrand(t))),
+        0.0,
+        horizon,
+        epsabs=1.0e-12,
+        epsrel=1.0e-12,
+    )
+    direct_value = direct_value_real + 1j * direct_value_imag
+
+    np.testing.assert_allclose(input_space_value, direct_value, rtol=1.0e-11, atol=1.0e-12)
+
+
+def test_accumulated_input_operator_respects_restricted_input_space() -> None:
+    problem = TransportProblem(
+        A=np.array([[-1.0, 0.0], [2.0, -2.0]]),
+        M=np.eye(2),
+        Q=np.array([[0.0, 0.5], [0.5, 0.0]]),
+        B=np.array([[1.0], [0.0]]),
+        Rin=np.array([[1.0]]),
+    )
+    horizon = 0.3
+
+    projected = np.asarray(accumulated_input_transport_operator(problem, horizon))
+    p_q = np.asarray(accumulated_transport_operator(problem, horizon))
+    expected = problem.B.conj().T @ p_q @ problem.B
+
+    assert projected.shape == (1, 1)
+    np.testing.assert_allclose(projected, expected, rtol=1.0e-12, atol=1.0e-12)
+    assert projected[0, 0] > 0.0
