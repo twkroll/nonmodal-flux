@@ -10,10 +10,9 @@ and computes the finite-horizon state-space operator
 
 its projection to the admissible input space, Cholesky whitening by the
 positive input metric, and the signed cumulative extrema together with their
-whitened extremal modes. The physical signed observable ``Q`` remains separate
-from positive metrics. No optimizer reconstruction in physical input
-coordinates or model-specific construction of ``Q`` is performed in this
-module.
+whitened extremal modes and physical input reconstruction. The physical signed
+observable ``Q`` remains separate from positive metrics. No model-specific
+construction of ``Q`` is performed in this module.
 """
 
 from __future__ import annotations
@@ -239,3 +238,51 @@ def accumulated_signed_extremal_modes(
         eigenvalues[-1],
         eigenvectors[:, -1],
     )
+
+
+def accumulated_signed_extremal_inputs(
+    problem: TransportProblem,
+    T: Real,
+) -> tuple[Array, Array, Array, Array]:
+    """Return cumulative signed extrema and optimizers in physical input coordinates.
+
+    With ``Rin = L L^H`` and whitened coordinates ``v = L^H u``, recover each
+    physical input vector from the triangular system
+
+    ``L^H u = v``.
+
+    No inverse of ``L`` or ``Rin`` is formed. Each reconstructed input is
+    normalized so that
+
+    ``u^H Rin u = 1``
+
+    up to floating-point accuracy.
+
+    Returns
+    -------
+    (jax.Array, jax.Array, jax.Array, jax.Array)
+        ``(lambda_min, u_min, lambda_max, u_max)``. The vectors ``u_min`` and
+        ``u_max`` are expressed in the original admissible input coordinates
+        and have unit ``Rin`` cost.
+
+    Notes
+    -----
+    Eigenvector phase remains arbitrary. For degenerate extremal eigenvalues,
+    the returned input is one representative of the optimal eigenspace rather
+    than a unique optimizer.
+    """
+
+    lambda_min, v_min, lambda_max, v_max = accumulated_signed_extremal_modes(problem, T)
+    rin = jnp.asarray(problem.Rin)
+    lower = jnp.linalg.cholesky(rin)
+    upper = lower.conj().T
+
+    u_min = jsp_linalg.solve_triangular(upper, v_min, lower=False)
+    u_max = jsp_linalg.solve_triangular(upper, v_max, lower=False)
+
+    cost_min = jnp.real(u_min.conj().T @ rin @ u_min)
+    cost_max = jnp.real(u_max.conj().T @ rin @ u_max)
+    u_min = u_min / jnp.sqrt(cost_min)
+    u_max = u_max / jnp.sqrt(cost_max)
+
+    return lambda_min, u_min, lambda_max, u_max
