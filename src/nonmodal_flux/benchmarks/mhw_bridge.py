@@ -7,7 +7,7 @@ import numpy as np
 
 @dataclass(frozen=True)
 class MHWConfig:
-    """Numerical parameters for the exploratory modified Hasegawa-Wakatani pilot."""
+    """Numerical parameters for the exploratory Hasegawa-Wakatani bridge."""
 
     n: int = 32
     length: float = 40.0
@@ -19,6 +19,7 @@ class MHWConfig:
     tmax: float = 320.0
     sample_every: int = 10
     seed: int = 3
+    modified_coupling: bool = True
 
 
 def spectral_grid(cfg: MHWConfig):
@@ -49,10 +50,12 @@ def mhw_rhs(
     cfg: MHWConfig,
     grid=None,
 ):
-    """Return the pseudo-spectral Numata-style modified-HW right-hand side.
+    """Return the pseudo-spectral HW/mHW right-hand side.
 
-    The resistive/adiabatic coupling alpha(phi-n) is removed for zonal ky=0 modes.
-    The Poisson bracket is evaluated pseudo-spectrally with a 2/3 dealiasing mask.
+    With ``modified_coupling=True`` the resistive/adiabatic coupling
+    alpha(phi-n) is removed for zonal ky=0 modes (Numata-style mHW).
+    With ``modified_coupling=False`` the same coupling is applied to all
+    non-constant modes, giving the original-HW control used in C2.
     """
 
     if grid is None:
@@ -70,7 +73,9 @@ def mhw_rhs(
     bracket_zeta = np.fft.fft2(phi_x * zeta_y - phi_y * zeta_x) * dealias
     bracket_n = np.fft.fft2(phi_x * n_y - phi_y * n_x) * dealias
 
-    coupling = cfg.alpha * (phi_hat - n_hat) * (~zonal)
+    coupling = cfg.alpha * (phi_hat - n_hat)
+    if cfg.modified_coupling:
+        coupling = coupling * (~zonal)
 
     dzeta = (-bracket_zeta + coupling - cfg.d_zeta * k4 * zeta_hat) * dealias
     dn = (
@@ -119,7 +124,7 @@ def shell_kinetic_energy(
 
 
 def simulate(cfg: MHWConfig):
-    """Integrate the exploratory mHW benchmark from small random perturbations."""
+    """Integrate the exploratory HW/mHW benchmark from small random perturbations."""
 
     rng = np.random.default_rng(cfg.seed)
     grid = spectral_grid(cfg)
@@ -158,17 +163,13 @@ def simulate(cfg: MHWConfig):
     return np.asarray(diagnostics), samples, grid
 
 
-def increment_ensemble(
+def directional_increment_ensemble(
     zeta_hat: np.ndarray,
     shifts: tuple[int, ...],
     cfg: MHWConfig,
     grid=None,
 ):
-    """Return non-zonal potential increments for several spatial separations.
-
-    Both x- and y-directed increments are pooled.  This is intentionally a pilot
-    observable; later plasma work should keep directional anisotropy explicit.
-    """
+    """Return x- and y-directed non-zonal potential increments separately."""
 
     if grid is None:
         grid = spectral_grid(cfg)
@@ -176,12 +177,24 @@ def increment_ensemble(
     phi_hat = potential_hat(zeta_hat, invk2)
     phi_hat[zonal] = 0.0
     phi = np.fft.ifft2(phi_hat).real
-    increments = []
+    x_values = []
+    y_values = []
     for shift in shifts:
-        inc_x = np.roll(phi, -shift, axis=0) - phi
-        inc_y = np.roll(phi, -shift, axis=1) - phi
-        increments.append(np.concatenate((inc_x.ravel(), inc_y.ravel())))
-    return increments
+        x_values.append((np.roll(phi, -shift, axis=0) - phi).ravel())
+        y_values.append((np.roll(phi, -shift, axis=1) - phi).ravel())
+    return x_values, y_values
+
+
+def increment_ensemble(
+    zeta_hat: np.ndarray,
+    shifts: tuple[int, ...],
+    cfg: MHWConfig,
+    grid=None,
+):
+    """Return pooled x/y non-zonal potential increments (C1 compatibility helper)."""
+
+    x_values, y_values = directional_increment_ensemble(zeta_hat, shifts, cfg, grid)
+    return [np.concatenate((x, y)) for x, y in zip(x_values, y_values)]
 
 
 def gaussian_markov_cmi(x_large, x_mid, x_small):
@@ -195,19 +208,14 @@ def gaussian_markov_cmi(x_large, x_mid, x_small):
 
 
 def normalized_second_km(x_now, x_next, delta_s=np.log(2.0)):
-    """Return a global normalized second conditional-moment proxy.
-
-    This quantity is useful for comparing ZF-conditioned ensembles but is not yet
-    a local Kramers-Moyal coefficient D^(2)(x,s); local bin/kernel estimates belong
-    to the next validation step.
-    """
+    """Return a global normalized second conditional-moment proxy."""
 
     delta = x_next - x_now
     return float(np.mean(delta**2) / (2.0 * delta_s * np.mean(x_now**2)))
 
 
 def pilot_summary(cfg: MHWConfig, tmin: float = 120.0, tmax: float = 310.0):
-    """Run the benchmark and compare low/high zonal-flow conditional ensembles."""
+    """Run the C1 benchmark and compare low/high zonal-flow ensembles."""
 
     diagnostics, samples, grid = simulate(cfg)
     selected = np.flatnonzero((diagnostics[:, 0] >= tmin) & (diagnostics[:, 0] <= tmax))
