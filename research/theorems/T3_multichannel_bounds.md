@@ -1,23 +1,23 @@
 # T3 — Multichannel balance: identifiability, no-go result, and channel-resolved bounds
 
 **Date:** 2026-09-01  
-**Status:** working theorem note; algebraic and numerical validation complete for the abstract finite-dimensional setting, pending physical plasma instantiation
+**Status:** working theorem note; abstract finite-dimensional algebra and numerical validation complete, pending physical plasma instantiation
 
 ## Setup
 
 Let
 
 ```math
-\dot x = A x,\qquad x(0)=Bu,
+\dot x=Ax,\qquad x(0)=Bu,
 ```
 
-with a positive physical metric `M=M†>0`, Hermitian signed transport forms `Q_1,...,Q_r`, and dissipation `R=R†>=0`. Assume the physical balance
+with a positive physical metric `M=M†>0`, Hermitian signed transport forms `Q_1,...,Q_r`, and dissipation `R=R†>=0`. Assume
 
 ```math
 A^\dagger M+MA=\sum_{\alpha=1}^r g_\alpha Q_\alpha-R.
 ```
 
-For each channel define
+Define
 
 ```math
 P_\alpha(T)=\int_0^T e^{A^\dagger t}Q_\alpha e^{At}\,dt,
@@ -25,32 +25,30 @@ P_\alpha(T)=\int_0^T e^{A^\dagger t}Q_\alpha e^{At}\,dt,
 P_R(T)=\int_0^T e^{A^\dagger t}R e^{At}\,dt,
 ```
 
-and
-
 ```math
 P_M(T)=\int_0^T e^{A^\dagger t}Me^{At}\,dt,
 \qquad
 \Delta_M(T)=e^{A^\dagger T}Me^{AT}-M.
 ```
 
-Integration gives the exact operator identity
+Integration gives the exact identity
 
 ```math
 \sum_{\alpha=1}^r g_\alpha P_\alpha(T)=\Delta_M(T)+P_R(T).
 ```
 
-For restricted initial conditions define the finite-horizon dynamically reachable subspace
+For restricted initial conditions define
 
 ```math
 \mathcal R_T(B)
 =\operatorname{span}\{e^{At}Bv:\;0\le t\le T,\ v\in\mathbb C^m\}.
 ```
 
-Every trajectory starting from `x(0)=Bu` lies in `\mathcal R_T(B)` at each time `0<=t<=T`.
+Every admissible trajectory `x(t)=e^{At}Bu` lies in `\mathcal R_T(B)` for `0<=t<=T`.
 
 ## Proposition T3.1 — Balance alone does not identify an individual transport channel
 
-Assume `r>=2` and choose two indices with `g_1 g_2 != 0`. For any Hermitian `S=S†`, define
+Assume `r>=2` and `g_1 g_2 != 0`. For any Hermitian `S=S†`, define
 
 ```math
 Q_1'=Q_1+g_2S,
@@ -58,7 +56,7 @@ Q_1'=Q_1+g_2S,
 Q_2'=Q_2-g_1S,
 ```
 
-with all other `Q_alpha` unchanged. Then
+with all other channels unchanged. Then
 
 ```math
 \sum_{\alpha=1}^r g_\alpha Q_\alpha'
@@ -66,74 +64,54 @@ with all other `Q_alpha` unchanged. Then
 \sum_{\alpha=1}^r g_\alpha Q_\alpha.
 ```
 
-Hence the physical energy balance is unchanged although the individual transport forms, their finite-horizon Gramians, and their signed extremal gains generally change.
+Thus the physical energy balance is unchanged although the individual transport forms, their finite-horizon Gramians, and their signed extremal gains generally change.
 
 ### Consequence
 
-No theorem using only the total balance can identify, or produce a nontrivial universal bound on, one channel independently of the remaining channels. Additional channel-resolved physical structure is necessary.
-
-### Interpretation
-
-This formalizes why the Lülff-style construction rule is essential: each `Q_alpha` must be fixed by the underlying physical flux before optimization. The energy balance constrains only the weighted combination of channels.
+The total balance alone cannot identify an individual transport channel. Additional channel-resolved physical structure is required. In particular, each `Q_alpha` must be derived independently from the corresponding physical flux rather than inferred from the total balance.
 
 ## Proposition T3.2 — Channel-resolved bound: global and admissible versions
 
-Fix a target channel `a` with `g_a>0`.
-
-### T3.2a — Global operator version
-
-Suppose that for every `beta != a` there exists `c_beta>=0` such that on the full state space
-
-```math
-g_\beta Q_\beta\succeq -c_\beta M.
-```
-
-Let
+Fix a target channel `a` with `g_a>0` and define
 
 ```math
 C=\sum_{\beta\ne a}c_\beta.
 ```
 
-Then the global state-space operator inequality
+### T3.2a — Global operator version
+
+Suppose that, on the full state space, every competing channel satisfies
 
 ```math
-g_a P_a(T)
-\preceq
-\Delta_M(T)+P_R(T)+C\,P_M(T)
+g_\beta Q_\beta\succeq-c_\beta M,
+\qquad c_\beta\ge0.
 ```
 
-holds.
+Then
 
-#### Proof
+```math
+g_aP_a(T)
+\preceq
+\Delta_M(T)+P_R(T)+C P_M(T).
+```
 
-From the exact balance identity,
+Indeed,
 
 ```math
 g_aP_a(T)
 =
-\Delta_M(T)+P_R(T)-\sum_{\beta\ne a}g_\beta P_\beta(T).
+\Delta_M(T)+P_R(T)-\sum_{\beta\ne a}g_\beta P_\beta(T),
 ```
 
-The global lower bound is preserved under congruence with `e^{At}` and integration:
+and congruence with `e^{At}` plus integration gives
 
 ```math
-g_\beta P_\beta(T)
-=\int_0^T e^{A^\dagger t}(g_\beta Q_\beta)e^{At}\,dt
-\succeq
--c_\beta P_M(T).
+g_\beta P_\beta(T)\succeq-c_\beta P_M(T).
 ```
-
-Therefore
-
-```math
--g_\beta P_\beta(T)\preceq c_\beta P_M(T),
-```
-
-and summing over the competing channels yields the result.
 
 ### T3.2b — Reachable-subspace / admissible-input version
 
-Suppose instead that the lower bounds are known only on `\mathcal R_T(B)`:
+Suppose instead that the competing-channel lower bounds hold only on `\mathcal R_T(B)`:
 
 ```math
 x^\dagger(g_\beta Q_\beta+c_\beta M)x\ge0
@@ -141,13 +119,15 @@ x^\dagger(g_\beta Q_\beta+c_\beta M)x\ge0
 \text{for all }x\in\mathcal R_T(B),\ \beta\ne a.
 ```
 
-Then one may not in general conclude the global state-space inequality of T3.2a. What follows is the projected quadratic-form inequality on the admissible input space:
+Then the justified conclusion is the projected ordering
 
 ```math
-g_a B^\dagger P_a(T)B
+g_aB^\dagger P_a(T)B
 \preceq
-B^\dagger\bigl[\Delta_M(T)+P_R(T)+C P_M(T)\bigr]B.
+B^\dagger\bigl[\Delta_M(T)+P_R(T)+C P_M(T)\bigr]B,
 ```
+
+not, in general, the global state-space ordering of T3.2a.
 
 Equivalently, for every admissible input `u`,
 
@@ -158,9 +138,9 @@ u^\dagger B^\dagger
 \bigl[\Delta_M(T)+P_R(T)+C P_M(T)\bigr]Bu.
 ```
 
-#### Proof
+### Proof of T3.2b
 
-For any admissible `u`, set `x(t)=e^{At}Bu`. By construction `x(t)\in\mathcal R_T(B)` for `0<=t<=T`, hence
+For `x(t)=e^{At}Bu`, the reachable-subspace assumption gives
 
 ```math
 x(t)^\dagger g_\beta Q_\beta x(t)
@@ -168,7 +148,7 @@ x(t)^\dagger g_\beta Q_\beta x(t)
 -c_\beta x(t)^\dagger Mx(t).
 ```
 
-Integrating gives
+Integration yields, for every `u`,
 
 ```math
 u^\dagger B^\dagger g_\beta P_\beta(T)Bu
@@ -176,15 +156,11 @@ u^\dagger B^\dagger g_\beta P_\beta(T)Bu
 -c_\beta\,u^\dagger B^\dagger P_M(T)Bu.
 ```
 
-Insert these scalar inequalities into the exact multichannel balance and sum over `beta != a`. Since the result holds for every `u`, it is exactly the projected Hermitian ordering stated above.
-
-### Important distinction
-
-A lower bound that is valid only on `\mathcal R_T(B)` supports only an admissible/reachable quadratic-form statement. Writing the resulting inequality as a global ordering on the entire state space would be stronger and is not justified without a global channel bound.
+Substitution into the exact multichannel balance gives the projected inequality. The distinction is essential: a quadratic-form bound known only on `\mathcal R_T(B)` does not imply a global operator inequality outside that subspace.
 
 ## Corollary T3.3 — Contractive-energy finite-horizon bounds
 
-Assume in addition
+Assume
 
 ```math
 e^{A^\dagger t}Me^{At}\preceq M
@@ -201,7 +177,7 @@ P_M(T)\preceq TM.
 
 ### T3.3a — Global version
 
-Under the global hypotheses of T3.2a,
+Under the hypotheses of T3.2a,
 
 ```math
 g_aP_a(T)\preceq P_R(T)+CTM.
@@ -209,22 +185,21 @@ g_aP_a(T)\preceq P_R(T)+CTM.
 
 ### T3.3b — Admissible-input version
 
-Under only the reachable-subspace hypotheses of T3.2b,
+Under the reachable-subspace hypotheses of T3.2b,
 
 ```math
-g_a B^\dagger P_a(T)B
+g_aB^\dagger P_a(T)B
 \preceq
-B^\dagger P_R(T)B
-+CT\,B^\dagger MB.
+B^\dagger P_R(T)B+CT\,B^\dagger MB.
 ```
 
-If the input cost is the physical initial energy,
+With the natural input metric
 
 ```math
 R_{\rm in}=B^\dagger MB,
 ```
 
-then whitening the projected inequality gives
+whitening gives
 
 ```math
 \mathcal G_{a,+}(T)
@@ -238,11 +213,11 @@ R_{\rm in}^{-1/2}B^\dagger P_R(T)BR_{\rm in}^{-1/2}
 \right].
 ```
 
-Thus the scalar gain bound remains valid when the competing-channel estimates are available only on the dynamically reachable subspace; a global state-space operator inequality is not required.
+Thus the scalar gain bound remains valid with channel estimates that are available only on the dynamically reachable subspace; no global state-space ordering is needed for that conclusion.
 
 ## Reachable-subspace leakage constants
 
-For each competing channel define the minimal nonnegative leakage constant on the dynamically reachable subspace by
+For each competing channel define the minimal nonnegative leakage constant
 
 ```math
 c_\beta(T,B)
@@ -261,23 +236,23 @@ x^\dagger\bigl(g_\beta Q_\beta+c_\beta(T,B)M\bigr)x\ge0
 \quad\text{for all }x\in\mathcal R_T(B).
 ```
 
-The corresponding total leakage is
+Set
 
 ```math
 C(T,B)=\sum_{\beta\ne a}c_\beta(T,B).
 ```
 
-Using these constants in T3.2b and T3.3b can be substantially sharper than using global constants. The synthetic C8.4 witness demonstrates this possibility: the reachable constant is `0.2` whereas the global constant is `3.0`, a factor-15 reduction. This is a proof-of-principle for sharpness, not yet evidence that the same improvement survives in a physical plasma model.
+These restricted constants can be much sharper than their global analogues. The synthetic C8.4 witness gives `c_reach=0.2` and `c_global=3.0`, a factor-15 reduction. This is a proof of principle for mathematical sharpness, not yet evidence for physical sharpness in a plasma model.
 
-In finite dimensions, if `V` is a basis matrix for `\mathcal R_T(B)`, then `c_beta(T,B)` can be obtained from the smallest generalized eigenvalue of the restricted pencil
+If `V` is a basis matrix for `\mathcal R_T(B)`, then in finite dimensions
 
 ```math
-V^\dagger(g_\beta Q_\beta)V
-\quad\text{versus}\quad
-V^\dagger M V,
+c_\beta(T,B)
+=
+\max\{0,-\lambda_{\min}(V^\dagger g_\beta Q_\beta V,\,V^\dagger MV)\},
 ```
 
-with the nonnegative truncation above. The remaining practical question is whether a useful reachable basis and sharp constants can be computed cheaply enough in the intended plasma discretizations.
+where `lambda_min(K,G)` denotes the smallest generalized Hermitian eigenvalue of `K v=lambda G v`.
 
 ## Interaction with transport-neutral initialization
 
@@ -295,18 +270,18 @@ Then T1 gives
 \frac{T^2}{2}\lambda_{\max}(H_{a,1})+O(T^3),
 ```
 
-while T3.3b gives a finite-horizon upper bound based on dissipation and competing physical channels. The combination separates two questions: T1 describes how target transport is dynamically generated from a transport-neutral admissible subspace, while T3 constrains how large that channel can become in the presence of the physical balance and cross-channel leakage.
+while T3.3b supplies a finite-horizon upper bound from dissipation and competing channels. T1 therefore describes how target transport is dynamically generated from a transport-neutral admissible subspace, whereas T3 constrains how large that channel may become under the physical multichannel balance.
 
 ## Numerical validation status
 
-The abstract finite-dimensional statements are covered by focused tests:
+Focused tests now cover:
 
 - T3.1: different channel decompositions preserve the total balance while changing individual channel Gramians and signed gains.
 - T3.2a: a global competing-channel lower bound produces the predicted finite-horizon operator inequality.
 - T3.3: contractive energy yields `P_M(T) <= T M` and the corresponding positive-gain bound under natural input normalization.
-- Reachable-subspace sharpening: a restricted dynamically reachable space can yield a substantially smaller leakage constant, and the resulting projected/admissible inequality remains valid while the corresponding global inequality need not be valid.
+- Reachable-subspace sharpening: a restricted dynamically reachable space can yield a much smaller leakage constant, while only the projected/admissible inequality is guaranteed.
 
-These tests validate the algebra and the global-versus-reachable distinction; they do not establish physical sharpness for any plasma model.
+These tests validate the abstract algebra and the global-versus-reachable distinction. They do not establish physical sharpness for a plasma model.
 
 ## Literature positioning
 
