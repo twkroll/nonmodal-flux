@@ -60,7 +60,7 @@ Implemented and tested before any plasma sweep:
 
 ## Package D — Plasma convention and pilot
 
-**Status: active; D2-A frozen, implementation unblocked**
+**Status: active; D2-A frozen and convention-locked, model implementation next**
 
 - [x] Compare candidate Hasegawa-Wakatani conventions for the first non-zonal linear pilot.
 - [x] Freeze D2-A: `x` radial, `y` poloidal, `v_E=e_z x grad(phi)`, Fourier `exp(i k dot x)`, state `(phi_k,n_k)`.
@@ -68,7 +68,7 @@ Implemented and tested before any plasma sweep:
 - [x] Derive physical energy metric `M_k = diag(k^2,1)` from the continuous energy.
 - [x] Derive particle-flux form `Q_{Gamma,k}` directly from `Gamma=<n v_x>`.
 - [x] Verify the exact linear energy/particle-flux balance algebraically in the convention audit.
-- [ ] Add convention-lock tests for `L_k`, `M_k`, `Q_{Gamma,k}` and the balance identity.
+- [x] Add convention-lock tests for `L_k`, `M_k`, `Q_{Gamma,k}`, the cross-phase identity, and the exact balance, including uniform perpendicular damping.
 - [ ] Implement the minimal Hasegawa-Wakatani model constructor without adding ad-hoc observables.
 - [ ] Choose and document the first spectrally stable parameter/dissipation case.
 - [ ] Run one single-case pilot comparing energy-optimal and signed transport-optimal disturbances.
@@ -87,8 +87,8 @@ Update this note after each material theorem, modeling decision, or gate decisio
 
 ## Immediate next order
 
-1. Add D2-A convention-lock tests for the exact `L_k`, `M_k`, `Q_{Gamma,k}` and balance identity.
-2. Implement the minimal two-field non-zonal HW model constructor against those tests.
+1. Implement the minimal two-field non-zonal HW model constructor against the frozen D2-A convention-lock tests.
+2. Add model-level tests showing the constructor reproduces `L_k`, `M_k`, `Q_{Gamma,k}` and the balance without hidden symmetrization or ad-hoc weights.
 3. Select one explicitly documented spectrally stable pilot case; do not start a broad sweep.
 4. Compare finite-horizon energy and signed-particle-flux optimals, including a transport-neutral admissible input space.
 5. Use the result as the next Gate-0 falsification point and then repeat targeted citation chasing around the exact frozen convention.
