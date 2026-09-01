@@ -1,0 +1,40 @@
+name: Build theory PDF
+
+on:
+  push:
+    paths:
+      - 'docs/theory_progress.tex'
+      - '.github/workflows/build-theory-pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-theory-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: theory_progress.tex
+          working_directory: docs
+          latexmk_use_xelatex: false
+
+      - name: Commit generated PDF
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/theory_progress.pdf
+          if git diff --cached --quiet; then
+            echo "PDF unchanged; nothing to commit."
+            exit 0
+          fi
+          git commit -m "docs: rebuild theory progress PDF"
+          git push
