@@ -2,8 +2,10 @@
 
 import jax.numpy as jnp
 import numpy as np
+import scipy.linalg as sp_linalg
 
 from nonmodal_flux.core.outputs import (
+    terminal_signed_extrema,
     terminal_signed_output_operator,
     whitened_terminal_signed_output_operator,
 )
@@ -183,3 +185,65 @@ def test_whitening_supports_complex_positive_input_metric() -> None:
 
     np.testing.assert_allclose(whitened, expected, rtol=1.0e-12, atol=1.0e-12)
     assert hermiticity_error(whitened) < 1.0e-12
+
+
+def test_terminal_signed_extrema_match_analytic_diagonal_case() -> None:
+    problem = TransportProblem(
+        A=np.diag([-0.5, -1.25]),
+        M=np.eye(2),
+        Q=np.diag([3.0, -2.0]),
+        B=np.eye(2),
+        Rin=np.diag([2.0, 0.5]),
+    )
+    horizon = 0.4
+
+    lambda_min, lambda_max = terminal_signed_extrema(problem, horizon)
+    expected_values = np.array(
+        [
+            3.0 * np.exp(-2.0 * 0.5 * horizon) / 2.0,
+            -2.0 * np.exp(-2.0 * 1.25 * horizon) / 0.5,
+        ]
+    )
+
+    np.testing.assert_allclose(
+        np.asarray([lambda_min, lambda_max]),
+        np.asarray([expected_values.min(), expected_values.max()]),
+        rtol=1.0e-12,
+        atol=1.0e-12,
+    )
+
+
+def test_terminal_signed_extrema_match_generalized_hermitian_eigenproblem() -> None:
+    problem = _nontrivial_metric_problem()
+    horizon = 0.53
+
+    raw = np.asarray(terminal_signed_output_operator(problem, horizon))
+    reference = sp_linalg.eigh(raw, problem.Rin, eigvals_only=True)
+    lambda_min, lambda_max = terminal_signed_extrema(problem, horizon)
+
+    np.testing.assert_allclose(
+        np.asarray([lambda_min, lambda_max]),
+        np.asarray([reference[0], reference[-1]]),
+        rtol=1.0e-12,
+        atol=1.0e-12,
+    )
+
+
+def test_terminal_signed_extrema_retain_both_transport_signs() -> None:
+    problem = TransportProblem(
+        A=np.zeros((2, 2), dtype=float),
+        M=np.eye(2),
+        Q=np.array([[0.0, 1.0], [1.0, 0.0]]),
+        B=np.eye(2),
+        Rin=np.eye(2),
+    )
+
+    lambda_min, lambda_max = terminal_signed_extrema(problem, 0.7)
+
+    assert float(lambda_min) < 0.0 < float(lambda_max)
+    np.testing.assert_allclose(
+        np.asarray([lambda_min, lambda_max]),
+        np.array([-1.0, 1.0]),
+        rtol=1.0e-13,
+        atol=1.0e-13,
+    )
