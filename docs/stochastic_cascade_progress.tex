@@ -1,0 +1,137 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\title{Stochastic-cascade parallel track: modified Hasegawa--Wakatani bridge pilot}
+\author{Living project note}
+\date{1 September 2026}
+\begin{document}
+\maketitle
+
+\section{Purpose}
+This note records an exploratory parallel track to the canonical finite-dimensional nonmodal theory. Its purpose is to test whether a drift-wave/zonal-flow model can support the sequence
+\[
+\text{field dynamics}\to\text{zonal/nonzonal split}\to\text{scale process}
+\to\text{Markov test}\to\text{Kramers--Moyal diagnostics}.
+\]
+It does not choose the final plasma convention for the main project and it does not constitute a converged turbulence calculation.
+
+\section{Benchmark equations}
+The pilot uses the Numata-style modified Hasegawa--Wakatani equations
+\begin{align}
+\partial_t\zeta+\{\phi,\zeta\}
+ &=\alpha(\widetilde\phi-\widetilde n)-D_\zeta\nabla^4\zeta,\\
+\partial_t n+\{\phi,n\}
+ &=\alpha(\widetilde\phi-\widetilde n)-\kappa\partial_y\phi-D_n\nabla^4 n,
+\end{align}
+with
+\[
+\zeta=\nabla_\perp^2\phi,\qquad
+\widetilde f=f-\langle f\rangle_y.
+\]
+The defining modification is that the parallel/resistive coupling is absent for the zonal modes $k_y=0$.
+
+The reference numerical run uses a $32^2$ periodic grid with $L_x=L_y=40$, $\alpha=\kappa=1$, $D_\zeta=D_n=0.02$, a pseudo-spectral Poisson bracket, two-thirds dealiasing, and fourth-order Runge--Kutta with $\Delta t=0.05$. The initial perturbations are random with amplitude $10^{-3}$ and seed 3.
+
+\section{Zonal and shell diagnostics}
+The $E\times B$ kinetic energy is partitioned as
+\[
+E_K=E_{ZF}+E_{NZ},\qquad
+f_{ZF}=\frac{E_{ZF}}{E_{ZF}+E_{NZ}}.
+\]
+For the analysis window $120\le t\le310$, the median split is
+\[
+f_{ZF,\mathrm{median}}=0.84656.
+\]
+The low-ZF ensemble has mean $f_{ZF}=0.61492$ (191 snapshots), while the high-ZF ensemble has mean $f_{ZF}=0.90633$ (190 snapshots).
+
+The nonzonal kinetic energy is strongly reduced in the high-ZF ensemble. For representative radial Fourier shells:
+\begin{center}
+\begin{tabular}{rrrr}
+\toprule
+$|k|$ shell & low ZF & high ZF & high/low\\
+\midrule
+$0.0$--$0.4$ & 0.002388 & 0.001234 & 0.517\\
+$0.4$--$0.8$ & 0.024953 & 0.013018 & 0.522\\
+$0.8$--$1.2$ & 0.072721 & 0.019795 & 0.272\\
+$1.2$--$1.6$ & 0.034627 & 0.010959 & 0.316\\
+$1.6$--$2.0$ & 0.010620 & 0.003630 & 0.342\\
+$2.0$--$2.6$ & 0.000446 & 0.000101 & 0.225\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{Scale process and Markov diagnostics}
+Zonal modes are removed from $\phi$, and increments of the nonzonal potential are formed at separations
+\[
+r/\Delta x\in\{8,4,2,1\},\qquad \Delta s=\ln2,
+\]
+with the process directed from large to small separation. The present pilot pools $x$- and $y$-directed increments; later plasma-quality work must keep anisotropy explicit.
+
+A Gaussian conditional-mutual-information proxy gives
+\begin{center}
+\begin{tabular}{rrr}
+\toprule
+triplet & low ZF & high ZF\\
+\midrule
+$8$--$4$--$2$ & 0.05034 & 0.01010\\
+$4$--$2$--$1$ & 0.21144 & 0.20541\\
+\bottomrule
+\end{tabular}
+\end{center}
+where values are in nats and zero is the Gaussian-Markov limit.
+
+A discrete Chapman--Kolmogorov test compares the direct transition matrix with the composition
+\[
+P(X_2\mid X_0)\stackrel{?}{=}P(X_2\mid X_1)P(X_1\mid X_0).
+\]
+The occupancy-weighted total-variation errors are
+\begin{center}
+\begin{tabular}{rrr}
+\toprule
+triplet & low ZF & high ZF\\
+\midrule
+$8$--$4$--$2$ & 0.09387 & 0.06119\\
+$4$--$2$--$1$ & 0.08364 & 0.08688\\
+\bottomrule
+\end{tabular}
+\end{center}
+Thus the larger tested triplet becomes more nearly Markovian in the high-ZF ensemble, whereas the smaller triplet does not.
+
+\section{Finite-step drift and diffusion}
+For the scale step $4\Delta x\to2\Delta x$, increments are normalized by the same low-ZF reference standard deviation. Conditional moments are fitted as
+\[
+D^{(1)}(u)\approx a_1u+a_3u^3,\qquad
+D^{(2)}(u)\approx b_0+b_2u^2.
+\]
+The resulting finite-step coefficients are
+\begin{center}
+\begin{tabular}{rrr}
+\toprule
+coefficient & low ZF & high ZF\\
+\midrule
+$a_1$ & -0.72497 & -0.72289\\
+$a_3$ & 0.00337 & 0.00207\\
+$b_0$ & 0.34951 & 0.11664\\
+$b_2$ & 0.19309 & 0.17742\\
+\bottomrule
+\end{tabular}
+\end{center}
+The main pilot signal is an approximately threefold reduction of the diffusion intercept $b_0$, while the fitted drift changes very little. This is compatible with suppression of stochastic nonzonal fluctuations by strong zonal organization, but these finite-scale fits are not yet converged Kramers--Moyal coefficients.
+
+\section{Current interpretation and gate}
+The pilot establishes that the proposed observable chain can be implemented in a controlled drift-wave/zonal-flow model and that conditioning on zonal-flow strength changes measurable scale statistics. It does \emph{not} establish causality because the low/high-ZF split is partially confounded with temporal evolution in a single realization.
+
+Before transfer to GENE, the next gate is therefore: independent or stationary ensembles; separate radial/poloidal increments; bootstrap uncertainty; local $D^{(1)}$, $D^{(2)}$, and $D^{(4)}$ at several scale ratios with small-$\Delta s$ extrapolation; and an original-HW control in which the zonal coupling modification is disabled.
+
+\section{References}
+R. Numata, R. Ball, and R. L. Dewar, \emph{Nonlinear Simulation of Drift Wave Turbulence}, arXiv:physics/0703274 (2007).
+
+A. Hakim, \emph{Solving (Modified) Hasegawa--Wakatani equations}, Simulation Journal JE17 (2026).
+
+\end{document}
