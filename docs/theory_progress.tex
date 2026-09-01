@@ -1,0 +1,507 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{fancyhdr}
+\usepackage{amsthm}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\range}{\operatorname{range}}
+\newcommand{\spec}{\operatorname{spec}}
+\newcommand{\la}{\lambda_{\max}}
+\newcommand{\li}{\lambda_{\min}}
+\newcommand{\Lin}{\mathcal{L}_A}
+\newcommand{\PQ}{P_Q}
+\newcommand{\PR}{P_R}
+\newcommand{\HQ}{H_Q}
+
+\setlength{\headheight}{14pt}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{nonmodal-flux}
+\rhead{Theory and progress notes}
+\cfoot{\thepage}
+
+\title{\texttt{nonmodal-flux}: Theory and Progress Notes}
+\author{Living project document}
+\date{1 September 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This document is the compact, living mathematical record of the \texttt{nonmodal-flux} project. It is not a manuscript draft. It records the accepted modeling principles, the finite-dimensional theory proved so far, the current novelty assessment, and the next falsification steps. All equations in the PDF are typeset directly from this \LaTeX{} source.
+\end{abstract}
+
+\tableofcontents
+\bigskip
+
+\section{Project question and modeling principle}
+
+The project studies finite-time, nonmodal optimization of a \emph{physically derived signed transport observable} under an independent positive metric that measures the size, energy, or free energy of the initial disturbance.
+
+The central modeling separation is
+\begin{equation}
+  M=M^\dagger \succ 0,
+  \qquad
+  Q=Q^\dagger,
+\end{equation}
+where $M$ is a metric and $Q$ is a signed transport form that may be indefinite. The purpose of this separation is physical: $M$ answers ``how large is the perturbation?'', whereas $Q$ answers ``which directed physical transfer does it produce?''
+
+A transport observable must be derived from the continuous physical flux before discretization. It must not be replaced by an ad hoc sum of squared state amplitudes. Cross terms, signs, orientation, quadrature or mass-matrix weights, species factors, and wavenumber factors are part of the observable and must be preserved.
+
+For example, a Fourier-mode particle flux of the form
+\begin{equation}
+  \Gamma_{\bm{k}}
+  \propto k_y\,\operatorname{Im}\!\left(n_{\bm{k}}^*\phi_{\bm{k}}\right)
+\end{equation}
+should be represented by a Hermitian indefinite matrix $Q_{\Gamma,\bm{k}}$ satisfying
+\begin{equation}
+  \Gamma_{\bm{k}} = z_{\bm{k}}^\dagger Q_{\Gamma,\bm{k}} z_{\bm{k}},
+\end{equation}
+not by a surrogate norm such as $w_\phi |\phi|^2+w_n|n|^2$.
+
+\section{Finite-dimensional setup}
+
+Consider the autonomous linear system
+\begin{equation}
+  \dot{x}=Ax,\qquad x(0)=Bu,
+  \label{eq:system}
+\end{equation}
+with
+\begin{equation}
+  A\in\C^{n\times n},\quad
+  B\in\C^{n\times m},\quad
+  R_{\mathrm{in}}=R_{\mathrm{in}}^\dagger\succ0.
+\end{equation}
+The matrix $B$ defines the physically admissible initial subspace, and
+\begin{equation}
+  \|u\|_{R_{\mathrm{in}}}^2=u^\dagger R_{\mathrm{in}}u
+\end{equation}
+sets the input cost.
+
+With $\Phi(T)=e^{AT}$, the terminal signed observable gain is
+\begin{equation}
+  G_Q^{\mathrm{term}}(T)
+  =\sup_{u\neq0}
+  \frac{u^\dagger B^\dagger\Phi(T)^\dagger Q\Phi(T)Bu}
+       {u^\dagger R_{\mathrm{in}}u}.
+\end{equation}
+For cumulative signed transport,
+\begin{equation}
+  \mathcal{T}_Q(T;u)
+  =\int_0^T x(t)^\dagger Qx(t)\,\dd t
+  =u^\dagger B^\dagger \PQ(T)Bu,
+\end{equation}
+where
+\begin{equation}
+  \PQ(T)=\int_0^T e^{A^\dagger t}Qe^{At}\,\dd t.
+  \label{eq:PQ}
+\end{equation}
+The matrix $\PQ$ satisfies the differential Lyapunov equation
+\begin{equation}
+  \dot{\PQ}=A^\dagger\PQ+\PQ A+Q,
+  \qquad \PQ(0)=0.
+\end{equation}
+
+After whitening the input metric,
+\begin{equation}
+  \HQ(T)
+  =R_{\mathrm{in}}^{-1/2}B^\dagger\PQ(T)B R_{\mathrm{in}}^{-1/2},
+\end{equation}
+the positive and negative signed extremal gains are
+\begin{equation}
+  \mathcal{G}_{Q,+}(T)=\la\bigl(\HQ(T)\bigr),
+  \qquad
+  \mathcal{G}_{Q,-}(T)=\li\bigl(\HQ(T)\bigr).
+  \label{eq:signedgains}
+\end{equation}
+This spectral characterization is foundational but is not treated as a novelty claim.
+
+\section{T1: transport-generation order}
+
+Define the Lyapunov derivative operator
+\begin{equation}
+  \Lin(X)=A^\dagger X+XA.
+\end{equation}
+Repeated application gives
+\begin{equation}
+  \Lin^j(Q)
+  =\sum_{r=0}^{j}\binom{j}{r}(A^\dagger)^r Q A^{j-r}.
+\end{equation}
+The cumulative transport operator has the convergent expansion
+\begin{equation}
+  \PQ(T)
+  =\sum_{j=0}^{\infty}
+  \frac{T^{j+1}}{(j+1)!}\,\Lin^j(Q).
+  \label{eq:transportseries}
+\end{equation}
+Define projected, whitened generation matrices
+\begin{equation}
+  H_j
+  =R_{\mathrm{in}}^{-1/2}
+    B^\dagger \Lin^j(Q)B
+    R_{\mathrm{in}}^{-1/2}.
+\end{equation}
+
+\begin{proposition}[Transport-generation order]
+Assume that for some $\nu\ge0$,
+\begin{equation}
+  H_0=H_1=\cdots=H_{\nu-1}=0,
+  \qquad H_\nu\neq0.
+\end{equation}
+Then, as $T\downarrow0$,
+\begin{equation}
+  \HQ(T)
+  =\frac{T^{\nu+1}}{(\nu+1)!}H_\nu
+   +O(T^{\nu+2}),
+\end{equation}
+and consequently
+\begin{align}
+  \mathcal{G}_{Q,+}(T)
+  &=\frac{T^{\nu+1}}{(\nu+1)!}\la(H_\nu)+O(T^{\nu+2}),\\
+  \mathcal{G}_{Q,-}(T)
+  &=\frac{T^{\nu+1}}{(\nu+1)!}\li(H_\nu)+O(T^{\nu+2}).
+\end{align}
+\end{proposition}
+
+We call
+\begin{equation}
+  \nu=\min\{j\ge0:H_j\neq0\}
+\end{equation}
+the \emph{transport-generation order} of the admissible input space.
+
+\subsection{Transport-neutral admissible subspaces}
+
+The preferred nontriviality constraint is
+\begin{equation}
+  B^\dagger QB=0.
+  \label{eq:neutral}
+\end{equation}
+Thus every admissible initial disturbance has zero instantaneous transport. Geometrically, $\range(B)$ is a totally $Q$-isotropic subspace.
+
+If
+\begin{equation}
+  H_1
+  =R_{\mathrm{in}}^{-1/2}
+   B^\dagger(A^\dagger Q+QA)B
+   R_{\mathrm{in}}^{-1/2}\neq0,
+\end{equation}
+then $\nu=1$ and
+\begin{equation}
+  \mathcal{G}_{Q,\pm}(T)
+  =\frac{T^2}{2}\lambda_{\max/\min}(H_1)+O(T^3).
+  \label{eq:T1neutral}
+\end{equation}
+The $O(T)$ cumulative contribution has been removed by construction. The leading transport is therefore generated by the dynamics rather than inserted as an initially optimal cross phase.
+
+\subsection{Why indefiniteness matters}
+
+If instead $Q\succeq0$ and still $B^\dagger QB=0$, then $Q^{1/2}B=0$ and hence $QB=0$. Therefore $H_1=0$, and the cumulative output cannot begin at order $T^2$; the leading term is
+\begin{equation}
+  \HQ(T)
+  =\frac{T^3}{3}
+  R_{\mathrm{in}}^{-1/2}
+  B^\dagger A^\dagger QAB
+  R_{\mathrm{in}}^{-1/2}
+  +O(T^4).
+\end{equation}
+This onset-order distinction is a mathematical reason to preserve the physical indefinite cross-term structure instead of replacing it by a positive sum of squares.
+
+\section{T4: short-time separation of energy and transport optimals}
+
+For the natural normalization
+\begin{equation}
+  R_{\mathrm{in}}=B^\dagger MB,
+\end{equation}
+define
+\begin{equation}
+  K_E(T)
+  =R_{\mathrm{in}}^{-1/2}
+   B^\dagger e^{A^\dagger T}Me^{AT}B
+   R_{\mathrm{in}}^{-1/2}.
+\end{equation}
+Then $K_E(0)=I$ and
+\begin{equation}
+  K_E(T)=I+T E_1+O(T^2),
+\end{equation}
+with
+\begin{equation}
+  E_1
+  =R_{\mathrm{in}}^{-1/2}
+   B^\dagger(A^\dagger M+MA)B
+   R_{\mathrm{in}}^{-1/2}.
+\end{equation}
+Under transport-neutral initialization, the transport problem has
+\begin{equation}
+  \HQ(T)=\frac{T^2}{2}H_1+O(T^3).
+\end{equation}
+If the largest eigenvalues of $E_1$ and $H_1$ are simple, with normalized eigenvectors $v_E$ and $v_Q$, then the corresponding short-time optimal disturbances converge to those eigenvectors. The limiting angle is
+\begin{equation}
+  \vartheta_0
+  =\arccos\!\left(|v_E^\dagger v_Q|\right).
+  \label{eq:angle}
+\end{equation}
+If $\vartheta_0>0$, energy-optimal and transport-optimal disturbances are distinct for all sufficiently short positive horizons.
+
+Under the single-channel balance
+\begin{equation}
+  A^\dagger M+MA=gQ-D,
+  \qquad D\succeq0,
+  \label{eq:singlebalance}
+\end{equation}
+and the neutral constraint~\eqref{eq:neutral}, one obtains
+\begin{equation}
+  E_1
+  =-R_{\mathrm{in}}^{-1/2}B^\dagger DBR_{\mathrm{in}}^{-1/2}
+  \preceq0.
+\end{equation}
+Hence the short-time energy optimal is the least initially dissipative admissible direction, while the short-time transport optimal is the direction of strongest production of the target signed flux.
+
+\section{T2: exact balance identity and signed bounds}
+
+Assume the single-channel balance~\eqref{eq:singlebalance}. Define
+\begin{equation}
+  \PR(T)=\int_0^T e^{A^\dagger t}De^{At}\,\dd t.
+\end{equation}
+Differentiating the propagated energy metric and integrating yields the exact identity
+\begin{equation}
+  g\PQ(T)
+  =e^{A^\dagger T}Me^{AT}-M+\PR(T).
+  \label{eq:T2identity}
+\end{equation}
+After restriction to the admissible input space and natural-energy whitening,
+\begin{equation}
+  g\HQ(T)=H_E(T)-I+H_D(T),
+\end{equation}
+where $H_D(T)\succeq0$ is the whitened accumulated dissipation operator.
+
+If the dynamics are contractive in the $M$ metric,
+\begin{equation}
+  e^{A^\dagger t}Me^{At}\preceq M,
+\end{equation}
+then for $g>0$,
+\begin{equation}
+  \mathcal{G}_{Q,+}(T)
+  \le \frac{1}{g}\la\bigl(H_D(T)\bigr),
+  \qquad
+  \mathcal{G}_{Q,-}(T)\ge -\frac{1}{g}.
+\end{equation}
+These relations are physically useful but are currently treated as supporting results rather than headline novelty.
+
+\section{T3: multichannel balance and channel identifiability}
+
+The more relevant physical balance is
+\begin{equation}
+  A^\dagger M+MA
+  =\sum_{\alpha=1}^{r}g_\alpha Q_\alpha-D,
+  \qquad D\succeq0,
+  \label{eq:multibalance}
+\end{equation}
+with separately derived physical transport channels $Q_\alpha$. Integration gives
+\begin{equation}
+  \sum_{\alpha=1}^{r}g_\alpha P_\alpha(T)
+  =e^{A^\dagger T}Me^{AT}-M+P_D(T).
+  \label{eq:multibalanceintegrated}
+\end{equation}
+
+\begin{proposition}[Balance does not identify individual channels]
+For $r\ge2$, choose two channels with $g_1g_2\neq0$. For any Hermitian $S$, define
+\begin{equation}
+  Q_1'=Q_1+g_2S,
+  \qquad
+  Q_2'=Q_2-g_1S.
+\end{equation}
+Then
+\begin{equation}
+  \sum_\alpha g_\alpha Q_\alpha'
+  =\sum_\alpha g_\alpha Q_\alpha.
+\end{equation}
+Thus the total energy balance alone cannot identify an individual transport channel.
+\end{proposition}
+
+This no-go statement explains why each $Q_\alpha$ must be fixed by the underlying physics before optimization.
+
+For a target channel $a$ with $g_a>0$, if competing channels satisfy lower bounds on the dynamically reachable subspace,
+\begin{equation}
+  g_\beta Q_\beta\succeq -c_\beta M,
+  \qquad \beta\neq a,
+\end{equation}
+then
+\begin{equation}
+  g_aP_a(T)
+  \preceq
+  \Delta_M(T)+P_D(T)+C P_M(T),
+  \qquad
+  C=\sum_{\beta\neq a}c_\beta.
+\end{equation}
+A sharper reachable-subspace constant is
+\begin{equation}
+  c_\beta(T,B)
+  =\sup_{\substack{x\in\mathcal{R}_T(B)\\x\neq0}}
+  \frac{-x^\dagger g_\beta Q_\beta x}{x^\dagger Mx},
+  \qquad
+  \mathcal{R}_T(B)=\operatorname{span}\{e^{At}Bv:0\le t\le T\}.
+\end{equation}
+Whether these constants can be made both sharp and non-circular is an open Gate-0 question.
+
+\section{Coordinate invariance}
+
+Under an invertible change of physical state coordinates
+\begin{equation}
+  x'=Sx,
+\end{equation}
+we transform
+\begin{equation}
+  A'=SAS^{-1},\quad
+  M'=S^{-\dagger}MS^{-1},\quad
+  Q'=S^{-\dagger}QS^{-1},\quad
+  B'=SB.
+\end{equation}
+Then
+\begin{equation}
+  B'^\dagger Q'B'=B^\dagger QB
+\end{equation}
+and, for every $j\ge0$,
+\begin{equation}
+  B'^\dagger\mathcal{L}_{A'}^j(Q')B'
+  =B^\dagger\Lin^j(Q)B.
+\end{equation}
+Thus transport-neutrality, transport-generation order, and the leading transport coefficients are invariant under state-coordinate changes. A later theorem package will extend this cleanly to simultaneous input-coordinate transformations and to the optimal vectors themselves.
+
+\section{Minimal analytic witness}
+
+Consider
+\begin{equation}
+  A=\begin{bmatrix}-1&0\\ \kappa&-2\end{bmatrix},
+  \qquad
+  Q=\frac12\begin{bmatrix}0&1\\1&0\end{bmatrix},
+  \qquad
+  B=\begin{bmatrix}1\\0\end{bmatrix}.
+\end{equation}
+For $\kappa\neq0$, $A$ is stable and nonnormal, and
+\begin{equation}
+  B^TQB=0,
+  \qquad
+  B^T(A^TQ+QA)B=\kappa.
+\end{equation}
+For unit input,
+\begin{equation}
+  x_1(t)=e^{-t},
+  \qquad
+  x_2(t)=\kappa(e^{-t}-e^{-2t}),
+\end{equation}
+so
+\begin{equation}
+  q(t)=x_1(t)x_2(t)=\kappa(e^{-2t}-e^{-3t}),
+\end{equation}
+and therefore
+\begin{equation}
+  \mathcal{T}_Q(T)
+  =\kappa\left[\frac{1-e^{-2T}}{2}-\frac{1-e^{-3T}}{3}\right]
+  =\frac{\kappa}{2}T^2+O(T^3).
+\end{equation}
+This example is a numerical benchmark only; it is not a plasma model and carries no physical novelty claim by itself.
+
+\section{Current literature positioning}
+
+The project sits inside several established literatures: classical nonmodal transient growth, quadratic-output systems, indefinite quadratic control and dissipativity, physics-derived transport decompositions, and plasma free-energy optimal-mode theory. Therefore the following are \emph{not} sufficient novelty claims on their own:
+\begin{itemize}[leftmargin=2em]
+  \item finite-horizon Gramian or generalized eigenvalue formulations;
+  \item indefinite quadratic observables by themselves;
+  \item objective-dependent optimal perturbations;
+  \item restricted input spaces by themselves;
+  \item nonmodal Hasegawa--Wakatani energy growth or cross-phase dynamics;
+  \item free-energy optimal modes by themselves.
+\end{itemize}
+
+The current candidate novelty axis is more specific:
+\begin{quote}
+Finite-horizon signed transport generated dynamically from physically admissible, initially transport-neutral disturbances, measured against an independent positive physical metric, using transport forms derived directly from the underlying fluxes and constrained by a physical energy/free-energy balance.
+\end{quote}
+
+The strongest foundations-paper package currently appears to require the combination of T1/T4, a sharpened channel-resolved T3 result, and a nontrivial plasma example with independently derived transport forms.
+
+\section{Plasma direction}
+
+No Hasegawa--Wakatani convention is frozen yet. Before model code is accepted, the project requires a documented PDE-to-matrix derivation of
+\begin{equation}
+  L_{\bm{k}},\qquad M_{\bm{k}},\qquad Q_{\Gamma,\bm{k}},
+\end{equation}
+including signs, normalizations, dissipation, drive terms, the free-energy balance, and the flux identity.
+
+The first physical pilot should then compare, in a spectrally stable regime,
+\begin{equation}
+  u_E,\qquad u_{\Gamma,+},\qquad u_{\Gamma,-},
+\end{equation}
+for both unrestricted and transport-neutral admissible initial spaces, and should report the angle~\eqref{eq:angle} together with the spectral abscissa, maximum free-energy gain, and maximum cumulative particle flux.
+
+\section{AI application idea: parked, not current scope}
+
+A possible later AI application is to replace generic hidden-state amplification by a task-derived signed bilinear transfer observable. For a partitioned hidden state $h=(h_a,h_b)$, one example is
+\begin{equation}
+  Q_{ab}=\frac12
+  \begin{bmatrix}
+    0 & C\\
+    C^\dagger & 0
+  \end{bmatrix},
+  \qquad
+  h^\dagger Q_{ab}h
+  =\operatorname{Re}(h_a^\dagger C h_b).
+\end{equation}
+This could support future questions about task-specific transient transfer in recurrent networks, neural ODEs, or state-space sequence models. It is explicitly excluded from P1, from current implementation milestones, and from the plasma model-selection process.
+
+\section{Status and next steps}
+
+\begin{longtable}{>{\raggedright\arraybackslash}p{0.19\textwidth} >{\raggedright\arraybackslash}p{0.17\textwidth} p{0.54\textwidth}}
+\toprule
+Item & Status & Current interpretation \\
+\midrule
+\endhead
+T1 & Proved & Supporting theorem; transport-generation order and indefinite-vs-positive onset distinction. \\
+T2 & Proved & Exact balance identity and elementary signed bounds; mainly supporting. \\
+T3 & Partial & Multichannel no-go result and first channel bound; value depends on sharp reachable-subspace estimates. \\
+T4 & Proved & Short-time energy/transport separation; supporting structural theorem. \\
+Gate 0 & Open & Needs at least one theorem-level gap beyond standard Gramian/dissipativity theory plus one nontrivial plasma transport result. \\
+AI branch & Parked & Idea retained for later; no AI code or dependencies in P1. \\
+Plasma model & Not frozen & Convention audit and PDE-to-$L_k,M_k,Q_k$ derivation required first. \\
+\bottomrule
+\end{longtable}
+
+The immediate work order is:
+\begin{enumerate}[leftmargin=2em]
+  \item maintain this living \LaTeX/PDF note after material theory or gate changes;
+  \item implement validated model-independent data structures and checks for $(A,M,Q,B,R_{\mathrm{in}})$;
+  \item implement propagators, signed terminal/cumulative gains, and Cholesky-whitened Hermitian eigensolvers;
+  \item add analytic T1/T4 and coordinate-invariance tests;
+  \item then return to the plasma convention audit before any parameter sweep.
+\end{enumerate}
+
+\section*{Literature anchors currently tracked}
+\addcontentsline{toc}{section}{Literature anchors currently tracked}
+
+\begin{itemize}[leftmargin=2em]
+  \item J. L\"ulff (2015): heat-transport POD using an indefinite bilinear transport form.
+  \item P. J. Schmid (2007): classical nonmodal stability theory.
+  \item S. J. Camargo, M. K. Tippett, and I. L. Caldas (1998): nonmodal energetics of resistive drift waves.
+  \item P. Benner, P. Goyal, and I. Pontes Duff (2022): Gramians and energy functionals for linear systems with quadratic outputs.
+  \item P. Helander and G. G. Plunk / G. G. Plunk and P. Helander (2022): energetic bounds and optimal free-energy growth in gyrokinetics.
+  \item M. Landreman, G. G. Plunk, and W. Dorland (2015): transient linear amplification and subcritical turbulence in kinetic plasma.
+  \item J. C. Willems (1972): dissipativity with quadratic supply rates.
+\end{itemize}
+
+\end{document}
