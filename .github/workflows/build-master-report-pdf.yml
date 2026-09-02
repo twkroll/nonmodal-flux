@@ -1,0 +1,44 @@
+name: Build master report PDF
+
+on:
+  push:
+    paths:
+      - 'docs/reports/nonmodal_master_report_v0_5.tex'
+      - '.github/workflows/build-master-report-pdf.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-master-report-pdf:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Compile LaTeX
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: nonmodal_master_report_v0_5.tex
+          working_directory: docs/reports
+          latexmk_use_xelatex: false
+
+      - name: Update current alias
+        shell: bash
+        run: cp docs/reports/nonmodal_master_report_v0_5.pdf docs/reports/nonmodal_master_report_current.pdf
+
+      - name: Commit generated PDFs
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/reports/nonmodal_master_report_v0_5.pdf docs/reports/nonmodal_master_report_current.pdf
+          if git diff --cached --quiet; then
+            echo "PDFs unchanged; nothing to commit."
+            exit 0
+          fi
+          git commit -m "docs: update master project report to v0.5"
+          git push
