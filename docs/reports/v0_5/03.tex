@@ -1,0 +1,149 @@
+\section{D10-ZF: vom Pilot 0.1 zum Pilot 0.2}
+\subsection{Pilot 0.1 -- informativer Fail}
+Der eingefrorene Minimalpunkt war
+\[
+U(x)=\cos x,\quad L_x=2\pi,\quad k_y=1,\quad C=\kappa=1,\quad N=0,\quad \nu_\perp=0,
+\]
+mit $m\in\{-1,0,1\}$, Zustandsdimension 6, $B=I_6$, $R_{\rm in}=M$. Die Spektralabszisse war
+\[
+\alpha(A)=0.0803635112>0.
+\]
+Damit scheiterte Pilot 0.1 als spektral stabiler Benchmark. Gleichzeitig wurde Energy/Transport-Separation beobachtet. Retuning wurde explizit unterlassen.
+
+\subsection{Resolution/Stability Qualification}
+Bei festem physikalischem Punkt wurde nur die Fouriertrunkierung erhöht. Ausgewählte Werte:
+\[
+\alpha_1=0.08036,\quad
+\alpha_{32}=0.01242,\quad
+\alpha_{60}=0.00703,\quad
+\alpha_{120}=0.00364.
+\]
+Der Tail war konsistent mit $O(K^{-1})$ und numerisch $\alpha_K\to0^+$. Das ist kein Theorem über den kontinuierlichen Operator, aber die $K=1$-Instabilität ist nicht als robuste konvergierte positive Wachstumsrate etabliert.
+
+\subsection{Objective Resolution Qualification}
+Für $K\in\{1,2,4,8,16,32,64\}$ und die sechs vorregistrierten Horizonte blieb
+\[
+\Delta_{\Gamma,K}(T)>0
+\]
+für alle 42 Paare. Bei $K=64$ war
+\[
+\Delta_\Gamma=(0.7084,0.6430,0.5017,0.2865,0.1436,0.1325),
+\]
+und die Optimizerstrukturen konvergierten in $M$-whitened Fourierkoordinaten. Damit ist die Objective-Separation kein $K=1$-Artefakt.
+
+\subsection{Blind Stability Qualification}
+Vor jeder CORE-Auswertung wurde die Menge
+\[
+\nu_\perp\in\{0,0.005,0.010,0.015,0.020,0.030,0.050\}
+\]
+auf $K\in\{32,64,96,128\}$ fixiert, mit Kriterium
+\[
+\max_K\alpha_K(\nu_\perp)\le-5\times10^{-3}.
+\]
+Da $A_{K,\nu}=A_{K,0}-\nu_\perp I$, folgt $\alpha_K(\nu)=\alpha_K(0)-\nu$. Der kleinste vorregistrierte PASS war
+\[
+\boxed{\nu_\perp=0.020}.
+\]
+$\nu_\perp=0.015$ war zwar auf allen getesteten Auflösungen negativ, verfehlte aber die Sicherheitsmarge und wurde deshalb nicht gewählt.
+
+\section{Pilot 0.2 Result Freeze -- P2-A}
+\subsection{Eingefrorener Punkt und Auflösungen}
+Pilot 0.2 verwendet den blind ausgewählten Punkt
+\[
+U=\cos x,\ L_x=2\pi,\ k_y=1,\ C=\kappa=1,\ N=0,\ \nu_\perp=0.020,
+\]
+mit unverändertem $M_K,Q_{\Gamma,K},B=I,R_{\rm in}=M_K$, $K\in\{32,64,96\}$ und $T\in\{0.25,0.5,1,2,4,8\}$.
+
+\subsection{Spektrale Stabilität}
+\[
+\alpha(A_{32})=-0.00757860,
+\quad
+\alpha(A_{64})=-0.01338176,
+\quad
+\alpha(A_{96})=-0.01549244.
+\]
+Der stabile Status ist auf allen vorregistrierten Pilotauflösungen erfüllt.
+
+\subsection{Kanonische finite-time Tabelle}
+\begin{center}
+\small
+\begin{tabular}{rrrrrr}
+\toprule
+$T$ & $G_E$ & $\mathcal G_{\Gamma,+}$ & $\mathcal G_{\Gamma,-}$ & $\Delta_\Gamma$ & $\vartheta$\\
+\midrule
+0.25 & 1.174740 & 0.110347 & -0.087364 & 0.708519 & $65.53^\circ$\\
+0.5 & 1.377608 & 0.198692 & -0.126690 & 0.643692 & $61.67^\circ$\\
+1 & 1.878276 & 0.353517 & -0.146222 & 0.504337 & $53.40^\circ$\\
+2 & 3.371659 & 0.769879 & -0.133650 & 0.292030 & $40.98^\circ$\\
+4 & 9.411746 & 2.762738 & -0.119061 & 0.149468 & $28.69^\circ$\\
+8 & 39.763235 & 16.063968 & -0.115154 & 0.143128 & $28.03^\circ$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Für alle Horizonte gilt gleichzeitig
+\[
+G_E(T)>1,
+\qquad
+\mathcal G_{\Gamma,-}(T)<0<\mathcal G_{\Gamma,+}(T),
+\qquad
+\vartheta(T)>0,
+\qquad
+\Delta_\Gamma(T)>0.
+\]
+
+Die kanonische Gap-Definition lautet
+\[
+\boxed{\Delta_\Gamma(T)=\frac{\mathcal G_{\Gamma,+}(T)-J_\Gamma(T;w_E^\star)}{\mathcal G_{\Gamma,+}(T)}}.
+\]
+Bei $T=1$ ist $\Delta_\Gamma\simeq0.504$, also verfehlt die Energy-optimale Perturbation ungefähr 50\% des maximal erreichbaren positiven kumulativen Partikeltransports.
+
+\subsection{Physikalische Optimizerstruktur}
+Bei $T=1$ ist die Energy-optimale Fourierstruktur vor allem auf $m=\pm2,\pm1,\pm3$ konzentriert, während der Transportoptimizer stark durch $m=0,\pm1$ dominiert wird. Die $\phi$-Anteile sind
+\[
+f_\phi^E\simeq0.82766,
+\qquad
+f_\phi^\Gamma\simeq0.66959,
+\]
+und die globale $\phi/\eta$-Crossphase ist ungefähr
+\[
+\delta_{\phi\eta}^E\simeq0.306,
+\qquad
+\delta_{\phi\eta}^\Gamma\simeq1.279\ \text{rad}.
+\]
+Die Objective-Separation ist damit strukturell und nicht nur ein Vektorwinkel.
+
+\subsection{Resolution robustness und direkte Trajektorien}
+Skalare Größen stimmen zwischen $K=32,64,96$ bis etwa $10^{-13}$--$10^{-15}$ überein; projizierte Optimizer-Overlaps sind numerisch $\rho\simeq1$. Bei $K=64$ und $T=8$ gilt beispielsweise
+\[
+E_{\rm modal}(8)\simeq0.8073,
+\qquad
+E(8;w_E^\star)\simeq39.7632,
+\qquad
+E(8;w_\Gamma^\star)\simeq33.1588,
+\]
+\[
+J_\Gamma(8;w_E^\star)\simeq13.7648,
+\qquad
+J_\Gamma(8;w_\Gamma^\star)\simeq16.0640.
+\]
+Der führende modale Zustand fällt, während finite-time optimale Anfangsstörungen stark verstärken.
+
+\subsection{Korrekte S0--S5-Lesart}
+Die im Execution-Report verwendeten S1--S5-Labels wurden im MASTER auf die ursprüngliche Preregistration zurücknormalisiert. Kanonisch gilt:
+\begin{itemize}
+\item S0: spektral stabil auf $K=32,64,96$ -- PASS.
+\item S1: $\vartheta\ge20^\circ$ für mindestens zwei benachbarte Horizonte -- PASS (alle sechs).
+\item S2: $\Delta_\Gamma\ge0.25$ für mindestens zwei benachbarte Horizonte -- PASS ($T=0.25,0.5,1,2$).
+\item S3: physikalisch interpretierbare Optimizerdifferenz -- PASS.
+\item S4: Resolution robustness $K=32\to64\to96$ -- PASS.
+\item S5: Nichtredundanz gegenüber Spektrum und Energy allein -- PASS.
+\end{itemize}
+Daraus folgt eindeutig
+\[
+\boxed{\textbf{P2-A -- STRONG FRAMEWORK DEMONSTRATION}.}
+\]
+
+\subsection{Erlaubte und verbotene Claims}
+\textbf{Erlaubt:} In einer spektral stabilen D10-ZF-Instanziierung tritt starke finite-time Free-Energy-Amplifikation auf; der signed Partikeltransport besitzt eigene positive/negative Extremalrichtungen; Energy- und Transportoptimizer sind auflösungsrobust und physikalisch verschieden; die Energy-optimale Perturbation kann einen substantiellen Anteil des maximalen kumulativen Partikeltransports verfehlen.
+
+\textbf{Verboten:} neue quadratic-output Mathematik; Universalität der Optimizer-Separation; Transport-generation-from-neutrality; nichtlineare/turbulente Vollerklärung; experimentelle Validierung; allgemeine Fusion-Universalität.
