@@ -1,0 +1,95 @@
+\section{Climate/Ocean-Branch}
+\subsection{Feasibility Gate: C-A}
+Climate/Ocean überlebt das Feasibility Gate klar. Der stärkste Kandidat ist ein gedämpftes zweischichtiges bzw. mehrschichtiges quasigeostrophisches baroklines System mit klassischer positiver Perturbationsenergie und signed Eddy-Wärmetransport. Ein regionales Primitive-Equation-Modell bleibt als sekundärer stärkerer Anwendungsfall erhalten; Reduced-AMOC wurde als Hauptdemo gestoppt, weil wichtige Observablen häufig linear/affin sind und die Prior-Art-Nähe besonders hoch ist.
+
+\subsection{Pilot Candidate Freeze}
+Der promovierte Pilot ist ein zweischichtiges Phillips-QG-$\beta$-plane-Modell mit
+\[
+q_1'=\nabla^2\psi_1'+F(\psi_2'-\psi_1'),
+\qquad
+q_2'=\nabla^2\psi_2'+F(\psi_1'-\psi_2'),
+\]
+\[
+F=\frac{1}{2L_D^2},
+\qquad
+\partial_tq_i'+U_i\partial_xq_i'+\Pi_i\partial_x\psi_i'=-rq_i'.
+\]
+Der Zustandsraum ist ein zonaler Kanal mit $x$-Periodizität, $\psi_i'=0$ an $y=0,L_y$ und Ausschluss von $k_x=0$ bzw. zonalen Mean-Änderungen. Damit ist die Gauge/Nullmode vor der Diskretisierung entfernt.
+
+In barotrop/baroklinen Koordinaten
+\[
+\psi=\frac{\psi_1'+\psi_2'}2,
+\qquad
+\tau=\frac{\psi_1'-\psi_2'}2
+\]
+ist die positive QG-Perturbationsenergie
+\[
+\boxed{E'=\frac12\int_\Omega\left(|\nabla\psi|^2+|\nabla\tau|^2+L_D^{-2}|\tau|^2\right)dA
+=\frac12x^\dagger Mx,\quad M\succ0.}
+\]
+
+Der signed meridionale Eddy-Wärmetransport ist
+\[
+\boxed{H_{\rm heat}(t)=C_H\int_\Omega (\partial_x\psi)\tau\,dA,\qquad C_H>0,}
+\]
+mit $H_{\rm heat}>0$ als northward/poleward und $H_{\rm heat}<0$ als southward/equatorward. Nach Diskretisierung
+\[
+Q_{\rm heat}=\frac{C_H}{2}
+\begin{pmatrix}
+0&D_x^\dagger W\\
+WD_x&0
+\end{pmatrix}=Q_{\rm heat}^\dagger,
+\]
+und $Q_{\rm heat}$ ist indefinit.
+
+Auf dem bereits physikalisch balancierten Eddy-Zustandsraum wurde
+\[
+\boxed{B=I,\qquad R_{\rm in}=M}
+\]
+eingefroren. Das primäre Objective ist ausdrücklich kumulativ:
+\[
+\boxed{J_{\rm heat}(T)=\int_0^T x(t)^\dagger Q_{\rm heat}x(t)\,dt.}
+\]
+Absolute Werte oder Quadrat des Heat Flux sind nicht zugelassen.
+
+\subsection{Gefrorener Arbeitspunkt}
+\[
+L_x=30000\ \mathrm{km},
+\quad
+L_y=10000\ \mathrm{km},
+\quad
+L_D=1000\ \mathrm{km},
+\]
+\[
+\beta=1.6\times10^{-11}\ \mathrm{m^{-1}s^{-1}},
+\quad
+\xi=\frac{U}{\beta L_D^2}=\frac12,
+\quad
+U=8\ \mathrm{m\,s^{-1}},
+\]
+mit full shear $16\ \mathrm{m\,s^{-1}}$ und perturbativer PV-Rayleigh-Dämpfung
+\[
+r=(10\ \mathrm d)^{-1}.
+\]
+Die Parameter wurden aus physikalischen/subkritischen Kriterien und nicht anhand eines CORE-Effekts ausgewählt.
+
+\subsection{Nächster Climate-Schritt}
+Climate ist \ACTIVE\ für eine rein numerische Qualification: strukturtreue Fourier-/Galerkin-Diskretisierung, Konstruktion von $A_K,M_K,Q_{{\rm heat},K}$, Prüfung von $M_K\succ0$, Hermitizität/Indefinitheit von $Q_{\rm heat}$, Reproduktion des Heat Flux, Spektrum und Resolution convergence. Die Parameter dürfen nicht verändert werden. Noch verboten sind $K_E(T)$, $K_{\rm heat}(T)$, Optimizer, Winkel und Gaps.
+
+\section{Protected Application Branches}
+\subsection{Power Grids}
+Power Grids bleiben unabhängig vom Erfolg anderer Anwendungen im Projekt. Die potenzielle Struktur lautet
+\[
+\boxed{\text{global transient response}\neq\text{directed power-transfer/corridor-loading objective}.}
+\]
+$B$ könnte reale Generator-/Converter-/Störungskanäle repräsentieren. Der Branch ist \PARKED\ und soll später einen eigenen Feasibility Gate erhalten.
+
+\subsection{Photonics/Waves}
+Photonics/Waves bleiben ebenfalls dauerhaft geschützt. Besonders sauber ist die Trennung
+\[
+\boxed{\text{stored electromagnetic energy}\neq\text{directed Poynting flux}.}
+\]
+Damit könnte $M_{\rm EM}$ eine positive Storage-Metrik und $Q_{\rm Poynting}$ einen gerichteten Port-/Flächenleistungsfluss beschreiben. Status: \PARKED.
+
+\subsection{Realistic Fusion}
+Realistische Fusion bleibt ein geschützter Domain-Depth-Branch. Sie ist nicht der einzige Weg zum Paper, aber ein wichtiger späterer Validierungs-/Vertiefungspfad des ursprünglichen physikalischen Kontexts.
