@@ -19,6 +19,25 @@ The first repository-cleanup package is finished:
 
 The canonical theorem directory is `research/theorems/`. New theorem statements should be added there rather than creating a parallel theory tree.
 
+## CORE Mathematical Freeze 0.1
+
+**Status: reached on 2026-09-02**
+
+The current mathematical state through D10.2 has been consolidated in
+`research/core_mathematical_freeze_0_1.md`.
+
+The freeze is a rollback/reference point, not a final theory claim. It explicitly separates:
+
+- `STABLE` branch-independent finite-dimensional results;
+- `ASSUMPTION` hypotheses and modeling/workflow rules;
+- `BRANCH` plasma- and convention-dependent results;
+- `CONJECTURE` unproved structural directions;
+- `OPEN` unresolved questions.
+
+It also records rollback maps for D2/D8/D9/D10, and defines handoff interfaces from CORE to `30 – MODES`, `40 – CONT`, and `20 – CASCADE`.
+
+**Freeze discipline:** do not open a new fundamental CORE theorem branch until the MODES/CONT/CASCADE feedback has been synthesized into `CORE Interpretation Freeze 0.1`. The D10-ZF physical calibration is preserved as the current application branch but is not promoted into branch-independent CORE mathematics.
+
 ## Package A — Scope and novelty discipline
 
 **Status: complete for first pass**
@@ -33,7 +52,7 @@ The canonical theorem directory is `research/theorems/`. New theorem statements 
 
 ## Package B — Finite-dimensional theory
 
-**Status: abstract core validated; first physical instantiations now available**
+**Status: CORE Mathematical Freeze 0.1 reached; abstract core validated, interpretation synthesis pending cross-stream feedback**
 
 - [x] T1: short-time transport generation from a transport-neutral input space, including transport-generation order and coordinate invariance.
 - [x] T2: exact balance identity and elementary signed bounds.
@@ -43,9 +62,11 @@ The canonical theorem directory is `research/theorems/`. New theorem statements 
 - [x] Physical HW realization of T1/T4 transport generation during strict physical-energy contraction.
 - [x] Physical two-mode D2-A realization of energy/transport optimizer separation inside the same multidimensional transport-neutral input space.
 - [x] D10-ZF continuous balance exposes a second signed physical channel, mean-flow exchange `Q_U`, making T3 directly relevant to the coupled plasma pilot.
+- [x] Consolidate all results, assumptions, branch points, conjectures, open questions, rollback paths, and cross-stream interfaces in `research/core_mathematical_freeze_0_1.md`.
+- [ ] Receive and synthesize feedback from MODES/CONT/CASCADE into `CORE Interpretation Freeze 0.1`.
 - [ ] Test whether the two-mode separation persists when the modal direct-sum simplification is removed by the D10-ZF coupled operator.
-- [ ] Formalize terminal signed gain and cumulative signed gain as a common theorem package.
-- [ ] After the autonomous coupled-pilot gate, consider a nonautonomous extension of the transport-generation hierarchy for shearing-wave dynamics.
+- [ ] Formalize terminal signed gain and cumulative signed gain as a common theorem package only if it remains a priority after interpretation freeze.
+- [ ] Consider a nonautonomous transport-generation theorem only after the autonomous coupled-pilot and cross-stream interpretation gates.
 
 ## Package C — Model-independent JAX core
 
@@ -64,7 +85,7 @@ Implemented and tested before any plasma sweep:
 
 ## Package D — Plasma convention and pilot
 
-**Status: D10.2 production Fourier-Galerkin model implemented and structurally validated; next gate is the first physical coupled-pilot calibration**
+**Status: D10.2 production Fourier-Galerkin model implemented and structurally validated; physical calibration intentionally not frozen by CORE Mathematical Freeze 0.1**
 
 - [x] Compare candidate Hasegawa-Wakatani conventions for the first non-zonal linear pilot.
 - [x] Freeze D2-A: `x` radial, `y` poloidal, `v_E=e_z x grad(phi)`, Fourier `exp(i k dot x)`, state `(phi_k,n_k)`.
@@ -200,9 +221,9 @@ Update this note after each material theorem, modeling decision, or gate decisio
 
 ## Immediate next order
 
-1. Make the next physical pilot decision: choose one periodic zonal profile, radial domain/resolution family, and stable/subcritical amplitude for a single D10-ZF falsification point.
-2. Check radial-resolution/sideband convergence before interpreting optimizer results.
-3. Test spectral stability, transport neutrality, mean-flow exchange, and energy-versus-transport optimizer separation for that one coupled pilot.
-4. Repeat targeted prior-art chasing against the exact coupled mechanism and numerical observables.
-5. After the autonomous coupled pilot, open the homogeneous-shear/nonautonomous branch as the candidate T5 theory extension.
-6. Only after these physical-nontriviality gates pass, consider a controlled parameter map.
+1. Send the CORE Mathematical Freeze 0.1 interfaces/questions to `30 – MODES`, `40 – CONT`, and `20 – CASCADE`.
+2. Collect their exact compatibility results, counterexamples, and proposed extensions without changing CORE definitions during the handoff.
+3. Synthesize the feedback into **CORE Interpretation Freeze 0.1**.
+4. Only after that interpretation freeze decide whether CORE needs a new theorem package (nonautonomous, modal/projection, continuation/degeneracy, or none yet).
+5. Resume/complete the D10-ZF physical coupled-pilot calibration as the current application falsification branch, with resolution convergence before interpretation of optimizer results.
+6. Only after these gates pass, consider a controlled parameter map.
