@@ -30,24 +30,54 @@ EXPECTED_SPECTRUM = np.array(
     ]
 )
 EXPECTED_ENERGY_GAIN = np.array(
-    [1.1325420073438985, 1.2789124970124384, 1.6067783725603826,
-     2.3718727839414980, 3.7436139229532497, 4.0469887014928885]
+    [
+        1.1325420073438985,
+        1.2789124970124384,
+        1.6067783725603826,
+        2.3718727839414980,
+        3.7436139229532497,
+        4.0469887014928885,
+    ]
 )
 EXPECTED_QMIN = np.array(
-    [-0.08774600457764799, -0.12762485828431774, -0.14760261900142663,
-     -0.13541795513576788, -0.11042785143879685, -0.07905128613483861]
+    [
+        -0.08774600457764799,
+        -0.12762485828431774,
+        -0.14760261900142663,
+        -0.13541795513576788,
+        -0.11042785143879685,
+        -0.07905128613483861,
+    ]
 )
 EXPECTED_QMAX = np.array(
-    [0.11087658617399050, 0.20046415688950114, 0.35679473538072390,
-     0.7301045858959734, 1.8581395128453324, 3.8108919805591626]
+    [
+        0.11087658617399050,
+        0.20046415688950114,
+        0.35679473538072390,
+        0.7301045858959734,
+        1.8581395128453324,
+        3.8108919805591626,
+    ]
 )
 EXPECTED_THETA_DEG = np.array(
-    [46.223981130946086, 41.547300160717576, 33.83287337911526,
-     26.052466854806166, 23.119706360223983, 58.48321641408995]
+    [
+        46.223981130946086,
+        41.547300160717576,
+        33.83287337911526,
+        26.052466854806166,
+        23.119706360223983,
+        58.48321641408995,
+    ]
 )
 EXPECTED_J_ENERGY = np.array(
-    [0.049932149911247406, 0.10646726324869665, 0.24218953124296894,
-     0.6142514830549245, 1.6487397590985378, 2.3699284128693545]
+    [
+        0.049932149911247406,
+        0.10646726324869665,
+        0.24218953124296894,
+        0.6142514830549245,
+        1.6487397590985378,
+        2.3699284128693545,
+    ]
 )
 EXPECTED_DELTA_GAMMA = EXPECTED_QMAX - EXPECTED_J_ENERGY
 
@@ -88,8 +118,15 @@ def test_frozen_pilot_spectrum_is_unstable_without_retuning() -> None:
     eigenvalues = np.linalg.eigvals(problem.A)
     eigenvalues = eigenvalues[np.argsort(eigenvalues.real)[::-1]]
 
-    np.testing.assert_allclose(eigenvalues, EXPECTED_SPECTRUM, rtol=0.0, atol=2.0e-12)
-    np.testing.assert_allclose(eigenvalues[0].real, 0.08036351123176821, rtol=0.0, atol=2e-12)
+    # LAPACK/Numpy versions move the nonnormal eigenvalues at about 1e-10.
+    # This tolerance is only numerical portability; the frozen matrix is unchanged.
+    np.testing.assert_allclose(eigenvalues, EXPECTED_SPECTRUM, rtol=0.0, atol=2.0e-10)
+    np.testing.assert_allclose(
+        eigenvalues[0].real,
+        0.08036351123176821,
+        rtol=0.0,
+        atol=2.0e-10,
+    )
     assert eigenvalues[0].real > 0.0
 
 
@@ -115,7 +152,8 @@ def test_preregistered_horizon_metrics_and_optimizer_separation() -> None:
         q_values, q_vectors = np.linalg.eigh(k_gamma)
         v_gamma = q_vectors[:, -1]
 
-        p_gamma_raw = np.linalg.cholesky(problem.Rin) @ k_gamma @ np.linalg.cholesky(problem.Rin).conj().T
+        lower = np.linalg.cholesky(problem.Rin)
+        p_gamma_raw = lower @ k_gamma @ lower.conj().T
         j_e = float(np.real(u_energy.conj().T @ p_gamma_raw @ u_energy))
 
         energy_gains.append(float(energy_values[-1]))
@@ -173,7 +211,10 @@ def test_optimizer_normalization_rayleigh_and_direct_trajectory_integral_checks(
         )
 
         phi = np.asarray(constant_propagator(problem.A, float(horizon)))
-        direct_energy = float(np.real((phi @ u_energy).conj().T @ problem.M @ (phi @ u_energy)))
+        terminal_state = phi @ u_energy
+        direct_energy = float(
+            np.real(terminal_state.conj().T @ problem.M @ terminal_state)
+        )
         np.testing.assert_allclose(direct_energy, energy_values[-1], rtol=0.0, atol=2.0e-9)
 
         # Direct trajectory integration of Gamma(t) must reproduce the cumulative optimum.
