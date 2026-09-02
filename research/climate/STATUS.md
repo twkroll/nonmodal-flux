@@ -5,6 +5,7 @@
 - **Feasibility Gate 0.1:** passed. Leading candidate: damped two-layer baroclinic Phillips QG model with established QG perturbation energy and signed meridional eddy heat transport.
 - **Pilot Candidate Freeze 0.1:** promoted and frozen.
 - **Numerical Qualification 0.1:** **QUALIFIED**.
+- **Cross-Domain Integration Gate 0.1:** **PASSED**; Climate/Ocean released to Pilot Specification 0.1 only.
 
 ## Frozen pilot objects
 
@@ -72,8 +73,30 @@ w_E^\star,\quad w_{\rm heat}^\star,
 
 nor optimizer angles, gaps, objective separation, or any other CORE-effect measure.
 
+## Next admissible step
+
+Climate/Ocean is now released to **Pilot Specification 0.1** only.
+
+**Next instruction:** `research/master/prompts/climate_ocean_pilot_specification_0_1.md`
+
+When the user writes `GO` in the Climate/Ocean branch, read this `STATUS.md` and then execute only the committed `Next instruction` according to `research/master/prompt_handoff_protocol_0_1.md`.
+
+The specification must freeze the primary/confirmation resolutions, inherited dimensionless horizon ladder, exact finite-time numerical method, numerical checks, optimizer robustness diagnostics and verdict classes before any CORE-effect operator is constructed.
+
+Until that specification is complete and returned to MASTER:
+
+\[
+\boxed{\text{NO CLIMATE CORE OPTIMIZATION.}}
+\]
+
 ## Branch gate
 
 \[
-\boxed{\text{NUMERICALLY QUALIFIED; AWAIT NEXT EXPLICIT FREEZE/EXECUTION STEP}}
+\boxed{\text{NUMERICALLY QUALIFIED; PILOT SPECIFICATION ACTIVE}}
 \]
+
+## Canonical documents
+
+- `research/climate/climate_ocean_numerical_qualification_0_1.md`
+- `research/master/cross_domain_integration_gate_0_1.md`
+- `research/master/prompts/climate_ocean_pilot_specification_0_1.md`
