@@ -3,6 +3,9 @@
 import numpy as np
 
 from nonmodal_flux.models.hasegawa_wakatani import hasegawa_wakatani_matrices
+from nonmodal_flux.models.hasegawa_wakatani_zonal_flow import (
+    hasegawa_wakatani_zonal_flow_matrices,
+)
 
 
 def _multiplication_matrix(
@@ -245,3 +248,22 @@ def test_sinusoidal_zonal_flow_creates_only_expected_first_sidebands() -> None:
                     rtol=0.0,
                     atol=0.0,
                 )
+
+
+def test_production_assembler_matches_independent_reference_assembly() -> None:
+    modes = np.arange(-3, 4)
+    coefficients = {1: 0.08 - 0.03j, -1: 0.08 + 0.03j}
+    parameters = dict(
+        modes=modes,
+        ky=0.8,
+        coupling=1.2,
+        kappa=0.7,
+        profile_coefficients=coefficients,
+        fundamental_wavenumber=0.6,
+    )
+
+    reference = _assemble_d10_galerkin(**parameters)
+    production = hasegawa_wakatani_zonal_flow_matrices(**parameters)
+
+    for actual, expected in zip(production, reference, strict=True):
+        np.testing.assert_allclose(actual, expected, rtol=0.0, atol=5.0e-15)
