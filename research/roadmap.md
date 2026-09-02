@@ -64,7 +64,7 @@ Implemented and tested before any plasma sweep:
 
 ## Package D — Plasma convention and pilot
 
-**Status: D10-ZF accepted; continuous coupled equations and perturbation-energy balance derived; discretization is the next gate**
+**Status: D10.1 Fourier-Galerkin discretization selected and structurally validated; production coupled-model assembly is next**
 
 - [x] Compare candidate Hasegawa-Wakatani conventions for the first non-zonal linear pilot.
 - [x] Freeze D2-A: `x` radial, `y` poloidal, `v_E=e_z x grad(phi)`, Fourier `exp(i k dot x)`, state `(phi_k,n_k)`.
@@ -83,9 +83,12 @@ Implemented and tested before any plasma sweep:
 - [x] Accept D10-ZF: prescribed nonuniform zonal-flow linearization, initially `N(x)=0`, no ad-hoc mode coupling.
 - [x] Derive the continuous coupled equations and exact perturbation-energy balance in `research/hw_zonal_flow_linearization.md`.
 - [x] Identify the signed mean-flow energy-exchange channel `P_U` separately from the target radial particle flux `Gamma`.
-- [ ] Choose the radial representation at fixed `k_y` and derive the discrete `M`, `Q_Gamma`, `Q_U`, `D_C`, and `A_U` from the continuous forms.
-- [ ] Verify the discrete multichannel balance and convergence before choosing a zonal-flow amplitude.
-- [ ] Select one stable/subcritical prescribed zonal profile only after the structural discretization tests pass.
+- [x] Select a periodic coefficient-space Fourier-Galerkin representation at fixed `k_y`; see `research/hw_zonal_flow_discretization.md`.
+- [x] Derive discrete `M`, `Q_Gamma`, `Q_U`, `D_C`, and `A_U` directly from the continuous forms.
+- [x] Verify exact projected product-rule commutators, the multichannel balance, the `U=0` D2-A limit, the constant-flow Doppler limit, and sinusoidal sideband structure in test-only assembly.
+- [ ] Promote the validated D10.1 formulas to a production zonal-flow model constructor without choosing a zonal-flow amplitude.
+- [ ] Select one stable/subcritical prescribed zonal profile only after production structural tests pass.
+- [ ] Check radial-resolution/sideband convergence of the selected coupled pilot before interpreting optimizer results.
 - [ ] Repeat targeted prior-art chasing against the exact frozen convention and coupled mechanism.
 - [ ] Only after that gate, consider any parameter map.
 
@@ -130,6 +133,58 @@ A_U^\dagger M+M A_U
 
 Thus the first coupled pilot remains autonomous and compatible with T1--T4, while simultaneously giving T3 a direct physical multichannel role.
 
+### D10.1 structure-preserving discretization result
+
+Use the orthonormal periodic radial Fourier basis `e_m=L_x^{-1/2} exp(i k_m x)` with a symmetric retained set `m=-K,...,K`. In coefficient space,
+
+```math
+D_x=\operatorname{diag}(i k_m),
+\qquad
+\Delta=D_x^2-k_y^2I,
+```
+
+and projected multiplication by a real prescribed `U(x)` is a Hermitian Toeplitz/Galerkin matrix `Umat`. Derivative-profile matrices are built from the same Fourier coefficients, so the finite-dimensional commutators
+
+```math
+[D_x,Umat]=U_x,
+\qquad
+[D_x,U_x]=U_{xx}
+```
+
+hold algebraically. This makes the continuous integration-by-parts balance exact after projection rather than defining `Q_U` from a residual.
+
+The physics-derived discrete operators are
+
+```math
+M=\operatorname{diag}(-\Delta,I),
+```
+
+```math
+Q_\Gamma=\frac{k_y}{2}
+\begin{pmatrix}0&iI\\-iI&0\end{pmatrix},
+```
+
+```math
+Q_U=\operatorname{diag}\left[
+\frac{k_y}{2i}\left(U_xD_x-(U_xD_x)^\dagger\right),0
+\right],
+```
+
+and
+
+```math
+D_C=2C
+\begin{pmatrix}I&-I\\-I&I\end{pmatrix}.
+```
+
+The test-only assembly reproduces
+
+```math
+A_U^\dagger M+MA_U=2\kappa Q_\Gamma+2Q_U-D_C
+```
+
+to floating-point roundoff for a resolved sinusoidal profile. No `L_x`, radial resolution, profile harmonic, profile amplitude, or new damping law is frozen at this stage.
+
 ## Package E — Living theory note
 
 **Status: active**
@@ -143,9 +198,9 @@ Update this note after each material theorem, modeling decision, or gate decisio
 
 ## Immediate next order
 
-1. Choose the D10-ZF radial discretization at one fixed nonzero `k_y`, without choosing a zonal-flow amplitude yet.
-2. Derive discrete `M`, `Q_Gamma`, `Q_U`, and `D_C` from the continuous integrals and assemble `A_U` from the PDE.
-3. Add convention/balance tests and a resolution/sideband convergence test.
-4. Only after those pass, choose one prescribed zonal profile and test spectral stability, transport neutrality, and energy-versus-transport optimizer separation.
+1. Promote the structurally validated D10.1 Fourier-Galerkin assembly to a production model module, still without selecting a zonal-flow amplitude.
+2. Add production-level tests against the test-only reference assembly and the exact multichannel balance.
+3. Then make the next physical pilot decision: choose one periodic zonal profile, radial domain/resolution pair, and stable/subcritical amplitude for a single falsification point.
+4. Check resolution/sideband convergence, transport neutrality, spectral stability, and energy-versus-transport optimizer separation for that one coupled pilot.
 5. After the autonomous coupled pilot, open the homogeneous-shear/nonautonomous branch as the candidate T5 theory extension.
 6. Only after these physical-nontriviality gates pass, consider a controlled parameter map.
