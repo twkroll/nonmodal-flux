@@ -1,0 +1,91 @@
+\begin{titlepage}
+\centering
+\vspace*{1.8cm}
+{\Huge\bfseries nonmodal\par}
+\vspace{0.5cm}
+{\LARGE Integrierter Signed-Transport Forschungsrahmen\par}
+\vspace{0.3cm}
+{\Large Projektstatus, Herleitungen, Pilot-0.2 Result Freeze und Cross-Domain-Programm\par}
+\vspace{1.1cm}
+{\Huge\bfseries Masterbericht v0.5\par}
+\vspace{0.5cm}
+{\large Stand: 2. September 2026\par}
+\vfill
+\begin{minipage}{0.88\textwidth}
+\textbf{Aktueller globaler Zustand.} CORE Mathematical Freeze 0.1, Integration Freeze 0.1 und CORE Interpretation Freeze 0.1 bleiben stabil. Die mathematischen Neuheitsstränge Branch A und T3 sind geschlossen bzw. als bekannte Struktur repositioniert. Der kontrollierte D10-ZF Pilot 0.2 ist nach blindem Stabilitätsscreen und vorregistrierter Execution als \textbf{P2-A -- Strong Framework Demonstration} eingefroren. Der wichtigste quantitative Witness ist $\Delta_\Gamma(T=1)\simeq0.504$: die Free-Energy-optimale Anfangsstörung realisiert nur ungefähr die Hälfte des maximal möglichen positiven kumulativen Partikeltransports. Parallel sind zwei Cross-Domain-Stränge aktiv: Climate/Ocean hat C-A erreicht und einen zweischichtigen Phillips-QG-Piloten mit signed Eddy-Wärmetransport eingefroren; Neuro hat CMC/DCM nominiert, ist aber vor jeder CORE-Auswertung durch die admissible-input-Geometrie blockiert, weil ein einzelner afferenter Kanal Rang eins hätte.
+\end{minipage}
+\vfill
+{\small Interner Forschungsbericht. Formeln sind als gesetzte Mathematik im PDF enthalten, nicht als Bilder. Statusaussagen sind nach STABLE / ACTIVE / BLOCKED / OPEN / NOVELTY-COLLAPSED getrennt.}
+\end{titlepage}
+
+\section*{Executive Summary}
+\addcontentsline{toc}{section}{Executive Summary}
+\textbf{Worum geht es?} Das Projekt untersucht lineare bzw. linearisierte Dynamiken nicht nur über Eigenwerte oder eine positive Gesamtenergie, sondern über physikalisch separat definierte, vorzeichenbehaftete Transport- oder Austauschkanäle. Der minimale Rahmen ist
+\[
+\boxed{\coretuple}
+\]
+mit $\dot x=Ax$, $M=M^\dagger\succ0$, $Q_\alpha=Q_\alpha^\dagger$, zulässigen Anfangsstörungen $x(0)=Bu$ und einer Input-Kostenmetrik $R_{\rm in}\succ0$. Die drei Fragen
+\[
+\boxed{\text{modale Stabilität}\;\neq\;\text{finite-time Storage/Energy}\;\neq\;\text{signed Transfer}}
+\]
+werden bewusst nicht gleichgesetzt.
+
+Für einen Kanal $Q$ ist
+\[
+P_Q(T)=\int_0^T e^{A^\dagger t}Qe^{At}\,dt,
+\qquad
+K_Q(T)=R_{\rm in}^{-1/2}B^\dagger P_Q(T)B R_{\rm in}^{-1/2}.
+\]
+Die Extremaleigenwerte von $K_Q(T)$ geben die maximalen positiven bzw. negativen kumulativen signed Transporte unter normierter Input-Kostenmetrik an. Diese Mathematik ist bekannte quadratic-output/Systemtheorie. Der Projektbeitrag wird deshalb \emph{nicht} mehr als neue allgemeine Linearalgebra positioniert, sondern als methodische Integration aus physikalischer Kanaldefinition, finite-time Optimierung, admissible geometry, Darstellung/Reduktion, Parameterorganisation und Anwendungen.
+
+\textbf{Novelty-Reframing.} Branch A zeigte, dass die Generation-Hierarchie
+\[
+H_j=R_{\rm in}^{-1/2}B^\dagger \mathcal L_A^j(Q)B R_{\rm in}^{-1/2},
+\qquad
+\nu=\inf\{j\ge0:H_j\neq0\},
+\]
+mit bivariaten quadratic-output Jets, Lie-/Lyapunov-Ableitungen, Momentfolgen und Observability/Krylov-Strukturen eng verwandt ist. T3 kollabierte analog in bekannte dissipativity-/supply-rate-Strukturen. Beide Objekte bleiben diagnostisch nützlich, aber nicht als behauptete neue Grundmathematik.
+
+\textbf{Kanonischer kontrollierter Benchmark.} D10-ZF Pilot 0.1 scheiterte als stabiler Benchmark bei minimaler Trunkierung $K=1$ mit $\alpha(A)>0$, zeigte aber bereits Energy/Transport-Separation. Eine Resolution Qualification ergab $\alpha_K\to0^+$ numerisch, während die Objective-Separation selbst auflösungsrobust blieb. Anschließend wurde eine uniform vorhandene Dämpfungsachse $\nu_\perp$ \emph{blind gegenüber allen CORE-Effektgrößen} auf einer vorregistrierten Menge getestet. Der kleinste Wert mit Sicherheitsmarge war
+\[
+\boxed{\nu_\perp=0.020}.
+\]
+Erst danach wurde Pilot 0.2 spezifiziert, gefroren und ausgeführt.
+
+\textbf{Pilot 0.2 Hauptbefund.} Für $K=32,64,96$ gilt spektrale Stabilität
+\[
+\alpha(A_K)=(-0.00757860,-0.01338176,-0.01549244),
+\]
+aber gleichzeitig $G_E(T)>1$ für alle sechs vorregistrierten Horizonte $T\in\{0.25,0.5,1,2,4,8\}$. Der signed Partikeltransport besitzt überall positive und negative Extrema. Energy- und Transportoptimierer sind deutlich verschieden; der kleinste Winkel beträgt noch etwa $28.03^\circ$. Bei $T=1$ gilt
+\[
+G_E\simeq1.8783,
+\qquad
+\mathcal G_{\Gamma,+}\simeq0.3535,
+\qquad
+\Delta_\Gamma\simeq0.5043,
+\qquad
+\vartheta\simeq53.40^\circ.
+\]
+Der Pilot ist als
+\[
+\boxed{\textbf{P2-A -- STRONG FRAMEWORK DEMONSTRATION}}
+\]
+eingefroren. Er zeigt nicht Transport-generation-from-neutrality, weil $B=I$ und $B^\dagger Q_\Gamma B=Q_\Gamma\neq0$.
+
+\textbf{Literaturpositionierung.} Ein gezielter Audit findet starke Cross-Domain-Prior-Art dafür, dass energy-optimal perturbations für Mixing/Transport suboptimal sein können, und starke Plasma-Prior-Art für transient growth in modally stable systems. Kein SAME-Treffer wurde jedoch für die vollständige integrierte Plasma-P2-A-Kombination gefunden: asymptotisch stabiles Drift-/Transportproblem, finite-time Energy Growth, separat optimierter physikalischer signed Partikeltransport und ein großer, auflösungsrobuster quantitativer Transportgap. Der allgemeine Claim ``energy-optimal $\neq$ transport-optimal'' ist deshalb explizit \emph{nicht} neu; der enge Plasma-Anwendungsclaim bleibt dagegen tragfähig.
+
+\textbf{Cross-Domain-Programm.} Zwei Anwendungen sind aktuell aktiv. Climate/Ocean hat C-A erreicht: ein zweischichtiges Phillips-QG-Modell mit klassischer positiver QG-Perturbationsenergie $M$, signed meridionalem Eddy-Wärmetransport $Q_{\rm heat}$, $B=I$ auf einem bereits balancierten QG-Eddy-Zustandsraum und $R_{\rm in}=M$ wurde als Pilotkandidat eingefroren. Der nächste Schritt ist ausschließlich eine strukturtreue numerische und spektrale Qualification, noch ohne Energy-vs-Heat-Optimierung.
+
+Neuro hat den Metric Gate mit NM-A bestanden und multi-region CMC/DCM als ersten Kandidaten nominiert. Die synaptic-filter storage ist positiv und unabhängig von CORE definiert; der primäre physiologische Kanal ist $\mathrm{SP}_j\to\mathrm{SS}_i$ mit
+\[
+Q_{j\to i}^{\rm CORE}=\tfrac12(A_{j\to i}^\dagger M+MA_{j\to i}).
+\]
+Der vorgeschlagene einzelne afferente Input $B_{\rm aff,j}$ hätte jedoch bei Rang eins keine nichttriviale Optimizer-Geometrie. Neuro ist deshalb vor jeder CORE-Auswertung durch einen \textbf{Admissible Input Geometry Gate} blockiert.
+
+\textbf{Langfristige geschützte Branches.} Power Grids und Photonics/Waves bleiben unabhängig vom Erfolg von Neuro/Climate im Projekt. Ihre potenziellen Kerntrennungen sind global transient response versus directed power-transfer/corridor objective sowie stored electromagnetic energy versus directed Poynting flux. Realistische Fusion bleibt als fachliche Vertiefung des ursprünglichen Plasmakontexts geschützt.
+
+\textbf{Aktuell sinnvollster Gesamtweg.} Zwei Aufgaben dürfen parallel laufen: (i) Neuro Admissible Input Geometry Gate 0.1; (ii) Climate/Ocean Numerical Qualification 0.1. CORE, MODES, CONT, CASCADE und LIT bleiben bis zu diesen Ergebnissen eingefroren bzw. im STOP-Zustand.
+
+\newpage
+\tableofcontents
+\newpage
