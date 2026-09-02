@@ -1,0 +1,38 @@
+\section{Repository- und Artefaktstatus}
+Das GitHub-Repository \texttt{twkroll/nonmodal-flux} ist erreichbar. Zum Zeitpunkt dieser PDF-Erstellung zeigt \texttt{main} auf Commit
+\[
+\texttt{f175c47b3294761526e7477475d2b4a7f7945fdd},
+\]
+der den vollständigen D10-ZF Pilot-0.2 Execution-Report enthält. Die kanonischen Pilot-0.2-Daten und Tests sind damit im Repository vorhanden.
+
+Die jüngsten Neuro-/Climate-Gate-Ergebnisse wurden in dieser MASTER-Sitzung aus den bereitgestellten Markdown-Outputs integriert. Für den zukünftigen Workflow gilt verbindlich: relevante Gate-/Freeze-/Audit-Ergebnisse sollen als kanonische Markdown-Dateien im gemeinsamen Repository gespeichert und committed werden; der Chat-Text ist dann nicht die primäre Source of Truth.
+
+Empfohlene Struktur:
+\begin{verbatim}
+research/neuro/
+research/climate/
+research/power_grids/
+research/photonics/
+research/fusion/
+research/master/
+docs/reports/
+\end{verbatim}
+Zusätzlich sollte jeder aktive Application-Branch eine kleine \texttt{STATUS.md} mit Current Gate, Status, latest canonical file, dependencies und next allowed action pflegen.
+
+\section{Versionshistorie}
+\begin{center}
+\small
+\begin{tabularx}{\textwidth}{p{2.1cm}p{2.6cm}X}
+\toprule
+Version & Datum & Kernaenderungen\\
+\midrule
+v0.3 & 2026-09-02 & Früher technischer Foundation-Stand: CORE/MODES/CONT/CASCADE, mathematische Strukturen und Literatur.\\
+v0.4 & 2026-09-02 & Masterbericht nach Novelty-Reframing und frühen Pilot-/Integrationsergebnissen; technische Foundation erhalten.\\
+v0.5 & 2026-09-02 & Pilot 0.2 P2-A Result Freeze; blind stable selection; Resolution-/Objective-Robustness; P2-A Literature Positioning; Neuro Feasibility/M-Gate/CMC-Nomination samt Rang-$1$-$B$-Blocker; Climate C-A und Phillips-QG Candidate Freeze; Power Grids/Photonics dauerhaft geschützt; aktueller Decision Log und paralleler Next-Step-Plan.\\
+\bottomrule
+\end{tabularx}
+\end{center}
+
+\section*{Technischer Anhangshinweis}
+\addcontentsline{toc}{section}{Technischer Anhangshinweis}
+Die folgenden Seiten übernehmen den detaillierten technischen Foundation-Teil des vorherigen kanonischen Berichts. Wo dort frühere Neuheitsbewertungen oder ältere Projektstatusformulierungen erscheinen, gelten die in den vorderen Kapiteln dieses v0.5-Berichts dokumentierten neueren Freezes, Novelty-Collapses und Pilot-0.2-Ergebnisse als superseding MASTER-Stand. Die mathematischen Herleitungen werden als technisches Archiv beibehalten.
