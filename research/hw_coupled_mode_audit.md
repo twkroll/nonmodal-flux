@@ -1,7 +1,7 @@
 # Audit of physically justified mode coupling for the Hasegawa-Wakatani pilot
 
 **Date:** 2026-09-02  
-**Status:** coupling mechanisms assessed; no new coupling convention frozen yet
+**Status:** audit complete; prescribed-zonal-flow route accepted as D10-ZF
 
 ## Purpose
 
@@ -41,7 +41,7 @@ E=\frac12\int\left(|\nabla\phi|^2+|n|^2\right)\,d^2x,
 
 Any coupled discretization must be derived from these continuous expressions rather than reweighted after assembly.
 
-## Candidate A — prescribed zonal-flow background: recommended autonomous robustness test
+## Candidate A — prescribed zonal-flow background: accepted as D10-ZF
 
 Let the background contain a stationary zonal potential `Phi(x)` and, optionally, a stationary zonal density `N(x)`. Write
 
@@ -104,15 +104,22 @@ A spectral/Galerkin or structure-preserving real-space discretization then produ
 
 ### Important balance change
 
-A prescribed zonal flow is an external/background energy reservoir for the perturbations. Consequently, the perturbation energy balance generally acquires a mean-flow exchange term in addition to density-gradient drive and dissipation. One should therefore not assume in advance that the old single-mode identity
+The continuous D10-ZF derivation is now recorded in `research/hw_zonal_flow_linearization.md`. The prescribed zonal flow is a background energy reservoir for the perturbations, so the perturbation-energy balance acquires a signed mean-flow exchange term:
 
 ```math
-A^\dagger M+MA=2\kappa Q_\Gamma-D
+\frac{dE_{\rm pert}}{dt}
+=\kappa\Gamma+\mathcal P_U
+-C\int|\varphi-\eta|^2dx.
 ```
 
-survives unchanged. The coupled operator must be derived first, and its symmetric `M`-part must be decomposed into physically interpretable density-gradient, mean-flow-exchange, and dissipative terms.
+After discretization the required multichannel identity is
 
-This is scientifically useful rather than a defect: it tests whether transport-optimality remains distinct from energy-optimality when physically meaningful mode exchange is present.
+```math
+A_U^\dagger M+MA_U
+=2\kappa Q_\Gamma+2Q_U-D_C.
+```
+
+Thus the old single-mode identity does not survive unchanged, and the new mean-flow exchange `Q_U` must remain distinct from the target particle-flux observable `Q_Gamma`.
 
 ### Discretization warning
 
@@ -127,7 +134,7 @@ couples a radial Fourier mode to neighboring sidebands. A two-sideband truncatio
 1. a small but explicitly stated Galerkin truncation with convergence checked by adding sidebands, or
 2. a modest periodic radial grid/spectral discretization at fixed `k_y`.
 
-The second route is cleaner for the first robustness test because it avoids making the truncation itself the main modeling assumption.
+The second route remains the cleaner first robustness test because it avoids making the truncation itself the main modeling assumption.
 
 ## Candidate B — homogeneous shear: recommended subsequent theory-extension test
 
@@ -165,28 +172,26 @@ Retaining the zonal mode dynamically together with drift-wave sidebands gives th
 
 However, once the zonal amplitude evolves through quadratic mode coupling, the perturbation dynamics are no longer the constant linear initial-value problem addressed by the current T1--T4 package. This should remain a later branch rather than the immediate Gate-0 robustness test.
 
-## Ranking
+## Ranking after D10-ZF
 
-For the current research question the candidates rank as follows:
+The program now proceeds in the following order:
 
-1. **Prescribed zonal-flow linearization with radial discretization** — best immediate application/robustness test; physically derived coupling; autonomous; current finite-horizon theory still applies.
+1. **Prescribed zonal-flow linearization with radial discretization** — accepted as D10-ZF; immediate application/robustness test; physically derived coupling; autonomous; current finite-horizon theory still applies.
 2. **Homogeneous shear / shearing waves** — best next theory-extension target; physically canonical and intrinsically nonautonomous.
 3. **Radially varying density gradient** — useful later for separating target flux from spatially weighted drive and for multichannel/balance questions.
 4. **Fully evolving zonal-flow triads** — important nonlinear application, but premature for the present linear Gate-0 sequence.
 
-## Proposed next gate
+## Current next gate
 
-No coupling parameters are frozen in this audit. The next modeling decision should choose whether to adopt the prescribed-zonal-flow route as the immediate coupled pilot.
+D10-ZF is accepted and the first two derivation steps are complete. The next implementation sequence is now:
 
-If accepted, the implementation sequence should be:
-
-1. derive the linearized continuous equations around prescribed `U(x)` (and initially set `N(x)=0` unless a source-level reason requires otherwise);
-2. derive the continuous perturbation-energy balance and identify the mean-flow exchange term explicitly;
-3. derive `M` and the unweighted physical `Q_Gamma` before discretization;
-4. choose a small periodic radial domain/discretization and verify convergence against a finer radial resolution;
+1. choose a periodic radial representation at fixed nonzero `k_y`;
+2. derive discrete `M`, `Q_Gamma`, `Q_U`, and `D_C` from the continuous forms;
+3. assemble `A_U` from the linearized PDE;
+4. verify the discrete multichannel balance and convergence with radial resolution/sideband count;
 5. only then choose one subcritical/stable zonal-flow profile and run the finite-horizon energy-versus-transport comparison.
 
-This keeps the immediate step primarily a **physical robustness test of T1--T4**. The homogeneous-shear case should follow as a separate branch because it is the point where the **underlying theory itself becomes nonautonomous**.
+This keeps the immediate step primarily a **physical robustness test of T1--T4** while giving T3 a direct multichannel role. The homogeneous-shear case remains a separate later branch because it is the point where the **underlying theory itself becomes nonautonomous**.
 
 ## Literature anchors used in this audit
 
