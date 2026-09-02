@@ -1,0 +1,61 @@
+\section{Neuro-Branch}
+\subsection{Feasibility und Metric Gate}
+Das Neuro Feasibility Gate identifizierte CMC/DCM und gekoppelte Jansen--Rit-Netzwerke als prinzipiell tragfähig, mit $A$ und $B$ gut begründbar und signed pathway channels möglich. Der anfängliche Blocker war ein nicht offensichtlich kanonisches $M$.
+
+Der Neuro $M$-Gate löste diesen Blocker im Wesentlichen. Für second-order synaptic filters
+\[
+\dot q=p,
+\qquad
+\dot p=-K^2q-2Kp+\text{forcing}
+\]
+ist
+\[
+S_{\rm syn}(q,p)=\frac12\left(p^\dagger p+q^\dagger K^2q\right)
+=\frac12x^\dagger M_{\rm syn}x,
+\]
+\[
+M_{\rm syn}=\begin{pmatrix}K^2&0\\0&I\end{pmatrix}\succ0.
+\]
+Für Jansen--Rit ist eine entsprechende Hamiltonian-Struktur explizit publiziert; für CMC folgt die gleiche positive storage unmittelbar aus der Filterstruktur. Semantisch ist \emph{synaptic-filter storage} zulässig, nicht ``brain energy'', ``metabolic energy'' oder ATP-Verbrauch. Der Gate-Status ist NM-A.
+
+\subsection{Nominierter Neuro-Kandidat}
+Der Candidate Gate nominiert
+\[
+\boxed{\text{multi-region Canonical Microcircuit / DCM}}
+\]
+mit einem einzigen primären physiologischen feedforward channel
+\[
+\boxed{\mathrm{SP}_j\longrightarrow\mathrm{SS}_i}.
+\]
+Der vollständige linearisierte Generator wird als
+\[
+A_{\rm lin}=A_{\rm rest}+A_{j\to i}
+\]
+zerlegt, wobei $A_{j\to i}$ ausschließlich den Jacobian-Beitrag dieser laminar/populationsspezifischen Verbindung enthält.
+
+Mit
+\[
+S=\frac12x^\dagger Mx
+\]
+wird die kanonische Faktor-Konvention
+\[
+\boxed{Q_{j\to i}^{\rm CORE}=\frac12\left(A_{j\to i}^\dagger M+MA_{j\to i}\right)}
+\]
+verwendet, sodass
+\[
+q_{j\to i}(t)=x(t)^\dagger Q_{j\to i}^{\rm CORE}x(t)
+\]
+der signed Beitrag des physiologisch vorab benannten Pfades zur synaptic-filter-storage rate ist. Die Richtung $j\to i$ stammt aus $A_{j\to i}$, nicht aus der Hermitizität von $Q$.
+
+\subsection{Aktueller Blocker: Rang der admissible geometry}
+Der Candidate Gate schlug einen einzelnen sensorisch afferenten Kanal $B_{\rm aff,j}$ auf $\mathrm{SS}_j$ vor. Falls
+\[
+\operatorname{rank}(B)=1,
+\]
+ist der zulässige normierte Initialraum eine Linie. Dann sind sowohl Storage- als auch Channel-Optimierung eindimensionale Skalarprobleme; es kann keine nichttriviale Richtungsseparation geben. Das wäre kein wissenschaftlich negatives Ergebnis, sondern ein geometrisch trivialisiertes Experiment.
+
+Daher ist Neuro aktuell \BLOCKED\ vor jeder CORE-Auswertung. Der nächste Gate prüft ausschließlich, ob unabhängig von CORE ein physiologisch/experimentell vertretbarer Raum
+\[
+\operatorname{range}(B),\qquad \operatorname{rank}(B)\ge2
+\]
+definiert werden kann. $B=I$, freie Hidden-State-Kicks oder eine Erweiterung nach Sichtung eines Effekts sind verboten.
