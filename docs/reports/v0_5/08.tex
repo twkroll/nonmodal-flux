@@ -1,0 +1,42 @@
+\section{Decision \& Branch Log -- aktuelle Chronologie}
+Frühere Entscheidungen bis DEC-163 sind im technischen Foundation-/v0.4-Stand erhalten. Die aktuelle Phase wird wie folgt zusammengefasst:
+\begin{longtable}{p{1.8cm}p{10.8cm}p{2.1cm}}
+\toprule
+ID & Entscheidung & Status\\
+\midrule
+DEC-164--169 & Objective Resolution Qualification akzeptiert; Separation resolution-robust; $K=1$ quantitativ unteraufgelöst; finite-$K$ Instabilität und Objective-Separation getrennt. & \STABLE\\
+DEC-170--174 & Pilot 0.2 Gate freigegeben; stabile Instanziierung blind; $\nu_\perp$ als erste dissipative Achse; übrige Physik zunächst unverändert. & \STABLE\\
+DEC-175--181 & Blind Stability Qualification akzeptiert; $\nu_\perp=0.020$ gewählt; $0.015$ trotz negativer $\alpha$ wegen Sicherheitsmarge verworfen; CORE-Auswertung bis Spec blockiert. & \STABLE\\
+DEC-182--192 & Pilot 0.2 Specification: $K=32,64,96$, festes $T$-Raster, whitened Notation, dimensionsloses $\Delta_\Gamma$, S0--S5, Verdict-Klassen und no-retuning. & \STABLE\\
+DEC-193--200 & Pilot 0.2 Freeze erreicht und Execution freigegeben. & \STABLE\\
+DEC-201--212 & Execution akzeptiert; P2-A nach originaler Preregistration; stabile finite-time Amplifikation, signed Transport und physikalische Optimizer-Separation etabliert; kein Math-Novelty-Claim; Neutrality geparkt. & \STABLE\\
+DEC-213--224 & Pilot 0.2 Result Freeze; P2-A globaler kontrollierter Benchmark; Claims/Overclaims eingefroren; nächste Phase Anwendungen. & \STABLE\\
+DEC-225--234 & Application Gate: Neuro als primärer Cross-Domain-Kandidat; Feasibility first; Fusion geschützt; Neuro Kill Criteria. & \STABLE\\
+DEC-235--244 & Neuro Feasibility zunächst N-B; Climate/Ocean-Branch eröffnet; Power Grids/Photonics geparkt; Climate und Neuro parallel zulässig. & \STABLE\\
+DEC-245--249 & Power Grids und Photonics dauerhaft im Projekt geschützt; Erfolg anderer Branches führt nicht zur Demotion. & \STABLE\\
+DEC-250--263 & Climate C-A; QG führend; Neuro M-Gate NM-A; ``brain energy'' verboten; kumulative signed channels; P2-A Literature Positioning eingeengt; Power/Photonics geschützt. & \STABLE\\
+DEC-264--275 & CMC/DCM nominiert; SP$_j\to$SS$_i$ primärer Neurokanal; Rang-$1$-$B$ als Blocker; Climate Candidate Freeze akzeptiert; Phillips-QG, signed $Q_{\rm heat}$, $B=I$, $R_{\rm in}=M$; Climate Numerical Qualification freigegeben; Climate CORE-Effektgrößen blockiert. & \ACTIVE\\
+\bottomrule
+\end{longtable}
+
+\section{Rollbackpunkte}
+\begin{enumerate}
+\item \textbf{CORE Mathematical Freeze 0.1:} Rücksprung auf reine branch-independent Mathematik ohne Application-Interpretationen.
+\item \textbf{Integration Freeze 0.1:} Rücksprung auf kanonische Notation und Moduleinordnung.
+\item \textbf{CORE Interpretation Freeze 0.1 / CORE 0.2 Reframe:} Rücksprung auf Framework-Novelty statt fundamentaler Mathematik.
+\item \textbf{Pilot 0.1 Freeze:} ursprünglicher negativer stabiler Benchmarkstatus bleibt erhalten und darf nicht umgeschrieben werden.
+\item \textbf{Pilot 0.2 Freeze:} blind ausgewählter stabiler Punkt und vorregistriertes Protokoll.
+\item \textbf{Pilot 0.2 Result Freeze:} aktueller globaler Savepoint mit P2-A. Neue Anwendungen dürfen diesen Befund nicht rückwirkend verändern.
+\item \textbf{Climate Candidate Freeze:} eingefrorener QG-Pilotpunkt; bei numerischem Widerspruch STOP statt Retuning.
+\end{enumerate}
+
+\section{Aktuell nächste freigegebene Schritte}
+\subsection{Neuro Admissible Input Geometry Gate 0.1}
+Nur die admissible geometry $B$ prüfen. Gesucht ist, unabhängig von CORE, ein physiologisch/experimentell vertretbarer Raum
+\[
+\operatorname{range}(B),\qquad \operatorname{rank}(B)\ge2.
+\]
+Höchstens drei natürliche Optionen prüfen. Verboten: $B=I$ ohne Neurobegründung, freie Hidden-State-Perturbationen, B-Erweiterung nach späterem Effekt und stiller Wechsel zu time-dependent optimal control. Ergebnis NB-A / NB-B / NB-C. Keine Optimierung.
+
+\subsection{Climate/Ocean Numerical Qualification 0.1}
+Strukturtreue Fourier-/Galerkin-Diskretisierung des eingefrorenen Phillips-QG-Piloten. Vorab fixierte Resolution ladder. Prüfen: $M_K\succ0$, Hermitizität und Indefinitheit von $Q_{{\rm heat},K}$, korrekte Heat-Flux-Reproduktion, Spektrum $\alpha(A_K)$ und Resolution convergence. Keine Parameteränderung. Keine Energy-/Heat-Optimizer, keine Winkel/Gaps. Bei robustem Stabilitätswiderspruch STOP.
