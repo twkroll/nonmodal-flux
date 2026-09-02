@@ -1,0 +1,57 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.05cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs,longtable,array,tabularx}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{titlesec}
+\usepackage{etoolbox}
+\usepackage{ragged2e}
+\usepackage{parskip}
+\usepackage{setspace}
+\usepackage{multicol}
+\usepackage{pdflscape}
+\usepackage{caption}
+\usepackage{pdfpages}
+\hypersetup{colorlinks=true,linkcolor=blue!50!black,urlcolor=blue!50!black,pdftitle={nonmodal - Masterbericht v0.5},pdfauthor={Projekt nonmodal}}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{nonmodal -- Masterbericht v0.5}
+\rhead{Stand: 2. September 2026}
+\cfoot{\thepage/\pageref{LastPage}}
+\setlength{\headheight}{14pt}
+\setlist[itemize]{topsep=2pt,itemsep=2pt,parsep=0pt,leftmargin=1.45em}
+\setlist[enumerate]{topsep=2pt,itemsep=2pt,parsep=0pt,leftmargin=1.7em}
+\renewcommand{\arraystretch}{1.12}
+\newcommand{\STABLE}{\textcolor{green!45!black}{\textbf{STABLE}}}
+\newcommand{\ACTIVE}{\textcolor{orange!80!black}{\textbf{ACTIVE}}}
+\newcommand{\BLOCKED}{\textcolor{red!70!black}{\textbf{BLOCKED}}}
+\newcommand{\PARKED}{\textcolor{blue!55!black}{\textbf{PROTECTED/PARKED}}}
+\newcommand{\OPEN}{\textcolor{purple!70!black}{\textbf{OPEN}}}
+\newcommand{\COLLAPSED}{\textcolor{red!55!black}{\textbf{NOVELTY-COLLAPSED}}}
+\newcommand{\coretuple}{\mathfrak C=(A,M,\{Q_\alpha\},B,R_{\rm in})}
+\newcommand{\smallnote}[1]{\begin{quote}\small #1\end{quote}}
+\titleformat{\section}{\Large\bfseries}{\thesection}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries}{\thesubsection}{0.55em}{}
+\titleformat{\subsubsection}{\normalsize\bfseries}{\thesubsubsection}{0.5em}{}
+\begin{document}
+\input{v0_5/01.tex}
+\input{v0_5/02.tex}
+\input{v0_5/03.tex}
+\input{v0_5/04.tex}
+\input{v0_5/05.tex}
+\input{v0_5/06.tex}
+\input{v0_5/07.tex}
+\input{v0_5/08.tex}
+\input{v0_5/09.tex}
+\clearpage
+\includepdf[pages=3-,pagecommand={}]{../theory_progress.pdf}
+\end{document}
