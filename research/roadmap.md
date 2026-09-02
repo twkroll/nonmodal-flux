@@ -1,6 +1,6 @@
 # Research roadmap
 
-**Updated:** 2026-09-01
+**Updated:** 2026-09-02
 
 This file is the short operational view of the research program. Detailed theorem notes and literature audits live elsewhere.
 
@@ -44,6 +44,7 @@ The canonical theorem directory is `research/theorems/`. New theorem statements 
 - [x] Physical two-mode D2-A realization of energy/transport optimizer separation inside the same multidimensional transport-neutral input space.
 - [ ] Test whether the two-mode separation persists when the modal direct-sum simplification is removed.
 - [ ] Formalize terminal signed gain and cumulative signed gain as a common theorem package.
+- [ ] After the autonomous coupled-pilot gate, consider a nonautonomous extension of the transport-generation hierarchy for shearing-wave dynamics.
 
 ## Package C — Model-independent JAX core
 
@@ -62,7 +63,7 @@ Implemented and tested before any plasma sweep:
 
 ## Package D — Plasma convention and pilot
 
-**Status: both initial diagnostic branches computed; next gate is physical nontriviality beyond an uncoupled modal direct sum**
+**Status: coupling audit complete; next gate is whether to adopt prescribed-zonal-flow linearization as the first non-direct-sum pilot**
 
 - [x] Compare candidate Hasegawa-Wakatani conventions for the first non-zonal linear pilot.
 - [x] Freeze D2-A: `x` radial, `y` poloidal, `v_E=e_z x grad(phi)`, Fourier `exp(i k dot x)`, state `(phi_k,n_k)`.
@@ -77,7 +78,9 @@ Implemented and tested before any plasma sweep:
 - [x] Branch S: compute the single-mode neutral-line transport generation and full-state finite-horizon energy/transport optimizer separation.
 - [x] Branch M: compute a two-mode direct-sum pilot with a two-dimensional exactly transport-neutral pure-potential input space.
 - [x] Document the branch comparison in `research/hw_branch_comparison.md` and record the parallel strategy as D9.
-- [ ] Decide what physically justified coupling/enrichment should replace the direct-sum simplification for the next falsification test.
+- [x] Audit physically justified mechanisms that remove the direct-sum simplification without inserting an ad-hoc matrix coupling; see `research/hw_coupled_mode_audit.md`.
+- [ ] Gate D10: decide whether the immediate coupled pilot should be the linearization around a prescribed zonal flow `U(x)` with radial discretization.
+- [ ] If D10 is accepted, derive the continuous perturbation-energy balance including mean-flow exchange before any discretization or parameter choice.
 - [ ] Repeat targeted prior-art chasing against the exact frozen convention and branch results.
 - [ ] Only after that gate, consider any parameter map.
 
@@ -88,6 +91,12 @@ Implemented and tested before any plasma sweep:
 **Branch M — two uncoupled modes.** Use `kx=0.5` and `kx=1.5` with common `ky=1`, `C=1`, `kappa=1`, `nu_k=0.15`, and pure-potential input in each mode. The two-dimensional input space is exactly transport-neutral. At short time the energy criterion selects the `kx=1.5` mode while the transport criterion selects `kx=0.5`; at `T=1` the whitened terminal-energy values are approximately `(0.56555978, 0.65428728)` while accumulated transport values are `(0.13193948, 0.07319417)`, giving orthogonal optimal neutral directions.
 
 The Branch-M result is structurally stronger for the Gate-0 wording, but its exact `90 deg` separation currently comes from competition between uncoupled modal blocks. That simplicity is now the next falsification target rather than something to hide.
+
+### Coupling audit conclusion
+
+The preferred immediate autonomous robustness test is **linearization about a prescribed nonuniform zonal flow**. This produces physically derived radial mode/sideband coupling while retaining a constant linear operator after radial discretization, so the present T1--T4 finite-horizon machinery still applies. The perturbation-energy balance must, however, acquire and explicitly track exchange with the prescribed mean flow; the old single-mode balance must not be assumed unchanged.
+
+A homogeneous shear-flow/shearing-wave formulation is ranked next because it is physically canonical but makes `A=A(t)`, and therefore naturally opens a separate nonautonomous theory extension rather than serving as the first autonomous coupled pilot.
 
 ## Package E — Living theory note
 
@@ -102,7 +111,8 @@ Update this note after each material theorem, modeling decision, or gate decisio
 
 ## Immediate next order
 
-1. Choose a physically justified way to remove the uncoupled two-mode direct-sum simplification without changing D2-A silently; likely candidates are a documented shearing/coupled-mode construction or a richer reduced drift-fluid model.
-2. Re-test transport neutrality, energy contraction, and energy/transport optimizer separation in that less decomposable setting.
-3. Repeat targeted citation chasing against the exact frozen convention and the specific mechanism found.
-4. Only after this physical-nontriviality gate passes, consider a controlled parameter map.
+1. Make Gate D10: accept or reject the prescribed-zonal-flow linearization as the immediate autonomous coupled pilot.
+2. If accepted, derive the linearized continuous equations and perturbation-energy balance around prescribed `U(x)` before selecting a zonal profile amplitude or radial discretization.
+3. Derive the radial-discretized `M` and physical unweighted `Q_Gamma` from their continuous integrals, then test convergence of the coupled operator.
+4. Only after the coupled autonomous pilot is understood, open the homogeneous-shear/nonautonomous branch as a possible new theorem package.
+5. Only after these physical-nontriviality gates pass, consider a controlled parameter map.
