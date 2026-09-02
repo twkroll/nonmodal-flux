@@ -35,6 +35,7 @@ The positive state/storage metric remains the pre-CORE synaptic-filter storage f
 | Neuro M-Gate 0.1 | `NM-A` | A pre-CORE positive synaptic-filter storage is strong enough in principle. |
 | Neuro Pilot Candidate Gate 0.1 | `NOMINATED: multi-region CMC/DCM` | Primary channel fixed as `SP_j -> SS_i`; no CORE evaluation yet. |
 | Neuro Admissible Input Geometry Gate 0.1 | `NB-A` | A natural admissible initial-state map with rank at least two exists without `B=I` or arbitrary hidden-state perturbations. |
+| Cross-Domain Integration Gate 0.1 | `PASSED` | Neuro released to Pilot Specification 0.1 only; no CORE execution yet. |
 
 ## Canonical admissible input geometry after NB-A
 
@@ -98,7 +99,13 @@ The following remain prohibited for the first Neuro pilot:
 
 ## Next admissible step
 
-A subsequent Neuro pilot specification may freeze, **without parameter search**:
+Neuro is now released to **Pilot Specification 0.1** only.
+
+**Next instruction:** `research/master/prompts/neuro_pilot_specification_0_1.md`
+
+When the user writes `GO` in the Neuro branch, read this `STATUS.md` and then execute only the committed `Next instruction` according to `research/master/prompt_handoff_protocol_0_1.md`.
+
+The specification must freeze, without parameter/effect search:
 
 1. exact multi-region CMC architecture and stable operating point;
 2. anatomical/source identities of `j` and `i`;
@@ -106,14 +113,17 @@ A subsequent Neuro pilot specification may freeze, **without parameter search**:
 4. exact `M` and `A_{j->i}` matrices;
 5. fixed pulse shapes and preparation delays defining `B_prep^(2)`;
 6. stimulus-to-model calibration and `R_in`;
-7. rank/conditioning qualification of the frozen full-system `B`.
+7. rank/conditioning qualification of the frozen full-system `B`;
+8. pre-CORE time normalization, fixed horizon ladder, later numerical checks and verdict rules.
 
-Until that specification is complete:
+Until that specification is complete and returned to MASTER:
 
 \[
 \boxed{\text{NO CORE-NEURO OPTIMIZATION.}}
 \]
 
-## Canonical document
+## Canonical documents
 
 - `research/neuro/neuro_admissible_input_geometry_gate_0_1.md`
+- `research/master/cross_domain_integration_gate_0_1.md`
+- `research/master/prompts/neuro_pilot_specification_0_1.md`
