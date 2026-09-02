@@ -5,16 +5,22 @@
 
 ## Current candidate
 
-The only nominated first Neuro demonstrator is
+The only nominated first Neuro demonstrator remains
 
 \[
 \boxed{\text{multi-region CMC/DCM}}.
 \]
 
-The primary physiological signed channel is frozen as
+The concrete Pilot-Specification instantiation is now frozen as a two-source macaque visual hierarchy
 
 \[
-\boxed{\mathrm{SP}_j\rightarrow\mathrm{SS}_i}
+\boxed{j=\mathrm{V1},\qquad i=\mathrm{V4}}.
+\]
+
+The primary physiological signed channel remains
+
+\[
+\boxed{\mathrm{V1\,SP}\rightarrow\mathrm{V4\,SS}}
 \]
 
 with
@@ -25,105 +31,100 @@ Q_{j\to i}^{\rm CORE}
 \frac12(A_{j\to i}^{\dagger}M+MA_{j\to i}).
 \]
 
-The positive state/storage metric remains the pre-CORE synaptic-filter storage fixed by the CMC second-order postsynaptic filtering structure.
+The positive state/storage metric is the pre-CORE synaptic-filter storage fixed by the CMC second-order postsynaptic filtering structure.
 
 ## Gate ledger
 
-| Gate | Result | Consequence |
+| Gate / freeze | Result | Consequence |
 |---|---|---|
 | Neuro Feasibility Gate 0.1 | `N-B` | CMC/DCM and coupled Jansen-Rit survived; `M` required dedicated clarification. |
 | Neuro M-Gate 0.1 | `NM-A` | A pre-CORE positive synaptic-filter storage is strong enough in principle. |
-| Neuro Pilot Candidate Gate 0.1 | `NOMINATED: multi-region CMC/DCM` | Primary channel fixed as `SP_j -> SS_i`; no CORE evaluation yet. |
-| Neuro Admissible Input Geometry Gate 0.1 | `NB-A` | A natural admissible initial-state map with rank at least two exists without `B=I` or arbitrary hidden-state perturbations. |
-| Cross-Domain Integration Gate 0.1 | `PASSED` | Neuro released to Pilot Specification 0.1 only; no CORE execution yet. |
+| Neuro Pilot Candidate Gate 0.1 | `NOMINATED: multi-region CMC/DCM` | Primary channel fixed as `SP_j -> SS_i`; no CORE evaluation. |
+| Neuro Admissible Input Geometry Gate 0.1 | `NB-A` | A natural admissible preparation map with rank at least two exists without `B=I` or arbitrary hidden-state perturbations. |
+| Cross-Domain Integration Gate 0.1 | `PASSED` | Neuro released to Pilot Specification 0.1 only. |
+| Neuro Pilot Specification 0.1 | `COMPLETE` | Concrete V1/V4 model, `A`, `M`, channel block, two-pulse `B`, input metric, time normalization and execution checks frozen. Execution is **not** self-authorized. |
 
-## Canonical admissible input geometry after NB-A
+## Frozen Pilot Specification 0.1
 
-The first-pilot input geometry is now defined at the **class level** as a two-component fixed preparation protocol through the already accepted afferent input to `SS_j`.
+Canonical file:
 
-Let `b_aff,j` be the physiological CMC injection vector for the afferent drive to `SS_j`. Two fixed brief stimulus components with distinct pre-registered preparation delays generate
+`research/neuro/neuro_pilot_specification_0_1.md`
 
-\[
-\boxed{
-B_{\rm prep}^{(2)}
-=
-\begin{bmatrix}
- b_1^{\rm eff}&b_2^{\rm eff}
-\end{bmatrix},
-}
-\]
+Key frozen objects:
 
-or, in the ideal impulse representation,
+```text
+model                  = 2-source multi-region CMC/DCM
+reference dynamics     = SPM12 spm_fx_cmc.m, blob 66606f2e8c45b896ba239d26d98a45cd1b94b33d
+source j               = macaque V1
+source i               = macaque V4
+primary channel        = V1 SP -> V4 SS
+state dimension        = 16
+operating point        = x* = 0
+propagation delays     = disabled for this autonomous ODE pilot
+T (ms)                 = (2, 2, 16, 28)
+G (1/s)                = (800,800,1600,800,800,400,800,800,400,200)
+E (1/s)                = (200,100,200,100)
+sigmoid R              = 2/3
+sigmoid derivative     = 1/6 at baseline
+exogenous input        = V1 SS only, standard SPM factor 32
+b_aff,V1               = 16000 * e_2
+A_j->i                 = only entry (10,3)=16666.6666666667
+Q_j->i^CORE            = only symmetric entries (10,3),(3,10)=8333.33333333333
+pulse width            = 1 ms
+pre-observation delays = (2 ms, 16 ms)
+R_in                    = I_2
+rank(B)                 = 2
+kappa_2(M^1/2 B)        = 34.2940
+tau_ref                 = 28 ms
+horizon ladder          = (7,14,28,56,112,224) ms
+```
 
-\[
-\boxed{
-B_{\rm prep}^{(2)}
-=
-\begin{bmatrix}
- e^{A\tau_1}b_{\rm aff,j}
-&
- e^{A\tau_2}b_{\rm aff,j}
-\end{bmatrix},
-\qquad \tau_1\ne\tau_2.
-}
-\]
+The exact `16 x 16` generator `A`, storage matrix `M`, finite-pulse `B` columns and numerical qualification are recorded in the canonical specification file.
 
-The second-order synaptic-filter block gives structural rank two for distinct delays; no additional hidden-state actuator is introduced.
+## Qualification status
 
-The input metric is the pre-registered physical/experimental pulse-dose Gram matrix
+Pre-CORE checks completed during specification only:
 
-\[
-(R_{\rm in})_{k\ell}
-=
-E_{\rm ref}^{-1}\int h_k(t)h_\ell(t)\,dt.
-\]
+- exact baseline fixed point `x*=0`;
+- asymptotic stability of the frozen generator:
+  \[
+  \alpha(A)=-33.0964092356\;\mathrm{s}^{-1}<0;
+  \]
+- `M=M^dagger>0` by construction;
+- `Q_{j->i}^{CORE}=Q_{j->i}^{CORE\,dagger}` by construction;
+- finite two-pulse preparation map has numerical rank `2`;
+- storage/input-whitened conditioning is `34.2940`, below the frozen qualification ceiling `100`;
+- no timing, parameter, region or pathway was retuned after qualification.
 
-For equal, non-overlapping, equally calibrated same-modality pulses this reduces to
-
-\[
-R_{\rm in}=I_2
-\]
-
-**in input-coordinate space only**.
+No `K_M`, `K_Q`, optimizer, angle or objective-separation quantity has been evaluated.
 
 ## Hard restrictions
 
-The following remain prohibited for the first Neuro pilot:
+The following remain prohibited unless MASTER explicitly opens a new task:
 
-- `B=I` without a physiological actuator model;
-- arbitrary independent perturbations of latent CMC hidden states;
-- choosing pulse timing, waveform, source, or input columns after inspecting a CORE effect;
-- treating DCM modulatory inputs as additive initial-condition directions;
-- optimizing a time-dependent control waveform;
-- computing CORE optimizers or objective-separation effects before a full pilot preregistration freezes model, operating point, pulse protocol, and calibration.
+- any CORE-Neuro optimization or objective-separation calculation;
+- changing V1/V4, the operating point or any frozen CMC parameter after inspecting a CORE effect;
+- `B=I` or arbitrary independent perturbations of latent CMC hidden states;
+- changing the two pulse shapes, widths, delays or input calibration after the specification freeze;
+- optimizing a time-dependent stimulus waveform;
+- enabling propagation delays without a new MASTER-approved model freeze;
+- adding horizons outside the frozen ladder to rescue a result;
+- calling the storage brain energy or metabolic energy.
 
-## Next admissible step
+## Next instruction
 
-Neuro is now released to **Pilot Specification 0.1** only.
+**Next instruction:** `RETURN TO MASTER FOR PILOT FREEZE`
 
-**Next instruction:** `research/master/prompts/neuro_pilot_specification_0_1.md`
-
-When the user writes `GO` in the Neuro branch, read this `STATUS.md` and then execute only the committed `Next instruction` according to `research/master/prompt_handoff_protocol_0_1.md`.
-
-The specification must freeze, without parameter/effect search:
-
-1. exact multi-region CMC architecture and stable operating point;
-2. anatomical/source identities of `j` and `i`;
-3. model parameters and state ordering;
-4. exact `M` and `A_{j->i}` matrices;
-5. fixed pulse shapes and preparation delays defining `B_prep^(2)`;
-6. stimulus-to-model calibration and `R_in`;
-7. rank/conditioning qualification of the frozen full-system `B`;
-8. pre-CORE time normalization, fixed horizon ladder, later numerical checks and verdict rules.
-
-Until that specification is complete and returned to MASTER:
+Under `research/master/prompt_handoff_protocol_0_1.md`, a bare `GO` in this branch must **not** silently start pilot execution while this field says `RETURN TO MASTER`.
 
 \[
-\boxed{\text{NO CORE-NEURO OPTIMIZATION.}}
+\boxed{\text{NO CORE-NEURO EXECUTION AUTHORIZED.}}
 \]
 
 ## Canonical documents
 
 - `research/neuro/neuro_admissible_input_geometry_gate_0_1.md`
+- `research/neuro/neuro_pilot_specification_0_1.md`
 - `research/master/cross_domain_integration_gate_0_1.md`
 - `research/master/prompts/neuro_pilot_specification_0_1.md`
+- `research/master/prompt_handoff_protocol_0_1.md`
