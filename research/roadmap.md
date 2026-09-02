@@ -64,7 +64,7 @@ Implemented and tested before any plasma sweep:
 
 ## Package D — Plasma convention and pilot
 
-**Status: D10.1 Fourier-Galerkin discretization selected and structurally validated; production coupled-model assembly is next**
+**Status: D10.2 production Fourier-Galerkin model implemented and structurally validated; next gate is the first physical coupled-pilot calibration**
 
 - [x] Compare candidate Hasegawa-Wakatani conventions for the first non-zonal linear pilot.
 - [x] Freeze D2-A: `x` radial, `y` poloidal, `v_E=e_z x grad(phi)`, Fourier `exp(i k dot x)`, state `(phi_k,n_k)`.
@@ -86,9 +86,11 @@ Implemented and tested before any plasma sweep:
 - [x] Select a periodic coefficient-space Fourier-Galerkin representation at fixed `k_y`; see `research/hw_zonal_flow_discretization.md`.
 - [x] Derive discrete `M`, `Q_Gamma`, `Q_U`, `D_C`, and `A_U` directly from the continuous forms.
 - [x] Verify exact projected product-rule commutators, the multichannel balance, the `U=0` D2-A limit, the constant-flow Doppler limit, and sinusoidal sideband structure in test-only assembly.
-- [ ] Promote the validated D10.1 formulas to a production zonal-flow model constructor without choosing a zonal-flow amplitude.
-- [ ] Select one stable/subcritical prescribed zonal profile only after production structural tests pass.
+- [x] Promote the D10.1 formulas to `src/nonmodal_flux/models/hasegawa_wakatani_zonal_flow.py` without adding a zonal-flow amplitude or damping law.
+- [x] Verify the production assembler against the independent test-only Galerkin assembly, exact multichannel balance, parameter validation, and a multidimensional pure-potential transport-neutral input space.
+- [ ] Select one periodic prescribed zonal profile, radial domain/resolution pair, and stable/subcritical amplitude for the first coupled falsification point.
 - [ ] Check radial-resolution/sideband convergence of the selected coupled pilot before interpreting optimizer results.
+- [ ] Test transport neutrality, spectral stability, and energy-versus-transport optimizer separation in the converged coupled pilot.
 - [ ] Repeat targeted prior-art chasing against the exact frozen convention and coupled mechanism.
 - [ ] Only after that gate, consider any parameter map.
 
@@ -177,13 +179,13 @@ D_C=2C
 \begin{pmatrix}I&-I\\-I&I\end{pmatrix}.
 ```
 
-The test-only assembly reproduces
+The production assembler now reproduces
 
 ```math
 A_U^\dagger M+MA_U=2\kappa Q_\Gamma+2Q_U-D_C
 ```
 
-to floating-point roundoff for a resolved sinusoidal profile. No `L_x`, radial resolution, profile harmonic, profile amplitude, or new damping law is frozen at this stage.
+to floating-point roundoff and matches an independently coded test reference. The production `TransportProblem` keeps `Q=Q_Gamma`; `Q_U` remains a separate balance channel rather than being folded into the transport target. No `L_x`, radial resolution, profile harmonic, profile amplitude, or new damping law is frozen at this stage.
 
 ## Package E — Living theory note
 
@@ -198,9 +200,9 @@ Update this note after each material theorem, modeling decision, or gate decisio
 
 ## Immediate next order
 
-1. Promote the structurally validated D10.1 Fourier-Galerkin assembly to a production model module, still without selecting a zonal-flow amplitude.
-2. Add production-level tests against the test-only reference assembly and the exact multichannel balance.
-3. Then make the next physical pilot decision: choose one periodic zonal profile, radial domain/resolution pair, and stable/subcritical amplitude for a single falsification point.
-4. Check resolution/sideband convergence, transport neutrality, spectral stability, and energy-versus-transport optimizer separation for that one coupled pilot.
+1. Make the next physical pilot decision: choose one periodic zonal profile, radial domain/resolution family, and stable/subcritical amplitude for a single D10-ZF falsification point.
+2. Check radial-resolution/sideband convergence before interpreting optimizer results.
+3. Test spectral stability, transport neutrality, mean-flow exchange, and energy-versus-transport optimizer separation for that one coupled pilot.
+4. Repeat targeted prior-art chasing against the exact coupled mechanism and numerical observables.
 5. After the autonomous coupled pilot, open the homogeneous-shear/nonautonomous branch as the candidate T5 theory extension.
 6. Only after these physical-nontriviality gates pass, consider a controlled parameter map.
