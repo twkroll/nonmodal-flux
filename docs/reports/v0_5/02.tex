@@ -1,0 +1,87 @@
+\section{Status- und Governance-Konventionen}
+Dieser Bericht ist zugleich wissenschaftlicher Referenzstand und MASTER-Steuerungsdokument. \STABLE\ bezeichnet eingefrorene Aussagen oder Savepoints. \ACTIVE\ bezeichnet einen klar abgegrenzten freigegebenen nächsten Schritt. \BLOCKED\ bedeutet, dass vor einer weiteren Rechnung ein Gate bestanden werden muss. \OPEN\ markiert eine ungelöste Forschungsfrage. \COLLAPSED\ bedeutet, dass eine mathematische Idee weiterhin korrekt/nützlich sein kann, aber nach Prior-Art-Prüfung nicht als eigenständiger Neuheitskern geführt wird.
+
+Bei jedem \texttt{Status?} sind zu prüfen: Gesamtzustand aller Stränge; Abhängigkeiten und Blocker; GO/WAIT/STOP; Freeze-Check; Decision/Branch-Log; branch-independent versus branch-dependent Resultate; Rollbackpunkte; Integrationsbedarf; sinnvollster nächster Gesamtschritt.
+
+\section{CORE 0.2 -- stabiler mathematisch-methodischer Kern}
+\subsection{Primitive Struktur}
+\[
+\coretuple,
+\qquad
+\dot x=Ax,
+\qquad
+x(0)=Bu.
+\]
+$M=M^\dagger\succ0$ definiert eine positive physikalische Energy-/Storage-Größe. Jeder $Q_\alpha=Q_\alpha^\dagger$ repräsentiert einen separat physikalisch definierten signed Kanal. $R_{\rm in}\succ0$ ist eine Kostenmetrik auf dem Inputraum; Geometrie und Rang liegen bei $\operatorname{range}(B)$, nicht bei $R_{\rm in}$.
+
+\subsection{Finite-time signed transport}
+Für $x(t)=e^{At}Bu$ gilt
+\[
+J_Q(T;u)=\int_0^T x(t)^\dagger Qx(t)\,dt
+=u^\dagger B^\dagger P_Q(T)Bu,
+\]
+\[
+P_Q(T)=\int_0^T e^{A^\dagger t}Qe^{At}\,dt,
+\qquad
+K_Q(T)=R_{\rm in}^{-1/2}B^\dagger P_Q(T)BR_{\rm in}^{-1/2}.
+\]
+Für $v^\dagger v=1$ sind $\lambda_{\max}(K_Q)$ und $\lambda_{\min}(K_Q)$ die positiven bzw. negativen signed Extrema.
+
+\subsection{Generation hierarchy als Diagnostik}
+\[
+H_j=R_{\rm in}^{-1/2}B^\dagger\mathcal L_A^j(Q)BR_{\rm in}^{-1/2},
+\qquad
+\mathcal L_A(X)=A^\dagger X+XA,
+\]
+\[
+\nu=\inf\{j\ge0:H_j\neq0\}\in\mathbb N_0\cup\{\infty\}.
+\]
+Für $\nu=1$ folgt
+\[
+K_Q(T)=\frac{T^2}{2}H_1+O(T^3).
+\]
+Der Spezialfall $B^\dagger QB=0$ beschreibt transportneutrale Anfangsgeometrie. Er ist mathematisch stabil, wurde in Pilot 0.2 aber nicht getestet.
+
+\subsection{Bilanzstruktur}
+Für geeignete physikalische Systeme kann
+\[
+A^\dagger M+MA=gQ-D
+\]
+mit $D\succeq0$ gelten. Dann
+\[
+gP_Q(T)=e^{A^\dagger T}Me^{AT}-M+P_D(T).
+\]
+Für mehrere Kanäle
+\[
+A^\dagger M+MA=\sum_\alpha g_\alpha Q_\alpha-D
+\]
+bestimmt die Gesamtbilanz einzelne $Q_\alpha$ nicht. Das ist eine bekannte supply-rate/dissipativity-Struktur und kein neuer T3-Satz.
+
+\section{Novelty Collapse und aktuelle wissenschaftliche Positionierung}
+\subsection{Branch A}
+Der bivariate Kernel
+\[
+\mathcal K_Q(s,t)=B^\dagger e^{A^\dagger s}Qe^{At}B
+\]
+hat den Jet
+\[
+\mathcal K_Q(s,t)=\sum_{p,q\ge0}\frac{s^pt^q}{p!q!}M_{p,q},
+\quad
+M_{p,q}=B^\dagger(A^\dagger)^pQA^qB.
+\]
+Die Gram-Kurve $G_Q(t)=\mathcal K_Q(t,t)$ besitzt
+\[
+G_Q(t)=\sum_{j\ge0}\frac{t^j}{j!}S_j,
+\qquad
+S_j=\sum_{p+q=j}\binom jp M_{p,q},
+\]
+mit $H_j=R_{\rm in}^{-1/2}S_jR_{\rm in}^{-1/2}$. Die Diagonalrestriktion verliert bivariate Information. $\nu=\infty$ ist äquivalent zu $G_Q(t)\equiv0$ und zu vollständiger $Q$-Isotropie von $\operatorname{range}(e^{At}B)$ für alle $t$. Diese Strukturen liegen nahe an quadratic-output, Lie-derivative, moment/Krylov und observability theory. \COLLAPSED\ als mathematische Neuheitsachse; \STABLE\ als Diagnostik.
+
+\subsection{T3}
+Die Multi-Channel-Bilanz, Nichtidentifizierbarkeit einzelner supply rates aus einer Summenbilanz, subspace-restringierte Rayleigh-Ritz-Grenzen und neutrale/isotrope Unterräume besitzen starke Prior Art in dissipativity, IQCs, vector dissipativity und Krein-artiger Geometrie. \COLLAPSED\ als neue allgemeine Mathematik.
+
+\subsection{CORE-0.2 Novelty-Strategie}
+\[
+\boxed{\text{Novelty}=\text{Integration}+\text{physical interpretation}+\text{methodology}+\text{applications/predictions}.}
+\]
+Ziel ist N2+N3: methodische Integration und neue physikalische Einsicht. N0/N1-Mathematik darf explizit bekannt sein.
