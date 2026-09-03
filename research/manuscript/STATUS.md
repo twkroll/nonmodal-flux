@@ -11,88 +11,76 @@
 \boxed{\text{STABLE — MANUSCRIPT ARCHITECTURE FROZEN}}.
 \]
 
-`Manuscript Structural Revision Package 0.3` is complete.
+`Manuscript Structural Revision Package 0.3` remains complete and Draft 0.3 remains the manuscript rollback point.
 
-Canonical Revision-0.3 outputs:
-
-- `research/manuscript/manuscript_draft_0_3.md`;
-- `research/manuscript/evidence_citation_map_0_2.md`;
-- `research/manuscript/figure_source_map_0_2.md`.
-
-No scientific result was changed in Revision 0.3.
-
-MASTER has now completed `Journal & Audience Positioning Gate 0.1`.
-
-Canonical publication-positioning authority:
-
-`research/master/journal_audience_positioning_gate_0_1.md`
-
-## Publication target
-
-Primary:
+MASTER's `Journal & Audience Positioning Gate 0.1` remains stable with primary target
 
 \[
-\boxed{\text{Physical Review E — Regular Article}}
+\boxed{\text{Physical Review E — Regular Article}}.
 \]
 
-Backups:
-
-1. Chaos — Regular Research Article;
-2. Physical Review Research — Regular Article.
-
-Target-specific PRE working title:
-
-`Physics-informed diagnosis of objective nonredundancy in stable linear dynamics across plasma, neural and geophysical models`
-
-Draft 0.3 remains the rollback manuscript. No target choice changes scientific claims or evidence ordering.
-
-## Frozen evidence sequence
-
-1. Plasma/D10-ZF `P2-A` — strong primary anchor;
-2. Neuro/CMC `NEURO-STRONG` — strong cross-domain demonstrator;
-3. Climate-A/Phillips-QG `CLIM-WEAK` — robust weak geometry-versus-performance contrast.
-
-Climate-B remains
+`Frozen-Data Figure Production Package 0.1` is now complete and
 
 \[
-\boxed{\text{CLIM-B-FAIL — resolution robustness failure}}
+\boxed{\text{PASS — FROZEN-DATA FIGURES/TABLES PRODUCED}}.
 \]
 
-and is a brief main-text robustness-rejection subsection plus full Supplement S5 only. It is excluded from robust Main Fig. 5 evidence.
+No scientific result, evidence ordering, verdict, model, objective, signed channel, admissible geometry, horizon, resolution, parameter, or physical interpretation was changed.
 
-## Figure/table authority
+## Canonical package report
 
-Scientific authority:
+`research/manuscript/frozen_data_figure_production_package_0_1.md`
 
-`research/manuscript/figure_source_map_0_2.md`
+## Canonical figure/table assets
 
-Frozen main displays:
+Main figures:
 
-- Fig. 1 workflow/domain semantics;
-- Fig. 2 Plasma;
-- Fig. 3 Neuro;
-- Fig. 4 Climate-A;
-- Fig. 5 non-inferential robust-domain geometry/performance summary;
-- Main Table 1 three robust-domain definitions;
-- operational table in Supplement;
-- Climate-B robustness display in Supplement S5.
+- `research/manuscript/figures/main/fig1_common_workflow.svg` + PNG preview;
+- `research/manuscript/figures/main/fig2_plasma_strong_anchor.svg` + PNG preview;
+- `research/manuscript/figures/main/fig3_neuro_two_pulse.svg` + PNG preview;
+- `research/manuscript/figures/main/fig4_climate_a_weak_contrast.svg` + PNG preview;
+- `research/manuscript/figures/main/fig5_cross_domain_summary.svg` + PNG preview.
 
-PRE Regular Article format does not require scientific compression of this plan.
+Supplement:
+
+- `research/manuscript/figures/supplement/figS5_climate_b_robustness_rejection.svg` + PNG preview.
+
+Tables:
+
+- `research/manuscript/figures/tables/main_table_1.md`;
+- `research/manuscript/figures/tables/main_table_1.tex`;
+- `research/manuscript/figures/tables/supplement_table_s1_operational_rules_outcomes.md`;
+- `research/manuscript/figures/tables/supplement_table_s1_operational_rules_outcomes.tex`.
+
+Reproducibility:
+
+- `research/manuscript/figures/src/generate_frozen_data_figures_0_1.py`;
+- `research/manuscript/figures/src/validate_frozen_data_figures_0_1.py`;
+- `research/manuscript/figures/figure_manifest_0_1.md`;
+- `research/manuscript/figures/validation_0_1.md`;
+- `research/manuscript/figures/captions_0_1.md`.
+
+## Frozen evidence/presentation guardrails retained
+
+1. Plasma/D10-ZF `P2-A` remains the strong primary anchor.
+2. Neuro/CMC remains `NEURO-STRONG` with rank-two two-pulse preparation semantics.
+3. Climate-A/Phillips-QG remains `CLIM-WEAK`, explicitly pairing `90 deg` geometry with only `Delta_heat≈0.0412` target-performance loss at the longest frozen horizon.
+4. Climate-B remains
+   \[
+   \boxed{\text{CLIM-B-FAIL — resolution robustness failure}}
+   \]
+   with `0/6` frozen horizons robust; it is excluded from robust Main Fig. 5 evidence.
+5. Main Fig. 5 is non-inferential: no phase diagram, universal threshold region, trend line, fit, regression, or cross-domain physical-objective scale.
+6. No scientific solver, interpolation, smoothing, new horizon/resolution, retuning, Climate-B repair, or third Climate candidate was used for figure production.
 
 ## Active instruction
 
-**Status:** `FROZEN-DATA FIGURE PRODUCTION PACKAGE 0.1 READY — AWAIT GO`
+**Status:** `FROZEN-DATA FIGURE PRODUCTION PACKAGE 0.1 COMPLETE — STOP / RETURN TO MASTER`
 
-**Next instruction:**
+**Next instruction:** none active.
 
-`research/master/prompts/frozen_data_figure_production_package_0_1.md`
+A bare `GO` must not open new manuscript work until MASTER commits a new active instruction and updates this STATUS.
 
-On a bare `GO`, first read this STATUS and execute only that committed instruction.
+Submission preparation, cover-letter drafting, author-list work, new novelty search, journal-transfer preparation, protected-branch work, and new scientific calculation remain unauthorized in this branch.
 
-The package may create figure/table scripts and rendered assets using frozen stored data only. It must not rerun models, solve new scientific eigenproblems/matrix exponentials, interpolate scientific values, add horizons/resolutions, alter verdicts/claims, repair Climate-B, or open new science.
-
-## STOP boundary
-
-Do not begin submission preparation, cover-letter drafting, author-list work, new novelty search, journal transfer preparation, or protected-branch work during figure production.
-
-**STOP / AWAIT GO.**
+**STOP — RETURN TO MASTER.**
