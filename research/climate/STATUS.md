@@ -31,8 +31,8 @@ so the energy-optimal subspace retains approximately 95.88% of maximum cumulativ
 ### Climate-B — one-shot intra-domain contrast branch
 
 - Climate Intra-Domain Contrast Feasibility Gate 0.1: `PASSED`.
-- Climate Intra-Domain Contrast Candidate Freeze 0.1: **`STABLE`**.
-- Climate Intra-Domain Contrast Numerical Qualification 0.1: **AUTHORIZED / NOT YET EXECUTED**.
+- Climate Intra-Domain Contrast Candidate Freeze 0.1: `STABLE`.
+- **Climate Intra-Domain Contrast Numerical Qualification 0.1: `QUALIFIED`.**
 
 Frozen candidate:
 
@@ -62,21 +62,52 @@ with
 - frozen nested resolution roles:
   `(8,16)` structural smoke, `(12,24)` coarse audit, `(16,32)` primary, `(20,40)` confirmation, `(24,48)` high-resolution audit.
 
-Candidate Freeze analytically established \(M_K\succ0\), a Hermitian signed/indefinite \(Q_{{\rm shift},K}\), physical consistency of \(B=I,R_{\rm in}=M_K\), and the Rayleigh-Kuo pre-effect stability criterion.
+## Climate-B Numerical Qualification 0.1 result
 
-No finite-time `K_M`, `K_shift`, optimizer, angle, gap, horizon dependence, or objective-separation quantity has been computed or inspected for Climate-B.
+Canonical qualification report:
 
-Hard rule: Climate-B remains one additional attempt only. If Numerical Qualification fails or a later frozen execution is weak/null, no third Climate candidate is authorized before the first manuscript.
+`research/climate/climate_intra_domain_contrast_numerical_qualification_0_1.md`
+
+Machine-readable data:
+
+`research/climate/climate_intra_domain_contrast_numerical_qualification_0_1_data.csv`
+
+Regression test:
+
+`tests/test_climate_intra_domain_contrast_numerical_qualification_0_1.py`
+
+All frozen structural and spectral gates passed:
+
+- 512-versus-1024 Gauss-Legendre assembly audit: PASS; worst relative defect `2.92e-14`;
+- \(M_K=M_K^\dagger\succ0\): PASS, with \(\lambda_{\min}(M_K)=7.895683520871486\);
+- \(Q_{{\rm shift},K}=Q_{{\rm shift},K}^\dagger\), nontrivial and indefinite: PASS;
+- parity selection rules: PASS to quadrature/roundoff precision;
+- fixed `m=1, c_11=1, c_12=±i` signed-channel witness: PASS;
+- complete frozen spectra: PASS;
+- spectral stability at every rung:
+  \[
+  \alpha(A_K)=-0.05787037037037=-0.1\,\mathrm d^{-1}<0
+  \]
+  to double-precision roundoff;
+- maximum deviation of any computed spectral real part from \(-r^*\): `1.13e-14`;
+- worst normalized eigenpair residual: `6.42e-15`;
+- rightmost spectral boundary is resolution-robust from smoke through high-resolution audit.
+
+Local qualification-only regression tests: `3 passed`.
+
+No finite-time `K_M`, `K_shift`, `G_M`, `J_shift^±`, optimizer, angle, gap, horizon dependence, or objective-separation quantity has been computed or inspected for Climate-B. No horizon ladder has been selected.
+
+Hard rule: Climate-B remains one additional attempt only. Qualification success does not authorize execution. No third Climate candidate is authorized before the first manuscript.
 
 ## Active instruction
 
-**Status:** `CLIMATE-B NUMERICAL QUALIFICATION READY — AWAIT GO`
+**Status:** `CLIMATE-B NUMERICAL QUALIFICATION COMPLETE — RETURN TO MASTER`
 
 **Next instruction:**
 
-`research/master/prompts/climate_intra_domain_contrast_numerical_qualification_0_1.md`
+`RETURN TO MASTER`
 
-On `GO`, first read this STATUS and execute only that committed instruction. The qualification may assemble/verify `A_K`, `M_K`, `Q_shift,K`, channel sign reproduction, quadrature/parity structure, and spectral stability. It must not construct any finite-time CORE-effect operator or select a horizon ladder.
+This Climate chat must not self-authorize Pilot Specification, finite-time execution, horizon selection, or any further Climate analysis on a bare `GO` until MASTER commits a new instruction.
 
 ## Manuscript dependency
 
@@ -95,7 +126,14 @@ Climate-B:
 
 - `research/master/climate_intra_domain_contrast_feasibility_gate_0_1.md`
 - `research/climate/climate_intra_domain_contrast_candidate_freeze_0_1.md`
+- `research/climate/climate_intra_domain_contrast_numerical_qualification_0_1.md`
+- `research/climate/climate_intra_domain_contrast_numerical_qualification_0_1_data.csv`
+- `tests/test_climate_intra_domain_contrast_numerical_qualification_0_1.py`
 - `research/master/prompts/climate_intra_domain_contrast_numerical_qualification_0_1.md`
 - `research/master/prompt_handoff_protocol_0_1.md`
 
-**STOP / AWAIT GO.**
+\[
+\boxed{\text{CLIMATE-B NUMERICAL QUALIFICATION COMPLETE — RETURN TO MASTER}}
+\]
+
+**STOP.**
