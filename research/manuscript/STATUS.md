@@ -5,43 +5,47 @@
 
 ## Current state
 
-The first integrated manuscript drafting package has been completed from frozen evidence only.
+Draft 0.1 has been reviewed under `Manuscript Draft Review Gate 0.1`.
 
-Canonical manuscript framing remains:
+Review verdict:
 
 \[
-\boxed{\text{methods/application paper on physics-informed objective-nonredundancy diagnostics}}
+\boxed{\text{PASS WITH MAJOR EDITORIAL/REPRODUCIBILITY REVISION}}
 \]
 
-with frozen evidence roles:
+The scientific claims remain compatible with frozen evidence and no new calculation is required. The required changes are writing/reproducibility changes only: make each physical model self-contained, expose compact definitions of `A/M/Q/B/R_in`, clarify pre-specification/freeze terminology, state study-specific verdict thresholds, normalize notation, tighten Abstract/Introduction, and normalize bibliography metadata.
+
+The frozen manuscript architecture remains:
 
 - Plasma/D10-ZF `P2-A` — strong primary domain anchor;
 - Neuro/CMC `NEURO-STRONG` — strong cross-domain demonstrator;
 - Climate/Ocean QG `CLIM-WEAK` — robust weak/contrast case.
 
-Novelty remains `N2+N3` with domain-specific `N1`; no mathematical novelty is claimed for quadratic-output optimization, transient growth, singular vectors, or generic objective-dependent optimizer changes.
+Climate remains in the main manuscript as the canonical geometry-versus-performance counterexample.
 
-## Completed package
+## Active instruction
+
+**Status:** `DRAFT 0.1 REVIEWED — REVISION 0.2 AUTHORIZED`
+
+**Next instruction:**
+
+`research/master/prompts/manuscript_structural_revision_package_0_2.md`
+
+Revision must be executed through MASTER under the shared prompt handoff protocol.
+
+## Current canonical manuscript files
 
 - `research/manuscript/manuscript_draft_0_1.md`
 - `research/manuscript/evidence_citation_map_0_1.md`
 - `research/manuscript/figure_source_map_0_1.md`
-- this `STATUS.md`
 
-All quantitative statements in the draft are intended to trace to frozen canonical result files. No new numerical execution, horizon, parameter, objective, pathway, admissible geometry, or effect-enhancing analysis was introduced.
+## Review authority
 
-## Active instruction
-
-**Status:** `DRAFT PACKAGE COMPLETE — RETURN TO MASTER FOR DRAFT REVIEW`
-
-**Next instruction:** `RETURN TO MASTER FOR DRAFT REVIEW`
-
-No bare `GO` in this branch may generate a submission, journal targeting, new figures requiring simulation, new scientific calculations, new novelty claims, or protected-branch work until MASTER explicitly opens a new instruction.
-
-## Canonical authority
-
+- `research/master/manuscript_draft_review_gate_0_1.md`
 - `research/master/cross_domain_manuscript_positioning_claim_freeze_0_1.md`
-- `research/master/prompts/cross_domain_manuscript_drafting_package_0_1.md`
-- `research/master/prompt_handoff_protocol_0_1.md`
+
+## STOP boundary
+
+No new simulations, horizons, parameters, objectives, pathways, admissible geometries, novelty claims, journal targeting or submission are authorized by this status.
 
 **STOP.**
