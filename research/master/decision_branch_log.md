@@ -80,7 +80,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-368:** The `S=1/2 x^dagger M x` versus `K_M` doubled-quadratic-form convention is explicitly normalized — STABLE.
 - **DEC-369:** Evidence/citation and figure-source maps are aligned with Draft 0.2 and continue to forbid new simulations/eigensolves/horizons for presentation — STABLE.
 - **DEC-370:** Bibliographic normalization used approved prior-art sources only; Ogino 2026 final publication status remains a manual metadata-verification item, not a novelty-search blocker — OPEN EDITORIAL ITEM.
-- **DEC-371:** Manuscript structure freeze was due after Revision 0.2 and was temporarily held for the one-shot Climate-B branch — HOLD NOW RELEASED.
+- **DEC-371:** Manuscript structure freeze was due after Revision 0.2 and was temporarily held for the one-shot Climate-B branch — SATISFIED / CLOSED.
 
 ## Climate Intra-Domain Contrast Feasibility Gate 0.1
 
@@ -92,7 +92,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-377:** Climate-B nominal physical point is fixed pre-effect at `beta=1.6e-11 m^-1 s^-1`, `U0=20 m/s`, `L=1000 km`, `r=(10 d)^-1`, `Lx=20000 km`, `Ly=10000 km`; no effect-guided parameter scan is allowed — FROZEN PRE-EFFECT INPUT.
 - **DEC-378:** No Climate-B finite-time energy/channel operator, optimizer, angle or performance gap may be inspected before Candidate Freeze and Numerical Qualification — SATISFIED / CLOSED.
 - **DEC-379:** If Climate-B fails qualification or later returns weak/null/fail, retain the result, authorize no third Climate candidate, and return to `Manuscript Structure Freeze 0.2` — TRIGGERED / FROZEN STOP RULE.
-- **DEC-380:** `Manuscript Structure Freeze 0.2` was on HOLD during Climate-B and is now the mandatory active return point — ACTIVE.
+- **DEC-380:** `Manuscript Structure Freeze 0.2` was on HOLD during Climate-B and is now the mandatory active return point — SATISFIED / CLOSED.
 - **DEC-381:** `Climate Intra-Domain Contrast Candidate Freeze 0.1` — SATISFIED / CLOSED.
 
 ## Climate Intra-Domain Contrast Candidate Freeze 0.1
@@ -137,8 +137,22 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-410:** The resolution failure includes signed-objective value nonconvergence and insufficient common-space optimizer/subspace mass, with optimizer scales migrating as resolution increases — FROZEN RESULT CHARACTERIZATION.
 - **DEC-411:** No Climate-B repair, retuning, extra resolution, scale-selective damping, alternative channel, or third Climate candidate is authorized before the first manuscript — FROZEN STOP RULE.
 - **DEC-412:** The intended strong-versus-weak intra-domain Climate demonstration was not established; Climate-A remains the canonical robust Climate/Ocean weak contrast, while Climate-B is a robustness-rejection case — FROZEN.
-- **DEC-413:** Climate-B may be used only as qualified methodological evidence that attractive finite-resolution separation can fail robustness; exact manuscript placement is an editorial decision for Structure Freeze 0.2 — ACTIVE EDITORIAL QUESTION.
-- **DEC-414:** `Manuscript Structure Freeze 0.2` is now released from HOLD and is the next mandatory global gate; no new science is authorized before it — ACTIVE.
+- **DEC-413:** Climate-B may be used only as qualified methodological evidence that attractive finite-resolution separation can fail robustness; manuscript placement resolved by Structure Freeze 0.2 — SATISFIED / CLOSED.
+- **DEC-414:** `Manuscript Structure Freeze 0.2` released from HOLD as mandatory global gate — SATISFIED / CLOSED.
+
+## Manuscript Structure Freeze 0.2
+
+- **DEC-415:** Manuscript Structure Freeze 0.2 = `STABLE — MANUSCRIPT ARCHITECTURE FROZEN` — EDITORIAL SAVEPOINT.
+- **DEC-416:** Main positive/weak evidence ordering is frozen to Plasma `P2-A` → Neuro `NEURO-STRONG` → Climate-A `CLIM-WEAK`; Climate-B is not a fourth positive application result — FROZEN.
+- **DEC-417:** Climate-B placement = Supplement S5 full robustness-rejection case + brief main-text Sec. 5.2 reference/subsection; any `Delta_shift=1`, large-angle, or parity statement must carry the resolution-failure qualification — FROZEN.
+- **DEC-418:** Main manuscript architecture is frozen to Introduction → Common framework/study design → three-domain Application Methods → three-domain Results → Cross-domain synthesis/robustness lessons → Discussion/limitations → Conclusion, with Supplement S1-S6 — FROZEN.
+- **DEC-419:** Main Fig. 5 is simplified from a phase-diagram-like scatter to a non-inferential robust-domain geometry/performance summary; Climate-B fixed-resolution points are excluded from the robust evidence summary — FROZEN PRESENTATION RULE.
+- **DEC-420:** Former Main Table 2 moves to Supplement; the study-specific strong criterion remains explicit in main Methods, and any Climate-B table row is labeled `CLIM-B-FAIL — resolution robustness` — FROZEN PRESENTATION RULE.
+- **DEC-421:** Current Draft-0.2 title remains the canonical working title; exact journal-specific title wording is deferred to later audience/journal targeting — STABLE EDITORIAL DECISION.
+- **DEC-422:** Default external terminology remains `pre-specified and frozen before objective-separation evaluation` / equivalent version-controlled wording; unqualified `preregistered` remains disallowed absent defensible chronology — FROZEN CLAIM GUARDRAIL.
+- **DEC-423:** Surviving manuscript lessons are: strong positive-objective/channel nonredundancy can occur; large optimizer angle can coexist with small target-performance loss; and large fixed-resolution separation can fail refinement and must not be promoted without robustness — FROZEN.
+- **DEC-424:** No new scientific calculation is required before the first manuscript proceeds; next authorized task is `Manuscript Structural Revision Package 0.3` using frozen evidence only — ACTIVE.
+- **DEC-425:** Figure production, journal/audience positioning, submission preparation, new novelty search, and protected scientific branches remain blocked until Revision 0.3 returns to MASTER — ACTIVE DEPENDENCY.
 
 ## Current branch tree
 
@@ -150,7 +164,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 \text{Neuro/CMC} & \text{NEURO-STRONG FROZEN}\\
 \text{Climate-A/QG heat} & \text{CLIM-WEAK FROZEN}\\
 \text{Climate-B/Bickley jet} & \text{CLIM-B-FAIL / RESULT FROZEN}\\
-\text{Manuscript} & \text{DRAFT 0.2 / STRUCTURE FREEZE READY}\\
+\text{Manuscript} & \text{STRUCTURE FREEZE 0.2 STABLE / REVISION 0.3 READY}\\
 \text{Power Grids} & \text{PROTECTED}\\
 \text{Photonics/Waves} & \text{PROTECTED}\\
 \text{realistic Fusion} & \text{PROTECTED}
@@ -160,11 +174,11 @@ This file records current canonical high-level decisions. Earlier detailed branc
 Current workflow:
 
 \[
-\text{Structural Revision 0.2 COMPLETE}
+\text{Draft 0.2 COMPLETE}
 \to
-\text{Climate-B one-shot branch COMPLETE}
+\text{Climate-B one-shot RESULT FROZEN}
 \to
-\text{Climate-B Result Freeze STABLE}
+\text{Manuscript Structure Freeze 0.2 STABLE}
 \to
-\boxed{\text{Manuscript Structure Freeze 0.2 READY}}.
+\boxed{\text{Manuscript Structural Revision Package 0.3 READY}}.
 \]
