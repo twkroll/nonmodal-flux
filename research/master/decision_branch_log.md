@@ -49,7 +49,15 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-346:** Climate `90°` / `4.12%` result is the canonical geometry-versus-performance contrast — FROZEN.
 - **DEC-347:** No additional scientific calculation is required before first manuscript drafting — FROZEN.
 - **DEC-348:** Power Grids, Photonics/Waves, realistic Fusion, delayed Neuro, higher-fidelity Climate and MODES/CONT/CASCADE remain protected future branches — STABLE.
-- **DEC-349:** Next MASTER action is `Cross-Domain Manuscript Drafting Package 0.1` — ACTIVE.
+- **DEC-349:** `Cross-Domain Manuscript Drafting Package 0.1` — SATISFIED / CLOSED.
+
+## Manuscript drafting decisions
+
+- **DEC-350:** Integrated manuscript draft 0.1 completed from frozen evidence only — STABLE.
+- **DEC-351:** Evidence/citation map 0.1 completed; all quantitative manuscript claims must remain traceable to frozen canonical result files — STABLE.
+- **DEC-352:** Figure source map 0.1 completed; figures may use frozen data and presentational transformations only, with no model rerun or new horizon — STABLE.
+- **DEC-353:** No new scientific result, novelty claim, parameter choice, objective, pathway, or admissible geometry was introduced during drafting — STABLE.
+- **DEC-354:** Next MASTER action is draft review/editorial integration; no new scientific branch or simulation is authorized by draft completion — ACTIVE.
 
 ## Current branch tree
 
@@ -60,6 +68,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 \text{Plasma/D10-ZF} & P2\text{-}A\;\text{FROZEN}\\
 \text{Neuro/CMC} & \text{NEURO-STRONG FROZEN}\\
 \text{Climate/QG} & \text{CLIM-WEAK FROZEN}\\
+\text{Manuscript} & \text{DRAFT 0.1 COMPLETE / REVIEW DUE}\\
 \text{Power Grids} & \text{PROTECTED}\\
 \text{Photonics/Waves} & \text{PROTECTED}\\
 \text{realistic Fusion} & \text{PROTECTED}
@@ -73,7 +82,9 @@ Current manuscript workflow:
 \to
 \text{Literature Positioning}
 \to
-\boxed{\text{Claim Freeze STABLE}}
+\text{Claim Freeze}
 \to
-\text{Drafting Package ACTIVE}.
+\boxed{\text{Drafting Package COMPLETE}}
+\to
+\text{Draft Review ACTIVE}.
 \]
