@@ -7,6 +7,7 @@
 
 Cross-Domain Result Integration & Freeze 0.1 is STABLE.
 Cross-Domain Application Literature Positioning Audit 0.1 is COMPLETE.
+Cross-Domain Manuscript Positioning & Claim Freeze 0.1 is STABLE.
 
 Current frozen evidence base:
 
@@ -14,9 +15,9 @@ Current frozen evidence base:
 - Neuro/CMC: `NEURO-STRONG` — strong cross-domain demonstrator.
 - Climate/Ocean QG: `CLIM-WEAK` — robust weak/contrast case.
 
-The targeted Neuro/Climate literature audit found no `SAME` hit for either complete frozen result, without treating absence as proof of novelty. The integrated story remains publication-positionable only with restricted integration/application/methodological framing.
+The first-paper framing is frozen as a methods/application paper on physics-informed objective-nonredundancy diagnostics. Manuscript novelty is `N2 + N3` with domain-specific `N1`; no mathematical novelty is claimed for quadratic-output optimization, transient growth, singular vectors or generic objective-dependent optimizer changes.
 
-No new numerical execution, retuning, theory branch, application branch, MODES/CONT/CASCADE extension, Neuro delay/pathway extension or Climate parameter scan is currently authorized.
+No additional scientific calculation is required before drafting. All scientific branches remain WAIT or PROTECTED.
 
 ## Active instruction
 
@@ -24,12 +25,13 @@ No new numerical execution, retuning, theory branch, application branch, MODES/C
 
 **Next instruction:**
 
-`research/master/prompts/cross_domain_manuscript_positioning_claim_freeze_0_1.md`
+`research/master/prompts/cross_domain_manuscript_drafting_package_0_1.md`
 
 A bare `GO` in MASTER should read and execute that committed instruction exactly.
 
 ## Canonical supporting documents
 
+- `research/master/cross_domain_manuscript_positioning_claim_freeze_0_1.md`
 - `research/master/project_status.md`
 - `research/master/decision_branch_log.md`
 - `research/master/cross_domain_result_integration_freeze_0_1.md`
@@ -38,4 +40,4 @@ A bare `GO` in MASTER should read and execute that committed instruction exactly
 
 ## STOP boundary
 
-Until the active MASTER instruction is executed, all research/application branches remain WAIT or PROTECTED.
+Until the active manuscript-drafting instruction is executed, do not open a new scientific calculation, theory branch, application branch, retuning task, MODES/CONT/CASCADE extension, Neuro delay/pathway extension, Climate parameter scan, Power-Grid/Photonics execution, or realistic-Fusion execution.
