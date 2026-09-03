@@ -5,55 +5,86 @@
 
 ## Current state
 
-`Manuscript Structural Revision Package 0.2` is complete and remains the canonical manuscript rollback point.
-
-Revision 0.2 was produced from frozen evidence/model sources only and introduced no new scientific result or novelty claim.
-
-The robust main evidence base remains:
-
-- Plasma/D10-ZF `P2-A` — strong primary domain anchor;
-- Neuro/CMC `NEURO-STRONG` — strong cross-domain demonstrator;
-- Climate-A/Phillips-QG `CLIM-WEAK` — robust weak geometry-versus-performance contrast.
-
-The single additional Climate-B attempt is now complete and MASTER-frozen as
+`Manuscript Structure Freeze 0.2` is complete and
 
 \[
-\boxed{\text{CLIM-B-FAIL — resolution robustness failure}}.
+\boxed{\text{STABLE — MANUSCRIPT ARCHITECTURE FROZEN}}.
 \]
 
-Climate-B showed large fixed-truncation separation, including `Delta_shift=1` to roundoff, but zero frozen horizons passed the complete resolution-robustness protocol. It may not be presented as a robust strong Climate result.
+Canonical authority:
 
-The existing claim freeze and Draft 0.2 remain scientifically valid. Climate-B has not yet been incorporated into the manuscript text.
+- `research/master/manuscript_structure_freeze_0_2.md`
 
-## Canonical manuscript package
+Draft 0.2 remains the previous editorial rollback point. No scientific result has been changed.
 
-- `research/manuscript/manuscript_draft_0_2.md`
-- `research/manuscript/evidence_citation_map_0_1.md`
-- `research/manuscript/figure_source_map_0_1.md`
-- this `STATUS.md`
+The robust main evidence sequence is frozen to:
 
-Draft 0.1 is retained as the previous editorial rollback point.
+1. Plasma/D10-ZF `P2-A` — strong primary anchor;
+2. Neuro/CMC `NEURO-STRONG` — strong cross-domain demonstrator;
+3. Climate-A/Phillips-QG `CLIM-WEAK` — robust weak geometry-versus-performance contrast.
+
+Climate-B remains
+
+\[
+\boxed{\text{CLIM-B-FAIL — resolution robustness failure}}
+\]
+
+and is frozen to a **Supplement robustness-rejection case with only a brief main-text reference/subsection**. It may not be presented as a fourth positive application result.
+
+## Frozen manuscript architecture
+
+Main text:
+
+- Abstract;
+- 1 Introduction;
+- 2 Common finite-time framework and study design;
+- 3 Application methods: Plasma, Neuro, Climate-A;
+- 4 Results: Plasma, Neuro, Climate-A;
+- 5 Cross-domain synthesis and robustness lessons;
+  - 5.1 Geometry versus target performance;
+  - 5.2 Robustness rejection: one-shot Climate-B audit;
+- 6 Discussion and limitations;
+- 7 Conclusion.
+
+Supplement:
+
+- S1 freeze chronology / reproducibility;
+- S2 Plasma details;
+- S3 Neuro details;
+- S4 Climate-A details;
+- S5 full Climate-B one-shot robustness rejection;
+- S6 additional frozen-data tables / metadata notes as needed.
+
+## Figure/table freeze
+
+Main Fig. 1–4 retain workflow, Plasma, Neuro, Climate-A roles. Main Fig. 5 is simplified to a non-inferential robust-domain geometry/performance summary; no phase-diagram framing is allowed.
+
+Main Table 1 remains the three robust-domain model/objective/admissible-geometry table. Former Main Table 2 moves to Supplement and may label Climate-B only as `CLIM-B-FAIL — resolution robustness`.
+
+## Title / terminology
+
+Current Draft-0.2 title remains the canonical working title. Exact journal-specific title wording is deferred.
+
+Default external wording remains `pre-specified and frozen before objective-separation evaluation` or equivalent version-controlled freeze wording. Do not use unqualified `preregistered`.
 
 ## Active instruction
 
-**Status:** `MANUSCRIPT STRUCTURE FREEZE 0.2 READY — RETURN TO MASTER`
+**Status:** `MANUSCRIPT STRUCTURE FREEZE 0.2 STABLE — REVISION 0.3 READY / AWAIT GO`
 
 **Next instruction:**
 
-`research/master/prompts/manuscript_structure_freeze_0_2.md`
+`research/master/prompts/manuscript_structural_revision_package_0_3.md`
 
-The Structure Freeze must decide, without new science, final section architecture, main-text/Supplement split, Climate-B editorial placement, evidence ordering, figure/table architecture, title status, terminology guardrails, and the next editorial task.
+On a bare `GO`, first read this STATUS and execute only that committed instruction.
 
-No manuscript restructuring should promote Climate-B beyond its frozen failure status.
+Revision 0.3 must create:
 
-No bare `GO` in this manuscript branch may create a journal submission, new scientific calculation, new figure requiring simulation, new novelty claim, or protected-branch work until MASTER completes the Structure Freeze.
+- `research/manuscript/manuscript_draft_0_3.md`;
+- `research/manuscript/evidence_citation_map_0_2.md`;
+- `research/manuscript/figure_source_map_0_2.md`;
 
-## Authority
+and then update this STATUS.
 
-- `research/master/manuscript_draft_review_gate_0_1.md`
-- `research/master/prompts/manuscript_structural_revision_package_0_2.md`
-- `research/master/climate_intra_domain_contrast_result_integration_freeze_0_1.md`
-- `research/master/prompts/manuscript_structure_freeze_0_2.md`
-- `research/master/cross_domain_manuscript_positioning_claim_freeze_0_1.md`
+No figure production, journal targeting, submission preparation, new novelty search, protected-branch work, or new scientific calculation is authorized in Revision 0.3.
 
-**STOP — RETURN TO MASTER FOR STRUCTURE FREEZE.**
+**STOP / AWAIT GO.**
