@@ -8,66 +8,74 @@
 - CORE Mathematical / Integration / Interpretation freezes: **STABLE**.
 - Plasma/D10-ZF Pilot 0.2: **P2-A**, strong primary domain anchor.
 - Neuro/CMC Pilot 0.1: **NEURO-STRONG**, strong cross-domain demonstrator.
-- Climate/Ocean QG Pilot 0.1: **CLIM-WEAK**, robust weak/contrast case.
+- Climate-A / two-layer Phillips-QG heat pilot: **CLIM-WEAK**, frozen robust weak/contrast case.
 - Cross-Domain Result Integration & Freeze 0.1: **STABLE**.
 - Cross-Domain Application Literature Positioning Audit 0.1: **COMPLETE**.
 - Cross-Domain Manuscript Positioning & Claim Freeze 0.1: **STABLE**.
 - Manuscript Draft Review Gate 0.1: **PASS WITH MAJOR EDITORIAL/REPRODUCIBILITY REVISION**.
 - Manuscript Structural Revision Package 0.2: **COMPLETE**.
+- Climate Intra-Domain Contrast Feasibility Gate 0.1: **PASS**.
 
 ## Frozen manuscript position
 
-The first paper remains a **methods/application paper on physics-informed objective-nonredundancy diagnostics in stable linear dynamics**.
+The first paper remains a **methods/application paper on physics-informed objective-nonredundancy diagnostics in stable linear dynamics**. Revision 0.2 remains the canonical manuscript rollback/savepoint while one pre-specified Climate-B attempt is assessed.
 
-Canonical manuscript-level claim:
+Existing manuscript novelty and claim guardrails are unchanged: `N2 + N3` with domain-specific `N1`; no mathematical novelty claim for quadratic-output optimization, transient growth, singular vectors, Gramian methods, or generic objective-dependent optimizers.
 
-> A pre-specified physics-informed finite-time workflow can test whether a conventional positive storage/state objective is redundant with an independently defined signed physical channel on the same admissible perturbation space; the three frozen applications show that the magnitude and practical consequence of nonredundancy are strongly system dependent.
+## Climate intra-domain contrast branch
 
-Default external terminology is now “pre-specified and frozen before objective-separation evaluation” or “prospectively frozen in the version-controlled analysis record before effect inspection”. Unqualified “preregistered” is not the default unless a defensible registration chronology is explicitly documented.
+Climate-A remains frozen as `CLIM-WEAK` and may not be retuned.
 
-Manuscript novelty remains `N2 + N3` with domain-specific `N1`; no mathematical novelty is claimed for quadratic-output optimization, transient growth, singular vectors, Gramian methods, or generic objective-dependent optimizer changes.
+A single additional Climate-B candidate is authorized at Candidate Freeze only:
 
-Evidence hierarchy remains:
+\[
+\boxed{\text{equivalent-barotropic midlatitude Bickley jet}}
+\]
 
-- Plasma/D10-ZF: strong primary domain anchor;
-- Neuro/CMC: strong cross-domain demonstrator;
-- Climate/Ocean QG: robust weak/contrast case.
+with
 
-Climate's `90°` optimizer-subspace separation with only ~4.12% heat-performance gap remains the canonical warning that optimizer angle alone is not a performance diagnostic.
+- positive metric: perturbation kinetic energy;
+- signed channel: eddy-induced forcing of the infinitesimal poleward jet-translation coordinate;
+- channel construction: project eddy momentum-flux convergence onto `g(y)=-U'(y)`;
+- provisional full retained eddy geometry `B=I`, `R_in=M`;
+- no CORE-effect quantity inspected yet.
 
-Neuro's positive metric remains model-internal synaptic-filter storage, not brain/metabolic energy, and the frozen rank-two preparation geometry does not demonstrate reachable negative cumulative pathway transfer.
+The nominated physical point is fixed pre-effect at
 
-## Manuscript package
+\[
+\beta=1.6\times10^{-11}\,\mathrm{m^{-1}s^{-1}},\quad
+U_0=20\,\mathrm{m\,s^{-1}},\quad
+L=1000\,\mathrm{km},\quad
+r=(10\,\mathrm d)^{-1},
+\]
 
-Current canonical draft:
+with provisional `Lx=20000 km`, `Ly=10000 km`.
 
-- `research/manuscript/manuscript_draft_0_2.md`
-- `research/manuscript/evidence_citation_map_0_1.md`
-- `research/manuscript/figure_source_map_0_1.md`
-- `research/manuscript/STATUS.md`
+For the Bickley profile, the nominated point satisfies the Rayleigh-Kuo pre-effect sign condition `beta-U''(y)>0`; exact finite-dimensional spectral stability remains a blind Numerical Qualification task.
 
-Rollback draft:
+## Governance limit
 
-- `research/manuscript/manuscript_draft_0_1.md`
+Climate-B is exactly one additional attempt before the first manuscript. If Candidate Freeze/Numerical Qualification fails, or a later execution returns weak/null, the outcome is retained and no third Climate candidate is authorized.
 
-Revision 0.2 exposes compact defining physics for all three applications, states the study-specific strong criterion explicitly, normalizes the `1/2` storage convention, and includes supplement-ready reproducibility material. No new scientific calculation was introduced.
+No `K_M`, `K_shift`, optimizer, angle, gap, or objective separation may be evaluated before Candidate Freeze and Numerical Qualification are complete.
+
+`Manuscript Structure Freeze 0.2` is on **HOLD**, not canceled, and remains the mandatory return point after Climate-B resolves.
 
 ## Current blockers / dependencies
 
-No numerical, feasibility, reproducibility, or scientific-claim blocker is active.
+No numerical or scientific blocker is active. The active dependency is the one-shot Climate-B pre-effect branch.
 
-The only current dependency is **manuscript structure freeze/review** before journal targeting, submission-oriented polishing, or protected-branch work.
-
-One open editorial metadata item remains: verify the final publication status/citation form of Ogino et al. (2026) before submission. This is not a novelty-search or scientific blocker.
+The open editorial item about final Ogino et al. (2026) metadata remains deferred and does not affect Climate-B.
 
 ## Branch states
 
 - CORE: `STABLE / WAIT`
 - Plasma: `P2-A / FROZEN`
 - Neuro: `NEURO-STRONG / RESULT FROZEN / WAIT`
-- Climate/Ocean: `CLIM-WEAK / RESULT FROZEN / WAIT`
+- Climate-A: `CLIM-WEAK / RESULT FROZEN`
+- Climate-B: `CANDIDATE FREEZE AUTHORIZED — AWAIT GO`
 - Literature: `COMPLETE / WAIT`
-- Manuscript: `REVISION 0.2 COMPLETE / STRUCTURE FREEZE DUE`
+- Manuscript: `REVISION 0.2 COMPLETE / STRUCTURE FREEZE HOLD`
 - MODES / CONT / CASCADE: `WAIT`
 - Power Grids: `PROTECTED`
 - Photonics/Waves: `PROTECTED`
@@ -77,51 +85,26 @@ One open editorial metadata item remains: verify the final publication status/ci
 
 ## Freeze check
 
-Scientific result, literature-positioning, and manuscript-claim freezes remain current. No new pilot or theory freeze is due. The next gate is editorial: freeze the manuscript architecture and main-text/supplement division after reviewing Revision 0.2.
+All prior scientific freezes remain current. No existing result is reopened. The only new authorized freeze is `Climate Intra-Domain Contrast Candidate Freeze 0.1`.
 
 ## Branch-independent layer
 
-The transferable analysis tuple remains
+The transferable tuple remains
 
 \[
-\mathfrak C=(A,M,Q,B,R_{\rm in})
+\mathfrak C=(A,M,Q,B,R_{\rm in}).
 \]
 
-with common finite-time positive-objective and signed-channel operators. Signed extrema, optimizer/subspace comparison, performance gap, physical diagnostics, and pre-specified robustness rules remain branch-independent methodology.
-
-The study-specific strong criterion is
-
-\[
-\vartheta\ge20^\circ,\qquad \Delta_Q\ge0.25
-\]
-
-on at least two neighboring horizons, together with domain-specific structural/numerical gates. These thresholds are operational study rules, not universal constants.
-
-## Branch-dependent semantics
-
-- Plasma: `M` = free energy, `Q` = signed particle transport.
-- Climate: `M` = QG perturbation energy, `Q` = signed eddy heat transport.
-- Neuro: `M` = synaptic-filter storage, `Q` = signed pathway contribution to storage rate, `R_in` = pulse-cost metric.
-
-These meanings must not be flattened into one physical interpretation.
-
-## Protected future branches
-
-Still protected:
-
-- Power Grids;
-- Photonics/Waves;
-- realistic Fusion;
-- delayed/DDE Neuro;
-- higher-fidelity Climate/Primitive-Equation models;
-- MODES reduction/mechanism work;
-- CONT continuation work;
-- CASCADE scale-transfer work.
-
-None is required for the first manuscript.
+For Climate-B, this structure is instantiated prospectively as perturbation-energy `M`, jet-translation-forcing `Q_shift`, and full retained eddy-state admissibility `B=I`, `R_in=M`, subject to Candidate Freeze and Numerical Qualification.
 
 ## Next global step
 
-`Manuscript Structure Freeze 0.2`
+Execute in the Climate chat:
 
-Purpose: review the self-contained Revision 0.2, freeze the paper's section architecture and main-text-versus-Supplement division, and decide which purely editorial/figure-production steps are authorized next. No new scientific calculation is authorized by this gate.
+`GO`
+
+which must read
+
+`research/master/prompts/climate_intra_domain_contrast_candidate_freeze_0_1.md`
+
+and perform **Candidate Freeze only**. After that branch STOPs, return to MASTER for Numerical Qualification governance.
