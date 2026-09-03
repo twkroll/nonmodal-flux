@@ -10,67 +10,63 @@ The established scientific and manuscript savepoints remain intact:
 - CORE Mathematical / Integration / Interpretation freezes: `STABLE`;
 - Plasma/D10-ZF: `P2-A` — strong primary domain anchor, `FROZEN`;
 - Neuro/CMC: `NEURO-STRONG` — strong cross-domain demonstrator, `FROZEN`;
-- Climate-A/Phillips-QG heat transport: `CLIM-WEAK` — permanent weak/contrast result, `FROZEN`;
+- Climate-A/Phillips-QG heat transport: `CLIM-WEAK` — permanent robust weak/contrast result, `FROZEN`;
 - Cross-Domain Result Integration & Freeze 0.1: `STABLE`;
 - application literature positioning: `COMPLETE`;
 - manuscript claim freeze: `STABLE`;
 - Manuscript Structural Revision Package 0.2: `COMPLETE`.
 
-The one-shot Climate-B branch has now completed all pre-effect gates:
+The one-shot Climate-B branch is now scientifically complete and frozen:
 
-- Climate Intra-Domain Contrast Feasibility Gate 0.1: `PASS`;
-- Climate Intra-Domain Contrast Candidate Freeze 0.1: `STABLE`;
-- Climate Intra-Domain Contrast Numerical Qualification 0.1: `QUALIFIED`;
-- Climate Intra-Domain Contrast Pilot Specification 0.1: `COMPLETE`;
-- **Climate Intra-Domain Contrast Pilot Freeze 0.1: `STABLE — EXECUTION RELEASED`.**
+- Feasibility Gate 0.1: `PASS`;
+- Candidate Freeze 0.1: `STABLE`;
+- Numerical Qualification 0.1: `QUALIFIED`;
+- Pilot Specification 0.1: `COMPLETE`;
+- Pilot Freeze 0.1: `STABLE — EXECUTION RELEASED`;
+- Pilot Execution 0.1: `COMPLETE`;
+- **Result Integration & Freeze 0.1: `STABLE — CLIMATE-B RESULT FROZEN`.**
 
-Climate-B remains the frozen equivalent-barotropic Bickley jet with perturbation kinetic energy and signed eddy forcing of the infinitesimal poleward jet-translation coordinate `g=-U'`, with `B=I`, `R_in=M_K`.
-
-The complete frozen resolution ladder is spectrally stable,
-
-\[
-\alpha(A_K)=-0.05787037037037=-0.1\,\mathrm d^{-1}<0,
-\]
-
-and the specification return commit `495b53819c8b6b2cca0cb6e061898ad2efe73e1d` passed Python CI #228.
-
-The final pre-effect Pilot Freeze now fixes the six-horizon ladder
+The frozen one-shot verdict is
 
 \[
-T/\tau_{\rm ref}\in\{0.25,0.5,1,2,4,8\},
+\boxed{\text{CLIM-B-FAIL — resolution robustness failure}}.
 \]
 
-finite-time operators, signed extrema, degeneracy-aware optimizer/subspace diagnostics, `Delta_shift` denominator rule, numerical propagation/integral cross-checks, physical-trajectory reproduction, resolution robustness, physical diagnostics, and one-shot `STRONG/WEAK/NULL/FAIL` logic.
+All local algebraic/direct numerical gates passed. At individual frozen truncations, Energy-vs-Shift separation is large and `Delta_shift=1` to roundoff, but **zero of the six frozen horizons is resolution robust** under the pre-specified refinement rules. The signed objective fails the 2% value-convergence rule and optimizer/subspace common-space mass remains below the frozen `mu_c>=0.95` requirement. Therefore the attractive fixed-resolution result is rejected as a robust physical Climate-B demonstration.
 
-At execution release, no Climate-B finite-time objective value, optimizer, angle, performance gap, horizon dependence, or verdict had been inspected.
+No repair, retuning, extra resolution, alternative channel, scale-selective damping, or third Climate candidate is authorized before the first manuscript.
 
 ## Governance consequence
 
-Exactly one Climate-B execution is now authorized. It must execute all frozen horizons and mandatory resolution roles without retuning or early stopping.
+The intended strong-versus-weak intra-domain Climate demonstration was not established.
 
-Climate-A may not be retuned, replaced, or relabeled. Climate-B is the only additional Climate attempt authorized before the first manuscript. No third Climate candidate is permitted.
+Climate-A remains the canonical robust Climate/Ocean weak contrast. Climate-B is now a frozen **robustness-rejection** case: it may support only the qualified methodological lesson that a large finite-resolution objective separation can fail refinement and must not be promoted without robustness.
 
-`Manuscript Structure Freeze 0.2` remains on **HOLD**, not canceled. It is the mandatory return point after Climate-B execution/result integration.
+The existing manuscript claim freeze and Draft 0.2 remain valid rollback points.
 
-No other scientific/application branch should proceed while Climate-B is active.
+`Manuscript Structure Freeze 0.2` is now **released from HOLD and READY**. It must decide Climate-B's editorial placement without new science.
+
+No other scientific/application branch should proceed before the Structure Freeze.
 
 ## Active instruction
 
-**Status:** `CLIMATE-B PILOT FROZEN — EXECUTION READY / AWAIT CLIMATE GO`
+**Status:** `MANUSCRIPT STRUCTURE FREEZE 0.2 READY — AWAIT MASTER COMMAND`
 
 **Next instruction:**
 
-`research/master/prompts/climate_intra_domain_contrast_pilot_execution_0_1.md`
+`research/master/prompts/manuscript_structure_freeze_0_2.md`
 
-Execute it in the existing Climate chat under the shared prompt handoff protocol. A bare `GO` there must first read `research/climate/STATUS.md` and execute only the committed Next instruction.
+Execute this only in MASTER when the user gives the named command `Manuscript Structure Freeze 0.2`. Do not open new science on a bare `GO` outside that authorized scope.
 
 ## Freeze check
 
-No prior freeze is invalidated or overdue. Climate-B Pilot Specification 0.1 and Pilot Freeze 0.1 are new pre-effect rollback/savepoints.
+All scientific freezes are current. Climate-B Pilot Execution and Result Integration/Freeze are the newest scientific rollback points.
 
-Execution is now timely: an additional pre-effect freeze would be redundant, while manuscript structure freeze before Climate-B resolves would be premature.
+No additional Climate work is due. A third Climate candidate or Climate-B repair would violate the one-shot governance limit.
 
-Parallel branch work is not recommended. CORE, Plasma, Neuro, Literature, MODES, CONT, CASCADE, Power Grids, Photonics/Waves, realistic Fusion, delayed Neuro, and higher-fidelity Climate remain WAIT/PROTECTED.
+The previously delayed Manuscript Structure Freeze is now due; delaying it in favor of new theory/application work would be premature branching.
+
+Parallel scientific branch work is not recommended. CORE, Plasma, Neuro, Literature, MODES, CONT, CASCADE, Power Grids, Photonics/Waves, realistic Fusion, delayed Neuro, and higher-fidelity Climate remain WAIT/PROTECTED.
 
 ## Rollback points
 
@@ -84,9 +80,8 @@ The protected rollback chain is:
 6. Climate-B Candidate Freeze 0.1;
 7. Climate-B Numerical Qualification 0.1;
 8. Climate-B Pilot Specification 0.1;
-9. Climate-B Pilot Freeze 0.1.
-
-Climate-B execution may add evidence but may not rewrite any earlier savepoint.
+9. Climate-B Pilot Freeze 0.1;
+10. Climate-B Execution / Result Integration Freeze 0.1.
 
 ## Branch-independent / branch-dependent distinction
 
@@ -103,8 +98,8 @@ Branch-dependent semantics remain distinct:
 - Plasma: free energy / signed particle transport;
 - Neuro: synaptic-filter storage / signed pathway contribution;
 - Climate-A: QG perturbation energy / signed poleward heat transport;
-- Climate-B: barotropic perturbation kinetic energy / signed jet-translation forcing.
+- Climate-B: barotropic perturbation kinetic energy / signed jet-translation forcing, with frozen result `CLIM-B-FAIL` due resolution robustness.
 
 ## STOP boundary
 
-Do not run `Manuscript Structure Freeze 0.2` yet. Do not target a journal, submit, open another protected branch, alter any Climate-B frozen choice, or authorize a third Climate candidate. The only active scientific action is the frozen one-shot Climate-B execution.
+Do not open another Climate candidate, retune Climate-B, target a journal, submit, or open another protected scientific branch. The next formal project action is `Manuscript Structure Freeze 0.2` and is editorial/governance only.
