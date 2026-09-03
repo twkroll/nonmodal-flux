@@ -80,20 +80,30 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-368:** The `S=1/2 x^dagger M x` versus `K_M` doubled-quadratic-form convention is explicitly normalized — STABLE.
 - **DEC-369:** Evidence/citation and figure-source maps are aligned with Draft 0.2 and continue to forbid new simulations/eigensolves/horizons for presentation — STABLE.
 - **DEC-370:** Bibliographic normalization used approved prior-art sources only; Ogino 2026 final publication status remains a manual metadata-verification item, not a novelty-search blocker — OPEN EDITORIAL ITEM.
-- **DEC-371:** Manuscript structure freeze was due after Revision 0.2 — now HOLD pending the explicitly authorized one-shot Climate-B feasibility branch.
+- **DEC-371:** Manuscript structure freeze was due after Revision 0.2 — now HOLD pending the explicitly authorized one-shot Climate-B branch.
 
 ## Climate Intra-Domain Contrast Feasibility Gate 0.1
 
 - **DEC-372:** Climate Intra-Domain Contrast Feasibility Gate 0.1 = PASS — STABLE.
 - **DEC-373:** Existing Phillips-QG heat-transport result remains `Climate-A = CLIM-WEAK` and may not be retuned, replaced or relabeled — FROZEN.
 - **DEC-374:** Exactly one additional pre-effect Climate attempt is authorized before the first manuscript — FROZEN GOVERNANCE LIMIT.
-- **DEC-375:** Climate-B nominated candidate = stable equivalent-barotropic Bickley jet with positive perturbation kinetic energy and signed eddy-induced jet-translation forcing — ACTIVE CANDIDATE.
+- **DEC-375:** Climate-B nominated candidate = stable equivalent-barotropic Bickley jet with positive perturbation kinetic energy and signed eddy-induced jet-translation forcing — CANDIDATE NOW FROZEN.
 - **DEC-376:** Climate-B signed channel is the projection of eddy momentum-flux convergence onto the infinitesimal poleward translation tangent `g=-U'`; no post-hoc mask/EOF/weight substitution is permitted — FROZEN CHANNEL RULE.
-- **DEC-377:** Climate-B nominal physical point is fixed pre-effect at `beta=1.6e-11 m^-1 s^-1`, `U0=20 m/s`, `L=1000 km`, `r=(10 d)^-1`, provisional `Lx=20000 km`, `Ly=10000 km`; no effect-guided parameter scan is allowed — ACTIVE PRE-EFFECT FREEZE INPUT.
+- **DEC-377:** Climate-B nominal physical point is fixed pre-effect at `beta=1.6e-11 m^-1 s^-1`, `U0=20 m/s`, `L=1000 km`, `r=(10 d)^-1`, `Lx=20000 km`, `Ly=10000 km`; no effect-guided parameter scan is allowed — FROZEN PRE-EFFECT INPUT.
 - **DEC-378:** No Climate-B finite-time energy/channel operator, optimizer, angle or performance gap may be inspected before Candidate Freeze and Numerical Qualification — FROZEN ANTI-BIAS RULE.
 - **DEC-379:** If Climate-B fails qualification or later returns weak/null, retain the result, authorize no third Climate candidate, and return to `Manuscript Structure Freeze 0.2` — FROZEN STOP RULE.
 - **DEC-380:** `Manuscript Structure Freeze 0.2` is on HOLD rather than canceled and remains the mandatory return point after Climate-B resolves — ACTIVE DEPENDENCY.
-- **DEC-381:** Next authorized task is `Climate Intra-Domain Contrast Candidate Freeze 0.1` in the Climate chat via the committed prompt — ACTIVE.
+- **DEC-381:** `Climate Intra-Domain Contrast Candidate Freeze 0.1` — SATISFIED / CLOSED.
+
+## Climate Intra-Domain Contrast Candidate Freeze 0.1
+
+- **DEC-382:** Climate Intra-Domain Contrast Candidate Freeze 0.1 = STABLE — CLIMATE-B SAVEPOINT.
+- **DEC-383:** Climate-B representation is frozen to positive zonal Fourier modes plus centered meridional sine Galerkin basis with exact conjugate reconstruction; both parity sectors are retained — FROZEN.
+- **DEC-384:** Climate-B admissible geometry is `B=I`, `R_in=M_K`; no mask, EOF restriction, stochastic covariance or empirical preconditioner is allowed — FROZEN.
+- **DEC-385:** Climate-B reference time is `tau_ref=L/U0=50000 s = 0.5787037037 d` — FROZEN.
+- **DEC-386:** Climate-B nested resolution roles are `(8,16)` smoke, `(12,24)` coarse, `(16,32)` primary, `(20,40)` confirmation, `(24,48)` high audit — FROZEN.
+- **DEC-387:** Candidate Freeze establishes `M_K>0`, Hermitian signed/indefinite `Q_shift,K`, and a pre-effect Rayleigh–Kuo stability criterion; exact finite-dimensional spectral stability remains OPEN and must be tested without finite-time objective inspection — ACTIVE DEPENDENCY.
+- **DEC-388:** Next authorized task is `Climate Intra-Domain Contrast Numerical Qualification 0.1` via the committed MASTER prompt; no horizon ladder or CORE-effect quantity is authorized — ACTIVE.
 
 ## Current branch tree
 
@@ -104,7 +114,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 \text{Plasma/D10-ZF} & P2\text{-}A\;\text{FROZEN}\\
 \text{Neuro/CMC} & \text{NEURO-STRONG FROZEN}\\
 \text{Climate-A/QG heat} & \text{CLIM-WEAK FROZEN}\\
-\text{Climate-B/Bickley jet} & \text{CANDIDATE FREEZE AUTHORIZED}\\
+\text{Climate-B/Bickley jet} & \text{CANDIDATE FROZEN / NUMERICAL QUALIFICATION READY}\\
 \text{Manuscript} & \text{DRAFT 0.2 COMPLETE / STRUCTURE FREEZE HOLD}\\
 \text{Power Grids} & \text{PROTECTED}\\
 \text{Photonics/Waves} & \text{PROTECTED}\\
@@ -112,12 +122,16 @@ This file records current canonical high-level decisions. Earlier detailed branc
 \end{cases}
 \]
 
-Current manuscript workflow:
+Current workflow:
 
 \[
 \text{Structural Revision 0.2 COMPLETE}
 \to
-\boxed{\text{one-shot Climate-B branch}}
+\text{Climate-B Feasibility PASS}
+\to
+\text{Climate-B Candidate Freeze STABLE}
+\to
+\boxed{\text{Climate-B Numerical Qualification READY}}
 \to
 \text{Manuscript Structure Freeze 0.2}.
 \]
