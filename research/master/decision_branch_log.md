@@ -80,19 +80,19 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-368:** The `S=1/2 x^dagger M x` versus `K_M` doubled-quadratic-form convention is explicitly normalized — STABLE.
 - **DEC-369:** Evidence/citation and figure-source maps are aligned with Draft 0.2 and continue to forbid new simulations/eigensolves/horizons for presentation — STABLE.
 - **DEC-370:** Bibliographic normalization used approved prior-art sources only; Ogino 2026 final publication status remains a manual metadata-verification item, not a novelty-search blocker — OPEN EDITORIAL ITEM.
-- **DEC-371:** Manuscript structure freeze was due after Revision 0.2 — now HOLD pending the explicitly authorized one-shot Climate-B branch.
+- **DEC-371:** Manuscript structure freeze was due after Revision 0.2 and was temporarily held for the one-shot Climate-B branch — HOLD NOW RELEASED.
 
 ## Climate Intra-Domain Contrast Feasibility Gate 0.1
 
 - **DEC-372:** Climate Intra-Domain Contrast Feasibility Gate 0.1 = PASS — STABLE.
 - **DEC-373:** Existing Phillips-QG heat-transport result remains `Climate-A = CLIM-WEAK` and may not be retuned, replaced or relabeled — FROZEN.
 - **DEC-374:** Exactly one additional pre-effect Climate attempt is authorized before the first manuscript — FROZEN GOVERNANCE LIMIT.
-- **DEC-375:** Climate-B nominated candidate = stable equivalent-barotropic Bickley jet with positive perturbation kinetic energy and signed eddy-induced jet-translation forcing — CANDIDATE NOW FROZEN.
+- **DEC-375:** Climate-B nominated candidate = stable equivalent-barotropic Bickley jet with positive perturbation kinetic energy and signed eddy-induced jet-translation forcing — CANDIDATE FROZEN.
 - **DEC-376:** Climate-B signed channel is the projection of eddy momentum-flux convergence onto the infinitesimal poleward translation tangent `g=-U'`; no post-hoc mask/EOF/weight substitution is permitted — FROZEN CHANNEL RULE.
 - **DEC-377:** Climate-B nominal physical point is fixed pre-effect at `beta=1.6e-11 m^-1 s^-1`, `U0=20 m/s`, `L=1000 km`, `r=(10 d)^-1`, `Lx=20000 km`, `Ly=10000 km`; no effect-guided parameter scan is allowed — FROZEN PRE-EFFECT INPUT.
-- **DEC-378:** No Climate-B finite-time energy/channel operator, optimizer, angle or performance gap may be inspected before Candidate Freeze and Numerical Qualification — FROZEN ANTI-BIAS RULE.
-- **DEC-379:** If Climate-B fails qualification or later returns weak/null, retain the result, authorize no third Climate candidate, and return to `Manuscript Structure Freeze 0.2` — FROZEN STOP RULE.
-- **DEC-380:** `Manuscript Structure Freeze 0.2` is on HOLD rather than canceled and remains the mandatory return point after Climate-B resolves — ACTIVE DEPENDENCY.
+- **DEC-378:** No Climate-B finite-time energy/channel operator, optimizer, angle or performance gap may be inspected before Candidate Freeze and Numerical Qualification — SATISFIED / CLOSED.
+- **DEC-379:** If Climate-B fails qualification or later returns weak/null/fail, retain the result, authorize no third Climate candidate, and return to `Manuscript Structure Freeze 0.2` — TRIGGERED / FROZEN STOP RULE.
+- **DEC-380:** `Manuscript Structure Freeze 0.2` was on HOLD during Climate-B and is now the mandatory active return point — ACTIVE.
 - **DEC-381:** `Climate Intra-Domain Contrast Candidate Freeze 0.1` — SATISFIED / CLOSED.
 
 ## Climate Intra-Domain Contrast Candidate Freeze 0.1
@@ -113,7 +113,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-392:** Climate-B qualification did not compute or inspect `K_M`, `K_shift`, finite-time gains, signed extrema, optimizers, angles, gaps, horizon dependence, or verdict class — FROZEN ANTI-BIAS RECORD.
 - **DEC-393:** The inherited dimensionless horizon ladder `{0.25,0.5,1,2,4,8}` in units of `tau_ref` was selected prospectively to preserve the shared protocol — SATISFIED / FROZEN BY PILOT SPECIFICATION.
 - **DEC-394:** Execution was forbidden until branch-side Pilot Specification and final MASTER Pilot Freeze — SATISFIED / CLOSED.
-- **DEC-395:** `Manuscript Structure Freeze 0.2` remains HOLD; opening another theory/application branch before Climate-B resolves is premature — ACTIVE DEPENDENCY.
+- **DEC-395:** Opening another theory/application branch before Climate-B resolved was premature — SATISFIED / CLOSED.
 - **DEC-396:** `Climate Intra-Domain Contrast Pilot Specification 0.1` — SATISFIED / CLOSED.
 
 ## Climate Intra-Domain Contrast Pilot Specification / Freeze 0.1
@@ -123,10 +123,22 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-399:** `K_M`, `K_shift`, signed extrema, degeneracy-aware angle/subspace geometry, `Delta_shift` denominator rule, numerical methods/tolerances, physical reproduction, resolution robustness and four-class verdict logic are frozen exactly as specified — FROZEN.
 - **DEC-400:** Pilot Specification completed without calculating or inspecting any Climate-B finite-time objective, optimizer, angle, gap, horizon dependence or verdict — FROZEN ANTI-BIAS RECORD.
 - **DEC-401:** Climate Intra-Domain Contrast Pilot Freeze 0.1 = `STABLE — EXECUTION RELEASED` — CLIMATE-B PRE-EFFECT SAVEPOINT.
-- **DEC-402:** Exactly one Climate-B execution is authorized; it must run all frozen horizons/resolution roles with no retuning, early stopping, extra resolution, extra channel or alternative jet — FROZEN GOVERNANCE RULE.
-- **DEC-403:** A weak/null/fail Climate-B outcome is retained as valid one-shot evidence; no third Climate candidate is authorized before the first manuscript — FROZEN STOP RULE.
-- **DEC-404:** Next authorized task is `Climate Intra-Domain Contrast Pilot Execution 0.1` via `research/master/prompts/climate_intra_domain_contrast_pilot_execution_0_1.md` — ACTIVE.
-- **DEC-405:** After Climate-B execution, MASTER must integrate/freeze the one-shot result and then return to `Manuscript Structure Freeze 0.2`; the manuscript freeze remains HOLD until then — ACTIVE DEPENDENCY.
+- **DEC-402:** Exactly one Climate-B execution was authorized and executed with all frozen horizons/resolution roles and no retuning, early stopping, extra resolution, extra channel or alternative jet — SATISFIED / CLOSED.
+- **DEC-403:** A weak/null/fail Climate-B outcome is retained as valid one-shot evidence; no third Climate candidate is authorized before the first manuscript — TRIGGERED / FROZEN STOP RULE.
+- **DEC-404:** `Climate Intra-Domain Contrast Pilot Execution 0.1` — SATISFIED / CLOSED.
+- **DEC-405:** MASTER result integration/freeze after Climate-B and return to `Manuscript Structure Freeze 0.2` — SATISFIED / CLOSED.
+
+## Climate-B Pilot Execution / Result Integration 0.1
+
+- **DEC-406:** Climate Intra-Domain Contrast Pilot Execution 0.1 = `COMPLETE` — FROZEN EXECUTION RECORD.
+- **DEC-407:** Climate-B one-shot verdict = `CLIM-B-FAIL` with reason `resolution robustness failure` — FROZEN.
+- **DEC-408:** All frozen algebraic, signed-channel, integral cross-check, direct physical-reproduction, PSD, eigenpair and denominator gates passed; the failure is specifically the frozen cross-resolution robustness gate — STABLE.
+- **DEC-409:** At every individual frozen truncation, `Delta_shift=1` to roundoff and optimizer separation is large, but zero of six frozen horizons is resolution robust; these fixed-truncation values may not support a robust physical Climate-B claim — FROZEN INTERPRETATION RULE.
+- **DEC-410:** The resolution failure includes signed-objective value nonconvergence and insufficient common-space optimizer/subspace mass, with optimizer scales migrating as resolution increases — FROZEN RESULT CHARACTERIZATION.
+- **DEC-411:** No Climate-B repair, retuning, extra resolution, scale-selective damping, alternative channel, or third Climate candidate is authorized before the first manuscript — FROZEN STOP RULE.
+- **DEC-412:** The intended strong-versus-weak intra-domain Climate demonstration was not established; Climate-A remains the canonical robust Climate/Ocean weak contrast, while Climate-B is a robustness-rejection case — FROZEN.
+- **DEC-413:** Climate-B may be used only as qualified methodological evidence that attractive finite-resolution separation can fail robustness; exact manuscript placement is an editorial decision for Structure Freeze 0.2 — ACTIVE EDITORIAL QUESTION.
+- **DEC-414:** `Manuscript Structure Freeze 0.2` is now released from HOLD and is the next mandatory global gate; no new science is authorized before it — ACTIVE.
 
 ## Current branch tree
 
@@ -137,8 +149,8 @@ This file records current canonical high-level decisions. Earlier detailed branc
 \text{Plasma/D10-ZF} & P2\text{-}A\;\text{FROZEN}\\
 \text{Neuro/CMC} & \text{NEURO-STRONG FROZEN}\\
 \text{Climate-A/QG heat} & \text{CLIM-WEAK FROZEN}\\
-\text{Climate-B/Bickley jet} & \text{PILOT FROZEN / EXECUTION READY}\\
-\text{Manuscript} & \text{DRAFT 0.2 COMPLETE / STRUCTURE FREEZE HOLD}\\
+\text{Climate-B/Bickley jet} & \text{CLIM-B-FAIL / RESULT FROZEN}\\
+\text{Manuscript} & \text{DRAFT 0.2 / STRUCTURE FREEZE READY}\\
 \text{Power Grids} & \text{PROTECTED}\\
 \text{Photonics/Waves} & \text{PROTECTED}\\
 \text{realistic Fusion} & \text{PROTECTED}
@@ -150,19 +162,9 @@ Current workflow:
 \[
 \text{Structural Revision 0.2 COMPLETE}
 \to
-\text{Climate-B Feasibility PASS}
+\text{Climate-B one-shot branch COMPLETE}
 \to
-\text{Candidate Freeze STABLE}
+\text{Climate-B Result Freeze STABLE}
 \to
-\text{Numerical Qualification QUALIFIED}
-\to
-\text{Pilot Specification COMPLETE}
-\to
-\text{MASTER Pilot Freeze STABLE}
-\to
-\boxed{\text{Climate-B Execution READY}}
-\to
-\text{MASTER Result Integration/Freeze}
-\to
-\text{Manuscript Structure Freeze 0.2}.
+\boxed{\text{Manuscript Structure Freeze 0.2 READY}}.
 \]
