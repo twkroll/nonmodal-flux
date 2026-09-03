@@ -5,88 +5,103 @@
 
 ## Current state
 
-Cross-Domain Result Integration & Freeze 0.1 is STABLE.  
-Cross-Domain Application Literature Positioning Audit 0.1 is COMPLETE.  
-Cross-Domain Manuscript Positioning & Claim Freeze 0.1 is STABLE.  
-Cross-Domain Manuscript Drafting Package 0.1 is COMPLETE.  
-Manuscript Draft Review Gate 0.1 is PASS WITH MAJOR EDITORIAL/REPRODUCIBILITY REVISION.  
-Manuscript Structural Revision Package 0.2 is COMPLETE.  
-Climate Intra-Domain Contrast Feasibility Gate 0.1 is PASS.  
-Climate Intra-Domain Contrast Candidate Freeze 0.1 is **STABLE**.
+The established scientific and manuscript savepoints remain intact:
 
-The established frozen evidence base remains unchanged:
+- CORE Mathematical / Integration / Interpretation freezes: `STABLE`;
+- Plasma/D10-ZF: `P2-A` — strong primary domain anchor, `FROZEN`;
+- Neuro/CMC: `NEURO-STRONG` — strong cross-domain demonstrator, `FROZEN`;
+- Climate-A/Phillips-QG heat transport: `CLIM-WEAK` — permanent weak/contrast result, `FROZEN`;
+- Cross-Domain Result Integration & Freeze 0.1: `STABLE`;
+- application literature positioning: `COMPLETE`;
+- manuscript claim freeze: `STABLE`;
+- Manuscript Structural Revision Package 0.2: `COMPLETE`.
 
-- Plasma/D10-ZF: `P2-A` — strong primary domain anchor;
-- Neuro/CMC: `NEURO-STRONG` — strong cross-domain demonstrator;
-- Climate-A/Phillips-QG heat transport: `CLIM-WEAK` — permanently frozen weak/contrast case.
+The one-shot Climate-B branch has advanced:
 
-Climate-B has now passed Candidate Freeze without any finite-time objective inspection.
+- Climate Intra-Domain Contrast Feasibility Gate 0.1: `PASS`;
+- Climate Intra-Domain Contrast Candidate Freeze 0.1: `STABLE`;
+- **Climate Intra-Domain Contrast Numerical Qualification 0.1: `QUALIFIED`.**
 
-Frozen Climate-B candidate:
+Climate-B remains the frozen equivalent-barotropic Bickley jet with perturbation kinetic energy and signed eddy forcing of the infinitesimal poleward jet-translation coordinate `g=-U'`, with `B=I`, `R_in=M_K`.
 
-\[
-\boxed{\text{equivalent-barotropic midlatitude Bickley jet}}
-\]
-
-with positive barotropic perturbation kinetic energy and the signed eddy-induced forcing of the infinitesimal poleward jet-translation coordinate. The translation tangent remains
+The full frozen resolution ladder is spectrally stable:
 
 \[
-g(y)=-U'(y).
+\boxed{\alpha(A_K)=-0.05787037037037=-0.1\,\mathrm d^{-1}<0}
 \]
 
-Frozen physical point:
+at every rung. The qualification also passed the frozen quadrature, Hermiticity/definiteness, signed-channel witness, parity, eigenresidual, and nested spectral-boundary checks. Local qualification regression tests: `3 passed`.
 
-\[
-\beta=1.6\times10^{-11}\,\mathrm{m^{-1}s^{-1}},\quad
-U_0=20\,\mathrm{m\,s^{-1}},\quad
-L=1000\,\mathrm{km},\quad
-r=(10\,\mathrm d)^{-1},
-\]
-
-\[
-L_x=20000\,\mathrm{km},\qquad L_y=10000\,\mathrm{km},
-\qquad \tau_{\rm ref}=L/U_0=50000\,\mathrm s.
-\]
-
-Frozen admissible geometry and representation:
-
-- `B=I`, `R_in=M_K`;
-- positive zonal Fourier modes with exact conjugate real-field reconstruction;
-- centered meridional sine Galerkin basis retaining both parity sectors;
-- resolution ladder `(8,16)`, `(12,24)`, `(16,32)`, `(20,40)`, `(24,48)` with roles smoke/coarse/primary/confirmation/high audit.
-
-Candidate Freeze established analytically `M_K>0`, a Hermitian signed/indefinite `Q_shift,K`, physical admissibility of the full retained eddy space, and the Rayleigh–Kuo pre-effect stability criterion. Exact finite-dimensional spectral stability is still unresolved and is now the only active Climate-B gate.
-
-No `K_M`, `K_shift`, optimizer, angle, gap, horizon dependence, or other objective-separation quantity has been calculated or inspected for Climate-B.
+No Climate-B finite-time objective operator, optimizer, angle, gap, horizon dependence, or result classification has yet been evaluated.
 
 ## Governance consequence
 
-`Manuscript Structure Freeze 0.2` remains on **HOLD**, not canceled. It is the mandatory return point after the one-shot Climate-B branch resolves.
+Numerical Qualification success removes the only spectral/structural blocker but **does not authorize execution**.
 
-Climate-A may not be retuned, replaced, or relabeled. Climate-B is exactly one additional attempt. If Numerical Qualification fails, or a later frozen execution returns weak/null, retain that result, authorize no third Climate candidate before the first manuscript, and return to the manuscript structure freeze.
+Before any finite-time effect inspection, Climate-B requires one final branch-side pre-effect specification that freezes:
 
-No other scientific/application branch should proceed while Climate-B is the active dependency.
+- the inherited dimensionless horizon ladder;
+- `K_M(T)` and `K_shift(T)` definitions;
+- signed extrema and optimizer/subspace diagnostics;
+- `Delta_shift` denominator rule;
+- the common study-specific strong criterion;
+- numerical propagation/integration/cross-check tolerances;
+- resolution-robustness and physical-reconstruction rules;
+- one-shot `STRONG/WEAK/NULL/FAIL` outcome logic.
+
+After that specification returns, MASTER must perform a final Climate-B Pilot Freeze before execution.
+
+`Manuscript Structure Freeze 0.2` remains on **HOLD**, not canceled, and is the mandatory return point after Climate-B resolves.
+
+Climate-A may not be retuned or replaced. No third Climate candidate is authorized before the first manuscript. No other scientific/application branch should proceed while Climate-B is the active dependency.
 
 ## Active instruction
 
-**Status:** `CLIMATE-B NUMERICAL QUALIFICATION READY — AWAIT CLIMATE GO`
+**Status:** `CLIMATE-B PILOT SPECIFICATION READY — AWAIT CLIMATE GO`
 
 **Next instruction:**
 
-`research/master/prompts/climate_intra_domain_contrast_numerical_qualification_0_1.md`
+`research/master/prompts/climate_intra_domain_contrast_pilot_specification_0_1.md`
 
-Execute it in the existing Climate chat under the shared prompt handoff protocol. A bare `GO` there should first read `research/climate/STATUS.md` and execute its committed Next instruction exactly.
+Execute it in the existing Climate chat under the shared prompt handoff protocol. A bare `GO` there must first read `research/climate/STATUS.md` and execute only its committed Next instruction.
 
-## Canonical supporting documents
+## Freeze check
 
-- `research/master/climate_intra_domain_contrast_feasibility_gate_0_1.md`
-- `research/climate/climate_intra_domain_contrast_candidate_freeze_0_1.md`
-- `research/master/prompts/climate_intra_domain_contrast_numerical_qualification_0_1.md`
-- `research/manuscript/manuscript_draft_0_2.md`
-- `research/master/cross_domain_manuscript_positioning_claim_freeze_0_1.md`
-- `research/master/decision_branch_log.md`
-- `research/master/prompt_handoff_protocol_0_1.md`
+No prior freeze is invalidated or overdue. Climate-B Numerical Qualification is now a new stable qualification savepoint. A manuscript structure freeze now would be too early because Climate-B has not yet resolved; finite-time execution now would also be too early because the Pilot Specification and final MASTER Pilot Freeze are still due.
+
+Parallel branch work is not recommended. CORE, Plasma, Neuro, Literature, MODES, CONT, CASCADE, Power Grids, Photonics/Waves, realistic Fusion, delayed Neuro, and higher-fidelity Climate remain WAIT/PROTECTED.
+
+## Rollback points
+
+The protected rollback chain is:
+
+1. Plasma `P2-A` result freeze;
+2. Neuro `NEURO-STRONG` result freeze;
+3. Climate-A `CLIM-WEAK` result freeze;
+4. Cross-Domain Result Integration & Freeze 0.1;
+5. Manuscript Claim Freeze / Draft 0.2;
+6. Climate-B Candidate Freeze 0.1;
+7. Climate-B Numerical Qualification 0.1.
+
+Climate-B later work may add evidence but may not rewrite any earlier savepoint.
+
+## Branch-independent / branch-dependent distinction
+
+Branch-independent methodology remains
+
+\[
+\mathfrak C=(A,M,Q,B,R_{\rm in})
+\]
+
+with common finite-time positive-objective and signed-channel operators, signed extrema, optimizer/subspace geometry, target-performance gap, physical reconstruction, robustness, and anti-retuning discipline.
+
+Branch-dependent semantics remain distinct:
+
+- Plasma: free energy / signed particle transport;
+- Neuro: synaptic-filter storage / signed pathway contribution;
+- Climate-A: QG perturbation energy / signed poleward heat transport;
+- Climate-B: barotropic perturbation kinetic energy / signed jet-translation forcing.
 
 ## STOP boundary
 
-Do not run the manuscript structure freeze yet. Do not target a journal, submit, open another protected application, choose a Climate-B horizon ladder, or inspect finite-time objective separation before Numerical Qualification returns to MASTER.
+Do not run `Manuscript Structure Freeze 0.2` yet. Do not execute Climate-B, target a journal, submit, open another protected branch, or inspect any Climate-B finite-time objective separation before the Pilot Specification returns to MASTER.
