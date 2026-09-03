@@ -32,7 +32,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-332:** No `SAME` hit found in the targeted audit for the full frozen Climate result; absence is not proof of novelty — STABLE.
 - **DEC-333:** Climate `CLIM-WEAK` remains a methodological contrast case in a dense baroclinic/singular-vector/heat-transport prior-art field — STABLE.
 - **DEC-334:** Broad Climate novelty claims about damped baroclinic transient growth, QG singular vectors, norm dependence, or heat-transport optimal perturbations are DEMOTED — STABLE.
-- **DEC-335:** The integrated three-domain story remains publication-positionable only as a pre-registered cross-domain workflow with nonuniform outcomes, not as new quadratic-output theory or a universality theorem — STABLE.
+- **DEC-335:** The integrated three-domain story remains publication-positionable only as a pre-specified cross-domain workflow with nonuniform outcomes, not as new quadratic-output theory or a universality theorem — STABLE.
 - **DEC-336:** Climate's `90°` optimizer-subspace separation with only ~4.12% heat-performance gap is retained as the canonical geometry-versus-performance contrast — STABLE.
 - **DEC-337:** `Cross-Domain Manuscript Positioning & Claim Freeze 0.1` was the next global task — SATISFIED / CLOSED.
 - **DEC-338:** CORE, MODES, CONT, CASCADE, Neuro, Climate, Power Grids, Photonics and realistic Fusion remained WAIT/PROTECTED through the claim freeze — SATISFIED / CLOSED.
@@ -57,7 +57,19 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-351:** Evidence/citation map 0.1 completed; all quantitative manuscript claims must remain traceable to frozen canonical result files — STABLE.
 - **DEC-352:** Figure source map 0.1 completed; figures may use frozen data and presentational transformations only, with no model rerun or new horizon — STABLE.
 - **DEC-353:** No new scientific result, novelty claim, parameter choice, objective, pathway, or admissible geometry was introduced during drafting — STABLE.
-- **DEC-354:** Next MASTER action is draft review/editorial integration; no new scientific branch or simulation is authorized by draft completion — ACTIVE.
+- **DEC-354:** Draft review/editorial integration — SATISFIED / CLOSED.
+
+## Manuscript Draft Review Gate 0.1
+
+- **DEC-355:** Manuscript Draft Review Gate 0.1 = PASS WITH MAJOR EDITORIAL/REPRODUCIBILITY REVISION — STABLE.
+- **DEC-356:** Draft 0.1 scientific claims remain compatible with frozen evidence; no new calculation is required — STABLE.
+- **DEC-357:** Revision 0.2 must make each domain model/metric/channel/admissible geometry sufficiently self-contained for external readers — ACTIVE.
+- **DEC-358:** Main text should contain compact defining physics; full matrices, parameter tables, tolerances and analysis-freeze chronology should move to Supplement/Methods appendix — ACTIVE EDITORIAL RULE.
+- **DEC-359:** Default manuscript wording should be “pre-specified/frozen before effect inspection” rather than “preregistered” unless a defensible registration chronology is explicitly documented — ACTIVE CLAIM GUARDRAIL.
+- **DEC-360:** Operational strong thresholds must be stated as study-specific rules, not universal constants — ACTIVE.
+- **DEC-361:** Factor-of-two storage normalization must be made explicit/consistent — ACTIVE.
+- **DEC-362:** Climate remains in the main manuscript as the canonical weak contrast; the integrated three-domain architecture is retained — FROZEN.
+- **DEC-363:** Next MASTER task is `Manuscript Structural Revision Package 0.2`; no scientific branch is opened — ACTIVE.
 
 ## Current branch tree
 
@@ -68,7 +80,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 \text{Plasma/D10-ZF} & P2\text{-}A\;\text{FROZEN}\\
 \text{Neuro/CMC} & \text{NEURO-STRONG FROZEN}\\
 \text{Climate/QG} & \text{CLIM-WEAK FROZEN}\\
-\text{Manuscript} & \text{DRAFT 0.1 COMPLETE / REVIEW DUE}\\
+\text{Manuscript} & \text{DRAFT 0.1 REVIEWED / REVISION 0.2 ACTIVE}\\
 \text{Power Grids} & \text{PROTECTED}\\
 \text{Photonics/Waves} & \text{PROTECTED}\\
 \text{realistic Fusion} & \text{PROTECTED}
@@ -84,7 +96,9 @@ Current manuscript workflow:
 \to
 \text{Claim Freeze}
 \to
-\boxed{\text{Drafting Package COMPLETE}}
+\text{Draft 0.1}
 \to
-\text{Draft Review ACTIVE}.
+\boxed{\text{Draft Review PASS}}
+\to
+\text{Structural Revision 0.2 ACTIVE}.
 \]
