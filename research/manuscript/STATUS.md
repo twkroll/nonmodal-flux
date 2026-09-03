@@ -11,7 +11,7 @@
 \boxed{\text{STABLE — MANUSCRIPT ARCHITECTURE FROZEN}}.
 \]
 
-`Manuscript Structural Revision Package 0.3` is now complete.
+`Manuscript Structural Revision Package 0.3` is complete and has returned to MASTER.
 
 Canonical structure authority:
 
@@ -23,13 +23,13 @@ Canonical Revision-0.3 outputs:
 - `research/manuscript/evidence_citation_map_0_2.md`;
 - `research/manuscript/figure_source_map_0_2.md`.
 
-Rollback points remain unchanged:
+Rollback points remain:
 
 - `research/manuscript/manuscript_draft_0_2.md`;
 - `research/manuscript/evidence_citation_map_0_1.md`;
 - `research/manuscript/figure_source_map_0_1.md`.
 
-No scientific result was changed in Revision 0.3.
+No scientific result was changed in Revision 0.3. Python CI #253 for the Revision-0.3 return commit completed successfully.
 
 ## Frozen manuscript evidence sequence
 
@@ -45,68 +45,44 @@ Climate-B remains
 \boxed{\text{CLIM-B-FAIL — resolution robustness failure}}
 \]
 
-and is implemented only as a brief main-text robustness-rejection subsection plus full Supplement S5. It is not a fourth positive application result.
+and appears only as a brief main-text robustness-rejection subsection plus full Supplement S5. It is not a fourth positive application result.
 
-Revision 0.3 preserves the frozen Climate-B distinction:
+## Architecture and figure-source state
 
-- local algebraic, integration, eigensolver, PSD, and direct physical-reproduction gates passed;
-- attractive same-resolution separation is retained only with explicit failure qualification;
-- zero of six frozen horizons passed the complete cross-resolution protocol;
-- no Climate-B repair or third Climate candidate is opened.
+Revision 0.3 now implements the full frozen section architecture and Supplement S1-S6 split.
 
-## Frozen manuscript architecture now implemented
+`research/manuscript/figure_source_map_0_2.md` is the scientific authority for future figure/table production. It freezes Main Fig. 1–5, Main Table 1, the Supplement operational-rules table, and the Climate-B robustness display using frozen stored data only.
 
-Main text:
-
-- Abstract;
-- 1 Introduction;
-- 2 Common finite-time framework and study design;
-- 3 Application methods: Plasma, Neuro, Climate-A;
-- 4 Results: Plasma, Neuro, Climate-A;
-- 5 Cross-domain synthesis and robustness lessons;
-  - 5.1 Geometry versus target performance;
-  - 5.2 Robustness rejection: one-shot Climate-B audit;
-- 6 Discussion and limitations;
-- 7 Conclusion.
-
-Supplement:
-
-- S1 analysis-freeze chronology / reproducibility;
-- S2 Plasma details;
-- S3 Neuro details;
-- S4 Climate-A details;
-- S5 full Climate-B one-shot robustness rejection;
-- S6 additional frozen-data tables / metadata notes.
-
-## Figure/table plan
-
-The Revision-0.3 figure-source map implements the Structure Freeze:
-
-- Main Fig. 1–4 retain workflow, Plasma, Neuro, and Climate-A roles;
-- Main Fig. 5 is a non-inferential robust-domain geometry/performance summary, not a phase diagram;
-- Climate-B fixed-resolution effect points are excluded from the robust Main Fig. 5 summary;
-- Main Table 1 contains the three robust main domains;
-- the former Main Table 2 is Supplement material;
-- any Climate-B row/display must be labeled `CLIM-B-FAIL — resolution robustness` and carry the frozen failure qualification.
-
-No figure has been produced in Revision 0.3.
+No figure has yet been produced.
 
 ## Title / terminology
 
-The canonical working title remains:
+Canonical working title:
 
 `Diagnosing objective nonredundancy in stable linear dynamics: a physics-informed finite-time workflow across plasma, neural and geophysical models`
 
-Default external wording remains `pre-specified and frozen before objective-separation evaluation` or equivalent version-controlled freeze wording. Do not use unqualified `preregistered`.
+Exact target-specific title shortening remains deferred to MASTER publication positioning.
+
+Default external wording remains `pre-specified and frozen before objective-separation evaluation` or equivalent version-controlled wording. Do not use unqualified `preregistered`.
 
 ## Active instruction
 
-**Status:** `MANUSCRIPT STRUCTURAL REVISION PACKAGE 0.3 COMPLETE — STOP / RETURN TO MASTER`
+**Status:** `REVISION 0.3 COMPLETE — WAIT FOR MASTER JOURNAL/AUDIENCE POSITIONING`
 
-**Next instruction:** none active.
+**Next instruction:** none active in this branch.
 
-A bare `GO` must therefore not open new manuscript work until MASTER commits a new active instruction and updates this STATUS accordingly.
+MASTER has prepared:
 
-Figure production, journal/audience targeting, submission preparation, new novelty search, protected-branch work, and new scientific calculation remain unauthorized here.
+`research/master/prompts/journal_audience_positioning_gate_0_1.md`
 
-**STOP — RETURN TO MASTER.**
+but that is a MASTER gate, not a bare-`GO` manuscript task.
+
+A bare `GO` here must not open figure production, journal targeting, submission preparation, bibliography expansion, novelty search, or new science until MASTER completes the Journal & Audience Positioning Gate and commits the next branch-side instruction.
+
+## STOP boundary
+
+Figure production remains WAIT only for publication-format positioning. No scientific blocker exists.
+
+No protected-branch work, Climate-B repair, third Climate case, submission action, or new calculation is authorized.
+
+**STOP — RETURN TO MASTER / AWAIT `Journal & Audience Positioning Gate 0.1`.**
