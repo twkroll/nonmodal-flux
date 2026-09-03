@@ -13,35 +13,29 @@ All established scientific savepoints remain intact:
 - Climate-A/Phillips-QG: `CLIM-WEAK` — robust weak geometry-versus-performance contrast, `FROZEN`;
 - Climate-B/Bickley jet: `CLIM-B-FAIL — resolution robustness failure`, `RESULT FROZEN`;
 - Cross-Domain Result / Literature / Claim freezes: `STABLE/COMPLETE`;
-- Manuscript Draft 0.2: stable editorial rollback point.
+- Manuscript Structure Freeze 0.2: `STABLE — MANUSCRIPT ARCHITECTURE FROZEN`.
 
-The formal
+`Manuscript Structural Revision Package 0.3` is now complete and returned to MASTER.
 
-\[
-\boxed{\text{Manuscript Structure Freeze 0.2}}
-\]
+Canonical Revision-0.3 package:
 
-is now complete and
+- `research/manuscript/manuscript_draft_0_3.md`;
+- `research/manuscript/evidence_citation_map_0_2.md`;
+- `research/manuscript/figure_source_map_0_2.md`.
 
-\[
-\boxed{\text{STABLE — MANUSCRIPT ARCHITECTURE FROZEN}}.
-\]
-
-Canonical freeze:
-
-`research/master/manuscript_structure_freeze_0_2.md`
+Revision 0.3 implemented the frozen architecture without changing any scientific result. Python CI #253 for commit `8578b2352978e60af875988be38801fb41bfdf48` completed successfully.
 
 ## Frozen first-paper architecture
 
-The main positive/weak evidence sequence remains exactly:
+The main evidence sequence remains exactly:
 
 1. Plasma `P2-A`;
 2. Neuro `NEURO-STRONG`;
 3. Climate-A `CLIM-WEAK`.
 
-Climate-B is **not** a fourth positive application result. It is frozen to `Supplement case + brief main-text robustness-rejection reference/subsection`. Its permitted lesson is only that striking fixed-resolution separation can fail pre-specified refinement and must therefore be rejected as a robust physical demonstration.
+Climate-B remains a robustness-rejection case only: brief main-text Sec. 5.2 plus full Supplement S5. It is not a fourth positive application result.
 
-Main section architecture is frozen to:
+Main text remains frozen to:
 
 - Abstract;
 - 1 Introduction;
@@ -52,70 +46,76 @@ Main section architecture is frozen to:
   - 5.1 Geometry versus target performance;
   - 5.2 Robustness rejection: one-shot Climate-B audit;
 - 6 Discussion and limitations;
-- 7 Conclusion;
-- Supplement S1-S6, with full Climate-B robustness material in S5.
+- 7 Conclusion.
 
-## Figure/table freeze
+Supplement S1-S6 remains frozen, with full Climate-B robustness material in S5.
 
-Main figures:
+## Figure/table state
 
-- Fig. 1 common workflow/domain semantics;
-- Fig. 2 Plasma;
-- Fig. 3 Neuro;
-- Fig. 4 Climate-A;
-- Fig. 5 simplified non-inferential robust-domain geometry/performance summary, explicitly not a phase diagram.
+`research/manuscript/figure_source_map_0_2.md` now gives a complete frozen-data-only production plan:
 
-Main Table 1 remains the three robust-domain model/objective/admissible-geometry table.
+- Main Fig. 1 workflow/domain semantics;
+- Main Fig. 2 Plasma;
+- Main Fig. 3 Neuro;
+- Main Fig. 4 Climate-A;
+- Main Fig. 5 non-inferential robust-domain geometry/performance summary;
+- Main Table 1 three-domain model/objective/admissible-geometry definitions;
+- operational outcome table in Supplement;
+- Climate-B robustness figure/table in Supplement S5.
 
-Former Main Table 2 moves to Supplement; it may include Climate-B only as `CLIM-B-FAIL — resolution robustness`.
-
-Climate-B receives a Supplement robustness figure/table from frozen execution artifacts only.
+No figure has yet been produced. Climate-B fixed-resolution effect points remain excluded from the robust Main Fig. 5 summary.
 
 ## Claims / terminology
 
-The central manuscript claim remains limited:
+The central claim remains limited to objective nonredundancy diagnosis, with magnitude and practical consequence dependent on system, horizon, observable, admissible geometry, and robustness.
 
-\[
-\boxed{\text{positive storage/state optimality and signed physical-channel optimality need not be redundant,}}
-\]
-
-with magnitude and practical consequence dependent on system, horizon, observable, admissible geometry, and robustness.
-
-Three manuscript lessons are frozen:
+Frozen manuscript lessons remain:
 
 1. positive storage/state optima can be poor proxies for a separate physical channel in some systems/geometries;
 2. large optimizer/subspace angle can coexist with small target-performance loss;
 3. large fixed-resolution objective separation can fail refinement and must not be promoted without robustness.
 
-The third is a methodological interpretation of Climate-B, not a general atmospheric theorem.
+Default external wording remains `pre-specified and frozen before objective-separation evaluation` / equivalent version-controlled wording. Unqualified `preregistered` remains disallowed unless chronology is explicitly defended.
 
-Default external wording remains `pre-specified and frozen before objective-separation evaluation` / `prospectively frozen in the version-controlled analysis record before effect inspection`. Unqualified `preregistered` remains disallowed unless chronology is explicitly defended.
+## Governance consequence
 
-## Title status
+There is no scientific blocker and no scientifically required new calculation before the first paper proceeds.
 
-Current Draft-0.2 title remains the canonical working title:
+Revision 0.3 has now satisfied the condition that previously blocked both figure production and journal/audience positioning. MASTER must choose the ordering of those editorial tasks.
 
-`Diagnosing objective nonredundancy in stable linear dynamics: a physics-informed finite-time workflow across plasma, neural and geophysical models`
+The preferred ordering is:
 
-Exact journal-specific title wording is deferred until journal/audience targeting after Draft 0.3.
+\[
+\boxed{\text{Journal & Audience Positioning Gate 0.1}}
+\to
+\text{Frozen-Data Figure Production Package}.
+\]
+
+Reason: the scientific figure content is already frozen, but current journal scope, article format, title/abstract conventions, figure-count expectations, and access model can affect purely editorial packaging. Resolving target/audience first avoids producing a presentation package that must immediately be reformatted.
+
+This is an editorial sequencing decision only; no journal choice may alter frozen evidence, claims, or result ordering.
 
 ## Active instruction
 
-**Status:** `MANUSCRIPT STRUCTURE FREEZE 0.2 STABLE — REVISION 0.3 READY`
+**Status:** `REVISION 0.3 COMPLETE — JOURNAL & AUDIENCE POSITIONING GATE READY`
 
 **Next instruction:**
 
-`research/master/prompts/manuscript_structural_revision_package_0_3.md`
+`research/master/prompts/journal_audience_positioning_gate_0_1.md`
 
-Execute it in the Manuscript chat under the shared prompt handoff protocol. A bare `GO` there must first read `research/manuscript/STATUS.md` and execute only the committed Next instruction.
+Execute this only in MASTER when the user gives the named command:
+
+`Journal & Audience Positioning Gate 0.1`
+
+A bare `GO` in the Manuscript chat is currently blocked because `research/manuscript/STATUS.md` has no active branch-side instruction.
 
 ## Freeze check
 
-No scientific freeze is invalidated or overdue. No new scientific calculation is required before the first paper proceeds editorially.
+All scientific and manuscript-architecture freezes are current. No freeze is overdue.
 
-Climate-B is closed against repair/retuning and no third Climate candidate is authorized before the first manuscript.
+Opening CORE, MODES, CONT, CASCADE, Power Grids, Photonics/Waves, realistic Fusion, delayed Neuro, higher-fidelity Climate, a Climate-B repair, or a third Climate candidate before the first-paper editorial cycle is resolved would be premature branching.
 
-Opening CORE, MODES, CONT, CASCADE, Power Grids, Photonics/Waves, realistic Fusion, delayed Neuro, or higher-fidelity Climate now would be premature. All remain WAIT/PROTECTED.
+No parallel scientific work is recommended. Figure production should wait only for the publication-positioning gate, not for any new science.
 
 ## Rollback points
 
@@ -128,10 +128,11 @@ The protected chain now includes:
 5. Manuscript Claim Freeze / Draft 0.2;
 6. Climate-B Candidate / Qualification / Pilot freezes;
 7. Climate-B Execution / Result Integration Freeze 0.1;
-8. **Manuscript Structure Freeze 0.2**.
+8. Manuscript Structure Freeze 0.2;
+9. **Manuscript Draft 0.3 + Evidence Map 0.2 + Figure Source Map 0.2**.
 
 ## STOP boundary
 
-Do not begin figure production, journal targeting, submission preparation, new literature novelty search, or new science before Revision 0.3 returns to MASTER.
+Do not begin submission preparation, protected scientific branches, new novelty search, or new scientific calculations. Figure production remains WAIT until the Journal & Audience Positioning Gate resolves publication-format implications.
 
-**STOP — AWAIT MANUSCRIPT `GO`.**
+**STOP — AWAIT `Journal & Audience Positioning Gate 0.1`.**
