@@ -111,10 +111,22 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-390:** Complete frozen Climate-B spectra are stable at every rung with `alpha(A_K)=-0.05787037037037=-0.1 d^-1`; no physical retuning was used — FROZEN.
 - **DEC-391:** Frozen 512-vs-1024 Galerkin assembly audit, `M_K>0`, Hermitian/indefinite `Q_shift,K`, parity rules, deterministic signed-channel witness, eigenresiduals and nested rightmost spectral boundary all pass — STABLE.
 - **DEC-392:** Climate-B qualification did not compute or inspect `K_M`, `K_shift`, finite-time gains, signed extrema, optimizers, angles, gaps, horizon dependence, or verdict class — FROZEN ANTI-BIAS RECORD.
-- **DEC-393:** The inherited dimensionless horizon ladder `{0.25,0.5,1,2,4,8}` in units of `tau_ref` is the preferred next pre-effect freeze because it preserves the shared cross-domain protocol without effect-guided horizon selection — ACTIVE SPECIFICATION RULE.
-- **DEC-394:** Climate-B execution remains unauthorized until a branch-side Pilot Specification is completed and MASTER performs a final Pilot Freeze — FROZEN GOVERNANCE RULE.
-- **DEC-395:** `Manuscript Structure Freeze 0.2` remains HOLD; opening another theory/application branch before Climate-B resolves would be premature — ACTIVE DEPENDENCY.
-- **DEC-396:** Next authorized task is `Climate Intra-Domain Contrast Pilot Specification 0.1` via `research/master/prompts/climate_intra_domain_contrast_pilot_specification_0_1.md` — ACTIVE.
+- **DEC-393:** The inherited dimensionless horizon ladder `{0.25,0.5,1,2,4,8}` in units of `tau_ref` was selected prospectively to preserve the shared protocol — SATISFIED / FROZEN BY PILOT SPECIFICATION.
+- **DEC-394:** Execution was forbidden until branch-side Pilot Specification and final MASTER Pilot Freeze — SATISFIED / CLOSED.
+- **DEC-395:** `Manuscript Structure Freeze 0.2` remains HOLD; opening another theory/application branch before Climate-B resolves is premature — ACTIVE DEPENDENCY.
+- **DEC-396:** `Climate Intra-Domain Contrast Pilot Specification 0.1` — SATISFIED / CLOSED.
+
+## Climate Intra-Domain Contrast Pilot Specification / Freeze 0.1
+
+- **DEC-397:** Climate Intra-Domain Contrast Pilot Specification 0.1 = `COMPLETE` — STABLE PRE-EFFECT SAVEPOINT.
+- **DEC-398:** Climate-B horizon ladder is frozen to `T/tau_ref={0.25,0.5,1,2,4,8}`; all six horizons must be reported and no post-hoc horizon may be added or selected — FROZEN.
+- **DEC-399:** `K_M`, `K_shift`, signed extrema, degeneracy-aware angle/subspace geometry, `Delta_shift` denominator rule, numerical methods/tolerances, physical reproduction, resolution robustness and four-class verdict logic are frozen exactly as specified — FROZEN.
+- **DEC-400:** Pilot Specification completed without calculating or inspecting any Climate-B finite-time objective, optimizer, angle, gap, horizon dependence or verdict — FROZEN ANTI-BIAS RECORD.
+- **DEC-401:** Climate Intra-Domain Contrast Pilot Freeze 0.1 = `STABLE — EXECUTION RELEASED` — CLIMATE-B PRE-EFFECT SAVEPOINT.
+- **DEC-402:** Exactly one Climate-B execution is authorized; it must run all frozen horizons/resolution roles with no retuning, early stopping, extra resolution, extra channel or alternative jet — FROZEN GOVERNANCE RULE.
+- **DEC-403:** A weak/null/fail Climate-B outcome is retained as valid one-shot evidence; no third Climate candidate is authorized before the first manuscript — FROZEN STOP RULE.
+- **DEC-404:** Next authorized task is `Climate Intra-Domain Contrast Pilot Execution 0.1` via `research/master/prompts/climate_intra_domain_contrast_pilot_execution_0_1.md` — ACTIVE.
+- **DEC-405:** After Climate-B execution, MASTER must integrate/freeze the one-shot result and then return to `Manuscript Structure Freeze 0.2`; the manuscript freeze remains HOLD until then — ACTIVE DEPENDENCY.
 
 ## Current branch tree
 
@@ -125,7 +137,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 \text{Plasma/D10-ZF} & P2\text{-}A\;\text{FROZEN}\\
 \text{Neuro/CMC} & \text{NEURO-STRONG FROZEN}\\
 \text{Climate-A/QG heat} & \text{CLIM-WEAK FROZEN}\\
-\text{Climate-B/Bickley jet} & \text{QUALIFIED / PILOT SPEC READY}\\
+\text{Climate-B/Bickley jet} & \text{PILOT FROZEN / EXECUTION READY}\\
 \text{Manuscript} & \text{DRAFT 0.2 COMPLETE / STRUCTURE FREEZE HOLD}\\
 \text{Power Grids} & \text{PROTECTED}\\
 \text{Photonics/Waves} & \text{PROTECTED}\\
@@ -144,11 +156,13 @@ Current workflow:
 \to
 \text{Numerical Qualification QUALIFIED}
 \to
-\boxed{\text{Climate-B Pilot Specification READY}}
+\text{Pilot Specification COMPLETE}
 \to
-\text{MASTER Pilot Freeze}
+\text{MASTER Pilot Freeze STABLE}
 \to
-\text{Climate-B Execution}
+\boxed{\text{Climate-B Execution READY}}
+\to
+\text{MASTER Result Integration/Freeze}
 \to
 \text{Manuscript Structure Freeze 0.2}.
 \]
