@@ -151,8 +151,18 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-421:** Current Draft-0.2 title remains the canonical working title; exact journal-specific title wording is deferred to later audience/journal targeting — STABLE EDITORIAL DECISION.
 - **DEC-422:** Default external terminology remains `pre-specified and frozen before objective-separation evaluation` / equivalent version-controlled wording; unqualified `preregistered` remains disallowed absent defensible chronology — FROZEN CLAIM GUARDRAIL.
 - **DEC-423:** Surviving manuscript lessons are: strong positive-objective/channel nonredundancy can occur; large optimizer angle can coexist with small target-performance loss; and large fixed-resolution separation can fail refinement and must not be promoted without robustness — FROZEN.
-- **DEC-424:** No new scientific calculation is required before the first manuscript proceeds; next authorized task is `Manuscript Structural Revision Package 0.3` using frozen evidence only — ACTIVE.
-- **DEC-425:** Figure production, journal/audience positioning, submission preparation, new novelty search, and protected scientific branches remain blocked until Revision 0.3 returns to MASTER — ACTIVE DEPENDENCY.
+- **DEC-424:** No new scientific calculation is required before the first manuscript proceeds; `Manuscript Structural Revision Package 0.3` was the next authorized frozen-evidence implementation task — SATISFIED / CLOSED.
+- **DEC-425:** Figure production, journal/audience positioning, submission preparation, new novelty search, and protected scientific branches were blocked until Revision 0.3 returned to MASTER — SATISFIED / CLOSED.
+
+## Manuscript Structural Revision Package 0.3 / publication sequencing
+
+- **DEC-426:** Manuscript Structural Revision Package 0.3 = `COMPLETE` — STABLE EDITORIAL SAVEPOINT.
+- **DEC-427:** Draft 0.3, Evidence & Citation Map 0.2, and Figure Source Map 0.2 implement Structure Freeze 0.2 using frozen evidence only; no scientific result, model, horizon, objective, geometry, or novelty claim changed — STABLE.
+- **DEC-428:** Climate-B remains brief main-text Sec. 5.2 + full Supplement S5 robustness-rejection material and is excluded from robust Main Fig. 5 evidence — FROZEN PRESENTATION IMPLEMENTATION.
+- **DEC-429:** Python CI #253 for Revision-0.3 return commit `8578b2352978e60af875988be38801fb41bfdf48` = `SUCCESS` — STABLE REPRODUCIBILITY CHECK.
+- **DEC-430:** After Revision 0.3, the preferred editorial ordering is `Journal & Audience Positioning Gate 0.1` before frozen-data figure production so that current journal scope, format, title/abstract conventions, and figure packaging can inform presentation without altering science — ACTIVE EDITORIAL SEQUENCING.
+- **DEC-431:** Journal/audience positioning may not change the frozen evidence order, claims, or scientific figure content; a poor-fit journal must be downgraded rather than distorting the paper — FROZEN GOVERNANCE RULE.
+- **DEC-432:** Figure production, submission preparation, and protected scientific branches remain WAIT until the Journal & Audience Positioning Gate resolves publication-format implications; no scientific blocker exists — ACTIVE DEPENDENCY.
 
 ## Current branch tree
 
@@ -164,7 +174,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 \text{Neuro/CMC} & \text{NEURO-STRONG FROZEN}\\
 \text{Climate-A/QG heat} & \text{CLIM-WEAK FROZEN}\\
 \text{Climate-B/Bickley jet} & \text{CLIM-B-FAIL / RESULT FROZEN}\\
-\text{Manuscript} & \text{STRUCTURE FREEZE 0.2 STABLE / REVISION 0.3 READY}\\
+\text{Manuscript} & \text{REVISION 0.3 COMPLETE / RETURNED TO MASTER}\\
 \text{Power Grids} & \text{PROTECTED}\\
 \text{Photonics/Waves} & \text{PROTECTED}\\
 \text{realistic Fusion} & \text{PROTECTED}
@@ -180,5 +190,9 @@ Current workflow:
 \to
 \text{Manuscript Structure Freeze 0.2 STABLE}
 \to
-\boxed{\text{Manuscript Structural Revision Package 0.3 READY}}.
+\text{Manuscript Structural Revision 0.3 COMPLETE}
+\to
+\boxed{\text{Journal \& Audience Positioning Gate 0.1 READY}}
+\to
+\text{Frozen-Data Figure Production Package}.
 \]
