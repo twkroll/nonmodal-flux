@@ -1,137 +1,108 @@
 # Evidence & Citation Map 0.1
 
-**Status:** CANONICAL DRAFT SUPPORT  
-**Authority:** `research/master/cross_domain_manuscript_positioning_claim_freeze_0_1.md`  
-**Purpose:** map manuscript claims to frozen evidence, required prior art, and claim restrictions.
+**Status:** CANONICAL SUPPORT FOR MANUSCRIPT REVISION 0.2  
+**Authority:** `research/master/cross_domain_manuscript_positioning_claim_freeze_0_1.md` and `research/master/manuscript_draft_review_gate_0_1.md`  
+**Primary draft:** `research/manuscript/manuscript_draft_0_2.md`
 
 ## 0. Evidence discipline
 
-Every quantitative statement in `research/manuscript/manuscript_draft_0_1.md` must trace to one of the frozen result files below. No result may be strengthened by interpolation, a new horizon, a new resolution, or a new simulation.
+Every quantitative or model-defining statement in Draft 0.2 must trace to a frozen source. No result may be strengthened by interpolation, a new horizon, a new resolution, a new simulation, or a changed physical interpretation.
 
-Canonical frozen evidence:
+Canonical frozen evidence and specification sources:
 
-- Plasma: `research/d10_zf_pilot_0_2_execution_results.md`
+- Plasma model definition: `research/d10_zf_pilot_0_1_specification.md`
+- Plasma frozen execution: `research/d10_zf_pilot_0_2_execution_results.md`
 - Plasma machine-readable data: `research/d10_zf_pilot_0_2_execution_data.csv`
-- Neuro: `research/neuro/neuro_pilot_0_1_execution_results.md`
+- Neuro specification: `research/neuro/neuro_pilot_specification_0_1.md`
+- Neuro execution: `research/neuro/neuro_pilot_0_1_execution_results.md`
 - Neuro machine-readable data: `research/neuro/neuro_pilot_0_1_execution_data.csv`
-- Climate/Ocean: `research/climate/climate_ocean_pilot_0_1_execution_results.md`
-- Climate/Ocean machine-readable data: `research/climate/climate_ocean_pilot_0_1_execution_data.csv`
+- Climate numerical/model definition: `research/climate/climate_ocean_numerical_qualification_0_1.md`
+- Climate execution specification: `research/climate/climate_ocean_pilot_specification_0_1.md`
+- Climate execution: `research/climate/climate_ocean_pilot_0_1_execution_results.md`
+- Climate machine-readable data: `research/climate/climate_ocean_pilot_0_1_execution_data.csv`
 - Integrated result freeze: `research/master/cross_domain_result_integration_freeze_0_1.md`
-- Manuscript claim freeze: `research/master/cross_domain_manuscript_positioning_claim_freeze_0_1.md`
+- Claim freeze: `research/master/cross_domain_manuscript_positioning_claim_freeze_0_1.md`
+- Draft review: `research/master/manuscript_draft_review_gate_0_1.md`
 - Neuro/Climate literature audit: `research/literature/cross_domain_application_literature_positioning_audit_0_1.md`
 
-## 1. Cross-domain framework claims
+## 1. Cross-domain framework and study-design claims
 
-| Manuscript claim | Frozen evidence | Quantity / section | Allowed wording | Required citation context | Restriction |
-|---|---|---|---|---|---|
-| Common transferable tuple is `C=(A,M,Q,B,R_in)` | claim freeze; result integration freeze | framework sections | “common methodological layer” | none required for project definition; cite established optimal-perturbation literature in Introduction | do not imply common physical semantics |
-| Positive objective and signed channel should be compared on same admissible space | claim freeze | canonical manuscript claim | “physics-informed objective-nonredundancy diagnostic” | Foures2014; Sevellec2008 as adjacent objective-dependent precedents | not a new theorem |
-| Optimizer angle and channel-performance loss are distinct diagnostics | Climate execution + result freeze | longest QG horizon | “geometry and performance must be assessed separately” | prior-art discussion may mention norm dependence | do not infer practical nonredundancy from angle alone |
-| Preregistration/anti-retuning is part of workflow | all pilot specification/result freezes | no-retuning records | “frozen before effect inspection” / “no retuning” | none required beyond methods | do not call threshold values universal constants |
+| Draft 0.2 claim | Frozen source | Allowed wording | Restriction |
+|---|---|---|---|
+| Common methodological tuple is `(A,M,Q,B,R_in)` | claim freeze; CORE freeze | “common methodological layer” | do not imply common physical semantics |
+| Positive objective and signed channel are compared on the same admissible space | claim freeze | “objective-nonredundancy diagnostic” | not a new theorem |
+| `S_M=1/2 x^dagger M x`, while `K_M` is written for `x^dagger M x` | Draft Review Gate; frozen definitions | “common factor 1/2 omitted from the operator; optimizer/gap unaffected” | restore factor when calling the quantity physical storage |
+| `theta` and `Delta_Q` are distinct diagnostics | result freeze; Climate result | “geometry and performance are assessed separately” | angle alone is not practical nonredundancy |
+| strong application criterion uses `theta>=20 deg`, `Delta_Q>=0.25` on two neighboring horizons | Cross-Domain Pilot/Claim freezes | “study-specific operational strong criterion” | never call thresholds universal constants |
+| analysis choices were fixed before effect inspection | specifications/freezes/commit chronology | “pre-specified and frozen before objective-separation evaluation” | default wording is not “preregistered” unless external registration chronology is documented |
+| “physical channel” covers signed transport/exchange/pathway-contribution objectives | claim freeze + review gate | broad methodological definition | do not imply every channel is a conserved flux |
 
-## 2. Plasma claim map
+## 2. Plasma model and result map
 
-| Claim | Source file | Exact source quantity | Allowed wording | Required prior art | Forbidden wording |
-|---|---|---|---|---|---|
-| Frozen D10-ZF resolutions are spectrally stable | `research/d10_zf_pilot_0_2_execution_results.md` | Sec. 1; `alpha(A_K)` = -0.0075786, -0.0133818, -0.0154924 | “spectrally stable at all three frozen resolutions” | Landreman2015 for stable plasma transient amplification context | no universal stability claim |
-| Finite-time free-energy amplification exceeds unity at every horizon | same | Sec. 2; `G_E` = 1.1747 … 39.7632 | “finite-time free-energy amplification despite modal stability” | Landreman2015 | not first plasma transient growth |
-| Cumulative particle transport has positive and negative extrema | same | Sec. 2; `G_Gamma,-<0<G_Gamma,+` | “signed cumulative particle-transport operator has both signs” | none beyond plasma context | do not replace by absolute transport |
-| At `T=1`, energy optimum misses ~50.4% of max positive particle transport | same | row `T=1`; `Delta_Gamma=0.5043371669` | “misses approximately 50%” / “realizes about one half” | Foures2014; Sevellec2008 as adjacent objective-dependence precedents | not generic to plasma |
-| At `T=1`, optimizer angle is 53.396° | same | row `T=1` | report only paired with `Delta_Gamma` | none | angle alone is not enough |
-| Plasma optimizer difference is resolution robust | same | Sec. 3 | “resolution robust across K=32,64,96” | none | no claim beyond tested ladder |
-| Plasma optimizers differ structurally in Fourier support and phase | same | Secs. 4–5 | “physically distinct within frozen representation” | none | do not infer nonlinear turbulence behavior |
-| Direct modal trajectory decays while finite-time optimals grow | same | Sec. 6 | “least-damped modal trajectory decays while finite-time optimal perturbations amplify” | Landreman2015 | not proof of nonlinear subcritical turbulence |
+| Claim | Source | Exact support / quantity | Required positioning | Forbidden extension |
+|---|---|---|---|---|
+| D10-ZF linear PDE and Galerkin state | `research/d10_zf_pilot_0_1_specification.md` | Secs. 1–4 | model definition only | no new plasma model |
+| `U=cos x`, `Lx=2pi`, `ky=C=kappa=1`, `N=0` | same | Secs. 1–2 | frozen point | no retuning |
+| state at resolution `K`: all `phi_m`, then all `eta_m`, `m=-K...K` | same + execution dimensions | Fourier ordering generalized from frozen Galerkin convention | presentational generalization only | do not change basis |
+| free-energy metric `M=diag(-Delta,I)` | same | Sec. 5 | Plasma free energy | not generic “state norm” in captions |
+| particle channel `Q_Gamma=(ky/2)[[0,iI],[-iI,0]]` | same | Sec. 6 | signed radial particle transport | do not replace by absolute transport |
+| Pilot 0.2 damping `A=A0-0.020I` | execution result | scope lock | prospectively selected stability axis | no post-effect damping change |
+| spectral stability at `K=32,64,96` | execution result | `alpha=-0.0075786,-0.0133818,-0.0154924` | Landreman2015 context | no universal stability claim |
+| `G_E>1` over all frozen horizons | execution result | Sec. 2 | transient free-energy amplification | not first plasma transient growth |
+| signed cumulative transport has both signs | execution result | `J_Gamma^-<0<J_Gamma^+` | signed channel | no absolute-value replacement |
+| `T=1`: `Delta_Gamma=0.504337`, `theta=53.396 deg` | execution result | `T=1` row | Foures2014; Sevellec2008 as adjacent objective-dependence precedents | not generic to plasma |
+| resolution-robust optimizer structure | execution result | Secs. 3–5 | tested ladder only | no continuum-limit claim |
 
-### Plasma required citations
+## 3. Neuro model and result map
 
-- Landreman, Plunk & Dorland (2015), DOI `10.1017/S0022377815000495`.
-- Foures, Caulfield & Schmid (2014), DOI `10.1017/jfm.2014.182`.
-- Sévellec et al. (2008), DOI `10.1175/2008JPO3875.1`.
+| Claim | Source | Exact support / quantity | Required positioning | Forbidden extension |
+|---|---|---|---|---|
+| two-source V1/V4 CMC with SS/SP/II/DP populations | `research/neuro/neuro_pilot_specification_0_1.md` | Sec. 1 | Friston2003 / CMC context | no in-vivo validation claim |
+| 16-state `(v,z)` region-major ordering | same | Sec. 3 | model definition | no hidden-state reinterpretation |
+| synaptic-filter storage `1/2(z^2+kappa^2 v^2)` and diagonal `M` | same | Sec. 6 | “model-internal synaptic-filter storage” | never “brain energy” or “metabolic energy” |
+| `A=A_rest+A_j->i`; primary channel V1-SP -> V4-SS | same | Sec. 7 | predefined physiological connection | no claim of generic causal efficacy |
+| `Q_j->i=1/2(A_j->i^dagger M+M A_j->i)` | same | Sec. 7 | pathway contribution to storage-rate balance | sign is not excitatory/inhibitory sign |
+| two fixed 1-ms pulses ending 2 and 16 ms before observation generate `B` | same | Secs. 8–10 | fixed preparation geometry | not time-dependent optimal control |
+| `rank(B)=2`, whitened condition number `34.294<100` | same | Sec. 11 | pre-effect geometry qualification | no retuned pulse times |
+| `R_in=I_2` in pulse-amplitude coordinates | same | Sec. 10 | input-cost metric only | not `B=I` in neural state space |
+| `tau_ref=28 ms`; horizons 7–224 ms | same | Sec. 12 | model-native time scale | no added horizon |
+| `NEURO-STRONG` at 112/224 ms | execution result | `theta=46.824/65.058 deg`, `Delta=0.529/0.818` | narrow application claim | no threshold change |
+| pathway optimum `~(+0.9924,-0.1230)` vs same-sign storage optimum | execution result | optimizer table/section | direct preparation-coordinate interpretation | not a stimulation recommendation |
+| cumulative negative pathway extremum not reachable on frozen `B` space | execution result + result freeze | minimum eigenvalue remains positive | keep restriction prominent | no bidirectional cumulative-transfer claim |
+| narrow absence claim survives | literature audit | Neuro positioning | Hennequin2012; Bondanelli2020; Friston2003; Daunizeau2011; Salfenmoser2022; Ogino2026 | use only “to our knowledge” wording |
 
-## 3. Neuro claim map
+## 4. Climate/Ocean model and result map
 
-| Claim | Source file | Exact source quantity | Allowed wording | Required prior art | Forbidden wording |
-|---|---|---|---|---|---|
-| Frozen model is stable two-source V1/V4 CMC/DCM | `research/neuro/neuro_pilot_0_1_execution_results.md` | scope + structural gates; `alpha(A)=-33.096409 s^-1` | “stable two-source V1/V4 CMC/DCM tangent model” | Friston2003 for DCM background | no in-vivo validation claim |
-| Positive metric is synaptic-filter storage | same + claim freeze | scope / semantic guardrail | “model-internal synaptic-filter storage” | none | never “brain energy”, “metabolic energy”, “thermodynamic energy” |
-| Primary physiological channel is V1-SP -> V4-SS pathway contribution | same | frozen tuple | “predefined pathway contribution to storage-rate balance” | Friston2003 for effective-connectivity context | not generic causal efficacy |
-| Admissible preparation is rank-two two-pulse geometry | same | scope; rank(B)=2; pulse delays 2 and 16 ms | “fixed rank-two two-pulse afferent preparation” | Basu2018 / DCM input-design context if desired | no hidden-state actuation claim |
-| `NEURO-STRONG` thresholds met at neighboring 112 and 224 ms | same | Sec. 3; 112 ms and 224 ms rows | exact values allowed | none | do not change thresholds post hoc |
-| 112 ms: angle 46.824°, gap 0.529 | same | Sec. 3 | exact numerical report | none | pair geometry with gap |
-| 224 ms: angle 65.058°, gap 0.818 | same | Sec. 3 | exact numerical report | none | pair geometry with gap |
-| Pathway optimum ~(+0.9924,-0.1230) | same | Sec. 4 | “dominant recent pulse plus small opposite-sign older pulse” | none | not a stimulation recommendation |
-| Storage optimum at 224 ms ~(+0.5300,+0.8480) | same | Sec. 4 | “same-sign mixture, older pulse dominant” | none | not experimentally validated efficacy |
-| Negative cumulative pathway extremum is not reachable on frozen `B` space | same | Sec. 3 + result integration freeze | “cumulative minimum remains positive on frozen rank-two preparation space” | none | do not claim reachable bidirectional cumulative transfer |
-| Narrow application-specific novelty survives | literature audit | Neuro sections 2.4–2.5 | use exact “to our knowledge” formulation only | Hennequin2012; Bondanelli2020; Friston2003; Daunizeau2011; Salfenmoser2022; Ogino2026 | no broad optimal-stimulation novelty |
+| Claim | Source | Exact support / quantity | Required positioning | Forbidden extension |
+|---|---|---|---|---|
+| damped two-layer Phillips-QG PV equations | `research/climate/climate_ocean_numerical_qualification_0_1.md` | Sec. 1 | model definition | no Primitive-Equation extrapolation |
+| periodic `x`, Dirichlet streamfunction walls, `kx!=0` eddy restriction | same | Sec. 3 | physical state restriction | no zonal-mean mode added |
+| BT/BC variables and QG perturbation energy | same | Secs. 2, 6 | Climate QG energy | do not conflate with Plasma free energy |
+| signed poleward heat transport and `Q_heat` | same | Secs. 7–8 | positive = northward/poleward | no absolute/squared heat flux |
+| `B=I`, `R_in=M_K`, `tau_ref=0.7233796296 d` | climate specification | Secs. 1–4 | frozen admissible geometry/time | no changed normalization |
+| resolution roles `(12,12)/(16,16)/(24,24)` | climate specification | Sec. 3 | primary/confirmation/high audit | no extra rung |
+| stable `alpha=-0.1 d^-1` | numerical qualification/execution | qualification table | Farrell1985 context | not new damped baroclinic stability result |
+| first five horizons near redundant | execution result | horizon results | report weak finding | do not hide it |
+| longest horizon supports `(3,2)` vs `(4,2)` | execution result | modal-support diagnostics | exact result | no generic modal-switch claim |
+| `theta_sub=90 deg`, `Delta_heat=0.0411846`, retained performance `95.88%` | execution result | longest-horizon row | canonical geometry/performance contrast | never call this strong replication |
+| narrow same-system absence claim survives | literature audit | Climate positioning | Farrell1982; Farrell1985; FarrellIoannou1994; KimMorgan2002; Kuang2004; Sevellec2008 | “to our knowledge” only |
 
-### Neuro required citations
+## 5. Abstract witnesses
 
-- Hennequin, Vogels & Gerstner (2012), Phys. Rev. E 86, 011909.
-- Bondanelli & Ostojic (2020), PLoS Comput. Biol. 16, e1007655.
-- Friston, Harrison & Penny (2003), NeuroImage 19, 1273–1302.
-- Daunizeau et al. (2011), PLoS Comput. Biol. 7, e1002280.
-- Salfenmoser & Obermayer (2022), Front. Comput. Neurosci. 16, 931121.
-- Ogino et al. (2026), eLife reviewed preprint 110030.
+Revision 0.2 uses one compact witness per domain:
 
-## 4. Climate/Ocean claim map
+- Plasma: `T=1`, energy optimum misses about 50.4% of maximum positive cumulative particle transport.
+- Neuro: 112/224 ms, pathway-performance gaps `0.529/0.818`.
+- Climate: longest horizon, `90 deg` subspace angle with only `0.0412` heat gap and `95.88%` retained heat performance.
 
-| Claim | Source file | Exact source quantity | Allowed wording | Required prior art | Forbidden wording |
-|---|---|---|---|---|---|
-| Frozen Phillips-QG pilot is spectrally stable | `research/climate/climate_ocean_pilot_0_1_execution_results.md` | structural gates; `alpha=-0.1 d^-1` | “stable damped two-layer Phillips-QG pilot” | Farrell1985 | not new stable baroclinic transient growth |
-| All primary/confirmation/audit numerical gates pass | same | Secs. 3 and 6 | “resolution robust over frozen nested ladder” | none | no extrapolation beyond tested ladder |
-| Positive metric is QG perturbation energy; channel is signed meridional eddy heat transport | same | frozen pilot | exact domain-specific wording | FarrellIoannou1994; Sevellec2008 context | no generic heat-transport novelty |
-| First five horizons show near redundancy | same | Secs. 4–5 | “same modal support; small angle and gap” | KimMorgan2002; Kuang2004 | do not hide this weak result |
-| Longest horizon energy support `(3,2)`, heat support `(4,2)` | same | Sec. 5 | exact modal-support statement | none | no claim of general modal switch |
-| Longest-horizon optimal subspaces are orthogonal | same | Sec. 5; `theta_sub=90°` | exact geometry | norm-dependence prior art | angle must be paired with gap |
-| Longest-horizon heat gap is 0.04118455338 | same | Sec. 5 | “only 4.12%” | none | not a strong replication |
-| Energy optimum retains about 95.88% of max poleward heat transport | same | Sec. 5 | exact interpretation | none | do not say energy optimum fails to transport heat |
-| Heat optimum is more baroclinic / shorter zonal scale at longest horizon | same | Sec. 7 | physical structure statement | none | no forecast-skill extrapolation |
-| Heat-opt flux changes sign once late at longest horizon | same | Sec. 8 | “late sign reversal while net signed integral remains maximal” | none | do not replace signed integral with absolute flux |
-| Narrow same-system novelty wording survives only cautiously | literature audit | Climate sections 3.4–3.5 | exact “to our knowledge” formulation only | Farrell1982; Farrell1985; FarrellIoannou1994; KimMorgan2002; Kuang2004; Sevellec2008 | no broad QG/singular-vector novelty |
+These are frozen representative witnesses and may not be replaced by effect-enhancing alternatives.
 
-### Climate/Ocean required citations
+## 6. Bibliographic status
 
-- Farrell (1982), J. Atmos. Sci. 39, 1663–1686.
-- Farrell (1985), J. Atmos. Sci. 42, 2718–2727.
-- Farrell & Ioannou (1994), J. Atmos. Sci. 51, 2685–2698.
-- Kim & Morgan (2002), J. Atmos. Sci. 59, 3099–3116.
-- Kuang (2004), J. Atmos. Sci. 61, 2943–2949.
-- Sévellec et al. (2008), DOI `10.1175/2008JPO3875.1`.
+Bibliographic metadata in Draft 0.2 are taken only from already approved literature-positioning sources. `Ogino2026` remains explicitly marked for manual verification of final publication status before submission. Metadata cleanup is permitted; novelty reclassification is not.
 
-## 5. Abstract-level quantitative witnesses
+## 7. Figure and supplement discipline
 
-The abstract may use at most one compact witness per domain, all traceable to frozen tables:
+Figures may read only frozen CSV/result files and use presentational transformations. Supplement-level model equations, parameter tables, sparse matrices, and chronology may be copied from frozen specification files. No plotting or supplement script may instantiate a model to create new scientific values.
 
-- Plasma: `T=1`, `Delta_Gamma=0.504337`, optionally `theta=53.396°`.
-- Neuro: adjacent 112/224 ms pair; `Delta_Q=0.529/0.818`, angles `46.824°/65.058°`.
-- Climate: longest horizon `theta_sub=90°`, `Delta_heat=0.0411846`, energy optimum retains ~95.88%.
-
-Do not replace the weak Climate witness with an effect-enhancing alternative.
-
-## 6. Section-level wording guardrails
-
-### Abstract
-Allowed: common workflow, nonuniform outcomes, representative quantitative witnesses, angle-vs-performance lesson.
-
-Forbidden: “new theory”, “universal”, “first transient growth”, “first optimal perturbation”, “brain energy”, or language implying `CLIM-WEAK` is strong.
-
-### Introduction
-Allowed: proxy-objective problem; established prior art; methodological integration gap.
-
-Forbidden: novelty by absence; statements that objective-dependent optimizers were previously unknown.
-
-### Results
-Allowed: exact frozen verdicts and numbers.
-
-Forbidden: omission or reframing of `CLIM-WEAK`; optimizer angle without matching performance gap where interpretation depends on nonredundancy.
-
-### Discussion
-Allowed: system dependence, role of `B`, signed vs positive objectives, limitations, protected future directions.
-
-Forbidden: nonlinear, experimental, forecast-skill, universal, or cross-domain physical-equivalence claims.
-
-## 7. Bibliographic placeholders requiring later normalization only
-
-Bibliographic cleanup may correct punctuation, issue numbers, page ranges, DOI presentation, and citation style. It may not change the prior-art classification or expand novelty claims without a new literature gate.
-
-**STOP — evidence map contains no new scientific result.**
+**STOP — this map introduces no new scientific result.**
