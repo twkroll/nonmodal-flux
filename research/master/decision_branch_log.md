@@ -63,13 +63,24 @@ This file records current canonical high-level decisions. Earlier detailed branc
 
 - **DEC-355:** Manuscript Draft Review Gate 0.1 = PASS WITH MAJOR EDITORIAL/REPRODUCIBILITY REVISION — STABLE.
 - **DEC-356:** Draft 0.1 scientific claims remain compatible with frozen evidence; no new calculation is required — STABLE.
-- **DEC-357:** Revision 0.2 must make each domain model/metric/channel/admissible geometry sufficiently self-contained for external readers — ACTIVE.
-- **DEC-358:** Main text should contain compact defining physics; full matrices, parameter tables, tolerances and analysis-freeze chronology should move to Supplement/Methods appendix — ACTIVE EDITORIAL RULE.
-- **DEC-359:** Default manuscript wording should be “pre-specified/frozen before effect inspection” rather than “preregistered” unless a defensible registration chronology is explicitly documented — ACTIVE CLAIM GUARDRAIL.
-- **DEC-360:** Operational strong thresholds must be stated as study-specific rules, not universal constants — ACTIVE.
-- **DEC-361:** Factor-of-two storage normalization must be made explicit/consistent — ACTIVE.
+- **DEC-357:** Revision 0.2 must make each domain model/metric/channel/admissible geometry sufficiently self-contained for external readers — SATISFIED / CLOSED.
+- **DEC-358:** Main text should contain compact defining physics; full matrices, parameter tables, tolerances and analysis-freeze chronology should move to Supplement/Methods appendix — SATISFIED / RETAINED EDITORIAL RULE.
+- **DEC-359:** Default manuscript wording should be “pre-specified/frozen before effect inspection” rather than “preregistered” unless a defensible registration chronology is explicitly documented — SATISFIED / ACTIVE CLAIM GUARDRAIL.
+- **DEC-360:** Operational strong thresholds must be stated as study-specific rules, not universal constants — SATISFIED / ACTIVE GUARDRAIL.
+- **DEC-361:** Factor-of-two storage normalization must be made explicit/consistent — SATISFIED.
 - **DEC-362:** Climate remains in the main manuscript as the canonical weak contrast; the integrated three-domain architecture is retained — FROZEN.
-- **DEC-363:** Next MASTER task is `Manuscript Structural Revision Package 0.2`; no scientific branch is opened — ACTIVE.
+- **DEC-363:** `Manuscript Structural Revision Package 0.2` — SATISFIED / CLOSED.
+
+## Manuscript Structural Revision Package 0.2
+
+- **DEC-364:** Manuscript Draft 0.2 completed from frozen evidence/specification sources only — STABLE.
+- **DEC-365:** Plasma, Neuro and Climate/Ocean compact defining model equations and `A/M/Q/B/R_in` semantics are now exposed at manuscript level — STABLE EDITORIAL MILESTONE.
+- **DEC-366:** External manuscript default terminology is “pre-specified and frozen before objective-separation evaluation”; unqualified “preregistered” remains disallowed unless final registration chronology is explicitly defended — FROZEN CLAIM GUARDRAIL.
+- **DEC-367:** The study-specific strong criterion `theta >= 20 deg` and `Delta_Q >= 0.25` on at least two neighboring horizons is visible in Methods and explicitly non-universal — STABLE.
+- **DEC-368:** The `S=1/2 x^dagger M x` versus `K_M` doubled-quadratic-form convention is explicitly normalized — STABLE.
+- **DEC-369:** Evidence/citation and figure-source maps are aligned with Draft 0.2 and continue to forbid new simulations/eigensolves/horizons for presentation — STABLE.
+- **DEC-370:** Bibliographic normalization used approved prior-art sources only; Ogino 2026 final publication status remains a manual metadata-verification item, not a novelty-search blocker — OPEN EDITORIAL ITEM.
+- **DEC-371:** Next MASTER action is manuscript structure freeze/review; no new scientific branch, journal targeting, or submission is authorized before that decision — ACTIVE.
 
 ## Current branch tree
 
@@ -80,7 +91,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 \text{Plasma/D10-ZF} & P2\text{-}A\;\text{FROZEN}\\
 \text{Neuro/CMC} & \text{NEURO-STRONG FROZEN}\\
 \text{Climate/QG} & \text{CLIM-WEAK FROZEN}\\
-\text{Manuscript} & \text{DRAFT 0.1 REVIEWED / REVISION 0.2 ACTIVE}\\
+\text{Manuscript} & \text{DRAFT 0.2 COMPLETE / STRUCTURE FREEZE DUE}\\
 \text{Power Grids} & \text{PROTECTED}\\
 \text{Photonics/Waves} & \text{PROTECTED}\\
 \text{realistic Fusion} & \text{PROTECTED}
@@ -98,7 +109,9 @@ Current manuscript workflow:
 \to
 \text{Draft 0.1}
 \to
-\boxed{\text{Draft Review PASS}}
+\text{Draft Review PASS}
 \to
-\text{Structural Revision 0.2 ACTIVE}.
+\boxed{\text{Structural Revision 0.2 COMPLETE}}
+\to
+\text{Structure Freeze DUE}.
 \]
