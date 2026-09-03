@@ -5,17 +5,13 @@
 
 ## Current state
 
-`Manuscript Structure Freeze 0.2` remains complete and
+`Manuscript Structure Freeze 0.2` remains
 
 \[
 \boxed{\text{STABLE — MANUSCRIPT ARCHITECTURE FROZEN}}.
 \]
 
-`Manuscript Structural Revision Package 0.3` is complete and has returned to MASTER.
-
-Canonical structure authority:
-
-- `research/master/manuscript_structure_freeze_0_2.md`
+`Manuscript Structural Revision Package 0.3` is complete.
 
 Canonical Revision-0.3 outputs:
 
@@ -23,17 +19,34 @@ Canonical Revision-0.3 outputs:
 - `research/manuscript/evidence_citation_map_0_2.md`;
 - `research/manuscript/figure_source_map_0_2.md`.
 
-Rollback points remain:
+No scientific result was changed in Revision 0.3.
 
-- `research/manuscript/manuscript_draft_0_2.md`;
-- `research/manuscript/evidence_citation_map_0_1.md`;
-- `research/manuscript/figure_source_map_0_1.md`.
+MASTER has now completed `Journal & Audience Positioning Gate 0.1`.
 
-No scientific result was changed in Revision 0.3. Python CI #253 for the Revision-0.3 return commit completed successfully.
+Canonical publication-positioning authority:
 
-## Frozen manuscript evidence sequence
+`research/master/journal_audience_positioning_gate_0_1.md`
 
-The main positive/weak evidence sequence remains exactly:
+## Publication target
+
+Primary:
+
+\[
+\boxed{\text{Physical Review E — Regular Article}}
+\]
+
+Backups:
+
+1. Chaos — Regular Research Article;
+2. Physical Review Research — Regular Article.
+
+Target-specific PRE working title:
+
+`Physics-informed diagnosis of objective nonredundancy in stable linear dynamics across plasma, neural and geophysical models`
+
+Draft 0.3 remains the rollback manuscript. No target choice changes scientific claims or evidence ordering.
+
+## Frozen evidence sequence
 
 1. Plasma/D10-ZF `P2-A` — strong primary anchor;
 2. Neuro/CMC `NEURO-STRONG` — strong cross-domain demonstrator;
@@ -45,44 +58,41 @@ Climate-B remains
 \boxed{\text{CLIM-B-FAIL — resolution robustness failure}}
 \]
 
-and appears only as a brief main-text robustness-rejection subsection plus full Supplement S5. It is not a fourth positive application result.
+and is a brief main-text robustness-rejection subsection plus full Supplement S5 only. It is excluded from robust Main Fig. 5 evidence.
 
-## Architecture and figure-source state
+## Figure/table authority
 
-Revision 0.3 now implements the full frozen section architecture and Supplement S1-S6 split.
+Scientific authority:
 
-`research/manuscript/figure_source_map_0_2.md` is the scientific authority for future figure/table production. It freezes Main Fig. 1–5, Main Table 1, the Supplement operational-rules table, and the Climate-B robustness display using frozen stored data only.
+`research/manuscript/figure_source_map_0_2.md`
 
-No figure has yet been produced.
+Frozen main displays:
 
-## Title / terminology
+- Fig. 1 workflow/domain semantics;
+- Fig. 2 Plasma;
+- Fig. 3 Neuro;
+- Fig. 4 Climate-A;
+- Fig. 5 non-inferential robust-domain geometry/performance summary;
+- Main Table 1 three robust-domain definitions;
+- operational table in Supplement;
+- Climate-B robustness display in Supplement S5.
 
-Canonical working title:
-
-`Diagnosing objective nonredundancy in stable linear dynamics: a physics-informed finite-time workflow across plasma, neural and geophysical models`
-
-Exact target-specific title shortening remains deferred to MASTER publication positioning.
-
-Default external wording remains `pre-specified and frozen before objective-separation evaluation` or equivalent version-controlled wording. Do not use unqualified `preregistered`.
+PRE Regular Article format does not require scientific compression of this plan.
 
 ## Active instruction
 
-**Status:** `REVISION 0.3 COMPLETE — WAIT FOR MASTER JOURNAL/AUDIENCE POSITIONING`
+**Status:** `FROZEN-DATA FIGURE PRODUCTION PACKAGE 0.1 READY — AWAIT GO`
 
-**Next instruction:** none active in this branch.
+**Next instruction:**
 
-MASTER has prepared:
+`research/master/prompts/frozen_data_figure_production_package_0_1.md`
 
-`research/master/prompts/journal_audience_positioning_gate_0_1.md`
+On a bare `GO`, first read this STATUS and execute only that committed instruction.
 
-but that is a MASTER gate, not a bare-`GO` manuscript task.
-
-A bare `GO` here must not open figure production, journal targeting, submission preparation, bibliography expansion, novelty search, or new science until MASTER completes the Journal & Audience Positioning Gate and commits the next branch-side instruction.
+The package may create figure/table scripts and rendered assets using frozen stored data only. It must not rerun models, solve new scientific eigenproblems/matrix exponentials, interpolate scientific values, add horizons/resolutions, alter verdicts/claims, repair Climate-B, or open new science.
 
 ## STOP boundary
 
-Figure production remains WAIT only for publication-format positioning. No scientific blocker exists.
+Do not begin submission preparation, cover-letter drafting, author-list work, new novelty search, journal transfer preparation, or protected-branch work during figure production.
 
-No protected-branch work, Climate-B repair, third Climate case, submission action, or new calculation is authorized.
-
-**STOP — RETURN TO MASTER / AWAIT `Journal & Audience Positioning Gate 0.1`.**
+**STOP / AWAIT GO.**
