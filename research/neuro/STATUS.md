@@ -1,11 +1,11 @@
 # Neuro Research Status
 
-**Last updated:** 2026-09-02  
+**Last updated:** 2026-09-03  
 **Branch:** `main`
 
 ## Current state
 
-The first frozen Neuro execution is complete.
+The first Neuro pilot is complete and result-frozen.
 
 \[
 \boxed{\text{two-source multi-region CMC/DCM: V1 -> V4}}
@@ -20,9 +20,7 @@ Primary signed pathway:
 with
 
 \[
-Q_{j\to i}^{\rm CORE}
-=
-\frac12(A_{j\to i}^\dagger M+MA_{j\to i}).
+Q_{j\to i}^{\rm CORE}=\frac12(A_{j\to i}^\dagger M+MA_{j\to i}).
 \]
 
 The positive metric remains **synaptic-filter storage**, not metabolic or thermodynamic brain energy.
@@ -38,68 +36,34 @@ The positive metric remains **synaptic-filter storage**, not metabolic or thermo
 | Cross-Domain Integration Gate 0.1 | `PASSED` | Released to Pilot Specification. |
 | Neuro Pilot Specification 0.1 | `COMPLETE` | Exact V1/V4 pilot frozen without CORE-effect inspection. |
 | Cross-Domain Pilot Freeze 0.1 | `STABLE` | Pilot Execution 0.1 authorized. |
-| Neuro Pilot Execution 0.1 | `NEURO-STRONG` | Execution complete; return to MASTER for result integration. |
+| Neuro Pilot Execution 0.1 | `NEURO-STRONG` | Execution complete. |
+| Cross-Domain Result Integration & Freeze 0.1 | `STABLE` | **Neuro result frozen as strong cross-domain demonstrator.** |
 
-## Frozen Pilot 0.1 tuple
+## Frozen result
 
-```text
-model                  = 2-source multi-region CMC/DCM
-source j               = macaque V1
-source i               = macaque V4
-primary channel        = V1 SP -> V4 SS
-state dimension        = 16
-operating point        = x* = 0
-propagation delays     = disabled
-M                      = frozen synaptic-filter storage
-Q                      = frozen V1-SP -> V4-SS pathway storage-rate contribution
-pulse width            = 1 ms
-pre-observation delays = (2 ms, 16 ms)
-R_in                    = I_2 in pulse-amplitude input coordinates
-rank(B)                 = 2
-kappa_2(M^1/2 B)        = 34.2939603
-tau_ref                 = 28 ms
-horizon ladder          = (7,14,28,56,112,224) ms
-alpha(A)                = -33.0964092356 s^-1
-```
+All structural and numerical gates passed.
 
-## Execution result
-
-All frozen structural and numerical gates passed.
-
-The preregistered simultaneous demonstration thresholds
+The preregistered simultaneous thresholds are met at neighboring horizons:
 
 \[
-\vartheta\ge20^\circ,
-\qquad
-\Delta_Q\ge0.25
+T=112\,\mathrm{ms}:\quad \vartheta=46.824271^\circ,\quad \Delta_Q=0.529017,
 \]
 
-are met at the neighboring horizons `112 ms` and `224 ms`.
+\[
+T=224\,\mathrm{ms}:\quad \vartheta=65.058256^\circ,\quad \Delta_Q=0.817841.
+\]
 
-Key values:
+The pathway-optimal preparation remains approximately
 
-```text
-112 ms:
-theta   = 46.824271 deg
-Delta_Q = 0.529017
+\[
+w_Q\approx(+0.9924,-0.1230),
+\]
 
-224 ms:
-theta   = 65.058256 deg
-Delta_Q = 0.817841
-```
+while the long-horizon terminal-storage optimum uses same-sign pulse mixtures, e.g.
 
-The pathway-optimal preparation uses approximately
-
-```text
-w_Q = (+0.99241, -0.12297)
-```
-
-at both long horizons, while the terminal-storage optimum uses same-sign pulse mixtures and shifts toward the older pulse:
-
-```text
-112 ms: w_M = (+0.76872, +0.63958)
-224 ms: w_M = (+0.53000, +0.84800)
-```
+\[
+w_M(224\,\mathrm{ms})\approx(+0.5300,+0.8480).
+\]
 
 The unique frozen verdict is
 
@@ -107,21 +71,29 @@ The unique frozen verdict is
 \boxed{\text{NEURO-STRONG}}.
 \]
 
-## Canonical execution outputs
+## Frozen restriction
 
-- `research/neuro/neuro_pilot_0_1_execution_results.md`
-- `research/neuro/neuro_pilot_0_1_execution_data.csv`
-- `tests/test_neuro_pilot_0_1.py`
-- `research/neuro/neuro_pilot_specification_0_1.md`
+The full-state instantaneous `Q` is indefinite, but on the frozen rank-two admissible preparation space the cumulative minimum eigenvalue remains positive over the horizon ladder. This pilot therefore does **not** demonstrate reachable negative cumulative pathway extrema.
+
+`G_M` is terminal synaptic-filter storage per fixed pulse-input cost. It must not be called brain energy, metabolic energy or thermodynamic energy.
 
 ## Active instruction
 
-**Status:** `EXECUTION COMPLETE — RETURN TO MASTER FOR RESULT INTEGRATION`
+**Status:** `RESULT FROZEN — WAIT`
 
-**Next instruction:** `RETURN TO MASTER FOR RESULT INTEGRATION`
+**Next instruction:** `RETURN TO MASTER`
 
-Under `research/master/prompt_handoff_protocol_0_1.md`, another bare `GO` in this Neuro branch must not open a new analysis, parameter study, model extension, pathway extension, delay extension, MODES/CONT/CASCADE task, or additional CORE execution.
+A bare `GO` in this branch must not open another execution, pathway, propagation-delay extension, input geometry, parameter study, MODES/CONT/CASCADE analysis or literature claim.
 
-MASTER must perform the next result-level cross-domain integration/freeze.
+The next project-level task is a targeted application literature-positioning audit controlled by MASTER.
 
-**STOP.**
+## Canonical documents
+
+- `research/neuro/neuro_pilot_specification_0_1.md`
+- `research/neuro/neuro_pilot_0_1_execution_results.md`
+- `research/neuro/neuro_pilot_0_1_execution_data.csv`
+- `research/master/cross_domain_pilot_freeze_0_1.md`
+- `research/master/cross_domain_result_integration_freeze_0_1.md`
+- `research/master/prompt_handoff_protocol_0_1.md`
+
+**STOP / WAIT.**
