@@ -23,7 +23,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-326:** Neuro/Climate novelty-sensitive claims require targeted literature audit before manuscript promotion — SATISFIED / CLOSED.
 - **DEC-327:** Application literature positioning, not retuning/new pilot, was next task — SATISFIED / CLOSED.
 
-## New literature-positioning decisions
+## Literature-positioning decisions
 
 - **DEC-328:** Cross-Domain Application Literature Positioning Audit 0.1 completed — STABLE.
 - **DEC-329:** No `SAME` hit found in the targeted audit for the full frozen Neuro result; absence is not proof of novelty — STABLE.
@@ -34,8 +34,22 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-334:** Broad Climate novelty claims about damped baroclinic transient growth, QG singular vectors, norm dependence, or heat-transport optimal perturbations are DEMOTED — STABLE.
 - **DEC-335:** The integrated three-domain story remains publication-positionable only as a pre-registered cross-domain workflow with nonuniform outcomes, not as new quadratic-output theory or a universality theorem — STABLE.
 - **DEC-336:** Climate's `90°` optimizer-subspace separation with only ~4.12% heat-performance gap is retained as the canonical geometry-versus-performance contrast — STABLE.
-- **DEC-337:** Next global task is `Cross-Domain Manuscript Positioning & Claim Freeze 0.1`; no new numerical pilot is scientifically required before that gate — ACTIVE.
-- **DEC-338:** CORE, MODES, CONT, CASCADE, Neuro, Climate, Power Grids, Photonics and realistic Fusion remain WAIT/PROTECTED until the claim freeze decides manuscript-level next actions — ACTIVE GOVERNANCE.
+- **DEC-337:** `Cross-Domain Manuscript Positioning & Claim Freeze 0.1` was the next global task — SATISFIED / CLOSED.
+- **DEC-338:** CORE, MODES, CONT, CASCADE, Neuro, Climate, Power Grids, Photonics and realistic Fusion remained WAIT/PROTECTED through the claim freeze — SATISFIED / CLOSED.
+
+## Manuscript positioning / claim-freeze decisions
+
+- **DEC-339:** Cross-Domain Manuscript Positioning & Claim Freeze 0.1 = STABLE — MANUSCRIPT SAVEPOINT.
+- **DEC-340:** First-paper framing = methods/application paper on physics-informed objective-nonredundancy diagnostics — FROZEN.
+- **DEC-341:** Manuscript novelty = `N2 + N3`, with domain-specific `N1`; mathematical novelty claims remain DEMOTED — FROZEN.
+- **DEC-342:** Canonical manuscript claim = storage/state versus independently defined signed physical-channel redundancy is testable and system dependent — FROZEN.
+- **DEC-343:** Plasma = strong primary domain anchor; Neuro = strong cross-domain demonstrator; Climate = robust weak/contrast case — FROZEN.
+- **DEC-344:** Optimizer/subspace angle must not be used without a target-performance gap diagnostic — FROZEN.
+- **DEC-345:** Neuro `M` semantics and no-negative-cumulative-reachability restriction are mandatory manuscript guardrails — FROZEN.
+- **DEC-346:** Climate `90°` / `4.12%` result is the canonical geometry-versus-performance contrast — FROZEN.
+- **DEC-347:** No additional scientific calculation is required before first manuscript drafting — FROZEN.
+- **DEC-348:** Power Grids, Photonics/Waves, realistic Fusion, delayed Neuro, higher-fidelity Climate and MODES/CONT/CASCADE remain protected future branches — STABLE.
+- **DEC-349:** Next MASTER action is `Cross-Domain Manuscript Drafting Package 0.1` — ACTIVE.
 
 ## Current branch tree
 
@@ -50,4 +64,16 @@ This file records current canonical high-level decisions. Earlier detailed branc
 \text{Photonics/Waves} & \text{PROTECTED}\\
 \text{realistic Fusion} & \text{PROTECTED}
 \end{cases}
+\]
+
+Current manuscript workflow:
+
+\[
+\text{Result Freeze}
+\to
+\text{Literature Positioning}
+\to
+\boxed{\text{Claim Freeze STABLE}}
+\to
+\text{Drafting Package ACTIVE}.
 \]
