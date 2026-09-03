@@ -16,58 +16,59 @@ The established scientific and manuscript savepoints remain intact:
 - manuscript claim freeze: `STABLE`;
 - Manuscript Structural Revision Package 0.2: `COMPLETE`.
 
-The one-shot Climate-B branch has advanced:
+The one-shot Climate-B branch has now completed all pre-effect gates:
 
 - Climate Intra-Domain Contrast Feasibility Gate 0.1: `PASS`;
 - Climate Intra-Domain Contrast Candidate Freeze 0.1: `STABLE`;
-- **Climate Intra-Domain Contrast Numerical Qualification 0.1: `QUALIFIED`.**
+- Climate Intra-Domain Contrast Numerical Qualification 0.1: `QUALIFIED`;
+- Climate Intra-Domain Contrast Pilot Specification 0.1: `COMPLETE`;
+- **Climate Intra-Domain Contrast Pilot Freeze 0.1: `STABLE — EXECUTION RELEASED`.**
 
 Climate-B remains the frozen equivalent-barotropic Bickley jet with perturbation kinetic energy and signed eddy forcing of the infinitesimal poleward jet-translation coordinate `g=-U'`, with `B=I`, `R_in=M_K`.
 
-The full frozen resolution ladder is spectrally stable:
+The complete frozen resolution ladder is spectrally stable,
 
 \[
-\boxed{\alpha(A_K)=-0.05787037037037=-0.1\,\mathrm d^{-1}<0}
+\alpha(A_K)=-0.05787037037037=-0.1\,\mathrm d^{-1}<0,
 \]
 
-at every rung. The qualification also passed the frozen quadrature, Hermiticity/definiteness, signed-channel witness, parity, eigenresidual, and nested spectral-boundary checks. Local qualification regression tests: `3 passed`.
+and the specification return commit `495b53819c8b6b2cca0cb6e061898ad2efe73e1d` passed Python CI #228.
 
-No Climate-B finite-time objective operator, optimizer, angle, gap, horizon dependence, or result classification has yet been evaluated.
+The final pre-effect Pilot Freeze now fixes the six-horizon ladder
+
+\[
+T/\tau_{\rm ref}\in\{0.25,0.5,1,2,4,8\},
+\]
+
+finite-time operators, signed extrema, degeneracy-aware optimizer/subspace diagnostics, `Delta_shift` denominator rule, numerical propagation/integral cross-checks, physical-trajectory reproduction, resolution robustness, physical diagnostics, and one-shot `STRONG/WEAK/NULL/FAIL` logic.
+
+At execution release, no Climate-B finite-time objective value, optimizer, angle, performance gap, horizon dependence, or verdict had been inspected.
 
 ## Governance consequence
 
-Numerical Qualification success removes the only spectral/structural blocker but **does not authorize execution**.
+Exactly one Climate-B execution is now authorized. It must execute all frozen horizons and mandatory resolution roles without retuning or early stopping.
 
-Before any finite-time effect inspection, Climate-B requires one final branch-side pre-effect specification that freezes:
+Climate-A may not be retuned, replaced, or relabeled. Climate-B is the only additional Climate attempt authorized before the first manuscript. No third Climate candidate is permitted.
 
-- the inherited dimensionless horizon ladder;
-- `K_M(T)` and `K_shift(T)` definitions;
-- signed extrema and optimizer/subspace diagnostics;
-- `Delta_shift` denominator rule;
-- the common study-specific strong criterion;
-- numerical propagation/integration/cross-check tolerances;
-- resolution-robustness and physical-reconstruction rules;
-- one-shot `STRONG/WEAK/NULL/FAIL` outcome logic.
+`Manuscript Structure Freeze 0.2` remains on **HOLD**, not canceled. It is the mandatory return point after Climate-B execution/result integration.
 
-After that specification returns, MASTER must perform a final Climate-B Pilot Freeze before execution.
-
-`Manuscript Structure Freeze 0.2` remains on **HOLD**, not canceled, and is the mandatory return point after Climate-B resolves.
-
-Climate-A may not be retuned or replaced. No third Climate candidate is authorized before the first manuscript. No other scientific/application branch should proceed while Climate-B is the active dependency.
+No other scientific/application branch should proceed while Climate-B is active.
 
 ## Active instruction
 
-**Status:** `CLIMATE-B PILOT SPECIFICATION READY — AWAIT CLIMATE GO`
+**Status:** `CLIMATE-B PILOT FROZEN — EXECUTION READY / AWAIT CLIMATE GO`
 
 **Next instruction:**
 
-`research/master/prompts/climate_intra_domain_contrast_pilot_specification_0_1.md`
+`research/master/prompts/climate_intra_domain_contrast_pilot_execution_0_1.md`
 
-Execute it in the existing Climate chat under the shared prompt handoff protocol. A bare `GO` there must first read `research/climate/STATUS.md` and execute only its committed Next instruction.
+Execute it in the existing Climate chat under the shared prompt handoff protocol. A bare `GO` there must first read `research/climate/STATUS.md` and execute only the committed Next instruction.
 
 ## Freeze check
 
-No prior freeze is invalidated or overdue. Climate-B Numerical Qualification is now a new stable qualification savepoint. A manuscript structure freeze now would be too early because Climate-B has not yet resolved; finite-time execution now would also be too early because the Pilot Specification and final MASTER Pilot Freeze are still due.
+No prior freeze is invalidated or overdue. Climate-B Pilot Specification 0.1 and Pilot Freeze 0.1 are new pre-effect rollback/savepoints.
+
+Execution is now timely: an additional pre-effect freeze would be redundant, while manuscript structure freeze before Climate-B resolves would be premature.
 
 Parallel branch work is not recommended. CORE, Plasma, Neuro, Literature, MODES, CONT, CASCADE, Power Grids, Photonics/Waves, realistic Fusion, delayed Neuro, and higher-fidelity Climate remain WAIT/PROTECTED.
 
@@ -81,9 +82,11 @@ The protected rollback chain is:
 4. Cross-Domain Result Integration & Freeze 0.1;
 5. Manuscript Claim Freeze / Draft 0.2;
 6. Climate-B Candidate Freeze 0.1;
-7. Climate-B Numerical Qualification 0.1.
+7. Climate-B Numerical Qualification 0.1;
+8. Climate-B Pilot Specification 0.1;
+9. Climate-B Pilot Freeze 0.1.
 
-Climate-B later work may add evidence but may not rewrite any earlier savepoint.
+Climate-B execution may add evidence but may not rewrite any earlier savepoint.
 
 ## Branch-independent / branch-dependent distinction
 
@@ -104,4 +107,4 @@ Branch-dependent semantics remain distinct:
 
 ## STOP boundary
 
-Do not run `Manuscript Structure Freeze 0.2` yet. Do not execute Climate-B, target a journal, submit, open another protected branch, or inspect any Climate-B finite-time objective separation before the Pilot Specification returns to MASTER.
+Do not run `Manuscript Structure Freeze 0.2` yet. Do not target a journal, submit, open another protected branch, alter any Climate-B frozen choice, or authorize a third Climate candidate. The only active scientific action is the frozen one-shot Climate-B execution.
