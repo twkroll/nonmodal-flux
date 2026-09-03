@@ -5,47 +5,49 @@
 
 ## Current state
 
-Draft 0.1 has been reviewed under `Manuscript Draft Review Gate 0.1`.
+`Manuscript Structural Revision Package 0.2` is complete.
 
-Review verdict:
+Revision 0.2 was produced from frozen evidence and model/specification sources only. It introduces no new simulation, parameter, horizon, objective, pathway, admissible geometry, or novelty claim.
 
-\[
-\boxed{\text{PASS WITH MAJOR EDITORIAL/REPRODUCIBILITY REVISION}}
-\]
+The revision resolves the major Draft Review Gate 0.1 writing/reproducibility items:
 
-The scientific claims remain compatible with frozen evidence and no new calculation is required. The required changes are writing/reproducibility changes only: make each physical model self-contained, expose compact definitions of `A/M/Q/B/R_in`, clarify pre-specification/freeze terminology, state study-specific verdict thresholds, normalize notation, tighten Abstract/Introduction, and normalize bibliography metadata.
+- Plasma, Neuro and Climate/Ocean now contain compact self-contained defining physics in the manuscript;
+- `A/M/Q/B/R_in`, state/admissible geometry and time normalization are exposed at manuscript level;
+- default external terminology is “pre-specified and frozen before objective-separation evaluation” rather than unqualified “preregistered”;
+- the study-specific strong criterion `theta >= 20 deg`, `Delta_Q >= 0.25` on two neighboring horizons is stated explicitly and labeled non-universal;
+- the `1/2 x^dagger M x` versus `K_M` convention is made explicit;
+- Neuro pathway-sign semantics and the no-negative-cumulative-reachability restriction remain explicit;
+- Climate remains the main-text weak geometry-versus-performance contrast;
+- bibliography metadata were normalized only from already approved literature sources, with Ogino 2026 flagged for final-status verification;
+- evidence and figure maps were updated to match Revision 0.2 without authorizing new calculations.
 
-The frozen manuscript architecture remains:
+Frozen manuscript architecture remains:
 
 - Plasma/D10-ZF `P2-A` — strong primary domain anchor;
 - Neuro/CMC `NEURO-STRONG` — strong cross-domain demonstrator;
 - Climate/Ocean QG `CLIM-WEAK` — robust weak/contrast case.
 
-Climate remains in the main manuscript as the canonical geometry-versus-performance counterexample.
+## Canonical manuscript package
+
+- `research/manuscript/manuscript_draft_0_2.md`
+- `research/manuscript/evidence_citation_map_0_1.md`
+- `research/manuscript/figure_source_map_0_1.md`
+- this `STATUS.md`
+
+Draft 0.1 is retained as the previous editorial rollback point.
 
 ## Active instruction
 
-**Status:** `DRAFT 0.1 REVIEWED — REVISION 0.2 AUTHORIZED`
+**Status:** `MANUSCRIPT REVISION 0.2 COMPLETE — RETURN TO MASTER FOR STRUCTURE FREEZE`
 
-**Next instruction:**
+**Next instruction:** `RETURN TO MASTER FOR STRUCTURE FREEZE`
 
-`research/master/prompts/manuscript_structural_revision_package_0_2.md`
+No bare `GO` in this branch may create a journal submission, new scientific calculation, new figure requiring simulation, new novelty claim, or protected-branch work until MASTER explicitly opens the next instruction.
 
-Revision must be executed through MASTER under the shared prompt handoff protocol.
-
-## Current canonical manuscript files
-
-- `research/manuscript/manuscript_draft_0_1.md`
-- `research/manuscript/evidence_citation_map_0_1.md`
-- `research/manuscript/figure_source_map_0_1.md`
-
-## Review authority
+## Authority
 
 - `research/master/manuscript_draft_review_gate_0_1.md`
+- `research/master/prompts/manuscript_structural_revision_package_0_2.md`
 - `research/master/cross_domain_manuscript_positioning_claim_freeze_0_1.md`
-
-## STOP boundary
-
-No new simulations, horizons, parameters, objectives, pathways, admissible geometries, novelty claims, journal targeting or submission are authorized by this status.
 
 **STOP.**
