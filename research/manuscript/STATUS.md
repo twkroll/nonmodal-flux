@@ -15,7 +15,7 @@ The frozen manuscript architecture currently remains:
 - Neuro/CMC `NEURO-STRONG` — strong cross-domain demonstrator;
 - Climate-A/Phillips-QG `CLIM-WEAK` — robust weak/contrast case.
 
-MASTER authorized exactly one additional pre-effect Climate-B attempt to test intra-domain selectivity. Climate-B has now passed Feasibility, Candidate Freeze, and **Numerical Qualification**. Its frozen Bickley-jet discretization is robustly spectrally stable across the full resolution ladder, but no finite-time Climate-B objective separation has yet been inspected.
+MASTER authorized exactly one additional pre-effect Climate-B attempt to test intra-domain selectivity. Climate-B has completed Feasibility, Candidate Freeze, Numerical Qualification, Pilot Specification, and final MASTER Pilot Freeze. The frozen one-shot Climate-B execution is now released, but no Climate-B finite-time result has yet been integrated into the manuscript.
 
 ## Canonical manuscript package
 
@@ -30,11 +30,11 @@ Draft 0.1 is retained as the previous editorial rollback point.
 
 **Status:** `MANUSCRIPT REVISION 0.2 COMPLETE — STRUCTURE FREEZE HOLD`
 
-**Next instruction:** `WAIT FOR CLIMATE-B RESOLUTION / RETURN TO MASTER`
+**Next instruction:** `WAIT FOR CLIMATE-B EXECUTION/RESULT FREEZE / RETURN TO MASTER`
 
-`Manuscript Structure Freeze 0.2` is not canceled. It is the mandatory return point after the one-shot Climate-B branch resolves.
+`Manuscript Structure Freeze 0.2` is not canceled. It is the mandatory return point after the one-shot Climate-B execution is integrated/frozen by MASTER.
 
-Climate-B must still complete its pre-effect Pilot Specification and MASTER Pilot Freeze before any execution. No manuscript restructuring should anticipate a Climate-B result.
+No manuscript restructuring should anticipate whether Climate-B will be `STRONG`, `WEAK`, `NULL`, or `FAIL`.
 
 No bare `GO` in this manuscript branch may create a journal submission, new scientific calculation, new figure requiring simulation, new novelty claim, or protected-branch work.
 
@@ -45,6 +45,8 @@ No bare `GO` in this manuscript branch may create a journal submission, new scie
 - `research/master/climate_intra_domain_contrast_feasibility_gate_0_1.md`
 - `research/climate/climate_intra_domain_contrast_candidate_freeze_0_1.md`
 - `research/climate/climate_intra_domain_contrast_numerical_qualification_0_1.md`
+- `research/climate/climate_intra_domain_contrast_pilot_specification_0_1.md`
+- `research/master/climate_intra_domain_contrast_pilot_freeze_0_1.md`
 - `research/master/cross_domain_manuscript_positioning_claim_freeze_0_1.md`
 
 **STOP / WAIT.**
