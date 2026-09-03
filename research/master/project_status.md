@@ -1,6 +1,6 @@
 # MASTER Project Status
 
-**Last updated:** 2026-09-03
+**Last updated:** 2026-09-03  
 **Branch:** `main`
 
 ## Global scientific savepoints
@@ -12,6 +12,7 @@
 - Cross-Domain Result Integration & Freeze 0.1: **STABLE**.
 - Cross-Domain Application Literature Positioning Audit 0.1: **COMPLETE**.
 - Cross-Domain Manuscript Positioning & Claim Freeze 0.1: **STABLE**.
+- Cross-Domain Manuscript Drafting Package 0.1: **COMPLETE**.
 
 ## Frozen manuscript position
 
@@ -33,13 +34,22 @@ Climate's `90°` optimizer-subspace separation with only ~4.12% heat-performance
 
 Neuro's positive metric remains model-internal synaptic-filter storage/input-cost normalized, not brain/metabolic energy, and the frozen rank-two preparation geometry does not demonstrate reachable negative cumulative pathway transfer.
 
+## Draft package
+
+The first integrated drafting package now exists:
+
+- `research/manuscript/manuscript_draft_0_1.md`
+- `research/manuscript/evidence_citation_map_0_1.md`
+- `research/manuscript/figure_source_map_0_1.md`
+- `research/manuscript/STATUS.md`
+
+The draft was assembled from frozen evidence only. No new simulation, horizon, parameter, objective, pathway, admissible geometry or novelty claim was introduced.
+
 ## Current blockers / dependencies
 
-No numerical, feasibility, reproducibility or claim blocker is active.
+No numerical, feasibility, reproducibility or scientific-claim blocker is active.
 
-No additional scientific calculation is required before first manuscript drafting.
-
-All further work is currently writing/evidence-organization only unless MASTER explicitly opens a new scientific gate.
+The only current dependency is **MASTER draft review/editorial integration** before any submission-oriented task, journal targeting, polished figure production, or protected-branch work.
 
 ## Branch states
 
@@ -48,6 +58,7 @@ All further work is currently writing/evidence-organization only unless MASTER e
 - Neuro: `NEURO-STRONG / RESULT FROZEN / WAIT`
 - Climate/Ocean: `CLIM-WEAK / RESULT FROZEN / WAIT`
 - Literature: `COMPLETE / WAIT`
+- Manuscript: `DRAFT 0.1 COMPLETE / RETURN TO MASTER FOR DRAFT REVIEW`
 - MODES / CONT / CASCADE: `WAIT`
 - Power Grids: `PROTECTED`
 - Photonics/Waves: `PROTECTED`
@@ -59,7 +70,7 @@ All further work is currently writing/evidence-organization only unless MASTER e
 
 Scientific result, literature-positioning and manuscript-claim freezes are current. No new pilot or theory freeze is due.
 
-The next action is not a scientific extension; it is manuscript drafting from the frozen evidence package.
+Drafting is complete; the next action is editorial/claim-consistency review, not scientific extension.
 
 ## Branch-independent layer
 
@@ -92,14 +103,10 @@ Still protected for later work:
 - CONT continuation work;
 - CASCADE scale-transfer work.
 
-None is needed to strengthen the first manuscript.
+None is needed to support the first manuscript draft.
 
 ## Next global step
 
-`Cross-Domain Manuscript Drafting Package 0.1`
+`MASTER Draft Review / Editorial Integration`
 
-Exact instruction:
-
-`research/master/prompts/cross_domain_manuscript_drafting_package_0_1.md`
-
-Purpose: produce the first integrated draft, evidence/citation map and figure-source map from frozen results and claims only.
+Purpose: review `research/manuscript/manuscript_draft_0_1.md` against the frozen claim package and evidence/citation map, decide what must be revised for clarity/claim discipline, and only then commit the next manuscript-writing instruction. No new scientific calculation is authorized by this review.
