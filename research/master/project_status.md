@@ -11,22 +11,35 @@
 - Climate/Ocean QG Pilot 0.1: **CLIM-WEAK**, robust weak/contrast case.
 - Cross-Domain Result Integration & Freeze 0.1: **STABLE**.
 - Cross-Domain Application Literature Positioning Audit 0.1: **COMPLETE**.
+- Cross-Domain Manuscript Positioning & Claim Freeze 0.1: **STABLE**.
 
-## Literature-positioned integrated story
+## Frozen manuscript position
 
-The targeted Neuro/Climate audit found no `SAME` prior-art hit for either full frozen result; absence is not treated as proof of novelty.
+The first paper is frozen as a **methods/application paper on physics-informed objective-nonredundancy diagnostics in stable linear dynamics**.
 
-- Neuro remains publication-positionable as a narrow application/methodological result: stable CMC/DCM tangent dynamics, fixed rank-two two-pulse preparation coordinates, terminal synaptic-filter storage versus cumulative contribution of a predefined V1-SP -> V4-SS pathway.
-- Climate remains a weak but useful contrast case in a dense prior-art field: stable damped two-layer Phillips-QG, energy optimum versus signed cumulative eddy-heat optimum; at the longest frozen horizon the optimal subspaces are orthogonal while the heat-performance gap is only about 4.12%.
-- Plasma retains the already frozen P2-A literature positioning.
+Canonical manuscript-level claim:
 
-The common publication-level claim is methodological rather than mathematical: a pre-registered physics-informed finite-time workflow can test whether a conventional positive storage/state objective is redundant with an independently defined physical channel, with strongly system-dependent outcomes.
+> A preregistered physics-informed finite-time workflow can test whether a conventional positive storage/state objective is redundant with an independently defined signed physical channel on the same admissible perturbation space; the three frozen applications show that the magnitude and practical consequence of nonredundancy are strongly system dependent.
+
+Manuscript novelty is frozen at `N2 + N3` with domain-specific `N1` contributions. No mathematical novelty is claimed for quadratic-output optimization, transient growth, singular vectors or the generic dependence of optimizers on objective choice.
+
+The evidence hierarchy remains:
+
+- Plasma/D10-ZF: strong primary domain anchor;
+- Neuro/CMC: strong cross-domain demonstrator;
+- Climate/Ocean QG: robust weak/contrast case.
+
+Climate's `90°` optimizer-subspace separation with only ~4.12% heat-performance gap is the canonical warning that optimizer angle alone is not a performance diagnostic.
+
+Neuro's positive metric remains model-internal synaptic-filter storage/input-cost normalized, not brain/metabolic energy, and the frozen rank-two preparation geometry does not demonstrate reachable negative cumulative pathway transfer.
 
 ## Current blockers / dependencies
 
-No numerical or feasibility blocker is active.
+No numerical, feasibility, reproducibility or claim blocker is active.
 
-The only active dependency is **claim integration before manuscript promotion**. No new application execution, retuning, MODES/CONT/CASCADE extension, Neuro delay/pathway extension, Climate parameter scan, or Power-Grid/Photonics execution is authorized yet.
+No additional scientific calculation is required before first manuscript drafting.
+
+All further work is currently writing/evidence-organization only unless MASTER explicitly opens a new scientific gate.
 
 ## Branch states
 
@@ -34,15 +47,19 @@ The only active dependency is **claim integration before manuscript promotion**.
 - Plasma: `P2-A / FROZEN`
 - Neuro: `NEURO-STRONG / RESULT FROZEN / WAIT`
 - Climate/Ocean: `CLIM-WEAK / RESULT FROZEN / WAIT`
-- Literature: `EXECUTION COMPLETE — RETURN TO MASTER FOR INTEGRATION`
+- Literature: `COMPLETE / WAIT`
 - MODES / CONT / CASCADE: `WAIT`
 - Power Grids: `PROTECTED`
 - Photonics/Waves: `PROTECTED`
 - realistic Fusion: `PROTECTED`
+- delayed Neuro: `PROTECTED`
+- higher-fidelity Climate: `PROTECTED`
 
 ## Freeze check
 
-No scientific freeze is overdue. A new pilot freeze would be premature because no new pilot should be opened. The next freeze that is now due is a **publication/claim freeze** integrating all completed literature positioning.
+Scientific result, literature-positioning and manuscript-claim freezes are current. No new pilot or theory freeze is due.
+
+The next action is not a scientific extension; it is manuscript drafting from the frozen evidence package.
 
 ## Branch-independent layer
 
@@ -62,12 +79,27 @@ with common finite-time storage/state and signed-channel operators. Signed extre
 
 These meanings must not be flattened into one physical interpretation.
 
+## Protected future branches
+
+Still protected for later work:
+
+- Power Grids;
+- Photonics/Waves;
+- realistic Fusion;
+- delayed/DDE Neuro;
+- higher-fidelity Climate/Primitive-Equation models;
+- MODES reduction/mechanism work;
+- CONT continuation work;
+- CASCADE scale-transfer work.
+
+None is needed to strengthen the first manuscript.
+
 ## Next global step
 
-`Cross-Domain Manuscript Positioning & Claim Freeze 0.1`
+`Cross-Domain Manuscript Drafting Package 0.1`
 
-Purpose: integrate the completed Plasma literature positioning with the new Neuro/Climate audit; freeze allowed and forbidden novelty language for Abstract/Introduction/Discussion; assign strongest required citations; preserve Plasma = strong anchor, Neuro = strong cross-domain demonstrator, Climate = weak contrast case; decide the first-manuscript framing without opening a new theory branch or numerical pilot.
+Exact instruction:
 
-The exact instruction is stored in:
+`research/master/prompts/cross_domain_manuscript_drafting_package_0_1.md`
 
-`research/master/prompts/cross_domain_manuscript_positioning_claim_freeze_0_1.md`
+Purpose: produce the first integrated draft, evidence/citation map and figure-source map from frozen results and claims only.
