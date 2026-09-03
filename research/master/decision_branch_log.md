@@ -102,8 +102,19 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-384:** Climate-B admissible geometry is `B=I`, `R_in=M_K`; no mask, EOF restriction, stochastic covariance or empirical preconditioner is allowed — FROZEN.
 - **DEC-385:** Climate-B reference time is `tau_ref=L/U0=50000 s = 0.5787037037 d` — FROZEN.
 - **DEC-386:** Climate-B nested resolution roles are `(8,16)` smoke, `(12,24)` coarse, `(16,32)` primary, `(20,40)` confirmation, `(24,48)` high audit — FROZEN.
-- **DEC-387:** Candidate Freeze establishes `M_K>0`, Hermitian signed/indefinite `Q_shift,K`, and a pre-effect Rayleigh–Kuo stability criterion; exact finite-dimensional spectral stability remains OPEN and must be tested without finite-time objective inspection — ACTIVE DEPENDENCY.
-- **DEC-388:** Next authorized task is `Climate Intra-Domain Contrast Numerical Qualification 0.1` via the committed MASTER prompt; no horizon ladder or CORE-effect quantity is authorized — ACTIVE.
+- **DEC-387:** Candidate Freeze established `M_K>0`, Hermitian signed/indefinite `Q_shift,K`, and a pre-effect Rayleigh–Kuo stability criterion; exact finite-dimensional spectral stability was the next required gate — SATISFIED / CLOSED.
+- **DEC-388:** `Climate Intra-Domain Contrast Numerical Qualification 0.1` — SATISFIED / CLOSED.
+
+## Climate Intra-Domain Contrast Numerical Qualification 0.1
+
+- **DEC-389:** Climate Intra-Domain Contrast Numerical Qualification 0.1 = `QUALIFIED` — STABLE QUALIFICATION SAVEPOINT.
+- **DEC-390:** Complete frozen Climate-B spectra are stable at every rung with `alpha(A_K)=-0.05787037037037=-0.1 d^-1`; no physical retuning was used — FROZEN.
+- **DEC-391:** Frozen 512-vs-1024 Galerkin assembly audit, `M_K>0`, Hermitian/indefinite `Q_shift,K`, parity rules, deterministic signed-channel witness, eigenresiduals and nested rightmost spectral boundary all pass — STABLE.
+- **DEC-392:** Climate-B qualification did not compute or inspect `K_M`, `K_shift`, finite-time gains, signed extrema, optimizers, angles, gaps, horizon dependence, or verdict class — FROZEN ANTI-BIAS RECORD.
+- **DEC-393:** The inherited dimensionless horizon ladder `{0.25,0.5,1,2,4,8}` in units of `tau_ref` is the preferred next pre-effect freeze because it preserves the shared cross-domain protocol without effect-guided horizon selection — ACTIVE SPECIFICATION RULE.
+- **DEC-394:** Climate-B execution remains unauthorized until a branch-side Pilot Specification is completed and MASTER performs a final Pilot Freeze — FROZEN GOVERNANCE RULE.
+- **DEC-395:** `Manuscript Structure Freeze 0.2` remains HOLD; opening another theory/application branch before Climate-B resolves would be premature — ACTIVE DEPENDENCY.
+- **DEC-396:** Next authorized task is `Climate Intra-Domain Contrast Pilot Specification 0.1` via `research/master/prompts/climate_intra_domain_contrast_pilot_specification_0_1.md` — ACTIVE.
 
 ## Current branch tree
 
@@ -114,7 +125,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 \text{Plasma/D10-ZF} & P2\text{-}A\;\text{FROZEN}\\
 \text{Neuro/CMC} & \text{NEURO-STRONG FROZEN}\\
 \text{Climate-A/QG heat} & \text{CLIM-WEAK FROZEN}\\
-\text{Climate-B/Bickley jet} & \text{CANDIDATE FROZEN / NUMERICAL QUALIFICATION READY}\\
+\text{Climate-B/Bickley jet} & \text{QUALIFIED / PILOT SPEC READY}\\
 \text{Manuscript} & \text{DRAFT 0.2 COMPLETE / STRUCTURE FREEZE HOLD}\\
 \text{Power Grids} & \text{PROTECTED}\\
 \text{Photonics/Waves} & \text{PROTECTED}\\
@@ -129,9 +140,15 @@ Current workflow:
 \to
 \text{Climate-B Feasibility PASS}
 \to
-\text{Climate-B Candidate Freeze STABLE}
+\text{Candidate Freeze STABLE}
 \to
-\boxed{\text{Climate-B Numerical Qualification READY}}
+\text{Numerical Qualification QUALIFIED}
+\to
+\boxed{\text{Climate-B Pilot Specification READY}}
+\to
+\text{MASTER Pilot Freeze}
+\to
+\text{Climate-B Execution}
 \to
 \text{Manuscript Structure Freeze 0.2}.
 \]
