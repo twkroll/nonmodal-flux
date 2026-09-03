@@ -160,9 +160,23 @@ This file records current canonical high-level decisions. Earlier detailed branc
 - **DEC-427:** Draft 0.3, Evidence & Citation Map 0.2, and Figure Source Map 0.2 implement Structure Freeze 0.2 using frozen evidence only; no scientific result, model, horizon, objective, geometry, or novelty claim changed — STABLE.
 - **DEC-428:** Climate-B remains brief main-text Sec. 5.2 + full Supplement S5 robustness-rejection material and is excluded from robust Main Fig. 5 evidence — FROZEN PRESENTATION IMPLEMENTATION.
 - **DEC-429:** Python CI #253 for Revision-0.3 return commit `8578b2352978e60af875988be38801fb41bfdf48` = `SUCCESS` — STABLE REPRODUCIBILITY CHECK.
-- **DEC-430:** After Revision 0.3, the preferred editorial ordering is `Journal & Audience Positioning Gate 0.1` before frozen-data figure production so that current journal scope, format, title/abstract conventions, and figure packaging can inform presentation without altering science — ACTIVE EDITORIAL SEQUENCING.
+- **DEC-430:** After Revision 0.3, the preferred editorial ordering is `Journal & Audience Positioning Gate 0.1` before frozen-data figure production so that current journal scope, format, title/abstract conventions, and figure packaging can inform presentation without altering science — SATISFIED / CLOSED.
 - **DEC-431:** Journal/audience positioning may not change the frozen evidence order, claims, or scientific figure content; a poor-fit journal must be downgraded rather than distorting the paper — FROZEN GOVERNANCE RULE.
-- **DEC-432:** Figure production, submission preparation, and protected scientific branches remain WAIT until the Journal & Audience Positioning Gate resolves publication-format implications; no scientific blocker exists — ACTIVE DEPENDENCY.
+- **DEC-432:** Figure production, submission preparation, and protected scientific branches remain WAIT until the Journal & Audience Positioning Gate resolves publication-format implications; no scientific blocker exists — SATISFIED / CLOSED.
+
+## Journal & Audience Positioning Gate 0.1
+
+- **DEC-433:** Journal & Audience Positioning Gate 0.1 = `STABLE — PRIMARY TARGET SELECTED / FIGURE PRODUCTION RELEASED` — EDITORIAL SAVEPOINT.
+- **DEC-434:** Primary target = **Physical Review E, Regular Article** (`FIT-A`), selected for the strongest combined fit to interdisciplinary statistical/nonlinear/biological/fluid/plasma/computational physics and the frozen N2+N3 methods/application profile — STABLE.
+- **DEC-435:** Backup 1 = **Chaos: An Interdisciplinary Journal of Nonlinear Science, Regular Research Article** (`FIT-A`); main downgrade versus PRE is the branding risk created by a stable-linear-dynamics paper in a nonlinear-science journal — STABLE.
+- **DEC-436:** Backup 2 = **Physical Review Research, Regular Article** (`FIT-A/B`); explicitly interdisciplinary/methodological and fully OA, but with a broader general-significance hurdle — STABLE.
+- **DEC-437:** Journal of Physics: Complexity and New Journal of Physics = `FIT-B`; Communications Physics and Scientific Reports = `FIT-C`; current fit notes and official-policy snapshots are frozen in `research/master/journal_audience_positioning_gate_0_1.md` — STABLE EDITORIAL POSITIONING.
+- **DEC-438:** Physica D = `DROP` for first submission because the manuscript is deliberately centered on stable linear dynamics and does not claim new nonlinear theory; a venue that pressures nonlinear overstatement must be dropped rather than altering science — FROZEN GOVERNANCE RULE.
+- **DEC-439:** PRE target-specific working title = `Physics-informed diagnosis of objective nonredundancy in stable linear dynamics across plasma, neural and geophysical models`; Draft-0.3 title remains rollback — STABLE EDITORIAL ADAPTATION.
+- **DEC-440:** PRE Regular Article requires no scientific length compression; frozen five-main-figure + Main Table 1 architecture is retained, with Climate-B only in brief Sec. 5.2 + Supplement S5 — FROZEN PRESENTATION DECISION.
+- **DEC-441:** Access/APC preference does not alter frozen science. PRE remains scientific primary; if the user specifically requires a fully-OA journal rather than hybrid gold OA, reorder to PRResearch → JPhys Complexity → NJP. APC/institutional-agreement choice is a later author preference — CONDITIONAL EDITORIAL BRANCH.
+- **DEC-442:** Next authorized task = `Frozen-Data Figure Production Package 0.1 — PRE target packaging` via `research/master/prompts/frozen_data_figure_production_package_0_1.md`; scientific authority remains Figure Source Map 0.2 — ACTIVE.
+- **DEC-443:** No submission, cover letter, author-list decision, new novelty search, new scientific computation, Climate-B repair, third Climate candidate, or protected-branch work is authorized during figure production — FROZEN STOP RULE.
 
 ## Current branch tree
 
@@ -174,7 +188,7 @@ This file records current canonical high-level decisions. Earlier detailed branc
 \text{Neuro/CMC} & \text{NEURO-STRONG FROZEN}\\
 \text{Climate-A/QG heat} & \text{CLIM-WEAK FROZEN}\\
 \text{Climate-B/Bickley jet} & \text{CLIM-B-FAIL / RESULT FROZEN}\\
-\text{Manuscript} & \text{REVISION 0.3 COMPLETE / RETURNED TO MASTER}\\
+\text{Manuscript} & \text{REVISION 0.3 COMPLETE / FIGURE PRODUCTION READY}\\
 \text{Power Grids} & \text{PROTECTED}\\
 \text{Photonics/Waves} & \text{PROTECTED}\\
 \text{realistic Fusion} & \text{PROTECTED}
@@ -192,7 +206,7 @@ Current workflow:
 \to
 \text{Manuscript Structural Revision 0.3 COMPLETE}
 \to
-\boxed{\text{Journal \& Audience Positioning Gate 0.1 READY}}
+\text{Journal \& Audience Positioning Gate 0.1 STABLE}
 \to
-\text{Frozen-Data Figure Production Package}.
+\boxed{\text{Frozen-Data Figure Production Package 0.1 READY}}.
 \]
