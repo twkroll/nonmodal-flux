@@ -8,45 +8,49 @@
 Cross-Domain Result Integration & Freeze 0.1 is STABLE.  
 Cross-Domain Application Literature Positioning Audit 0.1 is COMPLETE.  
 Cross-Domain Manuscript Positioning & Claim Freeze 0.1 is STABLE.  
-Cross-Domain Manuscript Drafting Package 0.1 is COMPLETE.
+Cross-Domain Manuscript Drafting Package 0.1 is COMPLETE.  
+Manuscript Draft Review Gate 0.1 is **PASS WITH MAJOR EDITORIAL/REPRODUCIBILITY REVISION**.
 
-Current frozen evidence base:
+Current frozen evidence base remains unchanged:
 
 - Plasma/D10-ZF: `P2-A` — strong primary domain anchor.
 - Neuro/CMC: `NEURO-STRONG` — strong cross-domain demonstrator.
 - Climate/Ocean QG: `CLIM-WEAK` — robust weak/contrast case.
 
-The first-paper framing remains frozen as a methods/application paper on physics-informed objective-nonredundancy diagnostics. Manuscript novelty remains `N2 + N3` with domain-specific `N1`; no mathematical novelty is claimed for quadratic-output optimization, transient growth, singular vectors or generic objective-dependent optimizer changes.
+The review found no scientific claim requiring retraction and no need for any new simulation. The main deficiencies of Draft 0.1 are manuscript self-containment, model/reproducibility exposition, terminology around “preregistration”, explicit visibility of study-specific verdict thresholds, notation normalization, and bibliographic normalization.
 
-The first integrated manuscript package now exists:
-
-- `research/manuscript/manuscript_draft_0_1.md`
-- `research/manuscript/evidence_citation_map_0_1.md`
-- `research/manuscript/figure_source_map_0_1.md`
-- `research/manuscript/STATUS.md`
-
-No new scientific calculation was introduced during drafting. All scientific branches remain WAIT or PROTECTED.
+The integrated three-domain architecture remains frozen. Climate remains in the main manuscript as the canonical weak contrast case.
 
 ## Active instruction
 
-**Status:** `DRAFT PACKAGE COMPLETE — RETURN TO MASTER FOR DRAFT REVIEW`
+**Status:** `READY — AWAIT GO`
 
-**Next instruction:** `RETURN TO MASTER FOR DRAFT REVIEW`
+**Next instruction:**
 
-The next MASTER action must be a draft-review/editorial gate or an explicitly committed follow-up instruction. A bare `GO` must not open a new simulation, theory branch, retuning task, application branch, MODES/CONT/CASCADE extension, Neuro delay/pathway extension, Climate parameter scan, Power-Grid/Photonics execution, or realistic-Fusion execution.
+`research/master/prompts/manuscript_structural_revision_package_0_2.md`
+
+A bare `GO` in MASTER should read and execute that committed instruction exactly.
+
+## Review decisions
+
+- No new scientific calculation is authorized or required.
+- Revision 0.2 must make Plasma, Neuro and Climate sufficiently self-contained for external readers using existing frozen equations/specifications only.
+- Default external wording is “pre-specified/frozen before effect inspection” unless a defensible registration chronology is explicitly documented.
+- Study thresholds must be reported as operational rules, not universal constants.
+- The `1/2` storage normalization convention must be made explicit/consistent.
+- Main text should contain compact defining physics; full reproducibility detail should be placed in Supplement/Methods appendix.
 
 ## Canonical supporting documents
 
+- `research/master/manuscript_draft_review_gate_0_1.md`
+- `research/master/prompts/manuscript_structural_revision_package_0_2.md`
 - `research/master/cross_domain_manuscript_positioning_claim_freeze_0_1.md`
-- `research/master/cross_domain_result_integration_freeze_0_1.md`
-- `research/literature/cross_domain_application_literature_positioning_audit_0_1.md`
 - `research/manuscript/manuscript_draft_0_1.md`
 - `research/manuscript/evidence_citation_map_0_1.md`
 - `research/manuscript/figure_source_map_0_1.md`
-- `research/master/project_status.md`
 - `research/master/decision_branch_log.md`
 - `research/master/prompt_handoff_protocol_0_1.md`
 
 ## STOP boundary
 
-Do not submit, target a journal, create new scientific results, or open protected branches until MASTER performs the draft review and commits any next instruction.
+Until Revision 0.2 is completed and reviewed, do not target a journal, submit, generate new scientific results, rerun any pilot, or open protected branches.
