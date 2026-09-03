@@ -2,6 +2,8 @@
 
 ## Current state
 
+### Climate-A — existing frozen pilot
+
 - Feasibility Gate 0.1: `PASSED`.
 - Pilot Candidate Freeze 0.1: `STABLE`.
 - Numerical Qualification 0.1: `QUALIFIED`.
@@ -9,82 +11,72 @@
 - Pilot Specification 0.1: `COMPLETE`.
 - Cross-Domain Pilot Freeze 0.1: `STABLE`.
 - Pilot Execution 0.1: `COMPLETE`.
-- Cross-Domain Result Integration & Freeze 0.1: **`STABLE`**.
+- Cross-Domain Result Integration & Freeze 0.1: `STABLE`.
+- Frozen verdict: `CLIM-WEAK`.
 
-## Frozen result
+Climate-A remains the damped two-layer Phillips-QG heat-transport pilot and is permanently frozen against retuning.
 
-The executed pilot remains the damped two-layer Phillips-QG channel
+At `T/tau_ref=8`,
 
 \[
-(A_K,M_K,Q_{{\rm heat},K},B=I,R_{\rm in}=M_K),
+(|m|,n)_E=(3,2),\qquad (|m|,n)_{heat}=(4,2),
 \]
 
-with positive signed transport northward/poleward and
-
 \[
-J_{\rm heat}(T)=\int_0^T x^\dagger Q_{{\rm heat},K}x\,dt.
+\vartheta_{sub}=90^\circ,\qquad \Delta_{heat}=0.04118455338,
 \]
 
-All preregistered structural, finite-time, trajectory and resolution-robustness gates passed. No physical or numerical setting was retuned.
+so the energy-optimal subspace retains approximately 95.88% of maximum cumulative poleward heat transport.
 
-At the longest frozen horizon,
+### Climate-B — one-shot intra-domain contrast branch
 
-\[
-T/\tau_{\rm ref}=8,
-\]
+`Climate Intra-Domain Contrast Feasibility Gate 0.1` has passed.
 
-the objectives select different robust modal subspaces,
+Nominated candidate only:
 
 \[
-(|m|,n)_E=(3,2),\qquad (|m|,n)_{\rm heat}=(4,2),
+\boxed{\text{equivalent-barotropic midlatitude Bickley jet}}
 \]
 
 with
 
-\[
-\vartheta_{\rm sub}=90^\circ,
-\]
+- positive objective: barotropic perturbation kinetic energy;
+- signed physical channel: eddy-induced forcing of the infinitesimal poleward jet-translation coordinate, obtained by projecting eddy momentum-flux convergence onto `g(y)=-U'(y)`;
+- provisional admissible eddy geometry: `B=I`, `R_in=M`;
+- exactly one nominated dimensional point from the feasibility gate;
+- no CORE-effect quantity inspected yet.
 
-but only
-
-\[
-\Delta_{\rm heat}=0.04118455338.
-\]
-
-Thus the energy-optimal subspace still realizes approximately 95.88% of maximum cumulative poleward heat transport.
-
-The frozen verdict is
-
-\[
-\boxed{\text{CLIM-WEAK}}.
-\]
-
-## Frozen interpretation
-
-Allowed: a robust objective-dependent modal/structural difference exists in this idealized QG pilot, but the cumulative heat-performance penalty is small.
-
-The result is the project-level contrast case demonstrating that a large optimizer/subspace angle need not imply a large objective-performance gap.
-
-Forbidden: retuning to obtain `CLIM-STRONG`, strong replication of the Plasma gap, universal climate theorem, Primitive-Equation/AMOC inference, or realistic forecast-skill claim.
+Hard rule: Climate-B is one additional attempt only. If it fails qualification or later returns weak/null, no third Climate candidate is authorized before the first manuscript.
 
 ## Active instruction
 
-**Status:** `RESULT FROZEN — WAIT`
+**Status:** `CLIMATE-B CANDIDATE FREEZE AUTHORIZED — AWAIT GO`
 
-**Next instruction:** `RETURN TO MASTER`
+**Next instruction:**
 
-A bare `GO` must not open a new parameter scan, damping choice, QG work point, horizon, resolution, Primitive-Equation/AMOC model, MODES/CONT/CASCADE analysis or new CORE execution.
+`research/master/prompts/climate_intra_domain_contrast_candidate_freeze_0_1.md`
 
-The next project-level task is targeted application literature positioning controlled by MASTER.
+A bare `GO` in the Climate chat must read and execute that committed instruction exactly.
+
+The Candidate Freeze may define/freeze the physical and numerical representation but must not compute `K_M`, `K_shift`, optimizer directions/subspaces, angles, gaps or any objective-separation quantity.
+
+## Manuscript dependency
+
+`Manuscript Structure Freeze 0.2` is on HOLD pending resolution of this one-shot Climate-B branch. It is not canceled and remains the mandatory return point.
 
 ## Canonical documents
+
+Climate-A:
 
 - `research/climate/climate_ocean_numerical_qualification_0_1.md`
 - `research/climate/climate_ocean_pilot_specification_0_1.md`
 - `research/climate/climate_ocean_pilot_0_1_execution_results.md`
 - `research/climate/climate_ocean_pilot_0_1_execution_data.csv`
-- `research/master/cross_domain_pilot_freeze_0_1.md`
-- `research/master/cross_domain_result_integration_freeze_0_1.md`
+
+Climate-B governance:
+
+- `research/master/climate_intra_domain_contrast_feasibility_gate_0_1.md`
+- `research/master/prompts/climate_intra_domain_contrast_candidate_freeze_0_1.md`
 - `research/master/prompt_handoff_protocol_0_1.md`
 
-**STOP / WAIT.**
+**STOP / AWAIT GO.**
