@@ -31,7 +31,8 @@ so the energy-optimal subspace retains approximately 95.88% of maximum cumulativ
 ### Climate-B — one-shot intra-domain contrast branch
 
 - Climate Intra-Domain Contrast Feasibility Gate 0.1: `PASSED`.
-- **Climate Intra-Domain Contrast Candidate Freeze 0.1: `STABLE`.**
+- Climate Intra-Domain Contrast Candidate Freeze 0.1: **`STABLE`**.
+- Climate Intra-Domain Contrast Numerical Qualification 0.1: **AUTHORIZED / NOT YET EXECUTED**.
 
 Frozen candidate:
 
@@ -43,7 +44,7 @@ with
 
 - positive objective metric: barotropic perturbation kinetic energy;
 - signed physical channel: eddy-induced forcing of the infinitesimal poleward jet-translation coordinate;
-- translation tangent: \(g(y)=-U'(y)\), unchanged from feasibility;
+- translation tangent: \(g(y)=-U'(y)\);
 - admissible eddy geometry: \(B=I\), \(R_{\rm in}=M_K\);
 - frozen physical point
   \[
@@ -61,21 +62,21 @@ with
 - frozen nested resolution roles:
   `(8,16)` structural smoke, `(12,24)` coarse audit, `(16,32)` primary, `(20,40)` confirmation, `(24,48)` high-resolution audit.
 
-Candidate Freeze analytically established \(M_K\succ0\), a Hermitian signed/indefinite \(Q_{{\rm shift},K}\), physical consistency of \(B=I,R_{\rm in}=M_K\), and the Rayleigh-Kuo pre-effect stability criterion. Exact finite-dimensional spectral stability remains for Numerical Qualification.
+Candidate Freeze analytically established \(M_K\succ0\), a Hermitian signed/indefinite \(Q_{{\rm shift},K}\), physical consistency of \(B=I,R_{\rm in}=M_K\), and the Rayleigh-Kuo pre-effect stability criterion.
 
-No finite-time `K_M`, `K_shift`, optimizer, angle, gap, horizon dependence or objective-separation quantity has been computed or inspected for Climate-B.
+No finite-time `K_M`, `K_shift`, optimizer, angle, gap, horizon dependence, or objective-separation quantity has been computed or inspected for Climate-B.
 
 Hard rule: Climate-B remains one additional attempt only. If Numerical Qualification fails or a later frozen execution is weak/null, no third Climate candidate is authorized before the first manuscript.
 
 ## Active instruction
 
-**Status:** `CLIMATE-B CANDIDATE FROZEN — RETURN TO MASTER FOR NUMERICAL QUALIFICATION`
+**Status:** `CLIMATE-B NUMERICAL QUALIFICATION READY — AWAIT GO`
 
 **Next instruction:**
 
-`RETURN TO MASTER FOR NUMERICAL QUALIFICATION`
+`research/master/prompts/climate_intra_domain_contrast_numerical_qualification_0_1.md`
 
-This Climate chat must not self-authorize Numerical Qualification on a bare `GO` until MASTER commits a new instruction.
+On `GO`, first read this STATUS and execute only that committed instruction. The qualification may assemble/verify `A_K`, `M_K`, `Q_shift,K`, channel sign reproduction, quadrature/parity structure, and spectral stability. It must not construct any finite-time CORE-effect operator or select a horizon ladder.
 
 ## Manuscript dependency
 
@@ -94,11 +95,7 @@ Climate-B:
 
 - `research/master/climate_intra_domain_contrast_feasibility_gate_0_1.md`
 - `research/climate/climate_intra_domain_contrast_candidate_freeze_0_1.md`
-- `research/master/prompts/climate_intra_domain_contrast_candidate_freeze_0_1.md`
+- `research/master/prompts/climate_intra_domain_contrast_numerical_qualification_0_1.md`
 - `research/master/prompt_handoff_protocol_0_1.md`
 
-\[
-\boxed{\text{CLIMATE-B CANDIDATE FROZEN — RETURN TO MASTER FOR NUMERICAL QUALIFICATION}}
-\]
-
-**STOP.**
+**STOP / AWAIT GO.**
