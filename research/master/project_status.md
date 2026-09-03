@@ -12,44 +12,53 @@
 - Cross-Domain Result Integration & Freeze 0.1: **STABLE**.
 - Cross-Domain Application Literature Positioning Audit 0.1: **COMPLETE**.
 - Cross-Domain Manuscript Positioning & Claim Freeze 0.1: **STABLE**.
-- Cross-Domain Manuscript Drafting Package 0.1: **COMPLETE**.
+- Manuscript Draft Review Gate 0.1: **PASS WITH MAJOR EDITORIAL/REPRODUCIBILITY REVISION**.
+- Manuscript Structural Revision Package 0.2: **COMPLETE**.
 
 ## Frozen manuscript position
 
-The first paper is frozen as a **methods/application paper on physics-informed objective-nonredundancy diagnostics in stable linear dynamics**.
+The first paper remains a **methods/application paper on physics-informed objective-nonredundancy diagnostics in stable linear dynamics**.
 
 Canonical manuscript-level claim:
 
-> A preregistered physics-informed finite-time workflow can test whether a conventional positive storage/state objective is redundant with an independently defined signed physical channel on the same admissible perturbation space; the three frozen applications show that the magnitude and practical consequence of nonredundancy are strongly system dependent.
+> A pre-specified physics-informed finite-time workflow can test whether a conventional positive storage/state objective is redundant with an independently defined signed physical channel on the same admissible perturbation space; the three frozen applications show that the magnitude and practical consequence of nonredundancy are strongly system dependent.
 
-Manuscript novelty is frozen at `N2 + N3` with domain-specific `N1` contributions. No mathematical novelty is claimed for quadratic-output optimization, transient growth, singular vectors or the generic dependence of optimizers on objective choice.
+Default external terminology is now “pre-specified and frozen before objective-separation evaluation” or “prospectively frozen in the version-controlled analysis record before effect inspection”. Unqualified “preregistered” is not the default unless a defensible registration chronology is explicitly documented.
 
-The evidence hierarchy remains:
+Manuscript novelty remains `N2 + N3` with domain-specific `N1`; no mathematical novelty is claimed for quadratic-output optimization, transient growth, singular vectors, Gramian methods, or generic objective-dependent optimizer changes.
+
+Evidence hierarchy remains:
 
 - Plasma/D10-ZF: strong primary domain anchor;
 - Neuro/CMC: strong cross-domain demonstrator;
 - Climate/Ocean QG: robust weak/contrast case.
 
-Climate's `90°` optimizer-subspace separation with only ~4.12% heat-performance gap is the canonical warning that optimizer angle alone is not a performance diagnostic.
+Climate's `90°` optimizer-subspace separation with only ~4.12% heat-performance gap remains the canonical warning that optimizer angle alone is not a performance diagnostic.
 
-Neuro's positive metric remains model-internal synaptic-filter storage/input-cost normalized, not brain/metabolic energy, and the frozen rank-two preparation geometry does not demonstrate reachable negative cumulative pathway transfer.
+Neuro's positive metric remains model-internal synaptic-filter storage, not brain/metabolic energy, and the frozen rank-two preparation geometry does not demonstrate reachable negative cumulative pathway transfer.
 
-## Draft package
+## Manuscript package
 
-The first integrated drafting package now exists:
+Current canonical draft:
 
-- `research/manuscript/manuscript_draft_0_1.md`
+- `research/manuscript/manuscript_draft_0_2.md`
 - `research/manuscript/evidence_citation_map_0_1.md`
 - `research/manuscript/figure_source_map_0_1.md`
 - `research/manuscript/STATUS.md`
 
-The draft was assembled from frozen evidence only. No new simulation, horizon, parameter, objective, pathway, admissible geometry or novelty claim was introduced.
+Rollback draft:
+
+- `research/manuscript/manuscript_draft_0_1.md`
+
+Revision 0.2 exposes compact defining physics for all three applications, states the study-specific strong criterion explicitly, normalizes the `1/2` storage convention, and includes supplement-ready reproducibility material. No new scientific calculation was introduced.
 
 ## Current blockers / dependencies
 
-No numerical, feasibility, reproducibility or scientific-claim blocker is active.
+No numerical, feasibility, reproducibility, or scientific-claim blocker is active.
 
-The only current dependency is **MASTER draft review/editorial integration** before any submission-oriented task, journal targeting, polished figure production, or protected-branch work.
+The only current dependency is **manuscript structure freeze/review** before journal targeting, submission-oriented polishing, or protected-branch work.
+
+One open editorial metadata item remains: verify the final publication status/citation form of Ogino et al. (2026) before submission. This is not a novelty-search or scientific blocker.
 
 ## Branch states
 
@@ -58,7 +67,7 @@ The only current dependency is **MASTER draft review/editorial integration** bef
 - Neuro: `NEURO-STRONG / RESULT FROZEN / WAIT`
 - Climate/Ocean: `CLIM-WEAK / RESULT FROZEN / WAIT`
 - Literature: `COMPLETE / WAIT`
-- Manuscript: `DRAFT 0.1 COMPLETE / RETURN TO MASTER FOR DRAFT REVIEW`
+- Manuscript: `REVISION 0.2 COMPLETE / STRUCTURE FREEZE DUE`
 - MODES / CONT / CASCADE: `WAIT`
 - Power Grids: `PROTECTED`
 - Photonics/Waves: `PROTECTED`
@@ -68,9 +77,7 @@ The only current dependency is **MASTER draft review/editorial integration** bef
 
 ## Freeze check
 
-Scientific result, literature-positioning and manuscript-claim freezes are current. No new pilot or theory freeze is due.
-
-Drafting is complete; the next action is editorial/claim-consistency review, not scientific extension.
+Scientific result, literature-positioning, and manuscript-claim freezes remain current. No new pilot or theory freeze is due. The next gate is editorial: freeze the manuscript architecture and main-text/supplement division after reviewing Revision 0.2.
 
 ## Branch-independent layer
 
@@ -80,7 +87,15 @@ The transferable analysis tuple remains
 \mathfrak C=(A,M,Q,B,R_{\rm in})
 \]
 
-with common finite-time storage/state and signed-channel operators. Signed extrema, optimizer/subspace comparison, performance gap, physical diagnostics and preregistered robustness rules remain branch-independent methodology.
+with common finite-time positive-objective and signed-channel operators. Signed extrema, optimizer/subspace comparison, performance gap, physical diagnostics, and pre-specified robustness rules remain branch-independent methodology.
+
+The study-specific strong criterion is
+
+\[
+\vartheta\ge20^\circ,\qquad \Delta_Q\ge0.25
+\]
+
+on at least two neighboring horizons, together with domain-specific structural/numerical gates. These thresholds are operational study rules, not universal constants.
 
 ## Branch-dependent semantics
 
@@ -92,7 +107,7 @@ These meanings must not be flattened into one physical interpretation.
 
 ## Protected future branches
 
-Still protected for later work:
+Still protected:
 
 - Power Grids;
 - Photonics/Waves;
@@ -103,10 +118,10 @@ Still protected for later work:
 - CONT continuation work;
 - CASCADE scale-transfer work.
 
-None is needed to support the first manuscript draft.
+None is required for the first manuscript.
 
 ## Next global step
 
-`MASTER Draft Review / Editorial Integration`
+`Manuscript Structure Freeze 0.2`
 
-Purpose: review `research/manuscript/manuscript_draft_0_1.md` against the frozen claim package and evidence/citation map, decide what must be revised for clarity/claim discipline, and only then commit the next manuscript-writing instruction. No new scientific calculation is authorized by this review.
+Purpose: review the self-contained Revision 0.2, freeze the paper's section architecture and main-text-versus-Supplement division, and decide which purely editorial/figure-production steps are authorized next. No new scientific calculation is authorized by this gate.
