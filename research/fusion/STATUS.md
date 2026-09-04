@@ -5,80 +5,111 @@
 
 ## Current state
 
-The post-paper roadmap selected
+The active post-paper program remains
 
 \[
-\boxed{\text{FUSION-F1 — fusion heat-transport optimality ladder}}
+\boxed{\text{FUSION-F1 — fusion heat-transport optimality ladder}}.
 \]
 
-as the active scientific program. The first-paper scientific content remains frozen and the submission track remains parked.
+The first-paper scientific content remains frozen and the submission track remains parked.
 
-B5.5 is complete and MASTER-integrated: the physical signed ion radial heat/thermal-energy flux `Q_{q_i,k}` is frozen and balance-consistent. F1.2 is also complete and MASTER-integrated.
+B5.5 and F1.2 are complete and MASTER-integrated. F1.3 is now complete in this branch.
 
-## Frozen F1.2 input geometry / cost
+## F1.3 frozen candidate / convention
 
-For the closed anisotropic-ZLR four-moment R1 tangent state
+Primary reduced candidate:
+
+\[
+\boxed{\text{anisotropic-ZLR four-moment R1 minimal-curvature branch}}
+\]
+
+with the slab R1 generator retained only as the exact `omega_d -> 0` analytic/limiting control.
+
+Frozen state and closure:
 
 \[
 z_k=(N,U,P_\parallel,P_\perp)^T,
-\qquad \Phi=\mathcal C_kN,
+\qquad
+\Phi=\mathcal C_kN,
+\qquad
+\mathcal C_k=(\tau_i+k_\perp^2\rho_i^2)^{-1}.
 \]
 
-the admissible initial-condition ensemble is the full retained tangent state, with
+Frozen physical objects:
 
 \[
-\boxed{B=I_4,\qquad R_{\rm in}=M_k,\qquad \operatorname{rank}(B)=4.}
+M_k=M_k^\dagger\succ0,
+\qquad
+q_{i,k}=z_k^\dagger Q_{q_i,k}z_k,
+\qquad
+B=I_4,
+\qquad
+R_{\rm in}=M_k.
 \]
 
-`B=I_4` is a state-space initial-condition statement, not a claim of four independent laboratory actuators. The frozen positive input cost is the perturbation free-energy metric `M_k`.
+The physical heat channel remains Hermitian, rank 2 and indefinite for `k_y!=0`; the ion particle-flux channel remains `Q_{Gamma_i,k}=0` under the frozen adiabatic-electron closure.
 
-The instantaneous restricted heat channel remains
+Frozen gradient/geometry conventions use outward `+x`, `k_y>0`,
 
 \[
-B^\dagger Q_{q_i,k}B=Q_{q_i,k},
+L_n^{-1}=-\partial_x\ln n_0>0,
+\qquad
+L_T^{-1}=-\partial_x\ln T_{i0}>0,
 \]
 
-rank 2 and indefinite for `k_y!=0`. Transport neutrality was not imposed.
+\[
+\widehat{\mathcal K}f_k=-2i\omega_df_k,
+\qquad
+\omega_d=\frac{k_y\rho_ic_s}{R_0}>0,
+\qquad
+k_\parallel=\frac{1}{qR_0}>0.
+\]
 
-Canonical F1.2 result:
+The dissipation/closure choice is source-faithful and collisionless: no artificial damping, viscosity/diffusion or Landau-fluid term is added; electrons remain adiabatic.
 
-`research/fusion/fusion_admissible_input_geometry_input_cost_gate_0_1.md`
+Frozen CBC-projected R1 parameter point:
 
-MASTER F1.2 integration freeze:
+\[
+\boxed{
+\tau_i=1,
+\quad
+R_0/L_n=2.2,
+\quad
+R_0/L_T=6.9,
+\quad
+q=1.4,
+\quad
+k_x\rho_i=0,
+\quad
+k_y\rho_i=0.3.
+}
+\]
 
-`research/master/fusion_f1_2_input_geometry_integration_freeze_0_1.md`
+Time normalization:
 
-F1.2 commit `8d555475577e77e93f9646df60343a34f0503525`; Python CI #316 = `SUCCESS`.
+\[
+\boxed{\tau_{\rm ref}=R_0/c_s.}
+\]
+
+Canonical F1.3 result:
+
+`research/fusion/fusion_candidate_convention_freeze_0_1.md`
 
 ## Active instruction
 
-**Status:** `FUSION F1.3 CANDIDATE / CONVENTION FREEZE READY — AWAIT GO`
+**Status:** `F1.3 PASS — CANDIDATE/CONVENTION FROZEN — RETURN TO MASTER FOR NUMERICAL/SPECTRAL QUALIFICATION`
 
-**Next instruction:**
+**Next instruction:** none in this branch.
 
-`research/master/prompts/fusion_candidate_convention_freeze_0_1.md`
+A bare `GO` must not open F1.4 while this status remains `RETURN TO MASTER`. MASTER must integrate F1.3 and commit a new explicit handoff before further Fusion work.
 
-On a bare `GO`, first read this STATUS and execute only that committed instruction.
+## Forbidden until MASTER returns a new committed handoff
 
-## F1.3 scope
+Do not compute finite-time energy/heat operators, propagators/Gramians for objective comparison, cumulative extrema, optimizer vectors/subspaces, principal angles, performance gaps, horizon dependence or effect-guided parameter scans. Do not retune the frozen CBC-projected point or add damping to rescue a spectrum. Do not restore FLR/R2, kinetic electrons, six-moment GEM or GENE. Do not open MODES/CONT/CASCADE, Power Grid/Photonics work, or modify the frozen first paper.
 
-Freeze one exact reduced candidate and all source/normalization/geometry/closure/parameter conventions needed for the subsequent numerical/spectral qualification, using only pre-effect physical and structural criteria.
+## Expected MASTER action
 
-The intended primary candidate is the already-derived anisotropic-ZLR four-moment R1 **minimal-curvature** branch if the derivation chain remains internally consistent. The slab branch remains an analytic/limiting control.
-
-## Forbidden until F1.3 returns
-
-Do not compute finite-time energy/heat operators, cumulative extrema, optimizer vectors/subspaces, principal angles, performance gaps, horizon dependence or effect-guided parameter scans. Do not restore FLR, kinetic electrons, six-moment GEM or GENE. Do not open MODES/CONT/CASCADE or protected Power Grid/Photonics work. Do not modify the frozen first paper.
-
-## Expected return state
-
-One of:
-
-- `F1.3 PASS — CANDIDATE/CONVENTION FROZEN — RETURN TO MASTER FOR NUMERICAL/SPECTRAL QUALIFICATION`;
-- `F1.3 HOLD — RETURN TO MASTER FOR A SPECIFIC CONVENTION DECISION`;
-- `F1.3 FAIL — RETURN TO MASTER`.
-
-No branch-side next gate is self-authorized.
+If MASTER accepts the F1.3 freeze, the roadmap-designated next stage is numerical/spectral qualification of exactly the frozen candidate and point. This branch does not self-authorize that gate.
 
 ## Governance authority
 
@@ -86,6 +117,7 @@ No branch-side next gate is self-authorized.
 - `research/master/post_paper_scientific_roadmap_gate_0_1.md`
 - `research/master/fusion_b5_5_heat_flux_observable_integration_freeze_0_1.md`
 - `research/master/fusion_f1_2_input_geometry_integration_freeze_0_1.md`
+- `research/master/prompts/fusion_candidate_convention_freeze_0_1.md`
 - `research/master/prompt_handoff_protocol_0_1.md`
 
-**STOP / AWAIT GO.**
+**STOP / RETURN TO MASTER.**
