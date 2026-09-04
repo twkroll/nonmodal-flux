@@ -14,126 +14,126 @@
 - Cross-Domain Application Literature Positioning Audit 0.1: **COMPLETE**.
 - Cross-Domain Manuscript Positioning & Claim Freeze 0.1: **STABLE**.
 - Manuscript Structure Freeze 0.2: **STABLE**.
-- Manuscript Structural Revision Package 0.3: **COMPLETE**.
-- Journal & Audience Positioning Gate 0.1: **STABLE — PRIMARY TARGET SELECTED**.
-- Frozen-Data Figure Production Package 0.1: **COMPLETE — PASS**.
-- Frozen-Data Figure Production Integration Freeze 0.1: **STABLE**.
-- Manuscript Pre-Submission Integration Revision 0.4: **COMPLETE — PASS**.
-- Manuscript Revision 0.4 Integration Freeze 0.1: **STABLE**.
+- Manuscript Revision 0.4: **COMPLETE — PASS**.
 - Submission Readiness Gate 0.1: **PASS WITH AUTHOR/METADATA ITEMS — SCIENTIFIC PACKAGE READY**.
-- **First Paper Scientific Content Freeze 0.1: STABLE — SCIENTIFIC CONTENT BASELINE FROZEN / SUBMISSION TRACK PARKED.**
+- First Paper Scientific Content Freeze 0.1: **STABLE — SCIENTIFIC CONTENT BASELINE FROZEN / SUBMISSION TRACK PARKED**.
+- Post-Paper Scientific Roadmap Gate 0.1: **COMPLETE — FUSION-F1 SELECTED**.
 
-## First-paper baseline
+## First-paper status
 
-The canonical first-paper scientific-content baseline is:
+The scientific content of Paper 1 is frozen. Draft 0.4 is the current scientific-content baseline but not final prose. The user intends to revise the text personally before any eventual submission.
 
-- `research/manuscript/manuscript_draft_0_4.md`;
-- `research/manuscript/manuscript_supplement_0_1.md`;
-- `research/manuscript/pre_submission_asset_map_0_1.md`;
-- Main Fig. 1–5 and Main Table 1;
-- Supplement Table S1 and Supplement Fig. S5;
-- evidence/citation and figure-source maps;
-- `research/master/submission_readiness_gate_0_1.md`;
-- `research/master/first_paper_scientific_content_freeze_0_1.md`.
+Submission preparation is parked. No APS portal, cover letter, author-list, OA/APC, archive DOI/release/license, or production-formatting work is active.
 
-Draft 0.4 is **not final prose**. The user intends to revise the wording personally before any submission. Author-led prose work is permitted later as long as frozen scientific content is preserved.
-
-## Publication positioning / parked submission track
-
-Primary target remains:
+## New primary scientific program
 
 \[
-\boxed{\text{Physical Review E — Regular Article}}
+\boxed{\text{FUSION-F1 — fusion heat-transport optimality ladder}}
 \]
 
-Backups remain Chaos and Physical Review Research.
+The program asks whether finite-horizon signed ion heat-transport optimality differs meaningfully from free-energy optimality in an energy-consistent fusion hierarchy and whether any distinction survives controlled increases in physical fidelity.
 
-Submission preparation is now parked. No portal action, cover letter, author-list decision, production-formatting task, OA/APC decision, archive DOI/release/license action, or journal correspondence is active.
+Planned hierarchy:
 
-Readiness remaining items are purely author/editorial/metadata items. No new scientific calculation is required for the first paper.
+\[
+\text{anisotropic ZLR four-moment gyrofluid}
+\rightarrow
+\text{FLR gyrofluid}
+\rightarrow
+\text{parallel/flux-tube or local gyrokinetic/GENE-compatible validation}.
+\]
 
-## Frozen evidence base
+This is not selected because Paper 1 showed a large effect. It is selected because the Fusion branch already has a strong pre-effect physical derivation chain and the next unresolved object is a primitive physical heat-flux operator that can pass or fail before any finite-time effect is inspected.
 
-Main-paper evidence remains:
+## Fusion pre-effect groundwork already present
 
-- Plasma `P2-A` — strong;
-- Neuro `NEURO-STRONG` — strong;
-- Climate-A `CLIM-WEAK` — weak but robust.
+- `research/fusion/observable_dictionary.md`;
+- `research/fusion/model_audit.md`;
+- `research/fusion/minimal_model_derivation_audit.md`;
+- `research/fusion/four_moment_reduction_audit.md`;
+- B5.1 source convention;
+- B5.2 slab/minimal-curvature linearizations;
+- B5.3 slab/minimal-curvature generators;
+- B5.4A positive perturbation free-energy metric;
+- B5.4B curvature free-energy consistency check.
 
-Climate-B remains a negative robustness result only: brief main-text rejection plus full Supplement S5. It is excluded from robust Main Fig. 5 evidence. No Climate-B repair or third Climate candidate is permitted within the first-paper lineage.
+B5.4B leaves the physical ion radial heat-flux normalization/sign and Hermitian matrix explicitly open. No finite-time heat-transport optimization has been authorized.
 
-## Branch states
+## Immediate selected gate
 
-- CORE: `STABLE / WAIT — ELIGIBLE FOR POST-PAPER ROADMAP ASSESSMENT`
-- Plasma: `P2-A / FROZEN`
-- Neuro: `NEURO-STRONG / FROZEN / FUTURE EXTENSION PROTECTED`
-- Climate-A: `CLIM-WEAK / FROZEN`
-- Climate-B: `CLIM-B-FAIL / RESULT FROZEN / STOP`
-- Literature: `COMPLETE / WAIT`
-- Manuscript: `FIRST-PAPER CONTENT BASELINE FROZEN / SUBMISSION PARKED`
-- MODES / CONT / CASCADE: `WAIT — ELIGIBLE FOR POST-PAPER ROADMAP ASSESSMENT`
-- Power Grids: `PROTECTED COLLABORATION BRANCH`
-- Photonics/Waves: `PROTECTED COLLABORATION BRANCH`
-- realistic Fusion: `PROTECTED / ELIGIBLE FOR ROADMAP ASSESSMENT`
-- delayed Neuro / higher-fidelity Climate: `PROTECTED / ELIGIBLE FOR ROADMAP ASSESSMENT`
+B5.5 must derive independently
 
-## Freeze / branching check
+\[
+q_{i,k}=z_k^\dagger Q_{q_i,k}z_k
+\]
 
-All scientific freezes are current. There is no scientific blocker.
+from the physical radial `E×B` heat/thermal-energy flux, including exact thermodynamic combination, sign, prefactor, Fourier convention and Hermitian matrix, and only then compare it with the free-energy injection identity.
 
-The first-paper-only prohibition on new scientific work is now lifted because the first-paper scientific content has a protected rollback point. New work still requires explicit MASTER branch selection and a Gate → Freeze → Execution chain. Protected collaboration branches must not be executed merely because the paper is frozen.
+Canonical instruction:
+
+`research/master/prompts/fusion_ion_heat_flux_observable_derivation_gate_0_1.md`
+
+Branch status:
+
+`research/fusion/STATUS.md`
+
+## Planned dependency chain
+
+1. B5.5 heat-flux observable derivation;
+2. admissible-input geometry / input-cost gate;
+3. Fusion candidate/convention freeze;
+4. numerical/spectral qualification;
+5. targeted Fusion literature positioning for the exact frozen question;
+6. pilot specification;
+7. MASTER pilot freeze and one-shot execution;
+8. result integration/freeze;
+9. later FLR/GK fidelity progression based on physical/structural validity, not effect size.
+
+## Other branch states
+
+- CORE: `STABLE / PARKED`
+- MODES: `PARKED / conditional Fusion companion`
+- CONT: `PARKED`
+- CASCADE: `PARKED`
+- Neuro: first result frozen; higher-fidelity extensions parked
+- Climate: A/B frozen; no B repair or third-candidate rescue lineage
+- Literature: prior Paper-1 audit complete; no new task until Fusion candidate/channel freeze
+- Manuscript: Paper-1 content frozen; submission parked
+- Power Grids: `PROTECTED`
+- Photonics/Waves: `PROTECTED`
+- Fusion: `B5.5 READY — AWAIT GO`
+
+## Parallelism decision
+
+No immediate parallel science is opened. `MODES` may later support Fusion if high-dimensional representation/reduction robustness becomes a concrete issue. `CONT` may become natural after a physical parameter family is frozen. Neither is active now.
 
 ## Branch-independent methodology
 
+The reusable framework remains
+
 \[
-\mathfrak C=(A,M,Q,B,R_{\rm in})
+\mathfrak C=(A,M,Q,B,R_{\rm in}),
 \]
 
-remains the shared diagnostic architecture where applicable, with finite-time positive/signed objectives, signed extrema, optimizer/subspace geometry, target-performance gaps, physical reconstruction, robustness, and anti-retuning discipline.
+with finite-time positive/signed operators, signed extrema, optimizer/subspace geometry, performance gap, physical reconstruction, robustness and anti-retuning discipline.
 
-Future work is not required to force every system into the same manuscript framing; the next program should ask a scientifically new question.
+Fusion must preserve its own physical semantics rather than treating Paper-1 observables as interchangeable templates.
 
-## Branch-dependent semantics
+## Protected rollback chain
 
-- Plasma: free energy / signed particle transport.
-- Neuro: synaptic-filter storage / signed pathway contribution.
-- Climate-A: QG perturbation energy / signed poleward heat transport.
-- Climate-B: barotropic perturbation kinetic energy / signed jet-translation forcing, frozen robustness failure.
+All first-paper savepoints remain protected through `First Paper Scientific Content Freeze 0.1`. The new post-paper roadmap savepoint is
+
+`research/master/post_paper_scientific_roadmap_gate_0_1.md`.
+
+New Fusion results cannot silently revise the first-paper baseline.
 
 ## Decision record
 
 - base: `research/master/decision_branch_log.md` through DEC-443;
-- canonical continuation: `research/master/decision_branch_log_addendum_0_1.md` through DEC-476.
+- continuation: `research/master/decision_branch_log_addendum_0_1.md` through DEC-486.
 
-## Rollback points
+## Current next action
 
-1. Plasma `P2-A` result freeze.
-2. Neuro `NEURO-STRONG` result freeze.
-3. Climate-A `CLIM-WEAK` result freeze.
-4. Cross-Domain Result Integration & Freeze 0.1.
-5. Manuscript Claim Freeze / Draft 0.2.
-6. Climate-B Candidate / Numerical Qualification / Pilot freezes.
-7. Climate-B Execution / Result Integration & Freeze 0.1.
-8. Manuscript Structure Freeze 0.2.
-9. Manuscript Revision 0.3 package.
-10. Journal & Audience Positioning Gate 0.1.
-11. Frozen-Data Figure Production Package 0.1 + Integration Freeze 0.1.
-12. Manuscript Revision 0.4 package + Integration Freeze 0.1.
-13. Submission Readiness Gate 0.1.
-14. **First Paper Scientific Content Freeze 0.1.**
+Use the Fusion branch/chat `60 – FUSION – Gyrofluid/Gyrokinetic Transport` and issue bare `GO` after it has read `research/fusion/STATUS.md`.
 
-## Current dependency / next task
-
-There is no scientific dependency. The sole active MASTER task is:
-
-\[
-\boxed{\text{Post-Paper Scientific Roadmap Gate 0.1}.}
-\]
-
-Canonical instruction:
-
-`research/master/prompts/post_paper_scientific_roadmap_gate_0_1.md`
-
-The gate must compare the candidate next programs and select the next branch without yet executing new science.
-
-Submission preparation remains parked until explicitly reactivated by the user.
+No finite-time Fusion effect inspection or parallel branch work is authorized before B5.5 returns to MASTER.
