@@ -13,67 +13,44 @@
 - Cross-Domain Result Integration & Freeze 0.1: **STABLE**.
 - Cross-Domain Application Literature Positioning Audit 0.1: **COMPLETE**.
 - Cross-Domain Manuscript Positioning & Claim Freeze 0.1: **STABLE**.
-- Manuscript Structure Freeze 0.2: **STABLE — MANUSCRIPT ARCHITECTURE FROZEN**.
+- Manuscript Structure Freeze 0.2: **STABLE**.
 - Manuscript Structural Revision Package 0.3: **COMPLETE**.
 - Journal & Audience Positioning Gate 0.1: **STABLE — PRIMARY TARGET SELECTED**.
 - Frozen-Data Figure Production Package 0.1: **COMPLETE — PASS**.
 - Frozen-Data Figure Production Integration Freeze 0.1: **STABLE**.
 - Manuscript Pre-Submission Integration Revision 0.4: **COMPLETE — PASS**.
-- Manuscript Revision 0.4 Integration Freeze 0.1: **STABLE — SUBMISSION READINESS GATE RELEASED**.
+- Manuscript Revision 0.4 Integration Freeze 0.1: **STABLE**.
+- Submission Readiness Gate 0.1: **PASS WITH AUTHOR/METADATA ITEMS — SCIENTIFIC PACKAGE READY**.
+- **First Paper Scientific Content Freeze 0.1: STABLE — SCIENTIFIC CONTENT BASELINE FROZEN / SUBMISSION TRACK PARKED.**
 
-## Canonical manuscript package
+## First-paper baseline
 
-Current PRE-target main manuscript:
+The canonical first-paper scientific-content baseline is:
 
-- `research/manuscript/manuscript_draft_0_4.md`.
+- `research/manuscript/manuscript_draft_0_4.md`;
+- `research/manuscript/manuscript_supplement_0_1.md`;
+- `research/manuscript/pre_submission_asset_map_0_1.md`;
+- Main Fig. 1–5 and Main Table 1;
+- Supplement Table S1 and Supplement Fig. S5;
+- evidence/citation and figure-source maps;
+- `research/master/submission_readiness_gate_0_1.md`;
+- `research/master/first_paper_scientific_content_freeze_0_1.md`.
 
-Submission-oriented supplement:
+Draft 0.4 is **not final prose**. The user intends to revise the wording personally before any submission. Author-led prose work is permitted later as long as frozen scientific content is preserved.
 
-- `research/manuscript/manuscript_supplement_0_1.md`.
+## Publication positioning / parked submission track
 
-Asset/readiness map:
-
-- `research/manuscript/pre_submission_asset_map_0_1.md`.
-
-Presentation package:
-
-- Main Fig. 1–5 SVG masters + PNG previews;
-- Main Table 1;
-- Supplement Table S1;
-- Supplement Fig. S5 Climate-B rejection;
-- captions, figure manifest, validation record, and source scripts.
-
-Immediate scientific/textual rollback:
-
-- `research/manuscript/manuscript_draft_0_3.md`;
-- `research/manuscript/evidence_citation_map_0_2.md`;
-- `research/manuscript/figure_source_map_0_2.md`.
-
-MASTER integration authorities:
-
-- `research/master/frozen_data_figure_production_integration_freeze_0_1.md`;
-- `research/master/manuscript_revision_0_4_integration_freeze_0_1.md`.
-
-Python CI #290 on Revision-0.4 commit `58d09a05947863d97c48fc3efa46d68090d6dfff` = **SUCCESS**.
-
-## Publication positioning
-
-Primary target:
+Primary target remains:
 
 \[
 \boxed{\text{Physical Review E — Regular Article}}
 \]
 
-Backups:
+Backups remain Chaos and Physical Review Research.
 
-1. Chaos — Regular Research Article;
-2. Physical Review Research — Regular Article.
+Submission preparation is now parked. No portal action, cover letter, author-list decision, production-formatting task, OA/APC decision, archive DOI/release/license action, or journal correspondence is active.
 
-Current manuscript title:
-
-`Physics-informed diagnosis of objective nonredundancy in stable linear dynamics across plasma, neural and geophysical models`
-
-No journal choice may alter frozen evidence, claims, verdicts, physical semantics, or result ordering.
+Readiness remaining items are purely author/editorial/metadata items. No new scientific calculation is required for the first paper.
 
 ## Frozen evidence base
 
@@ -83,34 +60,28 @@ Main-paper evidence remains:
 - Neuro `NEURO-STRONG` — strong;
 - Climate-A `CLIM-WEAK` — weak but robust.
 
-Climate-B remains a negative robustness result only: brief main-text robustness rejection plus full Supplement S5. It is excluded from robust Main Fig. 5 evidence and no third Climate attempt or repair is authorized before the first paper.
-
-## Revision-0.4 state
-
-Revision 0.4 integrated the PRE title, figure/table callouts and approved captions, canonical Main Table 1, separate Supplement S1–S6, Supplement Table S1 / Fig. S5 references, and evidence-grounded Data/Code Availability wording. It explicitly did not invent an archival DOI, persistent identifier, software/data license, OA agreement, or institutional commitment.
-
-No new scientific computation or novelty search was performed.
+Climate-B remains a negative robustness result only: brief main-text rejection plus full Supplement S5. It is excluded from robust Main Fig. 5 evidence. No Climate-B repair or third Climate candidate is permitted within the first-paper lineage.
 
 ## Branch states
 
-- CORE: `STABLE / WAIT`
+- CORE: `STABLE / WAIT — ELIGIBLE FOR POST-PAPER ROADMAP ASSESSMENT`
 - Plasma: `P2-A / FROZEN`
-- Neuro: `NEURO-STRONG / FROZEN / WAIT`
+- Neuro: `NEURO-STRONG / FROZEN / FUTURE EXTENSION PROTECTED`
 - Climate-A: `CLIM-WEAK / FROZEN`
 - Climate-B: `CLIM-B-FAIL / RESULT FROZEN / STOP`
 - Literature: `COMPLETE / WAIT`
-- Manuscript: `REVISION 0.4 COMPLETE / RETURNED TO MASTER`
-- MODES / CONT / CASCADE: `WAIT`
-- Power Grids: `PROTECTED`
-- Photonics/Waves: `PROTECTED`
-- realistic Fusion: `PROTECTED`
-- delayed Neuro / higher-fidelity Climate: `PROTECTED`
+- Manuscript: `FIRST-PAPER CONTENT BASELINE FROZEN / SUBMISSION PARKED`
+- MODES / CONT / CASCADE: `WAIT — ELIGIBLE FOR POST-PAPER ROADMAP ASSESSMENT`
+- Power Grids: `PROTECTED COLLABORATION BRANCH`
+- Photonics/Waves: `PROTECTED COLLABORATION BRANCH`
+- realistic Fusion: `PROTECTED / ELIGIBLE FOR ROADMAP ASSESSMENT`
+- delayed Neuro / higher-fidelity Climate: `PROTECTED / ELIGIBLE FOR ROADMAP ASSESSMENT`
 
 ## Freeze / branching check
 
-All scientific, manuscript-architecture, figure, and current editorial-integration freezes are current. There is no scientific blocker and no scientifically required new calculation before first-paper completion.
+All scientific freezes are current. There is no scientific blocker.
 
-Opening protected scientific branches now would be premature. The correct sequence is to complete submission-readiness governance for the present paper first.
+The first-paper-only prohibition on new scientific work is now lifted because the first-paper scientific content has a protected rollback point. New work still requires explicit MASTER branch selection and a Gate → Freeze → Execution chain. Protected collaboration branches must not be executed merely because the paper is frozen.
 
 ## Branch-independent methodology
 
@@ -118,21 +89,21 @@ Opening protected scientific branches now would be premature. The correct sequen
 \mathfrak C=(A,M,Q,B,R_{\rm in})
 \]
 
-with common finite-time positive-objective and signed-channel operators, signed extrema, optimizer/subspace geometry, target-performance gap, physical reconstruction, robustness, and anti-retuning discipline.
+remains the shared diagnostic architecture where applicable, with finite-time positive/signed objectives, signed extrema, optimizer/subspace geometry, target-performance gaps, physical reconstruction, robustness, and anti-retuning discipline.
+
+Future work is not required to force every system into the same manuscript framing; the next program should ask a scientifically new question.
 
 ## Branch-dependent semantics
 
 - Plasma: free energy / signed particle transport.
 - Neuro: synaptic-filter storage / signed pathway contribution.
 - Climate-A: QG perturbation energy / signed poleward heat transport.
-- Climate-B: barotropic perturbation kinetic energy / signed jet-translation forcing; frozen robustness failure.
-
-These meanings remain distinct.
+- Climate-B: barotropic perturbation kinetic energy / signed jet-translation forcing, frozen robustness failure.
 
 ## Decision record
 
 - base: `research/master/decision_branch_log.md` through DEC-443;
-- canonical continuation: `research/master/decision_branch_log_addendum_0_1.md` through DEC-464.
+- canonical continuation: `research/master/decision_branch_log_addendum_0_1.md` through DEC-476.
 
 ## Rollback points
 
@@ -147,20 +118,22 @@ These meanings remain distinct.
 9. Manuscript Revision 0.3 package.
 10. Journal & Audience Positioning Gate 0.1.
 11. Frozen-Data Figure Production Package 0.1 + Integration Freeze 0.1.
-12. **Manuscript Revision 0.4 + Supplement 0.1 + Pre-Submission Asset Map + Revision-0.4 Integration Freeze 0.1.**
+12. Manuscript Revision 0.4 package + Integration Freeze 0.1.
+13. Submission Readiness Gate 0.1.
+14. **First Paper Scientific Content Freeze 0.1.**
 
 ## Current dependency / next task
 
-There is no scientific dependency. The sole active project task is now:
+There is no scientific dependency. The sole active MASTER task is:
 
 \[
-\boxed{\text{Submission Readiness Gate 0.1}.}
+\boxed{\text{Post-Paper Scientific Roadmap Gate 0.1}.}
 \]
 
 Canonical instruction:
 
-`research/master/prompts/submission_readiness_gate_0_1.md`
+`research/master/prompts/post_paper_scientific_roadmap_gate_0_1.md`
 
-This gate is a readiness audit only. It may verify current APS/PRE submission requirements and metadata for already-cited references, but it may not submit, decide author order, draft/send correspondence, perform a new novelty search, recompute science, or open protected branches.
+The gate must compare the candidate next programs and select the next branch without yet executing new science.
 
-Submission, cover letter, author-list decisions, and portal actions remain unauthorized until the gate resolves readiness.
+Submission preparation remains parked until explicitly reactivated by the user.
