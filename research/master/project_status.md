@@ -17,30 +17,44 @@
 - Manuscript Structural Revision Package 0.3: **COMPLETE**.
 - Journal & Audience Positioning Gate 0.1: **STABLE — PRIMARY TARGET SELECTED**.
 - Frozen-Data Figure Production Package 0.1: **COMPLETE — PASS**.
-- Frozen-Data Figure Production Integration Freeze 0.1: **STABLE — FIGURE PACKAGE INTEGRATED / REVISION 0.4 RELEASED**.
+- Frozen-Data Figure Production Integration Freeze 0.1: **STABLE**.
+- Manuscript Pre-Submission Integration Revision 0.4: **COMPLETE — PASS**.
+- Manuscript Revision 0.4 Integration Freeze 0.1: **STABLE — SUBMISSION READINESS GATE RELEASED**.
 
-## Canonical manuscript / presentation savepoint
+## Canonical manuscript package
 
-Scientific/text rollback:
+Current PRE-target main manuscript:
 
-- `research/manuscript/manuscript_draft_0_3.md`;
-- `research/manuscript/evidence_citation_map_0_2.md`;
-- `research/manuscript/figure_source_map_0_2.md`.
+- `research/manuscript/manuscript_draft_0_4.md`.
+
+Submission-oriented supplement:
+
+- `research/manuscript/manuscript_supplement_0_1.md`.
+
+Asset/readiness map:
+
+- `research/manuscript/pre_submission_asset_map_0_1.md`.
 
 Presentation package:
 
-- `research/manuscript/frozen_data_figure_production_package_0_1.md`;
 - Main Fig. 1–5 SVG masters + PNG previews;
 - Main Table 1;
 - Supplement Table S1;
 - Supplement Fig. S5 Climate-B rejection;
 - captions, figure manifest, validation record, and source scripts.
 
-MASTER integration authority:
+Immediate scientific/textual rollback:
 
-- `research/master/frozen_data_figure_production_integration_freeze_0_1.md`.
+- `research/manuscript/manuscript_draft_0_3.md`;
+- `research/manuscript/evidence_citation_map_0_2.md`;
+- `research/manuscript/figure_source_map_0_2.md`.
 
-Python CI #283 on closing commit `e09f61147b16d5c38ddbd6fdeeb680572cb5cccc` = **SUCCESS**.
+MASTER integration authorities:
+
+- `research/master/frozen_data_figure_production_integration_freeze_0_1.md`;
+- `research/master/manuscript_revision_0_4_integration_freeze_0_1.md`.
+
+Python CI #290 on Revision-0.4 commit `58d09a05947863d97c48fc3efa46d68090d6dfff` = **SUCCESS**.
 
 ## Publication positioning
 
@@ -55,11 +69,11 @@ Backups:
 1. Chaos — Regular Research Article;
 2. Physical Review Research — Regular Article.
 
-PRE target-specific working title:
+Current manuscript title:
 
 `Physics-informed diagnosis of objective nonredundancy in stable linear dynamics across plasma, neural and geophysical models`
 
-No journal choice may alter frozen evidence, claims, or result ordering.
+No journal choice may alter frozen evidence, claims, verdicts, physical semantics, or result ordering.
 
 ## Frozen evidence base
 
@@ -71,11 +85,11 @@ Main-paper evidence remains:
 
 Climate-B remains a negative robustness result only: brief main-text robustness rejection plus full Supplement S5. It is excluded from robust Main Fig. 5 evidence and no third Climate attempt or repair is authorized before the first paper.
 
-## Figure/presentation state
+## Revision-0.4 state
 
-Figure production is complete. Validation confirms exact stored horizon/resolution selection, no interpolation/smoothing/fitting, correct Neuro sign restrictions, Climate-A geometry/performance pairing, Main Fig. 5 exclusion of Climate-B, and Climate-B failure qualification with `0/6` robust horizons.
+Revision 0.4 integrated the PRE title, figure/table callouts and approved captions, canonical Main Table 1, separate Supplement S1–S6, Supplement Table S1 / Fig. S5 references, and evidence-grounded Data/Code Availability wording. It explicitly did not invent an archival DOI, persistent identifier, software/data license, OA agreement, or institutional commitment.
 
-No new scientific computation is required for manuscript assembly.
+No new scientific computation or novelty search was performed.
 
 ## Branch states
 
@@ -85,7 +99,7 @@ No new scientific computation is required for manuscript assembly.
 - Climate-A: `CLIM-WEAK / FROZEN`
 - Climate-B: `CLIM-B-FAIL / RESULT FROZEN / STOP`
 - Literature: `COMPLETE / WAIT`
-- Manuscript: `FIGURE PACKAGE COMPLETE / REVISION 0.4 READY`
+- Manuscript: `REVISION 0.4 COMPLETE / RETURNED TO MASTER`
 - MODES / CONT / CASCADE: `WAIT`
 - Power Grids: `PROTECTED`
 - Photonics/Waves: `PROTECTED`
@@ -94,9 +108,9 @@ No new scientific computation is required for manuscript assembly.
 
 ## Freeze / branching check
 
-All scientific and manuscript-architecture freezes are current. There is no scientific blocker and no scientifically required new calculation before first-paper completion.
+All scientific, manuscript-architecture, figure, and current editorial-integration freezes are current. There is no scientific blocker and no scientifically required new calculation before first-paper completion.
 
-Opening protected scientific branches now would be premature. The correct sequence is editorial completion of the present paper first.
+Opening protected scientific branches now would be premature. The correct sequence is to complete submission-readiness governance for the present paper first.
 
 ## Branch-independent methodology
 
@@ -118,7 +132,7 @@ These meanings remain distinct.
 ## Decision record
 
 - base: `research/master/decision_branch_log.md` through DEC-443;
-- canonical continuation: `research/master/decision_branch_log_addendum_0_1.md` through DEC-455.
+- canonical continuation: `research/master/decision_branch_log_addendum_0_1.md` through DEC-464.
 
 ## Rollback points
 
@@ -132,22 +146,21 @@ These meanings remain distinct.
 8. Manuscript Structure Freeze 0.2.
 9. Manuscript Revision 0.3 package.
 10. Journal & Audience Positioning Gate 0.1.
-11. **Frozen-Data Figure Production Package 0.1 + Integration Freeze 0.1.**
+11. Frozen-Data Figure Production Package 0.1 + Integration Freeze 0.1.
+12. **Manuscript Revision 0.4 + Supplement 0.1 + Pre-Submission Asset Map + Revision-0.4 Integration Freeze 0.1.**
 
 ## Current dependency / next task
 
-There is no scientific dependency. The sole active project task is:
+There is no scientific dependency. The sole active project task is now:
 
 \[
-\boxed{\text{Manuscript Pre-Submission Integration Revision 0.4}.}
+\boxed{\text{Submission Readiness Gate 0.1}.}
 \]
 
 Canonical instruction:
 
-`research/master/prompts/manuscript_pre_submission_integration_revision_0_4.md`
+`research/master/prompts/submission_readiness_gate_0_1.md`
 
-Execute in the Manuscript chat via `GO`. The revision is editorial-only and should integrate the PRE-target title, produced figure/table callouts and captions, supplement references, and evidence-grounded data/code availability wording.
+This gate is a readiness audit only. It may verify current APS/PRE submission requirements and metadata for already-cited references, but it may not submit, decide author order, draft/send correspondence, perform a new novelty search, recompute science, or open protected branches.
 
-Expected next MASTER action after Revision 0.4 returns: `Submission Readiness Gate 0.1`. That gate is not yet released.
-
-Submission, cover letter, author-list decisions, new novelty search, new calculation, and protected-branch work remain unauthorized until then.
+Submission, cover letter, author-list decisions, and portal actions remain unauthorized until the gate resolves readiness.
