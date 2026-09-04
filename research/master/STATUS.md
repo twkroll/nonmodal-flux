@@ -22,53 +22,68 @@ Post-paper Fusion lineage:
 
 - Post-Paper Scientific Roadmap Gate 0.1: `COMPLETE — FUSION-F1 SELECTED`;
 - B5.5 physical ion heat-flux observable: `PASS / MASTER-INTEGRATED`;
-- B5.5 Heat-Flux Observable Integration Freeze 0.1: `STABLE`;
-- F1.2 Admissible Input Geometry / Input-Cost Gate 0.1: `PASS / MASTER-INTEGRATED`;
-- F1.2 Input Geometry / Input-Cost Integration Freeze 0.1: `STABLE — F1.3 RELEASED`.
+- F1.2 admissible input geometry / cost: `PASS / MASTER-INTEGRATED`;
+- F1.3 candidate / convention freeze: `PASS / MASTER-INTEGRATED`;
+- F1.3 Candidate / Convention Integration Freeze 0.1: `STABLE — F1.4 RELEASED`.
 
-## Fusion F1.2 result now frozen
+## Frozen F1.3 candidate
 
-For the closed anisotropic-ZLR four-moment R1 tangent state
+Primary reduced candidate:
+
+\[
+\boxed{\text{anisotropic-ZLR four-moment R1 minimal-curvature branch}}
+\]
+
+with slab R1 only as the exact `omega_d -> 0` analytic/limiting control.
+
+Frozen state/closure/physical objects:
 
 \[
 z_k=(N,U,P_\parallel,P_\perp)^T,
 \qquad \Phi=\mathcal C_kN,
+\qquad M_k=M_k^\dagger\succ0,
 \]
-
-the admissible initial-condition geometry and cost are
 
 \[
-\boxed{B=I_4,\qquad R_{\rm in}=M_k,\qquad \operatorname{rank}(B)=4.}
+q_{i,k}=z_k^\dagger Q_{q_i,k}z_k,
+\qquad B=I_4,
+\qquad R_{\rm in}=M_k.
 \]
 
-`B=I_4` means full closed tangent-state initial-condition admissibility; it is not an experimental actuator claim.
-
-The instantaneous restricted heat channel is
+Frozen CBC-projected point:
 
 \[
-B^\dagger Q_{q_i,k}B=Q_{q_i,k},
+\boxed{
+\tau_i=1,
+\quad R_0/L_n=2.2,
+\quad R_0/L_T=6.9,
+\quad q=1.4,
+\quad k_x\rho_i=0,
+\quad k_y\rho_i=0.3,
+\quad \tau_{\rm ref}=R_0/c_s.
+}
 \]
 
-which for `k_y!=0` remains rank 2 and indefinite. Transport neutrality was not imposed.
+No artificial damping or spectral rescue is allowed. The point may not be retuned if the exact spectrum is unstable.
 
-Canonical F1.2 result:
+Canonical F1.3 result:
 
-`research/fusion/fusion_admissible_input_geometry_input_cost_gate_0_1.md`
+`research/fusion/fusion_candidate_convention_freeze_0_1.md`
 
 MASTER integration freeze:
 
-`research/master/fusion_f1_2_input_geometry_integration_freeze_0_1.md`
+`research/master/fusion_f1_3_candidate_convention_integration_freeze_0_1.md`
 
-F1.2 branch commit `8d555475577e77e93f9646df60343a34f0503525`; Python CI #316 = `SUCCESS`.
+F1.3 branch commit `956115d805bd195148bfb3071449a2fabb606ea2`; Python CI #323 = `SUCCESS`.
 
 ## Parallelism / parked branches
 
 No parallel scientific branch is active.
 
 - `MODES`: parked / conditional Fusion companion later;
-- `CONT`: parked until a physical parameter family is frozen;
+- `CONT`: parked until a physical parameter family is scientifically needed;
 - `CASCADE`: parked;
-- `CORE 0.2`: parked absent a concrete unresolved theorem question;
+- `CORE 0.2`: parked;
 - Neuro and higher-fidelity Climate: parked;
 - Power Grids and Photonics/Waves: `PROTECTED`;
 - Paper-1 submission: parked.
@@ -77,9 +92,9 @@ No parallel scientific branch is active.
 
 1. B5.5 physical ion heat-flux derivation — **COMPLETE / FROZEN**;
 2. F1.2 admissible input geometry / cost — **COMPLETE / FROZEN**;
-3. F1.3 candidate / convention freeze — **READY**;
-4. numerical/spectral qualification — blocked until F1.3 returns;
-5. targeted exact-question Fusion literature audit;
+3. F1.3 candidate / convention freeze — **COMPLETE / FROZEN**;
+4. F1.4 numerical / spectral qualification — **READY**;
+5. targeted exact-question Fusion literature audit — blocked until F1.4 returns and MASTER accepts the regime;
 6. pilot specification;
 7. MASTER pilot freeze / one-shot execution;
 8. result freeze;
@@ -89,7 +104,8 @@ No parallel scientific branch is active.
 
 - base log through DEC-443;
 - Addendum 0.1 through DEC-486;
-- Addendum 0.2 through DEC-502.
+- Addendum 0.2 through DEC-502;
+- Addendum 0.3 through DEC-510.
 
 ## Rollback points
 
@@ -100,14 +116,16 @@ The protected post-paper rollback chain is now
 \rightarrow
 \text{B5.5 Integration Freeze}
 \rightarrow
-\boxed{\text{F1.2 Input Geometry Integration Freeze}}.
+\text{F1.2 Input Geometry Integration Freeze}
+\rightarrow
+\boxed{\text{F1.3 Candidate / Convention Integration Freeze}}.
 \]
 
 All first-paper savepoints remain separately protected.
 
 ## Active instruction
 
-**Status:** `FUSION F1.2 INTEGRATED — F1.3 CANDIDATE / CONVENTION FREEZE READY / AWAIT FUSION GO`
+**Status:** `FUSION F1.3 INTEGRATED — F1.4 NUMERICAL / SPECTRAL QUALIFICATION READY / AWAIT FUSION GO`
 
 **Selected branch:** `60 – FUSION – Gyrofluid/Gyrokinetic Transport`
 
@@ -117,18 +135,14 @@ All first-paper savepoints remain separately protected.
 
 **Next instruction:**
 
-`research/master/prompts/fusion_candidate_convention_freeze_0_1.md`
+`research/master/prompts/fusion_numerical_spectral_qualification_gate_0_1.md`
 
 Execute only in the Fusion branch via bare `GO` under the shared handoff protocol.
 
-Expected return state is one of:
-
-- `F1.3 PASS — CANDIDATE/CONVENTION FROZEN — RETURN TO MASTER FOR NUMERICAL/SPECTRAL QUALIFICATION`;
-- `F1.3 HOLD — RETURN TO MASTER FOR A SPECIFIC CONVENTION DECISION`;
-- `F1.3 FAIL — RETURN TO MASTER`.
+If the exact frozen point is clearly unstable, the branch must return `HOLD — SPECTRALLY UNSTABLE FROZEN POINT`; it must not add damping or retune.
 
 ## STOP boundary
 
-Do not perform finite-time Fusion optimization, horizon/parameter scans, FLR/GK extensions, numerical qualification, or parallel branch work before F1.3 returns. Do not reactivate submission work unless explicitly requested.
+Do not perform finite-time Fusion objective optimization, horizon/parameter scans, FLR/GK extensions, literature positioning, pilot specification, or parallel branch work before F1.4 returns. Do not reactivate submission work unless explicitly requested.
 
 **STOP — AWAIT FUSION `GO`.**
