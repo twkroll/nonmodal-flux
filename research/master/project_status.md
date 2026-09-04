@@ -1,6 +1,6 @@
 # MASTER Project Status
 
-**Last updated:** 2026-09-03  
+**Last updated:** 2026-09-04  
 **Branch:** `main`
 
 ## Global scientific savepoints
@@ -15,60 +15,67 @@
 - Cross-Domain Manuscript Positioning & Claim Freeze 0.1: **STABLE**.
 - Manuscript Structure Freeze 0.2: **STABLE — MANUSCRIPT ARCHITECTURE FROZEN**.
 - Manuscript Structural Revision Package 0.3: **COMPLETE**.
-- **Journal & Audience Positioning Gate 0.1: STABLE — PRIMARY TARGET SELECTED.**
+- Journal & Audience Positioning Gate 0.1: **STABLE — PRIMARY TARGET SELECTED**.
+- Frozen-Data Figure Production Package 0.1: **COMPLETE — PASS**.
+- Frozen-Data Figure Production Integration Freeze 0.1: **STABLE — FIGURE PACKAGE INTEGRATED / REVISION 0.4 RELEASED**.
 
-## Canonical manuscript package
+## Canonical manuscript / presentation savepoint
 
-Current manuscript savepoint:
+Scientific/text rollback:
 
 - `research/manuscript/manuscript_draft_0_3.md`;
 - `research/manuscript/evidence_citation_map_0_2.md`;
 - `research/manuscript/figure_source_map_0_2.md`.
 
-Publication-positioning authority:
+Presentation package:
 
-- `research/master/journal_audience_positioning_gate_0_1.md`.
+- `research/manuscript/frozen_data_figure_production_package_0_1.md`;
+- Main Fig. 1–5 SVG masters + PNG previews;
+- Main Table 1;
+- Supplement Table S1;
+- Supplement Fig. S5 Climate-B rejection;
+- captions, figure manifest, validation record, and source scripts.
 
-## Frozen evidence base
+MASTER integration authority:
 
-The robust main-paper evidence remains:
+- `research/master/frozen_data_figure_production_integration_freeze_0_1.md`.
 
-- Plasma `P2-A` — strong;
-- Neuro `NEURO-STRONG` — strong;
-- Climate-A `CLIM-WEAK` — weak but robust.
+Python CI #283 on closing commit `e09f61147b16d5c38ddbd6fdeeb680572cb5cccc` = **SUCCESS**.
 
-Climate-B remains a frozen negative robustness result and appears only as brief main-text robustness rejection plus full Supplement S5. No third Climate attempt or repair is authorized before the first paper.
+## Publication positioning
 
-## Journal ranking
+Primary target:
 
-Scientific-fit ranking after current official-source review on 2026-09-03:
+\[
+\boxed{\text{Physical Review E — Regular Article}}
+\]
 
-1. **Physical Review E — Regular Article — `FIT-A` — PRIMARY**;
-2. **Chaos — Regular Research Article — `FIT-A` — BACKUP 1**;
-3. **Physical Review Research — Regular Article — `FIT-A/B` — BACKUP 2**;
-4. Journal of Physics: Complexity — `FIT-B`;
-5. New Journal of Physics — `FIT-B`;
-6. Communications Physics — `FIT-C`;
-7. Scientific Reports — `FIT-C`;
-8. Physica D — `DROP` for first submission.
+Backups:
 
-PRE is preferred because its interdisciplinary scope naturally includes statistical/nonlinear/biological/fluid/plasma/computational physics and accepts Regular Articles without a stated length limit. The frozen evidence need not be scientifically compressed or reweighted.
-
-## Access considerations
-
-PRE is hybrid; the subscription route avoids a mandatory gold-OA APC. APS lists a 2026 gold-OA APC of USD 2910 for PRE, subject to institutional coverage/waivers.
-
-If the user later requires a fully OA journal rather than hybrid gold OA, the publication branch becomes PRResearch → JPhys Complexity → NJP without changing any science.
-
-## Target-specific manuscript packaging
+1. Chaos — Regular Research Article;
+2. Physical Review Research — Regular Article.
 
 PRE target-specific working title:
 
 `Physics-informed diagnosis of objective nonredundancy in stable linear dynamics across plasma, neural and geophysical models`
 
-Draft 0.3 remains the rollback manuscript.
+No journal choice may alter frozen evidence, claims, or result ordering.
 
-Frozen main figures remain Fig. 1–5 plus Main Table 1; no journal-format reason requires dropping or scientifically compressing them. Climate-B remains excluded from robust Main Fig. 5 and receives a Supplement robustness display only.
+## Frozen evidence base
+
+Main-paper evidence remains:
+
+- Plasma `P2-A` — strong;
+- Neuro `NEURO-STRONG` — strong;
+- Climate-A `CLIM-WEAK` — weak but robust.
+
+Climate-B remains a negative robustness result only: brief main-text robustness rejection plus full Supplement S5. It is excluded from robust Main Fig. 5 evidence and no third Climate attempt or repair is authorized before the first paper.
+
+## Figure/presentation state
+
+Figure production is complete. Validation confirms exact stored horizon/resolution selection, no interpolation/smoothing/fitting, correct Neuro sign restrictions, Climate-A geometry/performance pairing, Main Fig. 5 exclusion of Climate-B, and Climate-B failure qualification with `0/6` robust horizons.
+
+No new scientific computation is required for manuscript assembly.
 
 ## Branch states
 
@@ -78,18 +85,18 @@ Frozen main figures remain Fig. 1–5 plus Main Table 1; no journal-format reaso
 - Climate-A: `CLIM-WEAK / FROZEN`
 - Climate-B: `CLIM-B-FAIL / RESULT FROZEN / STOP`
 - Literature: `COMPLETE / WAIT`
-- Manuscript: `REVISION 0.3 COMPLETE / FIGURE PRODUCTION READY`
+- Manuscript: `FIGURE PACKAGE COMPLETE / REVISION 0.4 READY`
 - MODES / CONT / CASCADE: `WAIT`
 - Power Grids: `PROTECTED`
 - Photonics/Waves: `PROTECTED`
 - realistic Fusion: `PROTECTED`
 - delayed Neuro / higher-fidelity Climate: `PROTECTED`
 
-## Freeze check
+## Freeze / branching check
 
-All scientific and manuscript-architecture freezes are current. There is no scientific blocker and no scientifically required new calculation before the first manuscript proceeds.
+All scientific and manuscript-architecture freezes are current. There is no scientific blocker and no scientifically required new calculation before first-paper completion.
 
-Journal choice has not changed evidence order, claims, verdicts, physical semantics, or novelty class. A poor-fit venue is downgraded rather than used to distort the paper.
+Opening protected scientific branches now would be premature. The correct sequence is editorial completion of the present paper first.
 
 ## Branch-independent methodology
 
@@ -108,6 +115,11 @@ with common finite-time positive-objective and signed-channel operators, signed 
 
 These meanings remain distinct.
 
+## Decision record
+
+- base: `research/master/decision_branch_log.md` through DEC-443;
+- canonical continuation: `research/master/decision_branch_log_addendum_0_1.md` through DEC-455.
+
 ## Rollback points
 
 1. Plasma `P2-A` result freeze.
@@ -119,20 +131,23 @@ These meanings remain distinct.
 7. Climate-B Execution / Result Integration & Freeze 0.1.
 8. Manuscript Structure Freeze 0.2.
 9. Manuscript Revision 0.3 package.
-10. **Journal & Audience Positioning Gate 0.1.**
+10. Journal & Audience Positioning Gate 0.1.
+11. **Frozen-Data Figure Production Package 0.1 + Integration Freeze 0.1.**
 
-## Current dependency
+## Current dependency / next task
 
 There is no scientific dependency. The sole active project task is:
 
 \[
-\boxed{\text{Frozen-Data Figure Production Package 0.1 — PRE target packaging}.}
+\boxed{\text{Manuscript Pre-Submission Integration Revision 0.4}.}
 \]
 
 Canonical instruction:
 
-`research/master/prompts/frozen_data_figure_production_package_0_1.md`
+`research/master/prompts/manuscript_pre_submission_integration_revision_0_4.md`
 
-Execute in the Manuscript chat via `GO`. Scientific authority remains `research/manuscript/figure_source_map_0_2.md`.
+Execute in the Manuscript chat via `GO`. The revision is editorial-only and should integrate the PRE-target title, produced figure/table callouts and captions, supplement references, and evidence-grounded data/code availability wording.
 
-No submission, cover letter, author-list decision, new novelty search, new calculation, or protected-branch work is authorized before figure production returns to MASTER.
+Expected next MASTER action after Revision 0.4 returns: `Submission Readiness Gate 0.1`. That gate is not yet released.
+
+Submission, cover letter, author-list decisions, new novelty search, new calculation, and protected-branch work remain unauthorized until then.
