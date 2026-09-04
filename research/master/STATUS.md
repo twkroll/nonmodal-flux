@@ -17,7 +17,9 @@ All first-paper scientific and manuscript savepoints remain intact:
 - Manuscript Revision 0.4: `COMPLETE — PASS`;
 - Submission Readiness Gate 0.1: `PASS WITH AUTHOR/METADATA ITEMS — SCIENTIFIC PACKAGE READY`;
 - First Paper Scientific Content Freeze 0.1: `STABLE — SCIENTIFIC CONTENT BASELINE FROZEN / SUBMISSION TRACK PARKED`;
-- Post-Paper Scientific Roadmap Gate 0.1: `COMPLETE — FUSION-F1 SELECTED`.
+- Post-Paper Scientific Roadmap Gate 0.1: `COMPLETE — FUSION-F1 SELECTED`;
+- Fusion B5.5 physical ion heat-flux observable: `PASS`;
+- Fusion B5.5 Heat-Flux Observable Integration Freeze 0.1: `STABLE — PHYSICAL CHANNEL FROZEN / F1.2 RELEASED`.
 
 ## Paper-1 publication status
 
@@ -25,33 +27,90 @@ Primary journal target remains `Physical Review E — Regular Article`, with Cha
 
 The submission track remains **PARKED by explicit user choice**. Draft 0.4 is the scientific-content baseline, not final prose. No portal, cover-letter, author-list, OA/APC, DOI/release/license or production-formatting task is active.
 
-## Post-paper scientific roadmap decision
-
-The selected primary next program is
+## Post-paper primary scientific program
 
 \[
 \boxed{\text{FUSION-F1 — fusion heat-transport optimality ladder}}.
 \]
 
-The intended scientific hierarchy is
+The intended hierarchy remains
 
 \[
 \text{anisotropic ZLR four-moment gyrofluid}
 \rightarrow
 \text{FLR gyrofluid}
 \rightarrow
-\text{parallel/flux-tube or local gyrokinetic/GENE-compatible validation},
+\text{parallel/flux-tube or local gyrokinetic/GENE-compatible validation}.
 \]
 
-with the physical question centered on free-energy optimality versus finite-horizon **signed ion heat-transport** optimality.
+No finite-time objective-separation effect has yet been authorized.
 
-No objective-separation effect is authorized yet.
+## B5.5 result now integrated
 
-## Why Fusion is next
+The R1 physical ion radial heat/thermal-energy channel is now independently frozen as
 
-The Fusion branch already contains substantial pre-effect derivational work: observable/model audits, four-moment model selection, source convention, slab/minimal-curvature generators, a positive free-energy metric, and a curvature energetic consistency check. The remaining primitive is the independently derived physical ion radial heat/thermal-energy flux operator and its balance normalization.
+\[
+q_{i,k}=z_k^\dagger Q_{q_i,k}z_k,
+\qquad
+Q_{q_i,k}=Q_{q_i,k}^\dagger,
+\]
 
-This can fail cleanly before any finite-time optimization and provides a credible route to a genuinely new fusion-focused paper if the result survives increasing physical fidelity.
+with frozen state
+
+\[
+z_k=(N,U,P_\parallel,P_\perp)^T,
+\qquad
+\Phi=\mathcal C_kN,
+\]
+
+and
+
+\[
+Q_{q_i,k}
+=p_0\mathcal V_k\mathcal C_k
+\begin{pmatrix}
+0&0&i/4&i/2\\
+0&0&0&0\\
+-i/4&0&0&0\\
+-i/2&0&0&0
+\end{pmatrix},
+\qquad
+\mathcal V_k=\frac{ck_yT_{i0}}{eB_0}.
+\]
+
+For `k_y!=0`, the operator is rank 2 and indefinite. The same physical instantaneous channel applies to slab and minimal-curvature R1 generators.
+
+The physical derivation satisfies the earlier free-energy balance exactly:
+
+\[
+A_k^\dagger M_k+M_kA_k
+=2\left(-\frac{d\ln T_{i0}}{dx}\right)\frac{Q_{q_i,k}}{p_0},
+\]
+
+or
+
+\[
+\frac{dW_k}{dt}
+=-\frac{d\ln T_{i0}}{dx}\,q_{i,k}.
+\]
+
+The ion particle-flux channel remains collapsed under the same frozen adiabatic-electron closure:
+
+\[
+Q_{\Gamma_i,k}=0.
+\]
+
+This restriction is physical for the R1 closure and may not be changed simply to obtain a richer objective geometry.
+
+Canonical branch result:
+
+`research/fusion/B5_5_ion_heat_flux_observable.md`
+
+MASTER integration freeze:
+
+`research/master/fusion_b5_5_heat_flux_observable_integration_freeze_0_1.md`
+
+B5.5 commit `d4d72d02cfdacb383091d24348d6f8966a49d723` passed Python CI #309.
 
 ## Parallelism / parked branches
 
@@ -59,7 +118,7 @@ No immediate parallel scientific branch is active.
 
 - `MODES`: preferred conditional companion only if a later qualified Fusion operator makes reduction/representation robustness concrete;
 - `CONT`: parked until a physical parameter family is frozen;
-- `CASCADE`: parked; nonlinear/triadic transfer is not forced into fixed quadratic `Q`;
+- `CASCADE`: parked;
 - `CORE 0.2`: parked absent a concrete new structural hypothesis;
 - delayed/higher-fidelity Neuro: parked;
 - higher-fidelity Climate: parked; Climate-B repair/third-candidate rescue remains forbidden;
@@ -69,8 +128,8 @@ No immediate parallel scientific branch is active.
 
 ## Selected dependency chain
 
-1. B5.5 physical ion heat-flux observable derivation;
-2. admissible-input geometry / input-cost gate;
+1. B5.5 physical ion heat-flux observable derivation — **COMPLETE / FROZEN**;
+2. admissible-input geometry / input-cost gate — **READY**;
 3. Fusion candidate/convention freeze;
 4. numerical/spectral qualification with no finite-time effect inspection;
 5. targeted exact-question Fusion literature-positioning audit after candidate/channel freeze;
@@ -81,25 +140,23 @@ No immediate parallel scientific branch is active.
 
 ## Decision record
 
-Base decision log remains `research/master/decision_branch_log.md` through DEC-443.
-
-Canonical continuation:
-
-`research/master/decision_branch_log_addendum_0_1.md`
-
-through DEC-486.
+- base: `research/master/decision_branch_log.md` through DEC-443;
+- continuation 0.1: `research/master/decision_branch_log_addendum_0_1.md` through DEC-486;
+- continuation 0.2: `research/master/decision_branch_log_addendum_0_2.md` through DEC-494.
 
 ## Rollback points
 
-The protected chain includes the complete first-paper lineage through `First Paper Scientific Content Freeze 0.1` plus the new roadmap savepoint
+The protected chain includes the complete first-paper lineage through `First Paper Scientific Content Freeze 0.1`, the post-paper roadmap savepoint, and now
 
-`research/master/post_paper_scientific_roadmap_gate_0_1.md`.
+\[
+\boxed{\text{Fusion B5.5 Heat-Flux Observable Integration Freeze 0.1}}.
+\]
 
-New Fusion work is a post-paper lineage and may not silently rewrite Paper 1.
+New Fusion work may reuse this frozen physical channel but may not silently rewrite it or Paper 1.
 
 ## Active instruction
 
-**Status:** `POST-PAPER ROADMAP COMPLETE — FUSION B5.5 READY / AWAIT FUSION GO`
+**Status:** `FUSION B5.5 INTEGRATED — F1.2 INPUT GEOMETRY / INPUT COST READY / AWAIT FUSION GO`
 
 **Selected branch:** `60 – FUSION – Gyrofluid/Gyrokinetic Transport`
 
@@ -109,18 +166,18 @@ New Fusion work is a post-paper lineage and may not silently rewrite Paper 1.
 
 **Next instruction:**
 
-`research/master/prompts/fusion_ion_heat_flux_observable_derivation_gate_0_1.md`
+`research/master/prompts/fusion_admissible_input_geometry_input_cost_gate_0_1.md`
 
 Execute only in the Fusion branch via bare `GO` under the shared handoff protocol.
 
 Expected return state is one of:
 
-- `B5.5 PASS — RETURN TO MASTER FOR ADMISSIBLE INPUT GEOMETRY / INPUT-COST GATE`;
-- `B5.5 HOLD — RETURN TO MASTER FOR SOURCE/CONVENTION DECISION`;
-- `B5.5 FAIL — RETURN TO MASTER`.
+- `F1.2 PASS — RETURN TO MASTER FOR FUSION CANDIDATE/CONVENTION FREEZE`;
+- `F1.2 HOLD — RETURN TO MASTER FOR INPUT-GEOMETRY DECISION`;
+- `F1.2 FAIL — RETURN TO MASTER`.
 
 ## STOP boundary
 
-Do not perform finite-time Fusion optimization, parameter/horizon scans, FLR/GK extensions, or parallel branch work before B5.5 returns. Do not reactivate submission work unless explicitly requested by the user.
+Do not perform finite-time Fusion optimization, parameter/horizon scans, FLR/GK extensions, or parallel branch work before F1.2 returns. Do not reactivate submission work unless explicitly requested by the user.
 
 **STOP — AWAIT FUSION `GO`.**
