@@ -11,95 +11,81 @@ The post-paper roadmap selected
 \boxed{\text{FUSION-F1 — fusion heat-transport optimality ladder}}
 \]
 
-as the next scientific program. The first-paper scientific content remains frozen and is not part of this branch.
+as the active scientific program. The first-paper scientific content remains frozen and the submission track remains parked.
 
-B5.5 is complete and MASTER-integrated. The physical signed ion radial heat/thermal-energy flux for the anisotropic-ZLR four-moment R1 reduction remains frozen as
+B5.5 is complete and MASTER-integrated: the physical signed ion radial heat/thermal-energy flux `Q_{q_i,k}` is frozen and balance-consistent. F1.2 is also complete and MASTER-integrated.
 
-\[
-q_{i,k}=z_k^\dagger Q_{q_i,k}z_k,
-\qquad Q_{q_i,k}=Q_{q_i,k}^\dagger,
-\]
+## Frozen F1.2 input geometry / cost
 
-for
+For the closed anisotropic-ZLR four-moment R1 tangent state
 
 \[
 z_k=(N,U,P_\parallel,P_\perp)^T,
-\qquad \Phi=\mathcal C_kN.
+\qquad \Phi=\mathcal C_kN,
 \]
 
-The ion particle-flux channel remains collapsed under the same frozen adiabatic-electron closure:
+the admissible initial-condition ensemble is the full retained tangent state, with
 
 \[
-Q_{\Gamma_i,k}=0.
+\boxed{B=I_4,\qquad R_{\rm in}=M_k,\qquad \operatorname{rank}(B)=4.}
 \]
 
-## F1.2 completed result
+`B=I_4` is a state-space initial-condition statement, not a claim of four independent laboratory actuators. The frozen positive input cost is the perturbation free-energy metric `M_k`.
 
-Fusion F1.2 — Admissible Input Geometry / Input-Cost Gate 0.1 is complete.
-
-The physically admissible state-space interpretation is the full already-closed R1 tangent state, not a claim of arbitrary laboratory actuation. The electrostatic relation
-
-\[
-\Phi=\mathcal C_kN,
-\qquad \mathcal C_k>0,
-\]
-
-reconstructs the potential from `N` and imposes no additional linear relation among the four retained moment coordinates.
-
-The selected input geometry and cost are
-
-\[
-\boxed{
-B=I_4,
-\qquad
-R_{\rm in}=M_k,
-\qquad
-\operatorname{rank}(B)=4.
-}
-\]
-
-Here `M_k` is the already-frozen positive perturbation free-energy metric, so
-
-\[
-R_{\rm in}=R_{\rm in}^\dagger\succ0.
-\]
-
-The instantaneous restricted physical heat channel is not forced neutral:
+The instantaneous restricted heat channel remains
 
 \[
 B^\dagger Q_{q_i,k}B=Q_{q_i,k},
 \]
 
-which for `k_y!=0` remains rank 2 and indefinite with signature `(1,1,2)`.
-
-The same `B,R_in` interpretation applies to both the slab and minimal-curvature R1 generators because they share the same state coordinates, electrostatic closure, free-energy metric and instantaneous physical heat-flux channel.
+rank 2 and indefinite for `k_y!=0`. Transport neutrality was not imposed.
 
 Canonical F1.2 result:
 
 `research/fusion/fusion_admissible_input_geometry_input_cost_gate_0_1.md`
 
+MASTER F1.2 integration freeze:
+
+`research/master/fusion_f1_2_input_geometry_integration_freeze_0_1.md`
+
+F1.2 commit `8d555475577e77e93f9646df60343a34f0503525`; Python CI #316 = `SUCCESS`.
+
 ## Active instruction
 
-**Status:** `F1.2 PASS — RETURN TO MASTER FOR FUSION CANDIDATE/CONVENTION FREEZE`
+**Status:** `FUSION F1.3 CANDIDATE / CONVENTION FREEZE READY — AWAIT GO`
 
-**Next instruction:** none in this branch.
+**Next instruction:**
 
-A bare `GO` must not open a new scientific task while this status remains `RETURN TO MASTER`. MASTER must issue and commit any later handoff explicitly.
+`research/master/prompts/fusion_candidate_convention_freeze_0_1.md`
 
-## Forbidden until MASTER returns a new committed handoff
+On a bare `GO`, first read this STATUS and execute only that committed instruction.
 
-Do not compute finite-time energy/heat operators, cumulative extrema, optimizer directions, angles, performance gaps, horizon dependence or parameter scans. Do not restore FLR, kinetic electrons, six-moment GEM or GENE. Do not reinterpret `B=I_4` as a laboratory actuator claim. Do not change `M_k` or `Q_{q_i,k}`. Do not open Power Grid/Photonics collaboration work or modify the frozen first paper.
+## F1.3 scope
 
-## Expected MASTER action
+Freeze one exact reduced candidate and all source/normalization/geometry/closure/parameter conventions needed for the subsequent numerical/spectral qualification, using only pre-effect physical and structural criteria.
 
-If MASTER accepts the F1.2 result, the roadmap-designated next stage is the Fusion candidate/convention freeze. This branch does not self-authorize that gate.
+The intended primary candidate is the already-derived anisotropic-ZLR four-moment R1 **minimal-curvature** branch if the derivation chain remains internally consistent. The slab branch remains an analytic/limiting control.
+
+## Forbidden until F1.3 returns
+
+Do not compute finite-time energy/heat operators, cumulative extrema, optimizer vectors/subspaces, principal angles, performance gaps, horizon dependence or effect-guided parameter scans. Do not restore FLR, kinetic electrons, six-moment GEM or GENE. Do not open MODES/CONT/CASCADE or protected Power Grid/Photonics work. Do not modify the frozen first paper.
+
+## Expected return state
+
+One of:
+
+- `F1.3 PASS — CANDIDATE/CONVENTION FROZEN — RETURN TO MASTER FOR NUMERICAL/SPECTRAL QUALIFICATION`;
+- `F1.3 HOLD — RETURN TO MASTER FOR A SPECIFIC CONVENTION DECISION`;
+- `F1.3 FAIL — RETURN TO MASTER`.
+
+No branch-side next gate is self-authorized.
 
 ## Governance authority
 
 - `research/master/first_paper_scientific_content_freeze_0_1.md`
 - `research/master/post_paper_scientific_roadmap_gate_0_1.md`
 - `research/master/fusion_b5_5_heat_flux_observable_integration_freeze_0_1.md`
-- `research/master/prompts/fusion_admissible_input_geometry_input_cost_gate_0_1.md`
+- `research/master/fusion_f1_2_input_geometry_integration_freeze_0_1.md`
 - `research/master/prompt_handoff_protocol_0_1.md`
 
-**STOP / RETURN TO MASTER.**
+**STOP / AWAIT GO.**
