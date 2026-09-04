@@ -34,4 +34,19 @@ This addendum continues the canonical high-level decision record without rewriti
 - **DEC-461:** `Manuscript Revision 0.4 Integration Freeze 0.1 = STABLE — REVISION 0.4 INTEGRATED / SUBMISSION READINESS GATE RELEASED` — EDITORIAL SAVEPOINT.
 - **DEC-462:** Remaining author list/order, affiliations, corresponding author, ORCIDs, acknowledgments/funding/conflicts, APS portal metadata, archive DOI/release/license, OA/APC route, cover-letter choices, final bibliography metadata, and production sizing are submission-only items; they do not authorize new science — FROZEN SCOPE CLASSIFICATION.
 - **DEC-463:** `Submission Readiness Gate 0.1` may verify current APS/PRE requirements and already-cited bibliographic metadata, but may not perform a new scientific novelty search, submit the paper, decide author order, send correspondence, or alter frozen science — FROZEN GATE RULE.
-- **DEC-464:** Next authorized MASTER task = `Submission Readiness Gate 0.1` via `research/master/prompts/submission_readiness_gate_0_1.md` — ACTIVE.
+- **DEC-464:** Next authorized MASTER task = `Submission Readiness Gate 0.1` via `research/master/prompts/submission_readiness_gate_0_1.md` — SATISFIED / CLOSED.
+
+## Submission Readiness / First-Paper Scientific Content Freeze
+
+- **DEC-465:** `Submission Readiness Gate 0.1 = PASS WITH AUTHOR/METADATA ITEMS — SCIENTIFIC PACKAGE READY` — STABLE READINESS VERDICT.
+- **DEC-466:** No new scientific calculation, novelty search, result change, claim strengthening, application branch, or Climate-B repair is required for first-paper readiness — FROZEN.
+- **DEC-467:** Scientific/claim integrity, Main Fig. 1–5/Main Table 1 integration, Supplement S1–S6, Climate-A geometry/performance pairing, Climate-B failure qualification, Neuro semantic restrictions, and non-universal threshold language are `READY` — STABLE.
+- **DEC-468:** Author list/order, affiliations, corresponding author, emails, ORCIDs, acknowledgments/funding/conflicts/contributions, OA route, referee choices, and cover-letter/portal decisions are `AUTHOR INPUT REQUIRED`; they are not scientific blockers — STABLE SCOPE CLASSIFICATION.
+- **DEC-469:** APS requires a Data Availability Statement and current APS policy requires disclosure of substantive AI use; final data/software citation/repository metadata and exact author-approved AI disclosure are submission-preparation items, not new science — STABLE EDITORIAL REQUIREMENT.
+- **DEC-470:** `Ogino2026` metadata check resolves the current official status as eLife Reviewed Preprint v1, March 9 2026, Not revised, DOI `10.7554/eLife.110030.1`; do not silently relabel it as a conventional final Version of Record — STABLE METADATA RESULT.
+- **DEC-471:** Remaining DOI/page/article-number normalization for already-cited references and final APS reference/supplement formatting are `EXTERNAL METADATA CHECK REQUIRED` / `EDITORIAL FIX REQUIRED`, not scientific blockers — STABLE.
+- **DEC-472:** `First Paper Scientific Content Freeze 0.1 = STABLE — SCIENTIFIC CONTENT BASELINE FROZEN / SUBMISSION TRACK PARKED` — NEW ROLLBACK POINT.
+- **DEC-473:** Draft 0.4 + Supplement 0.1 + frozen display/evidence assets define the first-paper scientific-content baseline, but **not final prose**; author-led textual rewriting is explicitly permitted so long as frozen science/claims are preserved — FROZEN GOVERNANCE RULE.
+- **DEC-474:** Submission preparation is parked by explicit user choice; no APS portal action, cover letter, author-list decision, OA/APC choice, archive DOI/release/license action, or production formatting is active until the user reactivates the submission track — FROZEN STOP RULE.
+- **DEC-475:** The first-paper-only prohibition on starting new science is lifted at MASTER level after the content freeze, while every scientific branch still requires explicit selection/handoff and protected-collaboration rules remain in force — STABLE.
+- **DEC-476:** Next authorized MASTER task = `Post-Paper Scientific Roadmap Gate 0.1` via `research/master/prompts/post_paper_scientific_roadmap_gate_0_1.md` — ACTIVE.
