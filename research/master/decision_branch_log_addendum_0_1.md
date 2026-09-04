@@ -49,4 +49,17 @@ This addendum continues the canonical high-level decision record without rewriti
 - **DEC-473:** Draft 0.4 + Supplement 0.1 + frozen display/evidence assets define the first-paper scientific-content baseline, but **not final prose**; author-led textual rewriting is explicitly permitted so long as frozen science/claims are preserved — FROZEN GOVERNANCE RULE.
 - **DEC-474:** Submission preparation is parked by explicit user choice; no APS portal action, cover letter, author-list decision, OA/APC choice, archive DOI/release/license action, or production formatting is active until the user reactivates the submission track — FROZEN STOP RULE.
 - **DEC-475:** The first-paper-only prohibition on starting new science is lifted at MASTER level after the content freeze, while every scientific branch still requires explicit selection/handoff and protected-collaboration rules remain in force — STABLE.
-- **DEC-476:** Next authorized MASTER task = `Post-Paper Scientific Roadmap Gate 0.1` via `research/master/prompts/post_paper_scientific_roadmap_gate_0_1.md` — ACTIVE.
+- **DEC-476:** Next authorized MASTER task = `Post-Paper Scientific Roadmap Gate 0.1` via `research/master/prompts/post_paper_scientific_roadmap_gate_0_1.md` — SATISFIED / CLOSED.
+
+## Post-Paper Scientific Roadmap / Fusion selection
+
+- **DEC-477:** `Post-Paper Scientific Roadmap Gate 0.1 = COMPLETE` — STABLE ROADMAP SAVEPOINT.
+- **DEC-478:** Primary next scientific program = `FUSION-F1 — fusion heat-transport optimality ladder` — SELECTED.
+- **DEC-479:** Immediate next gate = B5.5 physical ion heat-flux observable derivation from the already-developed anisotropic-ZLR four-moment R1 source convention; no finite-time effect inspection is authorized — ACTIVE SCIENTIFIC HANDOFF.
+- **DEC-480:** Fusion is selected because it asks a new hierarchical fidelity question (free-energy vs signed ion heat transport across gyrofluid→FLR→gyrokinetic layers), has extensive pre-effect derivational groundwork, and can fail cleanly before any objective-separation effect — STABLE ROADMAP RATIONALE.
+- **DEC-481:** No immediate parallel scientific branch is activated. `MODES` is the preferred conditional secondary branch only if a later qualified Fusion operator makes reduction/representation robustness a concrete scientific issue — FROZEN PARALLELISM RULE.
+- **DEC-482:** `CONT` remains parked until a physically frozen parameter family exists; `CASCADE` remains parked because genuine nonlinear/triadic transfer must not be forced into the fixed-quadratic-output core — STABLE.
+- **DEC-483:** Neuro and higher-fidelity Climate remain parked. Climate-A/B remain frozen; no Climate-B repair or third-candidate rescue lineage is authorized — STABLE.
+- **DEC-484:** Power Grids and Photonics/Waves remain protected collaboration branches; roadmap evaluation does not authorize execution — FROZEN PROTECTION RULE.
+- **DEC-485:** Fusion F1 dependency chain = B5.5 heat-flux derivation → admissible-input/input-cost gate → candidate/convention freeze → numerical/spectral qualification → targeted exact-question literature audit → pilot specification → MASTER pilot freeze → one-shot execution → result freeze; FLR/GK fidelity progression is decided by physical/structural validity, not effect size — STABLE ROADMAP.
+- **DEC-486:** Canonical handoff = `research/master/prompts/fusion_ion_heat_flux_observable_derivation_gate_0_1.md`; branch authority = `research/fusion/STATUS.md`; next user action is Fusion-branch `GO` — ACTIVE.
