@@ -13,13 +13,13 @@ The active post-paper program remains
 
 The first-paper scientific content remains frozen and submission remains parked.
 
-B5.5, F1.2, F1.3, F1.4, the R1 literature audit, F2.1, F2.2 and F2.3 are complete and MASTER-integrated. F2.4 is now complete in this Fusion branch.
+B5.5, F1.2, F1.3, F1.4, the R1 literature audit, F2.1, F2.2, F2.3 and F2.4 are complete and MASTER-integrated.
 
 ## Frozen R1 control
 
 R1 remains the structural/conservative no-go control. Its one-channel collisionless balance with `B=I4`, `R_in=M_k` makes cumulative ion heat and final free energy affinely equivalent at every horizon. No damping, retuning or FLR-only rescue is permitted.
 
-## Frozen F2-R architecture
+## Frozen F2-R architecture and point
 
 Primary reduced candidate:
 
@@ -29,60 +29,17 @@ Primary reduced candidate:
 
 with leading adiabatic passing electrons.
 
-The continuous balance is
-
-\[
-\frac{dW}{dt}=G_\Gamma\Gamma+G_{T,i}q_i+G_{T,e}q_e^{\rm tr},
-\]
-
-so the R1 affine redundancy is not structurally forced. No finite-time F2 objective has been inspected.
-
-## Frozen F2.2 geometry
-
-Primary family:
+Primary geometry family:
 
 \[
 \boxed{\text{large-aspect-ratio circular local tokamak}+\hat s\text{-}\alpha_{\rm MHD}\text{ ballooning-space flux tube}}
 \]
 
-with the previously frozen Clebsch/Fourier, drift, trapping, bounce-average, FLR and ballooning-space conventions.
+The F2.3 CBC-compatible single point remains frozen with `R0/a=2.77778`, `r0/a=0.5`, `epsilon=0.18`, `q=1.4`, `shat=0.8`, `alpha_MHD=0`, deuterium/electron `mi/me=3672`, `Ti/Te=1`, equal density, `a/Ln=0.8`, `a/LTi=a/LTe=2.49`, `ky rho_i=+0.3`, `theta0=0`, `kx0=0`. No retuning is permitted.
 
-## Frozen F2.3 physical point
+## Frozen F2.4 input geometry
 
-The single CBC-compatible point remains
-
-\[
-\boxed{
-\begin{gathered}
-R_0/a=2.77778,
-\quad r_0/a=0.5,
-\quad \epsilon=0.18,
-\quad q=1.4,
-\quad \hat s=0.8,
-\quad \alpha_{\rm MHD}=0,\\
-Z_i=+1,
-\quad Z_e=-1,
-\quad m_i/m_e=3672,
-\quad T_i/T_e=1,
-\quad n_i=n_e,\\
-a/L_n=0.8,
-\quad a/L_{T_i}=a/L_{T_e}=2.49,\\
-k_y\rho_i=+0.3,
-\quad \theta_0=0,
-\quad k_{x0}=0.
-\end{gathered}
-}
-\]
-
-with `v_Ti=sqrt(T_i/m_i)`, `rho_i=v_Ti/Omega_i`, and `tau_ref=R0/v_Ti`.
-
-## F2.4 completed kinetic input geometry / input cost
-
-Canonical result:
-
-`research/fusion/fusion_f2_4_kinetic_input_geometry_input_cost_freeze_0_1.md`
-
-The physically admissible continuous input space is the full finite-Helmholtz-free-energy tangent space of the **already reduced** F2-R model,
+The physically admissible continuous state/input space is the full finite-Helmholtz-free-energy tangent space of the already reduced F2-R model,
 
 \[
 \mathcal H_{F2}=\overline{\mathcal D_0}^{\|\cdot\|_{F2}},
@@ -90,60 +47,52 @@ The physically admissible continuous input space is the full finite-Helmholtz-fr
 \|x\|_{F2}^2=\langle x,\mathcal M_{F2}x\rangle=2W[x].
 \]
 
-Here `D0` already incorporates the frozen physical model restrictions: fixed nonzonal sector, finite-free-energy ion kinetic phase space, trapped nonadiabatic electrons only, `g_e^pass=0` at leading order, bounce/orbit regularity, inherited ballooning conventions and reconstructed quasineutral electrostatic field.
-
-Quasineutrality is a unique field-reconstruction map,
+Quasineutrality is a field-reconstruction map and not an additional kinetic-state constraint. The continuous input pair is frozen as
 
 \[
-\phi=P_{\rm QN}(g_i,g_e^{\rm tr}),
+\boxed{B=I_{\mathcal H_{F2}},\qquad R_{\rm in}=\mathcal M_{F2}}.
 \]
 
-not a proper-subspace condition on the kinetic state. No additional particle-number, charge, momentum, energy-moment, gauge, parity or transport-neutral input restriction is physically required in the fixed `k_alpha != 0` block.
+The budget is initial Helmholtz free energy, not laboratory actuator energy. No parity, moment-null, transport-neutral or effect-motivated input restriction is authorized.
 
-Therefore the frozen continuous input pair is
+Canonical F2.4 result:
 
-\[
-\boxed{
-B=I_{\mathcal H_{F2}},
-\qquad
-R_{\rm in}=\mathcal M_{F2}.
-}
-\]
+`research/fusion/fusion_f2_4_kinetic_input_geometry_input_cost_freeze_0_1.md`
 
-The fixed input budget is initial Helmholtz free energy, not laboratory actuator energy. This does not claim arbitrary independent experimental preparation of ion and trapped-electron distribution perturbations.
+MASTER integration freeze:
 
-The full reduced input geometry preserves both ion and trapped-electron directions from the F2.1 multichannel balance. No later objective-separation result is implied.
+`research/master/fusion_f2_4_input_geometry_integration_freeze_0_1.md`
+
+F2.4 branch commit `eabc44856458c7450946050c8ab04362904ef9ac`; Python CI #371 = `SUCCESS`.
 
 ## Active instruction
 
-**Status:** `F2.4 PASS — KINETIC INPUT GEOMETRY / INPUT COST FROZEN — RETURN TO MASTER`
+**Status:** `FUSION F2.5 STRUCTURE-PRESERVING DISCRETIZATION / QUADRATURE SPECIFICATION FREEZE READY — AWAIT GO`
 
-**Next instruction:** none in this branch.
+**Next instruction:**
 
-A bare `GO` must not open phase-space discretization, discrete quasineutrality/channel reconstruction, numerical/spectral qualification, GENE work or finite-time objective calculations while this status remains `RETURN TO MASTER`. MASTER must integrate F2.4 and commit any later handoff explicitly.
+`research/master/prompts/fusion_f2_5_structure_preserving_discretization_specification_freeze_0_1.md`
 
-## Remaining pre-effect objects
+On bare `GO`, first read this STATUS and execute only that committed instruction.
 
-Before any finite-time execution, MASTER must separately authorize and freeze, as applicable:
+## F2.5 scope
 
-- structure-preserving ballooning/velocity-space discretization and quadrature;
-- trapped/passing separatrix and ion turning-point treatment;
-- discrete quasineutrality elimination;
-- discrete Helmholtz metric and physical particle/ion-heat/electron-heat channel reconstruction;
-- numerical/free-energy/balance/spectral qualification;
-- later finite-time pilot specification;
-- fully kinetic collisional-reference and GENE mapping details.
+Freeze one structure-preserving numerical representation and predeclared convergence ladder for the F2-R kinetic state before any spectrum or finite-time objective is inspected. Cover ballooning-line truncation, ion parallel/velocity representation, trapped-electron energy/pitch/well quadrature, turning-point/separatrix treatment, bounce integration, finite ion FLR, quasineutrality handling, free-energy positivity targets, and inheritance of `B_K/R_in,K`.
 
-## Forbidden until MASTER returns a new committed handoff
+F2.5 is a discretization-specification gate, not a spectral or CORE-effect gate. A later separate gate will reconstruct discrete `A/M/Q` and check algebraic balance before spectral qualification.
 
-Do not discretize phase space, choose cutoffs/quadrature, construct discrete `A/M/Q`, calculate spectra, propagators, Gramians, optimizers, angles or gaps, scan input subspaces or parameters, run GENE, add collisions to F2-R, retune F2.3, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
+## Forbidden until F2.5 returns
 
-## Governance authority
+Do not choose cutoffs/bases by eigenvalues, stability, nonnormality, transport magnitude or expected optimizer separation. Do not calculate spectra, propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not run GENE, scan parameters, add collisions to F2-R, retune F2.3, alter F2.4 input geometry, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
 
-- `research/master/fusion_f2_1_two_species_gk_balance_integration_freeze_0_1.md`
-- `research/master/fusion_f2_2_geometry_convention_integration_freeze_0_1.md`
-- `research/master/fusion_f2_3_physical_parameter_integration_freeze_0_1.md`
-- `research/master/prompts/fusion_f2_4_kinetic_input_geometry_input_cost_freeze_0_1.md`
-- `research/master/prompt_handoff_protocol_0_1.md`
+## Expected return
 
-**STOP / RETURN TO MASTER.**
+One of:
+
+- `F2.5 PASS — STRUCTURE-PRESERVING DISCRETIZATION / QUADRATURE SPECIFICATION FROZEN — RETURN TO MASTER`;
+- `F2.5 HOLD — DISCRETIZATION/STRUCTURE DECISION REQUIRED — RETURN TO MASTER`;
+- `F2.5 FAIL — RETURN TO MASTER`.
+
+No branch-side next gate is self-authorized.
+
+**STOP / AWAIT GO.**
