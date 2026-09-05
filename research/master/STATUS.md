@@ -26,8 +26,10 @@ Post-paper Fusion lineage:
 - F1.3 candidate / convention freeze: `PASS / MASTER-INTEGRATED / FROZEN`;
 - F1.4 numerical / spectral qualification: `HOLD — MARGINAL SPECTRUM / MASTER-INTEGRATED`;
 - F1.4 Marginal / Structural Integration Freeze 0.1: `STABLE — R1 STRUCTURAL CONTROL FROZEN / R1 OBJECTIVE-SEPARATION PILOT BLOCKED`;
-- Fusion R1 Structural Redundancy & Fidelity-Breaking Literature Audit 0.1: `COMPLETE / MASTER-INTEGRATED`;
-- Fusion R1 Structural-Redundancy Literature Integration Freeze 0.1: `STABLE — R1 NO-GO POSITIONED / F2.1 RELEASED`.
+- Fusion R1 structural-redundancy literature audit: `COMPLETE / MASTER-INTEGRATED`;
+- Fusion R1 Structural-Redundancy Literature Integration Freeze 0.1: `STABLE`;
+- Fusion F2.1 two-species local-GK candidate/balance specification: `PASS / MASTER-INTEGRATED / FROZEN`;
+- Fusion F2.1 Two-Species GK Balance Integration Freeze 0.1: `STABLE — F2.2 RELEASED`.
 
 ## Frozen R1 conclusion
 
@@ -37,40 +39,75 @@ For the collisionless R1 lineage,
 2\frac{R_0}{L_T}K_q(T)=\mathcal E_M(T)-I
 \]
 
-for every horizon under the frozen `B=I_4`, `R_in=M_k` geometry. Therefore cumulative ion-heat and final free-energy optimizers are affinely equivalent. R1 remains a structural no-go / conservative control and its objective-separation pilot is blocked.
+for every horizon under the frozen `B=I_4`, `R_in=M_k` geometry. R1 remains a structural no-go / conservative control; its objective-separation pilot is blocked and no retuning or FLR-only rescue is allowed.
 
-The targeted literature audit positions this as an explicit optimal-control consequence of a standard one-channel gyrokinetic free-energy-balance limit, not as a new free-energy theorem. No `SAME` source was found, but absence is not novelty evidence.
+## Frozen F2.1 higher-fidelity architecture
 
-## Integrated fidelity guidance
+Primary reduced candidate:
 
-The audit supports the following physics-first conclusions:
+\[
+\boxed{
+\text{finite-ion-FLR electrostatic local-GK ions}
++\text{collisionless bounce-averaged trapped electrons}
+}
+\]
 
-- physical H-theorem-compatible collisions can add a positive free-energy sink;
-- nonadiabatic electrons can add an independent electron free-energy drive;
-- conservative FLR corrections alone do not generically add an independent source/sink and may not be used as an R1 rescue;
-- collisionless phase mixing is redistribution in the fully resolved kinetic system; any reduced Landau-fluid sink requires explicit balance/sign validation.
+with passing electrons adiabatic at leading order.
 
-Canonical audit:
+Higher-fidelity reference:
 
-`research/literature/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
+\[
+\boxed{
+\text{fully kinetic two-species electrostatic local GK}
++\text{H-theorem-compatible physical collisions}
+}
+\]
+
+The reduced continuous state is
+
+\[
+x=(g_i(l,E_i,\mu_i,\sigma),\,g_e^{\rm tr}(E_e,\lambda,w)),
+\]
+
+with quasineutrality-reconstructed electrostatic potential and positive continuous Helmholtz metric
+
+\[
+\mathcal M_{F2}\succ0.
+\]
+
+The source-faithful reduced collisionless balance is
+
+\[
+\boxed{
+\frac{dW}{dt}
+=G_\Gamma\Gamma
++G_{T,i}q_i
++G_{T,e}q_e^{\rm tr}.
+}
+\]
+
+Electrostatic ambipolarity reduces the species particle fluxes to one particle channel for hydrogen, but no closure identity forces ion and trapped-electron heat fluxes to coincide. Therefore the R1 two-operator affine redundancy is no longer structurally forced in F2.1. This is only a possibility-in-principle statement; no finite-time objective separation has been inspected.
+
+Canonical F2.1 result:
+
+`research/fusion/fusion_f2_1_two_species_local_gyrokinetic_balance_specification_gate_0_1.md`
 
 MASTER integration freeze:
 
-`research/master/fusion_r1_structural_redundancy_literature_integration_freeze_0_1.md`
+`research/master/fusion_f2_1_two_species_gk_balance_integration_freeze_0_1.md`
 
-Literature report creation commit `d63439691ff44444d66e721f215da74ec3a22a79`; return/status commit `16ce0d7608afb75e191d230d7fe8a64c5abd1b97`; Python CI #339 = `SUCCESS`.
+F2.1 branch commit `93e855b1618a92a6a20724a09549897112b23b7d`; Python CI #347 = `SUCCESS`.
 
 ## Current dependency chain
 
-1. B5.5 heat-flux observable — **COMPLETE / FROZEN**;
-2. F1.2 input geometry / cost — **COMPLETE / FROZEN**;
-3. F1.3 candidate / convention — **COMPLETE / FROZEN**;
-4. F1.4 numerical / spectral qualification — **COMPLETE / MARGINAL / INTEGRATED**;
-5. R1 structural-collapse consequence — **FROZEN; R1 PILOT BLOCKED**;
-6. targeted R1 literature/balance audit — **COMPLETE / INTEGRATED**;
-7. F2.1 balance-complete two-species local-GK candidate/balance specification — **READY**;
-8. later pre-effect geometry/discretization/parameter/spectral gates only after F2.1 returns;
-9. no finite-time higher-fidelity objective execution until all such gates are frozen.
+1. R1 structural no-go and literature positioning — **COMPLETE / FROZEN**;
+2. F2.1 two-species local-GK candidate/balance specification — **COMPLETE / FROZEN**;
+3. F2.2 local magnetic-geometry family / kinetic convention freeze — **READY**;
+4. later physical geometry/gradient/wavenumber parameter freeze;
+5. later kinetic input geometry / input-cost freeze;
+6. later structure-preserving phase-space discretization and discrete-channel reconstruction;
+7. later numerical/spectral qualification and only then any finite-time pilot decision;
+8. fully kinetic/GENE-compatible reference mapping only after the reduced lineage is independently qualified.
 
 ## Parallelism / parked branches
 
@@ -84,7 +121,7 @@ Literature report creation commit `d63439691ff44444d66e721f215da74ec3a22a79`; re
 - Power Grids and Photonics/Waves: `PROTECTED`;
 - Paper-1 submission: parked.
 
-No parallel scientific branch is opened while F2.1 specifies the balance-complete higher-fidelity lineage.
+No parallel scientific branch is opened while F2.2 freezes the geometry/convention package.
 
 ## Decision record
 
@@ -93,7 +130,8 @@ No parallel scientific branch is opened while F2.1 specifies the balance-complet
 - Addendum 0.2 through DEC-502;
 - Addendum 0.3 through DEC-510;
 - Addendum 0.4 through DEC-520;
-- Addendum 0.5 through DEC-529.
+- Addendum 0.5 through DEC-529;
+- Addendum 0.6 through DEC-540.
 
 ## Rollback points
 
@@ -110,14 +148,16 @@ The protected post-paper rollback chain is now
 \rightarrow
 \text{F1.4 Marginal / Structural Integration Freeze}
 \rightarrow
-\boxed{\text{R1 Structural-Redundancy Literature Integration Freeze}}.
+\text{R1 Literature Integration Freeze}
+\rightarrow
+\boxed{\text{F2.1 Two-Species GK Balance Integration Freeze}}.
 \]
 
 All first-paper savepoints remain separately protected.
 
 ## Active instruction
 
-**Status:** `FUSION F2.1 TWO-SPECIES LOCAL-GK CANDIDATE / BALANCE SPECIFICATION READY — AWAIT FUSION GO`
+**Status:** `FUSION F2.2 LOCAL MAGNETIC-GEOMETRY FAMILY / KINETIC CONVENTION FREEZE READY — AWAIT FUSION GO`
 
 **Selected branch:** `60 – FUSION – Gyrofluid/Gyrokinetic Transport`
 
@@ -127,12 +167,12 @@ All first-paper savepoints remain separately protected.
 
 **Next instruction:**
 
-`research/master/prompts/fusion_f2_1_two_species_local_gyrokinetic_balance_specification_gate_0_1.md`
+`research/master/prompts/fusion_f2_2_local_magnetic_geometry_kinetic_convention_freeze_0_1.md`
 
 Execute only in the Fusion branch via bare `GO` under the shared handoff protocol.
 
 ## STOP boundary
 
-Do not run R1 or FLR-only objective-separation pilots. Do not retune R1 or add ad hoc damping. Do not discretize or execute the higher-fidelity GK model, run GENE, scan parameters, or inspect finite-time objectives before F2.1 returns and later pre-effect gates are explicitly released. Do not open MODES/CONT/CASCADE or protected collaboration work, and do not reactivate Paper-1 submission unless explicitly requested.
+Do not choose geometry by spectral or finite-time effect. Do not scan geometry parameters, gradients or wavenumbers; discretize phase space; define kinetic `B/R_in`; run GENE; perform spectral/transient/finite-time objective calculations; reopen R1/FLR-only rescue; or open MODES/CONT/CASCADE/protected branches. Paper-1 submission remains parked unless explicitly reactivated.
 
 **STOP — AWAIT FUSION `GO`.**
