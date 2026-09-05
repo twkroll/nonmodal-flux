@@ -13,11 +13,7 @@ The active post-paper program remains
 
 The first-paper scientific content remains frozen and submission remains parked.
 
-B5.5, F1.2, F1.3, F1.4, the R1 literature audit, F2.1, F2.2, F2.3 and F2.4 are complete and MASTER-integrated. F2.5 is now complete in this Fusion branch.
-
-## Frozen R1 control
-
-R1 remains the structural/conservative no-go control. Its one-channel collisionless balance with `B=I4`, `R_in=M_k` makes cumulative ion heat and final free energy affinely equivalent at every horizon. No damping, retuning or FLR-only rescue is permitted.
+B5.5, F1.2, F1.3, F1.4, the R1 literature audit, F2.1, F2.2, F2.3, F2.4 and F2.5 are complete and MASTER-integrated.
 
 ## Frozen F2-R architecture / point / input geometry
 
@@ -37,15 +33,17 @@ The continuous physical input pair remains
 \boxed{B=I_{\mathcal H_{F2}},\qquad R_{\rm in}=\mathcal M_{F2}}.
 \]
 
-No parity, moment-null, transport-neutral or effect-motivated input restriction is authorized.
-
-## F2.5 completed discretization / quadrature specification
+## Frozen F2.5 discretization / quadrature specification
 
 Canonical result:
 
 `research/fusion/fusion_f2_5_structure_preserving_discretization_specification_freeze_0_1.md`
 
-Frozen numerical package:
+MASTER integration freeze:
+
+`research/master/fusion_f2_5_discretization_specification_integration_freeze_0_1.md`
+
+Frozen package:
 
 \[
 \boxed{
@@ -55,65 +53,40 @@ Frozen numerical package:
 }
 \]
 
-Key conventions:
+with no artificial damping/filtering, exact finite-ion FLR, algebraic quasineutrality elimination, both ion velocity signs retained, no parity reduction and no extra separatrix/turning-point state DOF.
 
-- ballooning windows end at magnetic maxima and use compact-support LGL spectral elements;
-- no boundary damping, filtering, hyperdiffusion or hypercollision;
-- ions use symmetric Gauss--Hermite `v_parallel` and Gauss--Laguerre magnetic-moment quadrature, retaining both `sigma` signs with no parity reduction;
-- ion turning set `v_parallel=0` is measure zero and not an extra DOF;
-- trapped electrons use generalized Gauss--Laguerre energy, interior Gauss--Legendre pitch, explicit well labels and analytic bounce-singularity regularization;
-- the trapped/passing separatrix has no state DOF;
-- finite ion `J0i` and `Gamma0i` are retained without small-argument expansion;
-- `phi_K` is reconstructed and algebraically eliminated from quasineutrality, never added as an input direction;
-- later `M_K` must come directly from the positive Helmholtz quadratic form and satisfy `M_K=M_K^dagger>0` without shifts/clipping;
-- conforming discrete input geometry inherits `B_K=I`, `R_in,K=M_K`;
-- later particle/ion-heat/electron-heat channels must use the same state space and physical quadratures.
+The K0/K1/K2 refinement ladder is frozen exactly as specified in F2.5. F2.5 branch commit `43de899b547b2ccc1d0c11ecb6788dfce6cb6b47`; Python CI #378 = `SUCCESS`.
 
-Frozen three-level refinement ladder:
-
-| quantity | K0 primary | K1 | K2 |
-|---|---:|---:|---:|
-| `Theta_max` | `3 pi` | `5 pi` | `7 pi` |
-| complete electron wells | 3 | 5 | 7 |
-| `theta` elements | 6 | 10 | 14 |
-| LGL degree `p_theta` | 12 | 16 | 20 |
-| interior `theta` DOF | 71 | 159 | 279 |
-| ion Hermite order | 16 | 24 | 32 |
-| ion Laguerre order | 8 | 12 | 16 |
-| trapped-e energy order | 12 | 18 | 24 |
-| trapped-e pitch order | 12 | 18 | 24 |
-| bounce quadrature order | 24 | 36 | 48 |
-
-At the frozen F2.3 point, the maximum retained-support electron-FLR ordering parameters are approximately `0.03765`, `0.06241`, `0.08724` on K0/K1/K2 respectively.
-
-F2.5 constructs no discrete `A/M/Q`, spectrum or finite-time quantity. A later gate must first reconstruct the discrete generator/metric/physical channels and verify quasineutrality, positivity, Hermiticity, ambipolarity and the F2.1 algebraic free-energy balance.
+No discrete `A/M/Q`, spectrum or finite-time objective was constructed in F2.5.
 
 ## Active instruction
 
-**Status:** `F2.5 PASS — STRUCTURE-PRESERVING DISCRETIZATION / QUADRATURE SPECIFICATION FROZEN — RETURN TO MASTER`
+**Status:** `FUSION F2.6 DISCRETE OPERATOR / CHANNEL ALGEBRAIC QUALIFICATION READY — AWAIT GO`
 
-**Next instruction:** none in this branch.
+**Next instruction:**
 
-A bare `GO` must not open discrete operator/channel construction, algebraic qualification, spectrum, GENE work or finite-time objectives while this status remains `RETURN TO MASTER`. MASTER must integrate F2.5 and commit any later handoff explicitly.
+`research/master/prompts/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_1.md`
 
-## Remaining pre-effect objects
+On bare `GO`, first read this STATUS and execute only that committed instruction.
 
-Before any finite-time execution, MASTER must separately authorize and freeze, as applicable:
+## F2.6 scope
 
-- discrete `A_K`, `M_K`, `Q_Gamma,K`, `Q_qi,K`, `Q_qe,K` construction on the frozen ladder;
-- quasineutrality/free-energy/channel algebraic balance qualification;
-- spectral qualification only after the algebraic gate passes;
-- later finite-time pilot specification;
-- fully kinetic collisional-reference / GENE mapping details.
+Instantiate the frozen K0/K1/K2 numerical representation and construct `A_K`, `M_K`, `Q_Gamma,K`, `Q_qi,K`, `Q_qe,K` plus the discrete quasineutrality reconstruction directly from the frozen physical equations/quadratures. Qualify only structural algebra: quasineutrality residuals, `M_K>0`, Hermiticity, `B_K=I`, `R_in,K=M_K`, physical-channel Hermiticity, ambipolarity, conservative-advection adjoint/skew structure and the complete F2.1 discrete free-energy balance.
 
-## Forbidden until MASTER returns a new committed handoff
+The physical channel matrices must be reconstructed independently from the radial gyrocentre flux integrals; they may not be derived backwards from the desired balance identity.
 
-Do not change cutoffs or quadratures, construct/inspect spectra, propagators, Gramians, cumulative objectives, optimizers, angles or gaps, scan parameters, run GENE, add collisions/damping to F2-R, retune F2.3, alter F2.4 input geometry, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
+## Forbidden until F2.6 returns
 
-## Governance authority
+Do not inspect eigenvalues, growth rates, pseudospectra or eigenvectors. Do not construct propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not scan parameters/resolutions beyond K0/K1/K2, run GENE, add collisions/damping, retune F2.3, alter F2.4/F2.5, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
 
-- `research/master/fusion_f2_4_input_geometry_integration_freeze_0_1.md`
-- `research/master/prompts/fusion_f2_5_structure_preserving_discretization_specification_freeze_0_1.md`
-- `research/master/prompt_handoff_protocol_0_1.md`
+## Expected return
 
-**STOP / RETURN TO MASTER.**
+One of:
+
+- `F2.6 PASS — DISCRETE OPERATOR/CHANNEL ALGEBRA QUALIFIED — RETURN TO MASTER`;
+- `F2.6 HOLD — SPECIFIC DISCRETE ALGEBRA/IMPLEMENTATION DECISION REQUIRED — RETURN TO MASTER`;
+- `F2.6 FAIL — RETURN TO MASTER`.
+
+No branch-side next gate is self-authorized.
+
+**STOP / AWAIT GO.**
