@@ -13,109 +13,74 @@ The active post-paper program remains
 
 The first-paper scientific content remains frozen and the submission track remains parked.
 
-B5.5, F1.2, F1.3 and F1.4 are complete. MASTER has integrated F1.4 and redirected the next task to the Literature branch.
+B5.5, F1.2, F1.3 and F1.4 are complete and MASTER-integrated. The targeted R1 structural-redundancy / fidelity-breaking literature audit is also complete and MASTER-integrated.
 
-## Frozen R1 lineage
+## Frozen R1 status
 
-Primary reduced candidate:
-
-\[
-\boxed{\text{anisotropic-ZLR four-moment R1 minimal-curvature branch}}
-\]
-
-with slab retained only as the exact `omega_d -> 0` analytic control.
-
-Frozen point:
+The anisotropic-ZLR four-moment R1 minimal-curvature candidate remains a frozen structural/conservative control. Its exact collisionless one-channel balance and the frozen `B=I_4`, `R_in=M_k` geometry imply
 
 \[
-\tau_i=1,
-\quad R_0/L_n=2.2,
-\quad R_0/L_T=6.9,
-\quad q=1.4,
-\quad k_x\rho_i=0,
-\quad k_y\rho_i=0.3,
-\quad \tau_{\rm ref}=R_0/c_s.
+2\frac{R_0}{L_T}K_q(T)=\mathcal E_M(T)-I,
 \]
 
-Frozen physical/input objects:
+so cumulative ion-heat and final free-energy optimization are affinely equivalent at every horizon. The R1 objective-separation pilot remains blocked.
 
-\[
-M_k=M_k^\dagger\succ0,
-\qquad
-q_{i,k}=z_k^\dagger Q_{q_i,k}z_k,
-\qquad
-B=I_4,
-\qquad
-R_{\rm in}=M_k.
-\]
+No damping, retuning or FLR-only rescue is permitted.
 
-No artificial damping or spectral rescue is allowed.
+## Integrated literature guidance
 
-## F1.4 integrated result
+Canonical audit:
 
-Canonical branch result:
-
-`research/fusion/fusion_numerical_spectral_qualification_gate_0_1.md`
-
-Transparent reproduction code:
-
-`research/fusion/fusion_numerical_spectral_qualification_0_1.py`
-
-Branch verdict:
-
-\[
-\boxed{\text{F1.4 HOLD — MARGINAL SPECTRUM — RETURN TO MASTER}}
-\]
-
-All algebraic/physical reconstruction checks passed. The complete dimensionless spectrum is purely imaginary with four distinct eigenvalues, so the frozen R1 point is marginal and diagonalizable, not asymptotically stable and not clearly unstable.
-
-F1.4 commit `f2562061e79c67a5ccdc6a3d809ae0f655594319`; Python CI #330 = `SUCCESS`.
+`research/literature/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
 
 MASTER integration freeze:
 
-`research/master/fusion_f1_4_marginal_structural_integration_freeze_0_1.md`
+`research/master/fusion_r1_structural_redundancy_literature_integration_freeze_0_1.md`
 
-## Structural R1 consequence
+The audit positions the R1 no-go as an explicit optimal-control consequence of a standard one-channel gyrokinetic free-energy-balance limit, not as a new free-energy theorem. No `SAME` source was found; absence is not novelty evidence.
 
-Because the frozen collisionless R1 balance contains no dissipation term,
+Physics-first conclusions carried forward:
 
-\[
-\widetilde A^\dagger M_k+M_k\widetilde A
-=2\frac{R_0}{L_T}\widehat Q_q,
-\]
+- H-theorem-compatible physical collisions can add a positive free-energy sink;
+- nonadiabatic electrons can add an independent electron free-energy drive;
+- conservative FLR alone does not generically add an independent source/sink;
+- collisionless phase mixing is redistribution in the fully resolved kinetic system; reduced sinks require explicit balance/sign verification.
 
-and because F1.2 froze
+## Active instruction
 
-\[
-B=I_4,\qquad R_{\rm in}=M_k,
-\]
+**Status:** `FUSION F2.1 TWO-SPECIES LOCAL-GK CANDIDATE / BALANCE SPECIFICATION READY — AWAIT GO`
 
-the standard CORE integral identity gives
+**Next instruction:**
 
-\[
-2\frac{R_0}{L_T}K_q(T)=\mathcal E_M(T)-I.
-\]
+`research/master/prompts/fusion_f2_1_two_species_local_gyrokinetic_balance_specification_gate_0_1.md`
 
-Therefore cumulative signed ion-heat optimization and final free-energy optimization are affinely equivalent at every horizon for this R1 lineage. Their optimizer eigenspaces cannot provide the intended objective-nonredundancy demonstration.
+On a bare `GO`, first read this STATUS and execute only that committed instruction.
 
-This is a structural balance consequence, not a finite-time effect calculation.
+## F2.1 scope
 
-## Current branch status
+Specify one balance-complete two-species local-gyrokinetic higher-fidelity lineage using physical/source criteria only. The leading reduced architecture is finite-ion-FLR gyrokinetic ions plus nonadiabatic bounce-averaged/trapped electrons, with fully kinetic two-species local gyrokinetics retained as the higher-fidelity reference if the exact balance closes consistently.
 
-**Status:** `F1.4 MASTER-INTEGRATED — R1 STRUCTURAL CONTROL FROZEN / R1 OBJECTIVE-SEPARATION PILOT BLOCKED / WAIT LITERATURE AUDIT`
+F2.1 must derive the positive free-energy functional, physical species particle/heat transport channels, collision treatment and exact source/dissipation balance, and determine only whether the R1 affine redundancy is no longer structurally forced.
 
-**Next instruction:** none in this branch.
+## Forbidden until F2.1 returns
 
-A bare `GO` must not open a new Fusion task while this status remains `WAIT LITERATURE AUDIT`.
+Do not discretize velocity space for optimization, scan parameters or model variants, run GENE, construct finite-time propagators/Gramians/objective operators, compute optimizers/angles/gaps, or choose fidelity by expected effect size. Do not open MODES/CONT/CASCADE, Power Grid/Photonics work, or modify the frozen first paper.
 
-The active cross-branch handoff is:
+## Expected return state
 
-`research/master/prompts/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
+One of:
 
-and must be executed in `80 – LIT – Literatur & Lernpfad`.
+- `F2.1 PASS — TWO-SPECIES GK CANDIDATE/BALANCE SPECIFIED — RETURN TO MASTER`;
+- `F2.1 HOLD — SPECIFIC MODEL/BALANCE DECISION REQUIRED — RETURN TO MASTER`;
+- `F2.1 FAIL — RETURN TO MASTER`.
 
-## Forbidden until MASTER returns a new Fusion handoff
+No branch-side next gate is self-authorized.
 
-Do not compute finite-time energy/heat objective operators, cumulative extrema, optimizer directions/subspaces, principal angles, performance gaps, horizon dependence or transient-growth curves. Do not retune R1 or add damping/collisions/closure terms. Do not restore FLR/R2, kinetic electrons, six-moment GEM or GENE. Do not open MODES/CONT/CASCADE, Power Grid/Photonics work, or modify the frozen first paper.
+## Governance authority
 
-**STOP / WAIT LITERATURE AUDIT.**
+- `research/master/fusion_f1_4_marginal_structural_integration_freeze_0_1.md`
+- `research/literature/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
+- `research/master/fusion_r1_structural_redundancy_literature_integration_freeze_0_1.md`
+- `research/master/prompt_handoff_protocol_0_1.md`
+
+**STOP / AWAIT GO.**
