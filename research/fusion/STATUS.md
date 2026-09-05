@@ -13,9 +13,9 @@ The active post-paper program remains
 
 The first-paper scientific content remains frozen and the submission track remains parked.
 
-B5.5, F1.2 and F1.3 are complete and MASTER-integrated. F1.4 numerical/spectral qualification is now complete in this branch.
+B5.5, F1.2, F1.3 and F1.4 are complete. MASTER has integrated F1.4 and redirected the next task to the Literature branch.
 
-## Frozen F1.3 candidate
+## Frozen R1 lineage
 
 Primary reduced candidate:
 
@@ -37,7 +37,7 @@ Frozen point:
 \quad \tau_{\rm ref}=R_0/c_s.
 \]
 
-Frozen physical/input objects remain
+Frozen physical/input objects:
 
 \[
 M_k=M_k^\dagger\succ0,
@@ -51,71 +51,71 @@ R_{\rm in}=M_k.
 
 No artificial damping or spectral rescue is allowed.
 
-## F1.4 qualification result
+## F1.4 integrated result
 
-Canonical result:
+Canonical branch result:
 
 `research/fusion/fusion_numerical_spectral_qualification_gate_0_1.md`
 
-Transparent single-point reproduction code:
+Transparent reproduction code:
 
 `research/fusion/fusion_numerical_spectral_qualification_0_1.py`
 
-The exact frozen dimensionless matrix passes all required algebraic and physical reconstruction checks:
-
-- `M_k` Hermitian positive definite;
-- `Q_q` Hermitian, rank 2, signature `(1,1,2)`;
-- `rank(B)=4`, `R_in=M_k` positive definite;
-- free-energy balance residual at roundoff;
-- source-free minimal-curvature/parallel part `M_k`-skew-adjoint at roundoff;
-- deterministic heat-flux cross-phase reconstruction at roundoff;
-- coordinate congruence verified;
-- implementation conditioning acceptable for the 4x4 block.
-
-The complete dimensionless spectrum is
+Branch verdict:
 
 \[
-\lambda\tau_{\rm ref}
-\approx
-\{-3.592939609690i,\,-1.563190668779i,\,-0.276482492169i,\,+0.076649467886i\}.
+\boxed{\text{F1.4 HOLD — MARGINAL SPECTRUM — RETURN TO MASTER}}
 \]
 
-With scale-aware tolerance
+All algebraic/physical reconstruction checks passed. The complete dimensionless spectrum is purely imaginary with four distinct eigenvalues, so the frozen R1 point is marginal and diagonalizable, not asymptotically stable and not clearly unstable.
+
+F1.4 commit `f2562061e79c67a5ccdc6a3d809ae0f655594319`; Python CI #330 = `SUCCESS`.
+
+MASTER integration freeze:
+
+`research/master/fusion_f1_4_marginal_structural_integration_freeze_0_1.md`
+
+## Structural R1 consequence
+
+Because the frozen collisionless R1 balance contains no dissipation term,
 
 \[
-\varepsilon_{\rm spec}=1.0850\times10^{-13},
+\widetilde A^\dagger M_k+M_k\widetilde A
+=2\frac{R_0}{L_T}\widehat Q_q,
 \]
 
-the computed spectral abscissa is
+and because F1.2 froze
 
 \[
-\alpha(\widetilde A)=7.34\times10^{-17},
+B=I_4,\qquad R_{\rm in}=M_k,
 \]
 
-and an independent exact-rational/high-precision reproduction confirms four distinct purely imaginary eigenvalues.
+the standard CORE integral identity gives
 
-Therefore the frozen point is **marginal**, not asymptotically stable and not clearly unstable.
+\[
+2\frac{R_0}{L_T}K_q(T)=\mathcal E_M(T)-I.
+\]
 
-## Active instruction
+Therefore cumulative signed ion-heat optimization and final free-energy optimization are affinely equivalent at every horizon for this R1 lineage. Their optimizer eigenspaces cannot provide the intended objective-nonredundancy demonstration.
 
-**Status:** `F1.4 HOLD — MARGINAL SPECTRUM — RETURN TO MASTER`
+This is a structural balance consequence, not a finite-time effect calculation.
+
+## Current branch status
+
+**Status:** `F1.4 MASTER-INTEGRATED — R1 STRUCTURAL CONTROL FROZEN / R1 OBJECTIVE-SEPARATION PILOT BLOCKED / WAIT LITERATURE AUDIT`
 
 **Next instruction:** none in this branch.
 
-A bare `GO` must not open a literature audit, pilot specification, finite-time objective calculation or any new Fusion gate while this status remains `RETURN TO MASTER`. MASTER must explicitly decide whether the marginal conservative regime is scientifically acceptable and commit any later handoff.
+A bare `GO` must not open a new Fusion task while this status remains `WAIT LITERATURE AUDIT`.
 
-## Forbidden until MASTER returns a new committed handoff
+The active cross-branch handoff is:
 
-Do not compute finite-time energy/heat objective operators, propagator/Gramian objectives, cumulative extrema, optimizer directions/subspaces, principal angles, performance gaps, horizon dependence, transient-growth curves or parameter scans. Do not retune the frozen point or add damping/collisions/closure terms to obtain stability. Do not restore FLR/R2, kinetic electrons, six-moment GEM or GENE. Do not open MODES/CONT/CASCADE, Power Grid/Photonics work, or modify the frozen first paper.
+`research/master/prompts/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
 
-## Governance authority
+and must be executed in `80 – LIT – Literatur & Lernpfad`.
 
-- `research/master/first_paper_scientific_content_freeze_0_1.md`
-- `research/master/post_paper_scientific_roadmap_gate_0_1.md`
-- `research/master/fusion_b5_5_heat_flux_observable_integration_freeze_0_1.md`
-- `research/master/fusion_f1_2_input_geometry_integration_freeze_0_1.md`
-- `research/master/fusion_f1_3_candidate_convention_integration_freeze_0_1.md`
-- `research/master/prompts/fusion_numerical_spectral_qualification_gate_0_1.md`
-- `research/master/prompt_handoff_protocol_0_1.md`
+## Forbidden until MASTER returns a new Fusion handoff
 
-**STOP / RETURN TO MASTER.**
+Do not compute finite-time energy/heat objective operators, cumulative extrema, optimizer directions/subspaces, principal angles, performance gaps, horizon dependence or transient-growth curves. Do not retune R1 or add damping/collisions/closure terms. Do not restore FLR/R2, kinetic electrons, six-moment GEM or GENE. Do not open MODES/CONT/CASCADE, Power Grid/Photonics work, or modify the frozen first paper.
+
+**STOP / WAIT LITERATURE AUDIT.**
