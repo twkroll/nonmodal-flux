@@ -11,52 +11,53 @@ The active post-paper program remains
 \boxed{\text{FUSION-F1 — fusion heat-transport optimality ladder}}.
 \]
 
-The first-paper scientific content remains frozen and the submission track remains parked.
+The first-paper scientific content remains frozen and submission remains parked.
 
-B5.5, F1.2, F1.3, F1.4, the R1 literature audit, F2.1 and F2.2 are complete and MASTER-integrated. F2.3 is now complete in this Fusion branch.
+B5.5, F1.2, F1.3, F1.4, the R1 literature audit, F2.1, F2.2 and F2.3 are complete and MASTER-integrated.
 
 ## Frozen R1 control
 
-The anisotropic-ZLR four-moment R1 minimal-curvature candidate remains a structural/conservative no-go control. Its one-channel collisionless balance with `B=I4`, `R_in=M_k` makes cumulative ion heat and final free energy affinely equivalent at every horizon. The R1 objective-separation pilot remains blocked; no damping, retuning or FLR-only rescue is permitted.
+R1 remains the structural/conservative no-go control. Its one-channel collisionless balance with `B=I4`, `R_in=M_k` makes cumulative ion heat and final free energy affinely equivalent at every horizon. No damping, retuning or FLR-only rescue is permitted.
 
-## Frozen F2 architecture and geometry
+## Frozen F2-R architecture
 
 Primary reduced candidate:
 
 \[
-\boxed{
-\text{finite-ion-FLR electrostatic local-GK ions}
-+\text{collisionless bounce-averaged trapped electrons}
-}
+\boxed{\text{finite-ion-FLR electrostatic local-GK ions}+\text{collisionless bounce-averaged trapped electrons}}
 \]
 
 with leading adiabatic passing electrons.
 
-Primary geometry family:
+The continuous balance is
 
 \[
-\boxed{
-\text{large-aspect-ratio circular local tokamak}
-+\hat s\text{-}\alpha_{\rm MHD}\text{ ballooning-space flux tube}
-}
+\frac{dW}{dt}=G_\Gamma\Gamma+G_{T,i}q_i+G_{T,e}q_e^{\rm tr},
 \]
 
-The continuous F2.1 balance remains
+so the R1 affine redundancy is not structurally forced. No finite-time F2 objective has been inspected.
+
+## Frozen F2.2 geometry
+
+Primary family:
 
 \[
-\frac{dW}{dt}
-=G_\Gamma\Gamma+G_{T,i}q_i+G_{T,e}q_e^{\rm tr},
+\boxed{\text{large-aspect-ratio circular local tokamak}+\hat s\text{-}\alpha_{\rm MHD}\text{ ballooning-space flux tube}}
 \]
 
-so the R1 one-channel affine redundancy is not structurally forced. No finite-time F2 objective has been inspected.
+with the previously frozen Clebsch/Fourier, drift, trapping, bounce-average, FLR and ballooning-space conventions.
 
-## F2.3 completed physical parameter freeze
+## Frozen F2.3 physical point
 
 Canonical result:
 
 `research/fusion/fusion_f2_3_physical_parameter_freeze_0_1.md`
 
-Frozen single CBC-compatible point:
+MASTER integration freeze:
+
+`research/master/fusion_f2_3_physical_parameter_integration_freeze_0_1.md`
+
+Frozen point:
 
 \[
 \boxed{
@@ -81,14 +82,6 @@ k_y\rho_i=+0.3,
 }
 \]
 
-Equivalent major-radius gradients are
-
-\[
-R_0/L_n=2.222224,
-\qquad
-R_0/L_{T_i}=R_0/L_{T_e}=6.9166722.
-\]
-
 Normalization:
 
 \[
@@ -99,45 +92,36 @@ v_{Ti}=\sqrt{T_i/m_i},
 \tau_{\rm ref}=R_0/v_{Ti}.
 \]
 
-All three F2.1 supply coefficients are nonzero at the frozen point: `G_Gamma`, `G_Ti`, `G_Te`.
+All three continuous supply coefficients are nonzero at this point, but this does not establish later discrete channel independence or optimizer separation.
 
-The trapped region is not a free knob. From `epsilon=0.18`, with `lambda_hat=lambda B0`,
-
-\[
-0.82<\widehat\lambda<1.18,
-\]
-
-and the outboard-midplane local trapped pitch fraction is approximately `0.5523`. For the deuterium/electron mass ratio, `rho_e/rho_i ~= 0.01650`, giving `k_perp(0) rho_e ~= 0.00495`.
-
-No spectrum, phase-space grid, discrete operator, kinetic input map or finite-time objective was constructed.
+F2.3 branch commit `fcd012219427ce0243151d2cfb7796236778d966`; Python CI #362 = `SUCCESS`.
 
 ## Active instruction
 
-**Status:** `F2.3 PASS — PHYSICAL GEOMETRY/GRADIENT/WAVENUMBER POINT FROZEN — RETURN TO MASTER`
+**Status:** `FUSION F2.4 KINETIC INPUT GEOMETRY / INPUT-COST FREEZE READY — AWAIT GO`
 
-**Next instruction:** none in this branch.
+**Next instruction:**
 
-A bare `GO` must not open kinetic input geometry, input-cost selection, phase-space discretization, numerical/spectral qualification, GENE work or finite-time objective calculations while this status remains `RETURN TO MASTER`. MASTER must integrate F2.3 and commit any later handoff explicitly.
+`research/master/prompts/fusion_f2_4_kinetic_input_geometry_input_cost_freeze_0_1.md`
 
-## Remaining pre-effect objects
+On bare `GO`, first read this STATUS and execute only that committed instruction.
 
-Before any numerical execution, MASTER must separately authorize and freeze, as applicable:
+## F2.4 scope
 
-- kinetic admissible initial-condition map `B` and physical input cost `R_in`;
-- ballooning/velocity-space discretization and separatrix treatment;
-- discrete quasineutrality and physical particle/heat-channel reconstruction;
-- structure-preserving numerical/free-energy/spectral qualification;
-- later fully kinetic collisional-reference and GENE mapping details.
+Freeze the continuous physical initial-condition pair `(B,R_in)` before any discretization. Determine whether the full finite-free-energy F2-R tangent space is physically admissible or whether exact local-GK/quasineutrality/invariant constraints require a proper subspace. Evaluate `B=I` and `R_in=M_F2` only on physical grounds; do not force them.
 
-## Forbidden until MASTER returns a new committed handoff
+## Forbidden until F2.4 returns
 
-Do not scan parameters or model variants. Do not construct discrete `A/M/Q`, eigenvalues, propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not run GENE, add collisions to F2-R, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
+Do not discretize phase space, choose ballooning cutoffs/quadrature, construct discrete `A/M/Q`, calculate spectra, propagators, Gramians, optimizers, angles or gaps, scan input subspaces, run GENE, add collisions to F2-R, retune F2.3, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
 
-## Governance authority
+## Expected return
 
-- `research/master/fusion_f2_1_two_species_gk_balance_integration_freeze_0_1.md`
-- `research/master/fusion_f2_2_geometry_convention_integration_freeze_0_1.md`
-- `research/master/prompts/fusion_f2_3_physical_parameter_freeze_0_1.md`
-- `research/master/prompt_handoff_protocol_0_1.md`
+One of:
 
-**STOP / RETURN TO MASTER.**
+- `F2.4 PASS — KINETIC INPUT GEOMETRY / INPUT COST FROZEN — RETURN TO MASTER`;
+- `F2.4 HOLD — PHYSICAL INPUT-SPACE DECISION REQUIRED — RETURN TO MASTER`;
+- `F2.4 FAIL — RETURN TO MASTER`.
+
+No branch-side next gate is self-authorized.
+
+**STOP / AWAIT GO.**
