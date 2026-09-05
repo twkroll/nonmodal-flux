@@ -13,19 +13,13 @@ The active post-paper program remains
 
 The first-paper scientific content remains frozen and the submission track remains parked.
 
-B5.5, F1.2, F1.3, F1.4 and the R1 literature audit are complete and MASTER-integrated. F2.1 and F2.2 are also complete and MASTER-integrated.
+B5.5, F1.2, F1.3, F1.4, the R1 literature audit, F2.1 and F2.2 are complete and MASTER-integrated. F2.3 is now complete in this Fusion branch.
 
 ## Frozen R1 control
 
-The anisotropic-ZLR four-moment R1 minimal-curvature candidate remains a frozen structural/conservative control. Its exact collisionless one-channel balance and frozen `B=I_4`, `R_in=M_k` geometry imply
+The anisotropic-ZLR four-moment R1 minimal-curvature candidate remains a structural/conservative no-go control. Its one-channel collisionless balance with `B=I4`, `R_in=M_k` makes cumulative ion heat and final free energy affinely equivalent at every horizon. The R1 objective-separation pilot remains blocked; no damping, retuning or FLR-only rescue is permitted.
 
-\[
-2\frac{R_0}{L_T}K_q(T)=\mathcal E_M(T)-I,
-\]
-
-so cumulative ion heat and final free energy are affinely equivalent at every horizon. The R1 objective-separation pilot remains blocked. No damping, retuning or FLR-only rescue is permitted.
-
-## Frozen F2.1 architecture
+## Frozen F2 architecture and geometry
 
 Primary reduced candidate:
 
@@ -36,74 +30,108 @@ Primary reduced candidate:
 }
 \]
 
-with passing electrons adiabatic at leading order.
-
-Higher-fidelity reference:
-
-\[
-\boxed{
-\text{fully kinetic two-species electrostatic local GK}
-+\text{H-theorem-compatible physical collisions}
-}
-\]
-
-The reduced continuous balance remains
-
-\[
-\frac{dW}{dt}
-=G_\Gamma\Gamma+G_{T,i}q_i+G_{T,e}q_e^{\rm tr},
-\]
-
-so the R1 one-channel affine redundancy is not structurally forced. No finite-time objective has been inspected.
-
-## Frozen F2.2 geometry/conventions
-
-MASTER integration freeze:
-
-`research/master/fusion_f2_2_geometry_convention_integration_freeze_0_1.md`
+with leading adiabatic passing electrons.
 
 Primary geometry family:
 
 \[
 \boxed{
 \text{large-aspect-ratio circular local tokamak}
-+\hat s\text{-}\alpha_{\rm MHD}\text{ flux-tube geometry in ballooning space}
++\hat s\text{-}\alpha_{\rm MHD}\text{ ballooning-space flux tube}
 }
 \]
 
-Frozen continuous conventions include the Clebsch/Fourier orientation, circular `B(theta)` and `dl/dtheta`, `s-alpha` `k_perp(theta)` and twist sign, signed magnetic drifts, trapped/passing and bounce-point definitions, exact orbit-time bounce averages, finite ion FLR, the leading adiabatic-passing/bounce-averaged-trapped electron ordering, infinite ballooning line and no parity reduction.
+The continuous F2.1 balance remains
 
-No numerical `epsilon`, `q`, `shat`, `alpha_MHD`, gradients, temperature ratio, `ky`, `kx0/theta0` or discretization is frozen by F2.2.
+\[
+\frac{dW}{dt}
+=G_\Gamma\Gamma+G_{T,i}q_i+G_{T,e}q_e^{\rm tr},
+\]
 
-F2.2 branch commit `19dcf169ffe36c7b5f64f560f1f22294fa8ee239`; Python CI #355 = `SUCCESS`.
+so the R1 one-channel affine redundancy is not structurally forced. No finite-time F2 objective has been inspected.
+
+## F2.3 completed physical parameter freeze
+
+Canonical result:
+
+`research/fusion/fusion_f2_3_physical_parameter_freeze_0_1.md`
+
+Frozen single CBC-compatible point:
+
+\[
+\boxed{
+\begin{gathered}
+R_0/a=2.77778,
+\quad r_0/a=0.5,
+\quad \epsilon=0.18,
+\quad q=1.4,
+\quad \hat s=0.8,
+\quad \alpha_{\rm MHD}=0,\\
+Z_i=+1,
+\quad Z_e=-1,
+\quad m_i/m_e=3672,
+\quad T_i/T_e=1,
+\quad n_i=n_e,\\
+a/L_n=0.8,
+\quad a/L_{T_i}=a/L_{T_e}=2.49,\\
+k_y\rho_i=+0.3,
+\quad \theta_0=0,
+\quad k_{x0}=0.
+\end{gathered}
+}
+\]
+
+Equivalent major-radius gradients are
+
+\[
+R_0/L_n=2.222224,
+\qquad
+R_0/L_{T_i}=R_0/L_{T_e}=6.9166722.
+\]
+
+Normalization:
+
+\[
+v_{Ti}=\sqrt{T_i/m_i},
+\qquad
+\rho_i=v_{Ti}/\Omega_i,
+\qquad
+\tau_{\rm ref}=R_0/v_{Ti}.
+\]
+
+All three F2.1 supply coefficients are nonzero at the frozen point: `G_Gamma`, `G_Ti`, `G_Te`.
+
+The trapped region is not a free knob. From `epsilon=0.18`, with `lambda_hat=lambda B0`,
+
+\[
+0.82<\widehat\lambda<1.18,
+\]
+
+and the outboard-midplane local trapped pitch fraction is approximately `0.5523`. For the deuterium/electron mass ratio, `rho_e/rho_i ~= 0.01650`, giving `k_perp(0) rho_e ~= 0.00495`.
+
+No spectrum, phase-space grid, discrete operator, kinetic input map or finite-time objective was constructed.
 
 ## Active instruction
 
-**Status:** `FUSION F2.3 PHYSICAL GEOMETRY / GRADIENT / WAVENUMBER PARAMETER FREEZE READY — AWAIT GO`
+**Status:** `F2.3 PASS — PHYSICAL GEOMETRY/GRADIENT/WAVENUMBER POINT FROZEN — RETURN TO MASTER`
 
-**Next instruction:**
+**Next instruction:** none in this branch.
 
-`research/master/prompts/fusion_f2_3_physical_parameter_freeze_0_1.md`
+A bare `GO` must not open kinetic input geometry, input-cost selection, phase-space discretization, numerical/spectral qualification, GENE work or finite-time objective calculations while this status remains `RETURN TO MASTER`. MASTER must integrate F2.3 and commit any later handoff explicitly.
 
-On a bare `GO`, first read this STATUS and execute only that committed instruction.
+## Remaining pre-effect objects
 
-## F2.3 scope
+Before any numerical execution, MASTER must separately authorize and freeze, as applicable:
 
-Freeze exactly one coherent, source-supported physical geometry/gradient/wavenumber point for the already-frozen F2-R architecture and F2.2 geometry family. A CBC-compatible point is a leading benchmark only if the required two-species trapped-electron quantities are source-consistent. If the needed values cannot be justified without mixing incompatible benchmarks, return `HOLD` rather than inventing or tuning them.
+- kinetic admissible initial-condition map `B` and physical input cost `R_in`;
+- ballooning/velocity-space discretization and separatrix treatment;
+- discrete quasineutrality and physical particle/heat-channel reconstruction;
+- structure-preserving numerical/free-energy/spectral qualification;
+- later fully kinetic collisional-reference and GENE mapping details.
 
-## Forbidden until F2.3 returns
+## Forbidden until MASTER returns a new committed handoff
 
-Do not scan geometry parameters, gradients, wavenumbers, trapped fractions or model variants. Do not calculate eigenvalues or stability, discretize phase space, define/optimize kinetic `B` or `R_in`, construct discrete `A/M/Q`, run GENE, perform transient/finite-time calculations or compute optimizers/angles/gaps. Do not select any parameter by expected objective-separation magnitude. Do not reopen R1, MODES, CONT, CASCADE, Power Grid, Photonics or Paper-1 work.
-
-## Expected return state
-
-One of:
-
-- `F2.3 PASS — PHYSICAL GEOMETRY/GRADIENT/WAVENUMBER POINT FROZEN — RETURN TO MASTER`;
-- `F2.3 HOLD — SOURCE-SUPPORTED PARAMETER DECISION REQUIRED — RETURN TO MASTER`;
-- `F2.3 FAIL — RETURN TO MASTER`.
-
-No branch-side next gate is self-authorized.
+Do not scan parameters or model variants. Do not construct discrete `A/M/Q`, eigenvalues, propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not run GENE, add collisions to F2-R, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
 
 ## Governance authority
 
@@ -112,4 +140,4 @@ No branch-side next gate is self-authorized.
 - `research/master/prompts/fusion_f2_3_physical_parameter_freeze_0_1.md`
 - `research/master/prompt_handoff_protocol_0_1.md`
 
-**STOP / AWAIT GO.**
+**STOP / RETURN TO MASTER.**
