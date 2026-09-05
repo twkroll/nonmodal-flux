@@ -1,6 +1,6 @@
 # MASTER Project Status
 
-**Last updated:** 2026-09-04  
+**Last updated:** 2026-09-05  
 **Branch:** `main`
 
 ## Global scientific savepoints
@@ -14,9 +14,10 @@
 - First Paper Scientific Content Freeze 0.1: **STABLE — SCIENTIFIC CONTENT BASELINE FROZEN / SUBMISSION TRACK PARKED**.
 - Post-Paper Scientific Roadmap Gate 0.1: **COMPLETE — FUSION-F1 SELECTED**.
 - Fusion B5.5 heat-flux observable: **PASS / INTEGRATED / FROZEN**.
-- Fusion F1.2 input geometry / input cost: **PASS / INTEGRATED / FROZEN**.
-- Fusion F1.3 candidate / convention freeze: **PASS / INTEGRATED / FROZEN**.
-- Fusion F1.3 Candidate / Convention Integration Freeze 0.1: **STABLE — F1.4 RELEASED**.
+- Fusion F1.2 input geometry / cost: **PASS / INTEGRATED / FROZEN**.
+- Fusion F1.3 candidate / convention: **PASS / INTEGRATED / FROZEN**.
+- Fusion F1.4 numerical / spectral qualification: **HOLD — MARGINAL SPECTRUM / INTEGRATED**.
+- Fusion F1.4 Marginal / Structural Integration Freeze 0.1: **STABLE — R1 STRUCTURAL CONTROL FROZEN / R1 OBJECTIVE-SEPARATION PILOT BLOCKED / LIT AUDIT RELEASED**.
 
 ## First-paper status
 
@@ -28,50 +29,13 @@ Paper 1 scientific content remains frozen. Draft 0.4 is a scientific-content bas
 \boxed{\text{FUSION-F1 — fusion heat-transport optimality ladder}}
 \]
 
-Planned fidelity sequence:
+The current scientific question has sharpened from “does R1 show objective separation?” to “which physically necessary fidelity additions first make free-energy and signed heat-transport objectives non-affine?”
+
+## Qualified R1 baseline
+
+The frozen primary R1 candidate is the anisotropic-ZLR four-moment minimal-curvature branch at
 
 \[
-\text{anisotropic ZLR four-moment gyrofluid}
-\rightarrow
-\text{FLR gyrofluid}
-\rightarrow
-\text{parallel/flux-tube or local gyrokinetic/GENE-compatible validation}.
-\]
-
-No finite-time Fusion objective-separation effect has yet been authorized or inspected.
-
-## Frozen Fusion candidate after F1.3
-
-Primary reduced candidate:
-
-\[
-\boxed{\text{anisotropic-ZLR four-moment R1 minimal-curvature branch}}
-\]
-
-The slab generator is only the exact `omega_d -> 0` analytic/limiting control.
-
-State and electrostatic closure:
-
-\[
-z_k=(N,U,P_\parallel,P_\perp)^T,
-\qquad \Phi=\mathcal C_kN,
-\qquad \mathcal C_k=(\tau_i+k_\perp^2\rho_i^2)^{-1}.
-\]
-
-Positive free-energy metric and input geometry:
-
-\[
-M_k=M_k^\dagger\succ0,
-\qquad B=I_4,
-\qquad R_{\rm in}=M_k.
-\]
-
-Physical signed heat channel remains the B5.5 `Q_{q_i,k}`, Hermitian, rank 2 and indefinite for `k_y!=0`, with `Q_{Gamma_i,k}=0` under the frozen adiabatic-electron closure.
-
-Frozen CBC-projected R1 point:
-
-\[
-\boxed{
 \tau_i=1,
 \quad R_0/L_n=2.2,
 \quad R_0/L_T=6.9,
@@ -79,72 +43,90 @@ Frozen CBC-projected R1 point:
 \quad k_x\rho_i=0,
 \quad k_y\rho_i=0.3,
 \quad \tau_{\rm ref}=R_0/c_s.
-}
 \]
 
-The model remains collisionless/source-faithful with no artificial damping. The point may not be retuned or damped to rescue a spectrum.
+F1.4 reconstructed the exact single-point matrices and passed all required metric/channel/balance/coordinate/conditioning checks. The complete spectrum is purely imaginary with four distinct eigenvalues, confirmed independently by exact-rational/high-precision reproduction. The point is marginal and diagonalizable.
 
-Canonical F1.3 result:
+F1.4 branch commit `f2562061e79c67a5ccdc6a3d809ae0f655594319`; Python CI #330 = `SUCCESS`.
 
-`research/fusion/fusion_candidate_convention_freeze_0_1.md`
+## Structural R1 no-go result
 
-MASTER F1.3 savepoint:
+For the frozen collisionless one-channel R1 balance,
 
-`research/master/fusion_f1_3_candidate_convention_integration_freeze_0_1.md`
+\[
+\widetilde A^\dagger M_k+M_k\widetilde A
+=2\frac{R_0}{L_T}\widehat Q_q,
+\]
 
-F1.3 commit `956115d805bd195148bfb3071449a2fabb606ea2`; Python CI #323 = `SUCCESS`.
+with
 
-## Immediate next gate
+\[
+B=I_4,\qquad R_{\rm in}=M_k,
+\]
 
-Fusion F1.4 — Numerical / Spectral Qualification Gate 0.1 is the only active scientific handoff.
+and no dissipation term, the already-frozen CORE integral identity gives
 
-It must reconstruct exactly the frozen single-point matrices and verify `M`, `Q`, `B`, `R_in`, the free-energy balance, physical heat-channel reconstruction, coordinate consistency, conditioning and the complete spectrum. It may not construct finite-time objective operators or inspect optimizer separation.
+\[
+2\frac{R_0}{L_T}K_q(T)=\mathcal E_M(T)-I.
+\]
 
-If the exact frozen point is clearly unstable, the required outcome is `HOLD — SPECTRALLY UNSTABLE FROZEN POINT`; no damping or retuning is allowed.
+Thus cumulative signed ion-heat transport and final free-energy optimization are affinely equivalent for every horizon and have identical optimizer eigenspaces. The R1 finite-time objective-separation pilot is therefore blocked as structurally redundant, not because an unfavorable numerical effect was observed.
+
+R1 is retained as a no-go / structural-collapse baseline for the fidelity ladder.
+
+Canonical MASTER savepoint:
+
+`research/master/fusion_f1_4_marginal_structural_integration_freeze_0_1.md`
+
+## Immediate next task
+
+The next authorized task is
+
+**Fusion R1 Structural Redundancy & Fidelity-Breaking Literature Audit 0.1**
+
+in the Literature branch.
+
+Its purpose is to determine how the R1 structural-collapse result sits in the gyrofluid/gyrokinetic literature and which physically justified additions alter the free-energy balance through independent supply channels and/or positive dissipation. The audit must not select models because they are expected to produce large optimizer separation.
 
 Canonical instruction:
 
-`research/master/prompts/fusion_numerical_spectral_qualification_gate_0_1.md`
+`research/master/prompts/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
 
-## Planned dependency chain
+## Revised dependency chain
 
 1. B5.5 heat-flux observable — **COMPLETE / FROZEN**;
-2. F1.2 admissible input geometry / cost — **COMPLETE / FROZEN**;
-3. F1.3 candidate / convention freeze — **COMPLETE / FROZEN**;
-4. F1.4 numerical / spectral qualification — **READY**;
-5. targeted exact-question Fusion literature positioning — blocked pending F1.4/regime acceptance;
-6. pilot specification;
-7. MASTER pilot freeze and one-shot execution;
-8. result integration/freeze;
-9. later FLR/GK fidelity progression based on physical/structural validity, not effect size.
+2. F1.2 input geometry / cost — **COMPLETE / FROZEN**;
+3. F1.3 candidate / convention — **COMPLETE / FROZEN**;
+4. F1.4 numerical / spectral qualification — **COMPLETE / MARGINAL / INTEGRATED**;
+5. R1 structural affine-equivalence consequence — **FROZEN / R1 PILOT BLOCKED**;
+6. targeted structural-redundancy / fidelity-breaking literature audit — **READY**;
+7. MASTER higher-fidelity gate selection from physics/balance completeness;
+8. only then higher-fidelity candidate derivation/qualification;
+9. finite-time execution only after a later pre-effect pilot freeze.
 
 ## Other branch states
 
 - CORE: `STABLE / PARKED`
+- Fusion: `WAIT LITERATURE AUDIT`
+- Literature: `ACTIVE NEXT HANDOFF`
 - MODES: `PARKED / conditional Fusion companion`
 - CONT: `PARKED`
 - CASCADE: `PARKED`
 - Neuro: frozen first result; extensions parked
 - Climate: A/B frozen; no B repair or third-candidate rescue lineage
-- Literature: no active Fusion task until F1.4 returns and MASTER accepts the spectral regime
 - Manuscript/submission: parked
 - Power Grids: `PROTECTED`
 - Photonics/Waves: `PROTECTED`
-- Fusion: `F1.4 NUMERICAL / SPECTRAL QUALIFICATION READY — AWAIT GO`
 
 ## Parallelism decision
 
-No parallel science is opened. MODES remains conditional on a later high-dimensional Fusion representation problem; CONT remains parked. The frozen R1 parameter point now exists, but continuation is not opened before the base candidate passes or is explicitly accepted after spectral qualification.
+No additional scientific branch is opened in parallel. MODES remains conditional on a later high-dimensional representation issue. CONT remains parked despite the existence of a frozen R1 point because continuation cannot resolve the exact one-channel balance equivalence and would be premature before the fidelity audit.
 
 ## Branch-independent / branch-dependent distinction
 
-Branch-independent methodology remains
+Branch-independent CORE balance identity supplies the affine-equivalence criterion when `D=0`, `B=I`, `R_in=M`, and the Hermitian injection is exhausted by one physical channel.
 
-\[
-\mathfrak C=(A,M,Q,B,R_{\rm in}).
-\]
-
-Fusion branch-dependent semantics and the exact reduced candidate/conventions are now frozen through F1.3. Only numerical/spectral qualification remains before any literature/pilot progression.
+Fusion branch-dependent content is the R1 realization of those conditions: the physical ion-heat channel, adiabatic-electron closure, full-state input geometry, collisionless balance and marginal CBC-projected point.
 
 ## Protected rollback chain
 
@@ -153,17 +135,19 @@ All first-paper savepoints remain protected. Post-paper savepoints now include:
 1. Post-Paper Scientific Roadmap Gate 0.1;
 2. Fusion B5.5 Integration Freeze 0.1;
 3. Fusion F1.2 Input Geometry / Input-Cost Integration Freeze 0.1;
-4. Fusion F1.3 Candidate / Convention Integration Freeze 0.1.
+4. Fusion F1.3 Candidate / Convention Integration Freeze 0.1;
+5. Fusion F1.4 Marginal / Structural Integration Freeze 0.1.
 
 ## Decision record
 
 - base through DEC-443;
 - Addendum 0.1 through DEC-486;
 - Addendum 0.2 through DEC-502;
-- Addendum 0.3 through DEC-510.
+- Addendum 0.3 through DEC-510;
+- Addendum 0.4 through DEC-520.
 
 ## Current next action
 
-In `60 – FUSION – Gyrofluid/Gyrokinetic Transport`, issue bare `GO`. The branch must read `research/fusion/STATUS.md` and execute only `research/master/prompts/fusion_numerical_spectral_qualification_gate_0_1.md`.
+In `80 – LIT – Literatur & Lernpfad`, issue bare `GO`. The branch must read `research/literature/STATUS.md` and execute only `research/master/prompts/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`.
 
-No finite-time effect inspection, parameter rescue, FLR/GK extension, literature audit or parallel branch work is authorized before F1.4 returns.
+No R1 finite-time optimizer calculation, parameter rescue, FLR/GK execution, MODES/CONT/CASCADE work, protected collaboration work or Paper-1 submission reactivation is authorized before the literature audit returns.
