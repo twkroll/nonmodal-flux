@@ -1,56 +1,65 @@
 # Literature Branch Status
 
-**Last updated:** 2026-09-03  
+**Last updated:** 2026-09-05  
 **Branch:** `main`
 
 ## Current state
 
-The Plasma/D10-ZF Pilot-0.2 P2-A literature-positioning audit remains complete and frozen as prior context.
+The earlier Plasma and Cross-Domain application literature audits remain complete and frozen as prior context.
 
-`Cross-Domain Application Literature Positioning Audit 0.1` has now been executed exactly under the committed MASTER instruction for the two newly frozen application results:
+A new post-paper Fusion literature task has now been explicitly released by MASTER after Fusion F1.4 returned a marginal but algebraically qualified R1 point and MASTER froze the corresponding structural consequence.
+
+## Frozen Fusion context
+
+The qualified R1 candidate is the anisotropic-ZLR four-moment minimal-curvature branch at the single pre-effect CBC-projected point. F1.4 found four distinct purely imaginary eigenvalues and therefore a marginal spectrum, with all algebraic/free-energy/physical-channel checks passing.
+
+MASTER additionally applied the already-frozen CORE balance to the frozen R1 objects. Because
 
 \[
-\boxed{\text{Neuro Pilot 0.1 = NEURO-STRONG}},
+\widetilde A^\dagger M_k+M_k\widetilde A
+=2\frac{R_0}{L_T}\widehat Q_q,
+\qquad
+B=I_4,
+\qquad
+R_{\rm in}=M_k,
 \]
+
+with no dissipation term, the cumulative heat operator and final free-energy operator satisfy
 
 \[
-\boxed{\text{Climate/Ocean Pilot 0.1 = CLIM-WEAK}}.
+2\frac{R_0}{L_T}K_q(T)=\mathcal E_M(T)-I.
 \]
 
-No new theory, numerical execution, parameter search or pilot retuning was performed.
+Thus the R1 cumulative ion-heat and final free-energy optimization problems are affinely equivalent at every horizon. R1 is now a frozen structural-collapse/no-go control rather than an objective-separation pilot candidate.
 
-Canonical result:
+Canonical MASTER integration freeze:
 
-`research/literature/cross_domain_application_literature_positioning_audit_0_1.md`
-
-The targeted audit found no `SAME` hit for either complete frozen application result. This is not treated as proof of novelty. Neuro remains positionable as a narrowly framed strong application/methodological comparison against substantial adjacent prior art. Climate/Ocean remains a weak, robust contrast case in a dense singular-vector/nonmodal/heat-transport prior-art field.
+`research/master/fusion_f1_4_marginal_structural_integration_freeze_0_1.md`
 
 ## Active instruction
 
-**Status:** `EXECUTION COMPLETE — RETURN TO MASTER FOR INTEGRATION`
+**Status:** `FUSION R1 STRUCTURAL REDUNDANCY & FIDELITY-BREAKING LITERATURE AUDIT 0.1 READY — AWAIT GO`
 
-No new literature task is authorized from this branch status. MASTER must integrate the committed result and open any subsequent gate explicitly.
+**Next instruction:**
 
-## Completed instruction
+`research/master/prompts/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
 
-`research/master/prompts/cross_domain_application_literature_positioning_audit_0_1.md`
+On a bare `GO`, first read this STATUS and execute only that committed instruction.
 
-## Required output
+## Scope
 
-Completed and committed:
+Position the exact frozen R1 structural-collapse result against gyrofluid/gyrokinetic free-energy and transport literature, then identify which physically motivated fidelity additions alter the balance by adding independent supply channels and/or positive dissipation. The recommendation must be based on balance completeness and physical credibility, not expected optimizer-separation magnitude.
 
-- `research/literature/cross_domain_application_literature_positioning_audit_0_1.md`
-- this updated `research/literature/STATUS.md`
+## Forbidden
 
-## Recommended MASTER handoff
+Do not perform finite-time objective calculations, model/parameter scans, effect-guided model selection, R1 retuning, FLR/GK execution, new general theory, or Paper-1 modification. Do not claim novelty from absence of a `SAME` source.
 
-The audit recommends a claim-integration/manuscript-positioning freeze that combines the already completed Plasma literature positioning with the new Neuro/Climate audit. This recommendation does not itself authorize a new branch or new calculations.
+## Required return
 
-## Canonical authority
+Create and commit:
 
-- `research/master/cross_domain_result_integration_freeze_0_1.md`
-- `research/master/prompts/cross_domain_application_literature_positioning_audit_0_1.md`
-- `research/master/prompt_handoff_protocol_0_1.md`
-- `research/literature/cross_domain_application_literature_positioning_audit_0_1.md`
+`research/literature/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
 
-**STOP.**
+Update this STATUS in the same work package, report canonical path/full commit/CI if applicable, then:
+
+**STOP / RETURN TO MASTER.**
