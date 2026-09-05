@@ -7,13 +7,9 @@
 
 The earlier Plasma and Cross-Domain application literature audits remain complete and frozen as prior context.
 
-A new post-paper Fusion literature task has now been explicitly released by MASTER after Fusion F1.4 returned a marginal but algebraically qualified R1 point and MASTER froze the corresponding structural consequence.
+`Fusion R1 Structural Redundancy & Fidelity-Breaking Literature Audit 0.1` has now been completed under the committed MASTER instruction.
 
-## Frozen Fusion context
-
-The qualified R1 candidate is the anisotropic-ZLR four-moment minimal-curvature branch at the single pre-effect CBC-projected point. F1.4 found four distinct purely imaginary eigenvalues and therefore a marginal spectrum, with all algebraic/free-energy/physical-channel checks passing.
-
-MASTER additionally applied the already-frozen CORE balance to the frozen R1 objects. Because
+The audit used the frozen Fusion R1 structural control:
 
 \[
 \widetilde A^\dagger M_k+M_k\widetilde A
@@ -24,42 +20,56 @@ B=I_4,
 R_{\rm in}=M_k,
 \]
 
-with no dissipation term, the cumulative heat operator and final free-energy operator satisfy
+with no dissipation term, implying
 
 \[
 2\frac{R_0}{L_T}K_q(T)=\mathcal E_M(T)-I.
 \]
 
-Thus the R1 cumulative ion-heat and final free-energy optimization problems are affinely equivalent at every horizon. R1 is now a frozen structural-collapse/no-go control rather than an objective-separation pilot candidate.
+## Completed audit verdict
 
-Canonical MASTER integration freeze:
+The targeted literature audit found no `SAME` source explicitly stating the same finite-horizon free-energy-optimal / cumulative-ion-heat-optimal affine no-go. This absence is not treated as proof of novelty.
 
-`research/master/fusion_f1_4_marginal_structural_integration_freeze_0_1.md`
+The strongest prior art is `CLOSE`: standard gyrokinetic free-energy balances explicitly resolve gradient-driven free-energy injection into species particle- and heat-flux work and collisional entropy production. In the single-kinetic-ion / adiabatic-electron ITG limit, the density-gradient contribution to free-energy input is known to vanish by quasineutrality, making the frozen R1 one-channel structure a physically recognizable limiting case.
 
-## Active instruction
+The audit therefore positions the R1 collapse as an explicit optimal-control consequence of a standard one-channel gyrokinetic free-energy-balance limit, not as a new free-energy theorem.
 
-**Status:** `FUSION R1 STRUCTURAL REDUNDANCY & FIDELITY-BREAKING LITERATURE AUDIT 0.1 READY — AWAIT GO`
+Physics-first fidelity conclusions:
 
-**Next instruction:**
+- physical collisions introduce a positive entropy/free-energy sink and are sufficient in principle to remove the exact two-operator affine identity;
+- nonadiabatic/bounce-averaged electrons introduce an independent electron free-energy drive and are sufficient in principle when that drive is nonzero;
+- conservative FLR corrections alone do not generically add an independent supply or sink and must not be promoted as a redundancy-breaking mechanism;
+- collisionless phase mixing is reversible free-energy redistribution in the fully resolved kinetic system; a finite-dimensional Landau-fluid closure can act as a retained-state sink only when its balance and sign are explicitly verified.
 
-`research/master/prompts/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
+Recommended next MASTER action, if a new Fusion gate is opened, is a **balance-complete two-species local-gyrokinetic specification gate** with finite ion FLR, nonadiabatic electrons, physically separated species particle/heat channels, and a physical collision treatment fixed before any finite-time objective inspection. This is a recommendation only and does not authorize execution.
 
-On a bare `GO`, first read this STATUS and execute only that committed instruction.
-
-## Scope
-
-Position the exact frozen R1 structural-collapse result against gyrofluid/gyrokinetic free-energy and transport literature, then identify which physically motivated fidelity additions alter the balance by adding independent supply channels and/or positive dissipation. The recommendation must be based on balance completeness and physical credibility, not expected optimizer-separation magnitude.
-
-## Forbidden
-
-Do not perform finite-time objective calculations, model/parameter scans, effect-guided model selection, R1 retuning, FLR/GK execution, new general theory, or Paper-1 modification. Do not claim novelty from absence of a `SAME` source.
-
-## Required return
-
-Create and commit:
+Canonical result:
 
 `research/literature/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
 
-Update this STATUS in the same work package, report canonical path/full commit/CI if applicable, then:
+Report creation commit:
+
+`d63439691ff44444d66e721f215da74ec3a22a79`
+
+## Active instruction
+
+**Status:** `EXECUTION COMPLETE — RETURN TO MASTER FOR INTEGRATION`
+
+No new literature or Fusion task is authorized from this branch status. MASTER must integrate the committed result and explicitly open any subsequent gate.
+
+## Completed instruction
+
+`research/master/prompts/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
+
+## Canonical authority
+
+- `research/master/fusion_b5_5_heat_flux_observable_integration_freeze_0_1.md`
+- `research/master/fusion_f1_2_input_geometry_integration_freeze_0_1.md`
+- `research/master/fusion_f1_3_candidate_convention_integration_freeze_0_1.md`
+- `research/fusion/fusion_numerical_spectral_qualification_gate_0_1.md`
+- `research/master/fusion_f1_4_marginal_structural_integration_freeze_0_1.md`
+- `research/core_mathematical_freeze_0_1.md`
+- `research/master/prompts/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
+- `research/literature/fusion_r1_structural_redundancy_fidelity_breaking_literature_audit_0_1.md`
 
 **STOP / RETURN TO MASTER.**
