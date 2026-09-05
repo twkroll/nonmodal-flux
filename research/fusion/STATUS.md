@@ -1,6 +1,6 @@
 # Fusion Branch Status
 
-**Last updated:** 2026-09-04  
+**Last updated:** 2026-09-05  
 **Branch:** `main`
 
 ## Current state
@@ -13,9 +13,9 @@ The active post-paper program remains
 
 The first-paper scientific content remains frozen and the submission track remains parked.
 
-B5.5, F1.2 and F1.3 are complete and MASTER-integrated.
+B5.5, F1.2 and F1.3 are complete and MASTER-integrated. F1.4 numerical/spectral qualification is now complete in this branch.
 
-## Frozen F1.3 candidate / convention
+## Frozen F1.3 candidate
 
 Primary reduced candidate:
 
@@ -23,19 +23,21 @@ Primary reduced candidate:
 \boxed{\text{anisotropic-ZLR four-moment R1 minimal-curvature branch}}
 \]
 
-with the slab R1 generator retained only as the exact `omega_d -> 0` analytic/limiting control.
+with slab retained only as the exact `omega_d -> 0` analytic control.
 
-Frozen state and closure:
+Frozen point:
 
 \[
-z_k=(N,U,P_\parallel,P_\perp)^T,
-\qquad
-\Phi=\mathcal C_kN,
-\qquad
-\mathcal C_k=(\tau_i+k_\perp^2\rho_i^2)^{-1}.
+\tau_i=1,
+\quad R_0/L_n=2.2,
+\quad R_0/L_T=6.9,
+\quad q=1.4,
+\quad k_x\rho_i=0,
+\quad k_y\rho_i=0.3,
+\quad \tau_{\rm ref}=R_0/c_s.
 \]
 
-Frozen physical objects:
+Frozen physical/input objects remain
 
 \[
 M_k=M_k^\dagger\succ0,
@@ -47,62 +49,64 @@ B=I_4,
 R_{\rm in}=M_k.
 \]
 
-Frozen CBC-projected R1 point:
+No artificial damping or spectral rescue is allowed.
+
+## F1.4 qualification result
+
+Canonical result:
+
+`research/fusion/fusion_numerical_spectral_qualification_gate_0_1.md`
+
+Transparent single-point reproduction code:
+
+`research/fusion/fusion_numerical_spectral_qualification_0_1.py`
+
+The exact frozen dimensionless matrix passes all required algebraic and physical reconstruction checks:
+
+- `M_k` Hermitian positive definite;
+- `Q_q` Hermitian, rank 2, signature `(1,1,2)`;
+- `rank(B)=4`, `R_in=M_k` positive definite;
+- free-energy balance residual at roundoff;
+- source-free minimal-curvature/parallel part `M_k`-skew-adjoint at roundoff;
+- deterministic heat-flux cross-phase reconstruction at roundoff;
+- coordinate congruence verified;
+- implementation conditioning acceptable for the 4x4 block.
+
+The complete dimensionless spectrum is
 
 \[
-\boxed{
-\tau_i=1,
-\quad R_0/L_n=2.2,
-\quad R_0/L_T=6.9,
-\quad q=1.4,
-\quad k_x\rho_i=0,
-\quad k_y\rho_i=0.3,
-\quad \tau_{\rm ref}=R_0/c_s.
-}
+\lambda\tau_{\rm ref}
+\approx
+\{-3.592939609690i,\,-1.563190668779i,\,-0.276482492169i,\,+0.076649467886i\}.
 \]
 
-No artificial damping, viscosity/diffusion, Landau-fluid term, FLR/R2, kinetic electrons, six-moment GEM or GENE layer is included. The frozen point may not be retuned to rescue its spectrum or change any later effect.
+With scale-aware tolerance
 
-Canonical F1.3 result:
+\[
+\varepsilon_{\rm spec}=1.0850\times10^{-13},
+\]
 
-`research/fusion/fusion_candidate_convention_freeze_0_1.md`
+the computed spectral abscissa is
 
-MASTER F1.3 integration freeze:
+\[
+\alpha(\widetilde A)=7.34\times10^{-17},
+\]
 
-`research/master/fusion_f1_3_candidate_convention_integration_freeze_0_1.md`
+and an independent exact-rational/high-precision reproduction confirms four distinct purely imaginary eigenvalues.
 
-F1.3 branch commit `956115d805bd195148bfb3071449a2fabb606ea2`; Python CI #323 = `SUCCESS`.
+Therefore the frozen point is **marginal**, not asymptotically stable and not clearly unstable.
 
 ## Active instruction
 
-**Status:** `FUSION F1.4 NUMERICAL / SPECTRAL QUALIFICATION READY — AWAIT GO`
+**Status:** `F1.4 HOLD — MARGINAL SPECTRUM — RETURN TO MASTER`
 
-**Next instruction:**
+**Next instruction:** none in this branch.
 
-`research/master/prompts/fusion_numerical_spectral_qualification_gate_0_1.md`
+A bare `GO` must not open a literature audit, pilot specification, finite-time objective calculation or any new Fusion gate while this status remains `RETURN TO MASTER`. MASTER must explicitly decide whether the marginal conservative regime is scientifically acceptable and commit any later handoff.
 
-On a bare `GO`, first read this STATUS and execute only that committed instruction.
+## Forbidden until MASTER returns a new committed handoff
 
-## F1.4 scope
-
-Reconstruct exactly the frozen single-point minimal-curvature R1 matrices and qualify algebraic identities, physical heat-channel reconstruction, conditioning and the complete spectrum. No finite-time objective separation may be constructed or inspected.
-
-If the frozen point is clearly spectrally unstable, return `HOLD — SPECTRALLY UNSTABLE FROZEN POINT`; do not add damping or retune. MASTER will decide whether that spectral regime is scientifically acceptable.
-
-## Forbidden until F1.4 returns
-
-Do not compute finite-time energy/heat objective operators, cumulative extrema, optimizer directions/subspaces, principal angles, performance gaps, horizon scans or parameter scans. Do not change the frozen point or add spectral rescue. Do not restore FLR/GK fidelity or open MODES/CONT/CASCADE, Power Grid/Photonics work, or Paper-1 submission.
-
-## Expected return state
-
-One of:
-
-- `F1.4 PASS — SPECTRALLY STABLE / NUMERICALLY QUALIFIED — RETURN TO MASTER`;
-- `F1.4 HOLD — MARGINAL SPECTRUM — RETURN TO MASTER`;
-- `F1.4 HOLD — SPECTRALLY UNSTABLE FROZEN POINT — RETURN TO MASTER`;
-- `F1.4 FAIL — RETURN TO MASTER`.
-
-No branch-side next gate is self-authorized.
+Do not compute finite-time energy/heat objective operators, propagator/Gramian objectives, cumulative extrema, optimizer directions/subspaces, principal angles, performance gaps, horizon dependence, transient-growth curves or parameter scans. Do not retune the frozen point or add damping/collisions/closure terms to obtain stability. Do not restore FLR/R2, kinetic electrons, six-moment GEM or GENE. Do not open MODES/CONT/CASCADE, Power Grid/Photonics work, or modify the frozen first paper.
 
 ## Governance authority
 
@@ -111,6 +115,7 @@ No branch-side next gate is self-authorized.
 - `research/master/fusion_b5_5_heat_flux_observable_integration_freeze_0_1.md`
 - `research/master/fusion_f1_2_input_geometry_integration_freeze_0_1.md`
 - `research/master/fusion_f1_3_candidate_convention_integration_freeze_0_1.md`
+- `research/master/prompts/fusion_numerical_spectral_qualification_gate_0_1.md`
 - `research/master/prompt_handoff_protocol_0_1.md`
 
-**STOP / AWAIT GO.**
+**STOP / RETURN TO MASTER.**
