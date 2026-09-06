@@ -1,0 +1,104 @@
+{
+  "blocking_object": {
+    "description": "Frozen J0i uses local Omega_i(theta) while frozen Gamma0i uses b_i=(k_perp rho_i0)^2 with rho_i0=vTi/Omega_i(B0). These violate <J0i^2>_Maxwellian = Gamma0i except where B(theta)=B0.",
+    "frozen_reference_b_formula": "b_i_frozen(theta)=(k_perp(theta)*rho_i0)^2",
+    "master_decision_required": [
+      "Clarify/erratum Gamma0i to use b_i_local(theta) consistently with local Omega_i(theta) in J0i.",
+      "OR explicitly change J0i to a reference-B0 gyroaverage if that was intended; this would revise the F2.2/F2.5 local-FLR convention."
+    ],
+    "name": "ion FLR polarization convention",
+    "source_consistent_local_b_formula": "b_i_local(theta)=(k_perp(theta)*rho_i0)^2*(B0/B(theta))^2"
+  },
+  "date": "2026-09-06",
+  "gate": "Fusion F2.6 — Discrete Operator / Channel Algebraic Qualification Gate 0.1",
+  "levels": {
+    "K0": {
+      "C_QN_cond_diag": 16.1720011965242,
+      "J0_local_manufactured": {
+        "theta0": {
+          "Gamma0_frozen_reference_rho": 0.9157828330545033,
+          "Gamma0_local_exact": 0.8856850888548305,
+          "J0sq_quadrature": 0.8856850888548305,
+          "local_exact_minus_frozen": -0.030097744199672705,
+          "quadrature_minus_local_exact": 0.0,
+          "theta": 0.0
+        },
+        "theta_pi": {
+          "Gamma0_frozen_reference_rho": 0.575284326477433,
+          "Gamma0_local_exact": 0.6741214459594775,
+          "J0sq_quadrature": 0.6741214459371465,
+          "local_exact_minus_frozen": 0.09883711948204454,
+          "quadrature_minus_local_exact": -2.23310259173104e-11,
+          "theta": 3.141592653589793
+        }
+      },
+      "QN_random_relative_residual": 6.301477906886954e-17,
+      "bounce_lambda_hat_1": {
+        "averages": {
+          "B": {"abs_error": 1.3181677971374484e-12, "reference": 0.9224143402577325, "value": 0.9224143402564143},
+          "cos": {"abs_error": 8.290090836027275e-12, "reference": 0.48805165037148357, "value": 0.48805165037977366},
+          "one": {"abs_error": 0.0, "reference": 1.0, "value": 1.0}
+        },
+        "denominator_relative_error": 1.7017879673734954e-11
+      },
+      "dimensions": {"Ne": 432, "Ni": 9088, "Ntheta": 71},
+      "ion_moment_max_abs_error": {"density": 3.3306690738754696e-16, "energy": 3.6193270602780103e-14, "heat_weight": 3.708144902248023e-14},
+      "max_kperp_rhoe_nodes": 0.03736662628435615,
+      "provisional_H_cholesky_min_pivot": 0.2241776448380592,
+      "provisional_M_hermiticity_probe": 1.4788323457668248e-16,
+      "provisional_Q_hermiticity": {"Gamma_e": 3.357602538536926e-16, "Gamma_i": 2.6544178748349906e-16, "q_e": 9.368373559652894e-16, "q_i": 5.677111578297928e-16},
+      "provisional_ambipolarity_abs": 6.938893903907228e-18,
+      "provisional_g_form_balance": {"abs_residual": 5.854691731421724e-18, "lhs": 0.0009269514687067311, "relative_residual": 6.316071476309437e-15, "rhs_collapsed": 0.0009269514687067252}
+    },
+    "K1": {
+      "C_QN_cond_diag": 21.63350602446941,
+      "J0_local_manufactured": {
+        "theta0": {"Gamma0_frozen_reference_rho": 0.9157828330545033, "Gamma0_local_exact": 0.8856850888548305, "J0sq_quadrature": 0.8856850888548304, "local_exact_minus_frozen": -0.030097744199672705, "quadrature_minus_local_exact": -1.1102230246251565e-16, "theta": 0.0},
+        "theta_pi": {"Gamma0_frozen_reference_rho": 0.575284326477433, "Gamma0_local_exact": 0.6741214459594775, "J0sq_quadrature": 0.674121445959478, "local_exact_minus_frozen": 0.09883711948204454, "quadrature_minus_local_exact": 4.440892098500626e-16, "theta": 3.141592653589793}
+      },
+      "QN_random_relative_residual": 7.512919637045093e-17,
+      "bounce_lambda_hat_1": {
+        "averages": {
+          "B": {"abs_error": 1.3360423878339134e-12, "reference": 0.9224143402577325, "value": 0.9224143402563965},
+          "cos": {"abs_error": 8.404721363319823e-12, "reference": 0.48805165037148357, "value": 0.4880516503798883},
+          "one": {"abs_error": 0.0, "reference": 1.0, "value": 1.0}
+        },
+        "denominator_relative_error": 1.724643348011016e-11
+      },
+      "dimensions": {"Ne": 1620, "Ni": 45792, "Ntheta": 159},
+      "ion_moment_max_abs_error": {"density": 6.661338147750939e-16, "energy": 2.6645352591003757e-15, "heat_weight": 1.9984014443252818e-15},
+      "max_kperp_rhoe_nodes": 0.062242853563263985,
+      "provisional_H_cholesky_min_pivot": 0.16977611328877726,
+      "provisional_M_hermiticity_probe": 1.5744538221476475e-15,
+      "provisional_Q_hermiticity": {"Gamma_e": 1.413475533776699e-16, "Gamma_i": 5.963459810011192e-16, "q_e": 1.4529629155019876e-15, "q_i": 8.54998888626909e-16},
+      "provisional_ambipolarity_abs": 1.0408340855860843e-17,
+      "provisional_g_form_balance": {"abs_residual": 4.87890977618477e-18, "lhs": -0.0006696886134055073, "relative_residual": 7.285340796485234e-15, "rhs_collapsed": -0.0006696886134055024}
+    },
+    "K2": {
+      "C_QN_cond_diag": 26.745388672792295,
+      "J0_local_manufactured": {
+        "theta0": {"Gamma0_frozen_reference_rho": 0.9157828330545033, "Gamma0_local_exact": 0.8856850888548305, "J0sq_quadrature": 0.8856850888548304, "local_exact_minus_frozen": -0.030097744199672705, "quadrature_minus_local_exact": -1.1102230246251565e-16, "theta": 0.0},
+        "theta_pi": {"Gamma0_frozen_reference_rho": 0.575284326477433, "Gamma0_local_exact": 0.6741214459594775, "J0sq_quadrature": 0.674121445959477, "local_exact_minus_frozen": 0.09883711948204454, "quadrature_minus_local_exact": -5.551115123125783e-16, "theta": 3.141592653589793}
+      },
+      "QN_random_relative_residual": 8.333742032987095e-17,
+      "bounce_lambda_hat_1": {
+        "averages": {
+          "B": {"abs_error": 1.3492540418269527e-12, "reference": 0.9224143402577325, "value": 0.9224143402563832},
+          "cos": {"abs_error": 8.487210934049472e-12, "reference": 0.48805165037148357, "value": 0.4880516503799708},
+          "one": {"abs_error": 0.0, "reference": 1.0, "value": 1.0}
+        },
+        "denominator_relative_error": 1.7423630973020976e-11
+      },
+      "dimensions": {"Ne": 4032, "Ni": 142848, "Ntheta": 279},
+      "ion_moment_max_abs_error": {"density": 3.3306690738754696e-16, "energy": 8.881784197001252e-16, "heat_weight": 1.3322676295501878e-15},
+      "max_kperp_rhoe_nodes": 0.08713026833178088,
+      "provisional_H_cholesky_min_pivot": 0.13662539889459352,
+      "provisional_M_hermiticity_probe": 2.019765833908712e-15,
+      "provisional_Q_hermiticity": {"Gamma_e": 8.821854713978451e-16, "Gamma_i": 8.821854713978449e-16, "q_e": 1.5248618910432362e-15, "q_i": 2.1308207159363712e-15},
+      "provisional_ambipolarity_abs": 2.7755575615628914e-17,
+      "provisional_g_form_balance": {"abs_residual": 8.998878031629687e-17, "lhs": 0.0003936989577195474, "relative_residual": 2.2857256426978056e-13, "rhs_collapsed": 0.0003936989577194574}
+    }
+  },
+  "no_spectral_work": true,
+  "verdict": "HOLD"
+}
