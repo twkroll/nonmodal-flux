@@ -15,7 +15,7 @@ The first-paper scientific content remains frozen and submission remains parked.
 
 B5.5, F1.2, F1.3, F1.4, the R1 literature audit, F2.1, F2.2, F2.3, F2.4 and F2.5 are complete and MASTER-integrated.
 
-F2.6 has returned `HOLD` before any spectral work.
+F2.6 `0_1` returned `HOLD` before any spectral work. MASTER has now resolved the single blocking ion-FLR convention and re-released F2.6 through a versioned resumption handoff.
 
 ## Frozen upstream lineage
 
@@ -33,71 +33,81 @@ with leading adiabatic passing electrons, the frozen circular `s-alpha` ballooni
 
 The F2.5 K0/K1/K2 discretization ladder remains frozen and may not be retuned.
 
-## F2.6 result
+## Historical F2.6 HOLD record
 
-Canonical report:
+Canonical HOLD report:
 
 `research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_1.md`
 
-Machine-readable diagnostics:
+Historical diagnostics:
 
 `research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_diagnostics_0_1.json`
 
-**Status:** `F2.6 HOLD — SPECIFIC DISCRETE ALGEBRA/IMPLEMENTATION DECISION REQUIRED — RETURN TO MASTER`
+The HOLD localized one conflict: local ion gyroaveraging with `Omega_i(theta)` had been paired with a reference-`B0` polarization argument.
 
-The blocker is a single ion-FLR convention conflict:
+F2.6 HOLD commit `ef5a20e728a5a6ca0dfb1cd2cd012f4003a4c0f1`; Python CI #385 = `SUCCESS`.
 
-- F2.2/F2.5 evaluate
-  \[
-  J_{0i}=J_0(k_\perp v_\perp/\Omega_i(\theta))
-  \]
-  with local `B(theta)`;
-- F2.3/F2.5 simultaneously use the reference gyroradius
-  \[
-  \rho_{i0}=v_{Ti}/\Omega_i(B_0)
-  \]
-  in
-  \[
-  b_i^{\rm frozen}=(k_\perp\rho_{i0})^2,
-  \qquad
-  \Gamma_{0i}=I_0(b_i)e^{-b_i}.
-  \]
+## MASTER ion-FLR erratum
 
-For the local `J0i`, the source-consistent Maxwellian identity instead requires
+Controlling clarification:
+
+`research/master/fusion_f2_6_ion_flr_convention_erratum_0_1.md`
+
+The reference normalization remains
+
+\[
+\rho_{i0}=v_{Ti}/\Omega_i(B_0),
+\qquad
+k_y\rho_{i0}=0.3.
+\]
+
+The already-frozen local gyroaverage remains
+
+\[
+J_{0i}=J_0\!\left(\frac{k_\perp v_\perp}{\Omega_i(\theta)}\right).
+\]
+
+The controlling polarization/free-energy convention is now
 
 \[
 \boxed{
-b_i^{\rm local}(\theta)
-=
-(k_\perp\rho_{i0})^2
-\left(\frac{B_0}{B(\theta)}\right)^2.
+ b_i(\theta)
+ =(k_\perp(\theta)\rho_{i0})^2
+ \left(\frac{B_0}{B(\theta)}\right)^2,
+\qquad
+\Gamma_{0i}=I_0(b_i)e^{-b_i}.
 }
 \]
 
-The discrepancy is not numerical: at `theta=0`, `<J0^2>=0.8856850888548` while frozen `Gamma0=0.9157828330545`; at `theta=pi`, `<J0^2>=0.6741214459595` while frozen `Gamma0=0.5752843264774`. K1/K2 reproduce the local-B Maxwellian values to machine precision.
+Equivalently, `rho_i(theta)=rho_i0 B0/B(theta)`. This is a narrow convention erratum only: F2.3 parameters, F2.4 input geometry and F2.5 K0/K1/K2 architecture remain unchanged.
 
-## MASTER decision required
-
-MASTER must explicitly clarify/erratum the ion polarization convention before F2.6 can resume.
-
-Preferred source-consistent option:
-
-\[
-b_i(\theta)=(k_\perp\rho_{i0})^2(B_0/B(\theta))^2
-\]
-
-while retaining the already frozen local `J0i`.
-
-Alternative: retain reference-`B0` `b_i` but revise `J0i` to use `Omega_i(B0)`. F2.6 is not authorized to choose between these by itself.
+Historical frozen files are not overwritten; the MASTER erratum supersedes only the inconsistent varying-`B` implementation reading of `b_i` for subsequent work.
 
 ## Active instruction
 
-**Next instruction:** none in this branch.
+**Status:** `FUSION F2.6 RESUMPTION AFTER ION-FLR ERRATUM READY — AWAIT GO`
 
-A bare `GO` must not resume F2.6 or open spectral/numerical qualification until MASTER commits an explicit FLR convention resolution and a new handoff.
+**Next instruction:**
 
-## Forbidden while HOLD remains
+`research/master/prompts/fusion_f2_6_resume_after_ion_flr_erratum_0_1.md`
 
-Do not inspect eigenvalues, growth rates, pseudospectra, eigenvectors, propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not change K0/K1/K2, F2.3, F2.4 or any other frozen branch object. Do not run GENE or add damping/collisions.
+On bare `GO`, first read this STATUS and execute only that committed instruction.
 
-**STOP / RETURN TO MASTER.**
+## F2.6 resumption scope
+
+On the unchanged K0/K1/K2 ladder, rebuild all FLR-dependent discrete objects with the local-B `b_i(theta)`, re-run the manufactured FLR identity and complete the original pre-spectral algebraic qualification: quasineutrality, `M_K>0`, `B_K=I`, `R_in,K=M_K`, physical-channel Hermiticity, ambipolarity, conservative phase-space adjoint/skew structure and the complete F2.1 discrete free-energy balance.
+
+Create versioned `0_2` result and diagnostic files; do not overwrite the historical HOLD files.
+
+## Forbidden until F2.6 returns again
+
+Do not inspect eigenvalues, growth rates, pseudospectra or eigenvectors. Do not construct propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not scan parameters or resolutions beyond K0/K1/K2, run GENE, add collisions/damping, retune F2.3, alter F2.4/F2.5, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
+
+## Governance authority
+
+- `research/master/fusion_f2_6_ion_flr_convention_erratum_0_1.md`
+- `research/master/prompts/fusion_f2_6_resume_after_ion_flr_erratum_0_1.md`
+- `research/master/fusion_f2_5_discretization_specification_integration_freeze_0_1.md`
+- `research/master/prompt_handoff_protocol_0_1.md`
+
+**STOP / AWAIT GO.**
