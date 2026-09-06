@@ -1,6 +1,6 @@
 # MASTER Project Status
 
-**Last updated:** 2026-09-05  
+**Last updated:** 2026-09-06  
 **Branch:** `main`
 
 ## Global scientific savepoints
@@ -18,7 +18,8 @@
 - Fusion F2.3 physical geometry/gradient/wavenumber point: **PASS / INTEGRATED / FROZEN**.
 - Fusion F2.4 kinetic input geometry / input cost: **PASS / INTEGRATED / FROZEN**.
 - Fusion F2.5 structure-preserving discretization / quadrature specification: **PASS / INTEGRATED / FROZEN**.
-- Fusion F2.5 Discretization-Specification Integration Freeze 0.1: **STABLE — F2.6 RELEASED**.
+- Fusion F2.6 `0_1`: **HOLD / MASTER-INTEGRATED AS DIAGNOSTIC RECORD**.
+- Fusion F2.6 Ion-FLR Convention Clarification / Erratum 0.1: **STABLE — F2.6 RESUMPTION RELEASED**.
 
 ## First-paper status
 
@@ -56,7 +57,7 @@ The continuous admissible input geometry remains
 
 ## Frozen F2.5 numerical architecture
 
-The numerical representation is frozen as
+The numerical representation remains frozen as
 
 \[
 \boxed{
@@ -66,25 +67,59 @@ The numerical representation is frozen as
 }
 \]
 
-with no artificial damping/filtering, exact finite-ion FLR, algebraic quasineutrality elimination, both ion velocity signs retained and no parity/transport-neutral pruning.
+with the unchanged predeclared K0/K1/K2 ladder and no artificial damping/filtering. No F2.5 basis, cutoff, quadrature or resolution was changed after F2.6 returned HOLD.
 
-The K0/K1/K2 refinement ladder is fixed before any F2-R spectral or finite-time inspection. The later metric must come directly from the positive Helmholtz functional and satisfy `M_K=M_K^dagger>0` without shifts or clipping. The later physical particle/ion-heat/electron-heat channels must be reconstructed from the frozen radial gyrocentre flux integrals using the same state space and quadratures.
+## F2.6 HOLD and ion-FLR erratum
 
-F2.5 branch commit `43de899b547b2ccc1d0c11ecb6788dfce6cb6b47`; Python CI #378 = `SUCCESS`.
+F2.6 `0_1` stopped before any spectrum because the manufactured ion-FLR check exposed an inconsistent pair of conventions: local `J0i` used `Omega_i(theta)`, while the polarization argument had been implemented with the reference `rho_i0=vTi/Omega_i(B0)` without the local field factor.
 
-Canonical MASTER savepoint:
+Historical HOLD record:
 
-`research/master/fusion_f2_5_discretization_specification_integration_freeze_0_1.md`
+- `research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_1.md`
+- `research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_diagnostics_0_1.json`
+
+F2.6 HOLD commit `ef5a20e728a5a6ca0dfb1cd2cd012f4003a4c0f1`; Python CI #385 = `SUCCESS`.
+
+MASTER resolved the blocker in
+
+`research/master/fusion_f2_6_ion_flr_convention_erratum_0_1.md`.
+
+The reference benchmark normalization remains
+
+\[
+\rho_{i0}=v_{Ti}/\Omega_i(B_0),
+\qquad
+k_y\rho_{i0}=0.3,
+\]
+
+and the local gyroaverage remains
+
+\[
+J_{0i}=J_0\!\left(k_\perp v_\perp/\Omega_i(\theta)\right).
+\]
+
+The controlling local ion-FLR polarization argument is now
+
+\[
+\boxed{
+ b_i(\theta)
+ =(k_\perp(\theta)\rho_{i0})^2\left(\frac{B_0}{B(\theta)}\right)^2,
+\qquad
+\Gamma_{0i}=I_0(b_i)e^{-b_i}.
+}
+\]
+
+This restores the intended Maxwellian relation `Gamma0i=<J0i^2>` while leaving the physical benchmark point and numerical architecture unchanged. The alternative of replacing the local gyroaverage by a reference-`B0` gyroaverage is rejected.
 
 ## Immediate next gate
 
-Fusion F2.6 — Discrete Generator / Helmholtz Metric / Physical Channel Reconstruction & Algebraic Balance Qualification Gate 0.1 is the only active scientific handoff.
+Fusion F2.6 resumes only through
 
-F2.6 must instantiate exactly K0/K1/K2, construct `A_K`, `M_K`, `Q_Gamma,K`, `Q_qi,K`, `Q_qe,K` and discrete quasineutrality from the already-frozen physical equations/quadratures, and test only structural algebra: quasineutrality, positivity, Hermiticity, input-cost inheritance, ambipolarity, conservative phase-space adjoint structure and the complete F2.1 balance. It may not inspect the spectrum or any finite-time objective.
+`research/master/prompts/fusion_f2_6_resume_after_ion_flr_erratum_0_1.md`.
 
-Canonical instruction:
+The resumed gate must rebuild all affected FLR-dependent discrete objects on the unchanged K0/K1/K2 ladder, create versioned `0_2` result/diagnostic files, and complete the pre-spectral algebraic qualification: quasineutrality, positive Helmholtz metric, input-cost inheritance, physical-channel Hermiticity, ambipolarity, conservative phase-space adjoint structure and the complete F2.1 balance.
 
-`research/master/prompts/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_1.md`
+No eigenvalue, growth-rate, pseudospectral, propagator, Gramian, optimizer or finite-time quantity is authorized.
 
 ## Planned dependency chain
 
@@ -94,16 +129,18 @@ Canonical instruction:
 4. F2.3 physical point — **COMPLETE / FROZEN**;
 5. F2.4 kinetic input geometry / input cost — **COMPLETE / FROZEN**;
 6. F2.5 discretization / quadrature specification — **COMPLETE / FROZEN**;
-7. F2.6 discrete operator/channel algebraic qualification — **READY**;
-8. later numerical/free-energy/spectral qualification;
-9. later pre-effect finite-time pilot specification/freeze;
-10. one-shot finite-time execution only after all preceding gates pass;
-11. fully kinetic/GENE-compatible reference validation through separately released gates.
+7. F2.6 `0_1` algebraic qualification — **HOLD / INTEGRATED**;
+8. ion-FLR convention erratum — **COMPLETE / STABLE**;
+9. F2.6 corrected `0_2` algebraic qualification — **READY**;
+10. numerical/free-energy/spectral qualification only after F2.6 PASS;
+11. later pre-effect finite-time pilot specification/freeze;
+12. one-shot finite-time execution only after all preceding gates pass;
+13. fully kinetic/GENE-compatible reference validation through separately released gates.
 
 ## Other branch states
 
 - CORE: `STABLE / PARKED`
-- Fusion: `F2.6 READY`
+- Fusion: `F2.6 RESUMPTION READY`
 - Literature: `WAIT`
 - MODES: `PARKED / conditional companion`
 - CONT: `PARKED`
@@ -116,7 +153,7 @@ Canonical instruction:
 
 ## Parallelism decision
 
-No parallel science is opened. F2.6 must establish a physically valid discrete operator/channel algebra before any spectrum is viewed. MODES remains conditional on a concrete representation/reduction issue after the high-dimensional operator is qualified; CONT remains premature without an authorized parameter family.
+No parallel science is opened. The corrected F2.6 algebraic gate must pass before any spectrum is viewed. MODES remains conditional on a concrete representation/reduction issue after a qualified high-dimensional operator exists; CONT remains premature without an authorized parameter family.
 
 ## Branch-independent / branch-dependent distinction
 
@@ -126,22 +163,24 @@ Branch-independent CORE methodology remains
 \mathfrak C=(A,M,\{Q_\alpha\},B,R_{\rm in}).
 \]
 
-Branch-dependent F2 content now includes the continuous kinetic state, Helmholtz metric, physical multichannel balance, toroidal geometry, one physical point, full reduced input geometry and a fixed structure-preserving numerical representation/refinement ladder. Actual discrete operators and their algebraic qualification remain the F2.6 task.
+Branch-dependent F2 content includes the continuous kinetic state, Helmholtz metric, physical multichannel balance, toroidal geometry, one physical point, full reduced input geometry, fixed structure-preserving numerical representation and now an explicit local-B ion-FLR convention. Actual qualified discrete operators remain the F2.6 task.
 
 ## Protected rollback chain
 
-All first-paper savepoints remain protected. The latest post-paper rollback point is
+All first-paper savepoints remain protected. The latest post-paper savepoint is
 
 \[
-\boxed{\text{Fusion F2.5 Discretization-Specification Integration Freeze 0.1}}.
+\boxed{\text{Fusion F2.6 Ion-FLR Convention Clarification / Erratum 0.1}}.
 \]
+
+The historical F2.6 HOLD and the F2.5 discretization integration freeze remain preserved audit/rollback points.
 
 ## Decision record
 
-Canonical continuation now reaches **DEC-580** in `research/master/decision_branch_log_addendum_0_10.md`.
+Canonical continuation now reaches **DEC-590** in `research/master/decision_branch_log_addendum_0_11.md`.
 
 ## Current next action
 
-In `60 – FUSION – Gyrofluid/Gyrokinetic Transport`, issue bare `GO`. The branch must read `research/fusion/STATUS.md` and execute only `research/master/prompts/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_1.md`.
+In `60 – FUSION – Gyrofluid/Gyrokinetic Transport`, issue bare `GO`. The branch must read `research/fusion/STATUS.md` and execute only `research/master/prompts/fusion_f2_6_resume_after_ion_flr_erratum_0_1.md`.
 
-No spectrum, finite-time effect inspection, parameter scan, GENE run, F2.3/F2.4/F2.5 change or parallel branch work is authorized before F2.6 returns.
+No spectrum, finite-time effect inspection, parameter scan, GENE run, F2.3/F2.4/F2.5 retuning or parallel branch work is authorized before F2.6 returns again.
