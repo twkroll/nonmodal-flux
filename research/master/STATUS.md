@@ -17,8 +17,9 @@ Post-paper Fusion lineage:
 - local-B Ion-FLR Erratum 0.1: `STABLE`;
 - F2.5R repaired `N_mu=(16,24,40)`: `PASS / MASTER-INTEGRATED / FROZEN`;
 - F2.6 `0_3`: `PASS / MASTER-INTEGRATED — DISCRETE OPERATOR/CHANNEL ALGEBRA QUALIFIED`;
-- F2.7 `0_1`: `HOLD — SPECTRALLY INDETERMINATE BECAUSE CANONICAL EXECUTABLE OPERATOR ARTIFACT IS MISSING`, MASTER-integrated;
-- Fusion F2.7 HOLD / Canonical Operator-Artifact Integration Freeze 0.1: `STABLE — F2.6A RELEASED`.
+- F2.7 `0_1`: `HOLD / MASTER-INTEGRATED — SPECTRALLY INDETERMINATE BECAUSE NO CANONICAL EXECUTABLE OPERATOR ARTIFACT EXISTS`;
+- F2.6A: `HOLD / MASTER-INTEGRATED — EXACT HISTORICAL OPERATOR EQUIVALENCE NOT ESTABLISHED`;
+- Fusion F2.6A Reproducibility HOLD Integration Freeze 0.1: `STABLE — F2.6B RELEASED`.
 
 ## Frozen F2-R structure
 
@@ -40,94 +41,109 @@ The F2.3 physical point, F2.4 input geometry and local-B ion-FLR convention rema
 \boxed{N_{\mu,K0}=16,\qquad N_{\mu,K1}=24,\qquad N_{\mu,K2}=40.}
 \]
 
-F2.6 `0_3` remains fully qualified. In particular, the complete discrete balance
+All other F2.5/F2.5R numerical objects remain frozen.
+
+F2.6 `0_3` remains a qualified historical algebraic result. In particular, its complete discrete balance
 
 \[
 A_K^\dagger M_K+M_KA_K
 =2\left(G_\Gamma Q_{\Gamma,K}+G_{T,i}Q_{q_i,K}+G_{T,e}Q_{q_e,K}\right)
 \]
 
-remains frozen on K0/K1/K2 with maximum reported relative residuals approximately `1.92e-14 / 3.15e-13 / 1.61e-13`.
+remains frozen with reported maximum relative residuals approximately `1.92e-14 / 3.15e-13 / 1.61e-13` on K0/K1/K2.
 
-## F2.7 HOLD integrated result
+## F2.6A HOLD integrated result
 
 Canonical result:
 
-`research/fusion/fusion_f2_7_numerical_spectral_qualification_gate_0_1.md`
+`research/fusion/fusion_f2_6a_canonical_operator_artifact_reproducibility_gate_0_1.md`
 
-Branch commit `e4453080cae805a4e50d019975f6722130e88903`; Python CI #419 = `SUCCESS`.
+Manifest:
 
-F2.7 ran no eigensolver and reports no eigenvalues or spectral abscissa. The blocker is exactly:
+`research/fusion/fusion_f2_6a_canonical_operator_artifact_reproducibility_manifest_0_1.json`
 
-\[
-\boxed{\text{no canonical executable/serialized F2.6 `0_3` realization of }(E_K,F_K).}
-\]
+Branch commit `1ac71cd2ad0d5e9c7388c5b21229629484323aa2`; Python CI #426 = `SUCCESS`.
 
-The repository contains the qualified report/diagnostics but not a versioned artifact sufficient to reproduce without new choices
+F2.6A established that the canonical repository and F2.6 `0_3` CI provenance do not contain a source-level builder or serialized factor set sufficient to prove exact identity of
 
 \[
 E_Kx,\qquad F_Kx,\qquad E_K^{-1}x
 \]
 
-for K0/K1/K2. The current point is therefore **spectrally indeterminate**, not established marginal, stable or unstable.
+for the historical qualified realization. The F2.6 `0_3` CI run #412 published no artifacts. The report/diagnostics constrain the implementation but do not uniquely determine coefficient-level weak/SBP streaming-mirror assembly, trapped-electron orbit maps, complete `D/S/C/R` factors/layouts or the full source-level `F_K` action.
+
+F2.6A correctly created no substitute operator. F2.7 therefore remains spectrally indeterminate and blocked.
 
 MASTER savepoint:
 
-`research/master/fusion_f2_7_hold_operator_artifact_integration_freeze_0_1.md`
+`research/master/fusion_f2_6a_reproducibility_hold_integration_freeze_0_1.md`
+
+## MASTER provenance decision
+
+MASTER selects the provenance-clean new-version path:
+
+\[
+\boxed{\text{F2.6B — Source-Level Matrix-Free Operator Implementation Freeze / Algebraic Requalification Gate 0.1}.}
+\]
+
+F2.6B may make only previously implicit coefficient-level implementation choices explicit and source-controlled. It must preserve all frozen F2.1–F2.5R physics/numerics and implement deterministic matrix-free interfaces for `apply_E`, `apply_F` and `solve_E` on K0/K1/K2.
+
+It must then rerun the complete F2.6 algebraic qualification on that new versioned implementation. It may not claim exact historical source identity with F2.6 `0_3`.
 
 ## Current dependency chain
 
 1. F2.1–F2.4 — **COMPLETE / FROZEN**;
 2. historical F2.5/F2.6 failure lineage — **PRESERVED AUDIT RECORDS**;
 3. F2.5R quadrature repair — **PASS / FROZEN**;
-4. F2.6 `0_3` algebraic qualification — **PASS / FROZEN**;
+4. F2.6 `0_3` algebraic qualification — **PASS / HISTORICAL QUALIFIED RESULT**;
 5. F2.7 `0_1` spectral qualification — **HOLD / MASTER-INTEGRATED**;
-6. F2.6A canonical matrix-free operator artifact / reproducibility freeze — **READY**;
-7. only after F2.6A PASS and MASTER integration may F2.7 be rerun;
-8. finite-time pilot work remains blocked until a later explicit spectral-regime acceptance and pilot freeze.
+6. F2.6A exact-artifact reproducibility gate — **HOLD / MASTER-INTEGRATED**;
+7. F2.6B source-level operator implementation + algebraic requalification — **READY**;
+8. only after F2.6B PASS + MASTER integration may a new versioned F2.7 rerun be released;
+9. finite-time pilot work remains blocked until later explicit spectral-regime acceptance and pilot freeze.
 
-## F2.6A repair boundary
+## F2.6B boundary
 
-F2.6A may only publish/freeze a versioned executable matrix-free realization or equivalent serialized factor set for the already-qualified F2.6 `0_3` maps `E_K`, `F_K`, `E_K^{-1}` and verify that it reproduces the frozen F2.6 structural diagnostics.
+Authorized: explicit source-level state layout/indexing, weak/SBP split/skew assembly, trapped-electron orbit projections, `D/S/C/R` constructors, drift/gradient-drive `F_K` action, physical-channel implementation, stable `apply_E/apply_F/solve_E` interfaces, regression metadata and full algebraic requalification.
 
-If exact equivalence cannot be established without introducing new implementation choices, F2.6A must return HOLD. It may not canonize a replacement operator.
+Not authorized: changes to F2.1–F2.5R; eigenvalues/Ritz/spectral abscissa/pseudospectrum; propagators/Gramians/cumulative objectives; optimizers/angles/gaps; physical parameter scans; resolutions outside frozen K0/K1/K2; GENE; damping/collisions; retuning.
 
-No eigensolver, Ritz pair, spectral abscissa, growth rate, pseudospectrum, propagator, Gramian, cumulative objective, optimizer, angle, performance gap, physical-parameter scan, GENE, damping/collision or retuning work is authorized.
+If a source-level choice remains genuinely underdetermined by frozen physics/structure-preserving criteria, F2.6B must return HOLD rather than use desired spectral/effect behavior to choose it.
 
 ## Parallelism / parked branches
 
 Fusion is the only active scientific branch. Literature, MODES, CONT, CASCADE, CORE 0.2, Neuro extensions and higher-fidelity Climate remain parked. Power Grids and Photonics/Waves remain `PROTECTED`. Paper-1 submission remains parked.
 
-No parallel scientific branch is opened during F2.6A. MODES remains conditional on a genuine representation/reduction issue after the canonical operator artifact exists; CONT remains premature without an authorized physical parameter family.
+No parallel science is opened during F2.6B. The present blocker is source-level numerical provenance/reproducibility, not a reason to open MODES or CONT.
 
 ## Decision record
 
-Canonical continuation now reaches **DEC-630** in `research/master/decision_branch_log_addendum_0_15.md`.
+Canonical continuation now reaches **DEC-640** in `research/master/decision_branch_log_addendum_0_16.md`.
 
 ## Rollback points
 
 The latest protected post-paper savepoint is
 
 \[
-\boxed{\text{Fusion F2.7 HOLD / Canonical Operator-Artifact Integration Freeze 0.1}}.
+\boxed{\text{Fusion F2.6A Reproducibility HOLD Integration Freeze 0.1}}.
 \]
 
-All prior F2.5/F2.6/F2.5R savepoints remain preserved.
+F2.7 HOLD, F2.6 `0_3`, F2.5R and all historical F2.5/F2.6 savepoints remain preserved.
 
 ## Active instruction
 
-**Status:** `FUSION F2.6A CANONICAL MATRIX-FREE OPERATOR ARTIFACT / REPRODUCIBILITY FREEZE READY — AWAIT FUSION GO`
+**Status:** `FUSION F2.6B SOURCE-LEVEL MATRIX-FREE OPERATOR IMPLEMENTATION / ALGEBRAIC REQUALIFICATION READY — AWAIT FUSION GO`
 
 **Selected branch:** `60 – FUSION – Gyrofluid/Gyrokinetic Transport`
 
 **Next instruction:**
 
-`research/master/prompts/fusion_f2_6a_canonical_operator_artifact_reproducibility_gate_0_1.md`
+`research/master/prompts/fusion_f2_6b_source_level_operator_implementation_requalification_gate_0_1.md`
 
 Execute only in the Fusion branch via bare `GO` under the shared handoff protocol.
 
 ## STOP boundary
 
-Do not resume F2.7 directly, reconstruct a substitute operator for spectral work, inspect eigenvalues or finite-time effects, retune F2.3/F2.4/F2.5R, run GENE or open parked/protected branches.
+Do not resume F2.7 directly, inspect spectra or finite-time effects, claim unverifiable historical source identity, retune F2.1–F2.5R, run GENE or open parked/protected branches.
 
-**STOP — AWAIT FUSION F2.6A `GO`.**
+**STOP — AWAIT FUSION F2.6B `GO`.**
