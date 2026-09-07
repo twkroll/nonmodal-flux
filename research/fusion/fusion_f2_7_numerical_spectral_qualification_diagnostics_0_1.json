@@ -1,0 +1,32 @@
+{
+  "gate": "Fusion F2.7 — Numerical / Spectral Qualification Gate 0.1",
+  "date": "2026-09-07",
+  "verdict": "HOLD",
+  "classification": "spectrally indeterminate",
+  "blocking_object": {
+    "name": "canonical executable/serialized F2.6 0_3 operator realization",
+    "description": "The repository contains the F2.6 0_3 report and diagnostics but no versioned executable or serialized factor set sufficient to reproduce the exact qualified E_K and F_K maps on K0/K1/K2 without new implementation choices.",
+    "required_master_action": "Publish and freeze the exact F2.6 0_3 matrix-free operator implementation or equivalent serialized factors and verify that it reproduces the already-qualified F2.6 0_3 structural diagnostics."
+  },
+  "frozen_ladder": {
+    "K0": {"Nmu": 16, "Ni": 18176, "Ne": 432},
+    "K1": {"Nmu": 24, "Ni": 91584, "Ne": 1620},
+    "K2": {"Nmu": 40, "Ni": 357120, "Ne": 4032}
+  },
+  "available_canonical_inputs": [
+    "research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_3.md",
+    "research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_diagnostics_0_3.json",
+    "research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_0_2.py",
+    "research/fusion/fusion_f2_5r_ion_flr_quadrature_repair_0_1.py"
+  ],
+  "missing_canonical_input": "versioned F2.6 0_3 executable operator implementation or equivalent serialized E/F factorization",
+  "ritz_pairs_requested": 0,
+  "ritz_pairs_converged": 0,
+  "eigenvalues_reported": [],
+  "spectral_abscissa": null,
+  "solver_runs": [],
+  "reason_no_solver_run": "Running an eigensolver on a newly reconstructed operator would violate the requirement to use the already-qualified frozen operator.",
+  "no_finite_time_work": true,
+  "no_parameter_scan": true,
+  "no_operator_reimplementation": true
+}

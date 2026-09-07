@@ -15,9 +15,11 @@ The first-paper scientific content remains frozen and submission remains parked.
 
 B5.5, F1.2, F1.3, F1.4, the R1 literature audit and F2.1–F2.4 remain protected historical savepoints. Historical F2.5, F2.6 `0_1` HOLD and F2.6 `0_2` FAIL remain immutable audit records.
 
-MASTER has integrated F2.5R and F2.6 `0_3`. The repaired discrete operator/channel algebra is now frozen as qualified, and F2.7 is released solely for numerical/spectral-regime qualification.
+MASTER integrated F2.5R and F2.6 `0_3`; their repaired discrete algebra remains qualified.
 
-## Controlling physical / FLR / numerical objects
+F2.7 has returned HOLD before any eigensolver run because the exact qualified F2.6 `0_3` operator is not canonically available as an executable/serialized numerical artifact.
+
+## Controlling physical / numerical objects
 
 The F2-R physical model, F2.3 point and F2.4 input geometry remain frozen.
 
@@ -37,67 +39,76 @@ b_i(\theta)
 }
 \]
 
-The controlling repaired magnetic-moment ladder is
+The controlling repaired magnetic-moment ladder remains
 
 \[
 \boxed{N_{\mu,K0}=16,\qquad N_{\mu,K1}=24,\qquad N_{\mu,K2}=40.}
 \]
 
-All other F2.5 numerical objects remain unchanged.
+All other F2.5 objects remain unchanged.
 
-## Frozen F2.6 0_3 algebraic qualification
+## Frozen F2.6 `0_3` qualification
 
 Canonical report:
 
 `research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_3.md`
 
-MASTER integration freeze:
+Canonical diagnostics:
 
-`research/master/fusion_f2_6_discrete_algebra_pass_integration_freeze_0_1.md`
+`research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_diagnostics_0_3.json`
 
-F2.6 `0_3` branch commit `4db62c37d3465726be061dc7b49cbc3a81d87a55`; Python CI #412 = `SUCCESS`.
-
-The repaired full-support local-B FLR identity, quasineutrality, canonical positive Helmholtz metric, conservative phase-space adjoint/skew structure, independently reconstructed physical particle/ion-heat/trapped-electron-heat channels, ambipolarity and the complete F2.1 discrete free-energy balance all qualify on K0/K1/K2.
-
-Maximum reported complete-balance relative residuals are approximately
+F2.6 remains
 
 \[
-1.92\times10^{-14},\qquad3.15\times10^{-13},\qquad1.61\times10^{-13}.
+\boxed{\text{PASS — discrete operator/channel algebra qualified}.}
 \]
 
-No spectrum or finite-time object was inspected in F2.6.
+No F2.6 conclusion is revoked by F2.7.
+
+## F2.7 result
+
+Canonical report:
+
+`research/fusion/fusion_f2_7_numerical_spectral_qualification_gate_0_1.md`
+
+Machine-readable diagnostics:
+
+`research/fusion/fusion_f2_7_numerical_spectral_qualification_diagnostics_0_1.json`
+
+**Status:** `F2.7 HOLD — MARGINAL OR SPECTRALLY INDETERMINATE — RETURN TO MASTER`
+
+The blocker is one reproducibility object:
+
+\[
+\boxed{\text{no canonical executable/serialized F2.6 `0_3` realization of }(E_K,F_K).}
+\]
+
+The repository contains the `0_3` report and diagnostics, but no versioned operator implementation or serialized factor set sufficient to reproduce the exact qualified matrix-free maps
+
+\[
+x\mapsto E_Kx,\qquad
+x\mapsto F_Kx,\qquad
+x\mapsto E_K^{-1}x
+\]
+
+on K0/K1/K2 without making new implementation choices.
+
+Therefore F2.7 did not request any Ritz pair and does not classify the point as stable or unstable.
+
+## MASTER decision required
+
+MASTER must decide whether to issue a narrow reproducibility/serialization repair that publishes and freezes the exact F2.6 `0_3` matrix-free operator implementation (or equivalent serialized factor set) and then re-release F2.7.
+
+Such a repair must reproduce the already-frozen F2.6 `0_3` structural diagnostics and may not alter F2.1–F2.5R.
 
 ## Active instruction
 
-**Status:** `FUSION F2.7 NUMERICAL / SPECTRAL QUALIFICATION READY — AWAIT GO`
+**Next instruction:** none in this branch.
 
-**Next instruction:**
+A bare `GO` must not resume F2.7, reconstruct a substitute operator, inspect spectra, or start finite-time work until MASTER commits an explicit new handoff.
 
-`research/master/prompts/fusion_f2_7_numerical_spectral_qualification_gate_0_1.md`
+## Forbidden while HOLD remains
 
-On bare `GO`, first read this STATUS and execute only that committed instruction.
+Do not construct a replacement F2-R operator from prose. Do not inspect eigenvalues, growth rates or pseudospectra from a noncanonical implementation. Do not construct propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not change F2.3/F2.4/F2.5R, run GENE, add collisions/damping, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
 
-## F2.7 scope
-
-Use the frozen repaired K0/K1/K2 operators to determine the rightmost modal spectral edge and spectral abscissa with reproducible matrix-free eigensolver methods, residual certification, independent numerical repetition and refinement-robustness checks.
-
-Classify the frozen point as spectrally stable, unstable or marginal/indeterminate. A robustly unstable point must be reported factually and may not be rescued by damping or parameter retuning.
-
-A full dense spectrum is not required at K1/K2. A defensible rightmost-spectrum classification is required.
-
-## Forbidden until F2.7 returns
-
-Do not construct propagators, Gramians, cumulative objectives, finite-time energy/transport operators, optimizers, principal angles, performance gaps or horizon curves. Do not scan physical parameters, wavenumbers, input subspaces or resolutions outside K0/K1/K2. Do not change F2.3/F2.4/F2.5R, run GENE, add collisions/damping, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
-
-## Expected return
-
-One of:
-
-- `F2.7 PASS — SPECTRALLY STABLE / NUMERICALLY QUALIFIED — RETURN TO MASTER`;
-- `F2.7 PASS — SPECTRALLY UNSTABLE / NUMERICALLY QUALIFIED — RETURN TO MASTER`;
-- `F2.7 HOLD — MARGINAL OR SPECTRALLY INDETERMINATE — RETURN TO MASTER`;
-- `F2.7 FAIL — RETURN TO MASTER`.
-
-No branch-side next gate is self-authorized.
-
-**STOP / AWAIT GO.**
+**STOP / RETURN TO MASTER.**
