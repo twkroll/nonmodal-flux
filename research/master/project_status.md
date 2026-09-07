@@ -14,11 +14,12 @@
 - First Paper Scientific Content Freeze 0.1: **STABLE — SCIENTIFIC CONTENT BASELINE FROZEN / SUBMISSION TRACK PARKED**.
 - Fusion R1 structural no-go / literature positioning: **FROZEN / PILOT BLOCKED**.
 - Fusion F2.1–F2.4: **PASS / INTEGRATED / FROZEN**.
-- Fusion historical F2.5 discretization ladder: **PASS / FROZEN AUDIT BASELINE**.
+- Fusion historical F2.5 discretization ladder: **FROZEN AUDIT BASELINE**.
 - Fusion F2.6 `0_1`: **HOLD / HISTORICAL AUDIT RECORD**.
-- Fusion F2.6 Ion-FLR Convention Clarification / Erratum 0.1: **STABLE**.
-- Fusion resumed F2.6 `0_2`: **FAIL / MASTER-INTEGRATED — FROZEN DISCRETIZATION/FLR-RESOLUTION FAILURE**.
-- Fusion F2.6 Discrete-Algebra Failure Integration Freeze 0.1: **STABLE — F2.5R RELEASED**.
+- Fusion local-B Ion-FLR Erratum 0.1: **STABLE**.
+- Fusion F2.6 `0_2`: **FAIL / MASTER-INTEGRATED HISTORICAL DISCRETIZATION FAILURE**.
+- Fusion F2.5R ion-FLR quadrature repair: **PASS / MASTER-INTEGRATED / FROZEN**.
+- Fusion F2.5R Ion-FLR Quadrature Repair Integration Freeze 0.1: **STABLE — F2.6 0_3 RELEASED**.
 
 ## First-paper status
 
@@ -52,7 +53,7 @@ The F2.3 CBC-compatible physical point remains unchanged. The continuous admissi
 \boxed{B=I_{\mathcal H_{F2}},\qquad R_{\rm in}=\mathcal M_{F2}}.
 \]
 
-The controlling local-B ion-FLR convention is
+The controlling local-B ion-FLR convention remains
 
 \[
 J_{0i}=J_0\!\left(k_\perp v_\perp/\Omega_i(\theta)\right),
@@ -62,35 +63,45 @@ J_{0i}=J_0\!\left(k_\perp v_\perp/\Omega_i(\theta)\right),
 \boxed{b_i(\theta)=(k_\perp\rho_{i0})^2(B_0/B(\theta))^2,\qquad \Gamma_{0i}=I_0(b_i)e^{-b_i}.}
 \]
 
-## F2.6 `0_2` failure
+## F2.5R repaired numerical architecture
+
+The historical F2.5 `N_mu=8/12/16` ladder remains an immutable audit baseline. The controlling repaired ion Gauss--Laguerre orders are
+
+\[
+\boxed{N_\mu=(16,24,40)\quad\text{for K0/K1/K2}.}
+\]
+
+All other F2.5 numerical objects remain unchanged. The repaired ion-state dimensions are
+
+\[
+\boxed{N_i=(18176,91584,357120).}
+\]
+
+F2.5R selected the first passing orders in the predeclared candidate sequence using only active-node and independent between-node local-B FLR manufactured identities, positive-metric field-block tolerances, positive quadrature weights and Maxwellian moment checks. The selected active-node relative FLR errors are approximately `2.32e-12 / 3.51e-11 / 5.68e-15`; independent envelope errors are approximately `3.04e-12 / 4.01e-11 / 6.44e-15`.
+
+Branch commit `cbfd6ca9a906df7bb34bf6270a24b6c63857f545`; Python CI #405 = `SUCCESS`.
 
 Canonical result:
 
-- `research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_2.md`
-- `research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_diagnostics_0_2.json`
-- `research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_0_2.py`
-
-Branch commit `78db3e41c2cce29d505f13401f6f0878cb40f854`; Python CI #398 = `SUCCESS`.
-
-The local-B erratum fixes the earlier convention conflict, but the historical F2.5 ion magnetic-moment quadrature orders `N_mu=8/12/16` do not resolve the source-consistent FLR identity uniformly over the expanding K0/K1/K2 ballooning support. Maximum relative errors are approximately `3.70e-4 / 1.30e-2 / 3.05e-1`. The positive-Helmholtz versus `g`-form field-block defect also worsens, so the complete F2.1 discrete balance cannot be certified on all historical levels.
-
-This is a **numerical discretization failure**, not evidence against the continuous F2-R model, F2.3 physical point, F2.4 input geometry or local-B FLR convention. No spectrum or finite-time effect was inspected.
+`research/fusion/fusion_f2_5r_ion_flr_quadrature_repair_gate_0_1.md`
 
 MASTER savepoint:
 
-`research/master/fusion_f2_6_discrete_algebra_failure_integration_freeze_0_1.md`
+`research/master/fusion_f2_5r_quadrature_repair_integration_freeze_0_1.md`
+
+No spectrum or finite-time effect was inspected.
 
 ## Immediate next gate
 
-Fusion F2.5R — Ion-FLR Magnetic-Moment Quadrature Repair / Discretization Requalification Gate 0.1 is the only active scientific handoff.
+Fusion F2.6 `0_3` — Discrete Generator / Helmholtz Metric / Physical Channel Reconstruction & Algebraic Balance Qualification on the repaired F2.5R ladder is the only active scientific handoff.
 
-Only the ion Gauss--Laguerre magnetic-moment order `N_mu` is reopened. The representation family itself remains Gauss--Laguerre; all physical parameters, input geometry, ballooning windows/basis, ion Hermite representation, trapped-electron representation, bounce quadrature, quasineutrality treatment and physical channels remain frozen.
+It must use the repaired `N_mu=16/24/40` ladder, reconstruct `A_K`, canonical positive `M_K`, `Q_Gamma,K`, `Q_qi,K`, `Q_qe,K` and quasineutrality from the frozen equations/quadratures, and qualify only structural algebra: full-support FLR identity, quasineutrality, metric positivity/Hermiticity, `B_K=I`, `R_in,K=M_K`, channel Hermiticity, ambipolarity, conservative adjoint structure and the complete F2.1 balance.
 
-F2.5R must select a new monotone K0/K1/K2 `N_mu` ladder from predeclared manufactured local-B FLR and positive-metric structural tolerances only. It may perform a quadrature-order search, but no spectrum/effect calculation. If Gauss--Laguerre is not computationally or structurally defensible, it must return `HOLD` rather than change representation family silently.
+Physical channel matrices must remain independently reconstructed from radial gyrocentre flux integrals and may not be defined backwards from the balance identity.
 
 Canonical instruction:
 
-`research/master/prompts/fusion_f2_5r_ion_flr_quadrature_repair_gate_0_1.md`
+`research/master/prompts/fusion_f2_6_rerun_after_f2_5r_quadrature_repair_0_1.md`
 
 ## Planned dependency chain
 
@@ -98,9 +109,9 @@ Canonical instruction:
 2. F2.1–F2.4 — **COMPLETE / FROZEN**;
 3. historical F2.5 — **FROZEN AUDIT BASELINE**;
 4. F2.6 `0_1` HOLD + local-B erratum — **COMPLETE / STABLE**;
-5. resumed F2.6 `0_2` — **FAIL / INTEGRATED**;
-6. F2.5R quadrature repair — **READY**;
-7. later F2.6 rerun only after F2.5R PASS and MASTER integration;
+5. F2.6 `0_2` — **FAIL / INTEGRATED HISTORICAL RECORD**;
+6. F2.5R quadrature repair — **PASS / INTEGRATED / FROZEN**;
+7. F2.6 `0_3` algebraic qualification — **READY**;
 8. spectral qualification only after F2.6 PASS;
 9. later pre-effect finite-time pilot specification/freeze;
 10. one-shot finite-time execution only after all preceding gates pass.
@@ -108,7 +119,7 @@ Canonical instruction:
 ## Other branch states
 
 - CORE: `STABLE / PARKED`
-- Fusion: `F2.5R READY`
+- Fusion: `F2.6 0_3 READY`
 - Literature: `WAIT`
 - MODES: `PARKED / conditional companion`
 - CONT: `PARKED`
@@ -121,7 +132,7 @@ Canonical instruction:
 
 ## Parallelism decision
 
-No parallel science is opened. The present failure is a localized numerical quadrature-resolution defect and does not justify MODES or CONT. F2.5R must be frozen before any new discrete algebra or spectrum is viewed.
+No parallel science is opened. The repaired high-dimensional operator must pass algebraic qualification before any spectrum is viewed. MODES remains conditional on a concrete representation/reduction issue after such qualification; CONT remains premature without an authorized physical parameter family.
 
 ## Branch-independent / branch-dependent distinction
 
@@ -131,24 +142,24 @@ Branch-independent CORE methodology remains
 \mathfrak C=(A,M,\{Q_\alpha\},B,R_{\rm in}).
 \]
 
-Branch-dependent F2 content includes the continuous kinetic state, physical multichannel balance, toroidal geometry, physical point, full reduced input geometry, local-B ion-FLR convention and the historical numerical architecture. Only the ion magnetic-moment resolution is currently reopened under F2.5R.
+Branch-dependent F2 content includes the continuous kinetic state, physical multichannel balance, toroidal geometry, physical point, full reduced input geometry, local-B ion-FLR convention and the repaired structure-preserving numerical ladder. The actually qualified discrete operators remain the F2.6 `0_3` task.
 
 ## Protected rollback chain
 
 All first-paper savepoints remain protected. The latest post-paper savepoint is
 
 \[
-\boxed{\text{Fusion F2.6 Discrete-Algebra Failure Integration Freeze 0.1}}.
+\boxed{\text{Fusion F2.5R Ion-FLR Quadrature Repair Integration Freeze 0.1}}.
 \]
 
-Historical F2.5, F2.6 `0_1`, the ion-FLR erratum and F2.6 `0_2` remain immutable audit points.
+Historical F2.5, F2.6 `0_1`, the ion-FLR erratum, F2.6 `0_2` and the failure-integration freeze remain immutable audit points.
 
 ## Decision record
 
-Canonical continuation now reaches **DEC-600** in `research/master/decision_branch_log_addendum_0_12.md`.
+Canonical continuation now reaches **DEC-610** in `research/master/decision_branch_log_addendum_0_13.md`.
 
 ## Current next action
 
-In `60 – FUSION – Gyrofluid/Gyrokinetic Transport`, issue bare `GO`. The branch must read `research/fusion/STATUS.md` and execute only `research/master/prompts/fusion_f2_5r_ion_flr_quadrature_repair_gate_0_1.md`.
+In `60 – FUSION – Gyrofluid/Gyrokinetic Transport`, issue bare `GO`. The branch must read `research/fusion/STATUS.md` and execute only `research/master/prompts/fusion_f2_6_rerun_after_f2_5r_quadrature_repair_0_1.md`.
 
-No spectrum, finite-time effect inspection, physical parameter scan, GENE run, F2.3/F2.4 retuning or parallel branch work is authorized before F2.5R returns.
+No spectrum, finite-time effect inspection, physical parameter scan, GENE run, F2.3/F2.4 retuning, repaired-ladder change or parallel branch work is authorized before F2.6 `0_3` returns.
