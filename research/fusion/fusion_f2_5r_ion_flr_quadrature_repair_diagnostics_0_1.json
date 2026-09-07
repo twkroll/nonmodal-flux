@@ -1,0 +1,94 @@
+{
+  "gate": "Fusion F2.5R — Ion-FLR Magnetic-Moment Quadrature Repair / Discretization Requalification Gate 0.1",
+  "date": "2026-09-07",
+  "verdict": "PASS",
+  "candidate_sequence": [8, 12, 16, 20, 24, 28, 32, 40, 48, 56, 64, 80, 96, 112, 128],
+  "candidate_search_rule": "Evaluate in listed order and stop at the first order passing all active-node and geometry-envelope structural criteria at each K level.",
+  "envelope_rule": {
+    "type": "Chebyshev-Lobatto geometry-only envelope",
+    "points_per_pi_element": 257,
+    "global_compact_support_endpoints_removed": true,
+    "uses_A_or_transport": false
+  },
+  "thresholds": {
+    "max_abs_flr_identity": 1e-10,
+    "max_relative_flr_identity_where_Gamma0_ge_1e-6": 1e-08,
+    "field_block_frobenius_over_C": 1e-10,
+    "field_block_max_local_over_C": 1e-10
+  },
+  "candidate_history": {
+    "K0": [
+      {"Nmu": 8, "active_max_abs": 8.302808047622179e-05, "active_max_rel": 0.00036977088541096775, "field_frob_over_C": 3.980729685580994e-06, "field_maxlocal_over_C": 4.1514040238110894e-05, "envelope_max_abs": 9.405981288895804e-05, "envelope_max_rel": 0.00042221377823774145, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 12, "active_max_abs": 1.2945064437053233e-08, "active_max_rel": 5.765167532642235e-08, "field_frob_over_C": 4.675893829235469e-10, "field_maxlocal_over_C": 6.472532218526617e-09, "envelope_max_abs": 1.57620133334202e-08, "envelope_max_rel": 7.075220540778094e-08, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 16, "active_max_abs": 5.208888875785078e-13, "active_max_rel": 2.3198120931604563e-12, "field_frob_over_C": 1.6154391375145887e-14, "field_maxlocal_over_C": 2.604444437892539e-13, "envelope_max_abs": 6.779854455629675e-13, "envelope_max_rel": 3.043327301738056e-12, "pass_active": true, "pass_envelope": true, "pass_all": true}
+    ],
+    "K1": [
+      {"Nmu": 8, "active_max_abs": 0.058894372593433136, "active_max_rel": 0.4503961998140744, "field_frob_over_C": 0.009136618512963561, "field_maxlocal_over_C": 0.029447186296716565, "envelope_max_abs": 0.059986096614677534, "envelope_max_rel": 0.45991326948717265, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 12, "active_max_abs": 0.0017012042148372708, "active_max_rel": 0.013010002139929885, "field_frob_over_C": 0.00010913344571408633, "field_maxlocal_over_C": 0.0008506021074186354, "envelope_max_abs": 0.0017870400590097313, "envelope_max_rel": 0.013701232162564404, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 16, "active_max_abs": 7.704459989515966e-06, "active_max_rel": 5.8920052088041005e-05, "field_frob_over_C": 2.8928196479214144e-07, "field_maxlocal_over_C": 3.852229994757983e-06, "envelope_max_abs": 8.331994593879788e-06, "envelope_max_rel": 6.388138404196614e-05, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 20, "active_max_abs": 9.630104352842395e-09, "active_max_rel": 7.364646592426417e-08, "field_frob_over_C": 2.7706830767110393e-10, "field_maxlocal_over_C": 4.815052176421197e-09, "envelope_max_abs": 1.0706434294682765e-08, "envelope_max_rel": 8.208620795326627e-08, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 24, "active_max_abs": 4.586581114907062e-12, "active_max_rel": 3.507599475681452e-11, "field_frob_over_C": 1.1150719095110379e-13, "field_maxlocal_over_C": 2.293290557453531e-12, "envelope_max_abs": 5.2360893398883945e-12, "envelope_max_rel": 4.0145085337087465e-11, "pass_active": true, "pass_envelope": true, "pass_all": true}
+    ],
+    "K2": [
+      {"Nmu": 8, "active_max_abs": 0.10101638407509304, "active_max_rel": 0.9907805326635519, "field_frob_over_C": 0.015909411171486747, "field_maxlocal_over_C": 0.05050819203754652, "envelope_max_abs": 0.10111989692669807, "envelope_max_rel": 0.9987729276092083, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 12, "active_max_abs": 0.08685449345881188, "active_max_rel": 0.9985872317070176, "field_frob_over_C": 0.017388939310162152, "field_maxlocal_over_C": 0.04342724672940594, "envelope_max_abs": 0.0870768630863221, "envelope_max_rel": 0.9989781296747224, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 16, "active_max_abs": 0.023077520762022845, "active_max_rel": 0.30470074778390316, "field_frob_over_C": 0.0040097643420138555, "field_maxlocal_over_C": 0.011538760381011422, "envelope_max_abs": 0.023091528638149506, "envelope_max_rel": 0.30500698303408624, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 20, "active_max_abs": 0.0010327180770325212, "active_max_rel": 0.011131765326857614, "field_frob_over_C": 0.00012665276517276783, "field_maxlocal_over_C": 0.0005163590385162606, "envelope_max_abs": 0.0010666182157152426, "envelope_max_rel": 0.011510640656004757, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 24, "active_max_abs": 1.661011905533527e-05, "active_max_rel": 0.00017904203624135405, "field_frob_over_C": 9.336965985228888e-07, "field_maxlocal_over_C": 8.305059527667635e-06, "envelope_max_abs": 1.7398782213740027e-05, "envelope_max_rel": 0.0001877627129967516, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 28, "active_max_abs": 1.0602928017522384e-07, "active_max_rel": 1.1428995879279644e-06, "field_frob_over_C": 3.4305614626506755e-09, "field_maxlocal_over_C": 5.301464008761192e-08, "envelope_max_abs": 1.1259025166354686e-07, "envelope_max_rel": 1.2150419983210017e-06, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 32, "active_max_abs": 3.1595877303391973e-10, "active_max_rel": 3.405749344953805e-09, "field_frob_over_C": 7.809412080148744e-12, "field_maxlocal_over_C": 1.5797938651695986e-10, "envelope_max_abs": 3.399893422351141e-10, "envelope_max_rel": 3.669068357993066e-09, "pass_active": false, "pass_envelope": false, "pass_all": false},
+      {"Nmu": 40, "active_max_abs": 6.938893903907228e-16, "active_max_rel": 5.684419263681347e-15, "field_frob_over_C": 1.2089640319002315e-16, "field_maxlocal_over_C": 3.469446951953614e-16, "envelope_max_abs": 6.661338147750939e-16, "envelope_max_rel": 6.4396218496303745e-15, "pass_active": true, "pass_envelope": true, "pass_all": true}
+    ]
+  },
+  "selected_ladder": {"K0": 16, "K1": 24, "K2": 40},
+  "selected_levels": {
+    "K0": {
+      "Nmu": 16, "Ni": 18176, "Ntheta": 71, "Nu": 16,
+      "active": {"max_abs": 5.208888875785078e-13, "max_rel": 2.3198120931604563e-12, "field_frob": 1.6154391375145887e-14, "field_maxlocal": 2.604444437892539e-13, "worst_theta_rel": -9.3514372393774, "worst_b_rel": 3.4515212855460513},
+      "envelope": {"n": 1535, "max_abs": 6.779854455629675e-13, "max_rel": 3.043327301738056e-12, "worst_theta_rel": -9.424659682694893, "worst_b_rel": 3.5006989870743896},
+      "moments": {"density": 4.440892098500626e-16, "energy": 6.661338147750939e-16, "heat_weight": 1.1102230246251565e-15},
+      "weights": {"min": 4.161462370372804e-22, "max": 0.331057854950884, "sum": 1.0},
+      "representative": {"theta0": {"b_local": 0.12531599999999998, "Gamma0_exact": 0.8856850888548305, "J0sq_quadrature": 0.8856850888548304, "abs_error": 1.1102230246251565e-16, "relative_error": 1.2535189296916448e-16}, "theta_pi": {"b_local": 0.44276814715924695, "Gamma0_exact": 0.6741214459594775, "J0sq_quadrature": 0.6741214459594771, "abs_error": 4.440892098500626e-16, "relative_error": 6.587673667880275e-16}},
+      "b_active_min": 0.12531599999999998, "b_active_max": 3.7761100608493137, "b_env_min": 0.12531599999999998, "b_env_max": 3.7875673099482836
+    },
+    "K1": {
+      "Nmu": 24, "Ni": 91584, "Ntheta": 159, "Nu": 24,
+      "active": {"max_abs": 4.586581114907062e-12, "max_rel": 3.507599475681452e-11, "field_frob": 1.1150719095110379e-13, "field_maxlocal": 2.293290557453531e-12, "worst_theta_rel": -15.665759389692623, "worst_b_rel": 9.569277068350962},
+      "envelope": {"n": 2559, "max_abs": 5.2360893398883945e-12, "max_rel": 4.0145085337087465e-11, "worst_theta_rel": -15.707844989874479, "worst_b_rel": 9.61667579463663},
+      "moments": {"density": 4.440892098500626e-16, "energy": 1.5543122344752192e-15, "heat_weight": 1.5543122344752192e-15},
+      "weights": {"min": 5.575345788327753e-35, "max": 0.25880670727286964, "sum": 1.0},
+      "representative": {"theta0": {"b_local": 0.12531599999999998, "Gamma0_exact": 0.8856850888548305, "J0sq_quadrature": 0.8856850888548304, "abs_error": 1.1102230246251565e-16, "relative_error": 1.2535189296916448e-16}, "theta_pi": {"b_local": 0.44276814715924695, "Gamma0_exact": 0.6741214459594775, "J0sq_quadrature": 0.6741214459594779, "abs_error": 3.3306690738754696e-16, "relative_error": 4.940755250910206e-16}},
+      "b_active_min": 0.12531599999999998, "b_active_max": 13.306050240173652, "b_env_min": 0.12531599999999998, "b_env_max": 13.307046280131992
+    },
+    "K2": {
+      "Nmu": 40, "Ni": 357120, "Ntheta": 279, "Nu": 32,
+      "active": {"max_abs": 6.938893903907228e-16, "max_rel": 5.684419263681347e-15, "field_frob": 1.2089640319002315e-16, "field_maxlocal": 3.469446951953614e-16, "worst_theta_rel": 21.96377320265051, "worst_b_rel": 18.747351253710843},
+      "envelope": {"n": 3583, "max_abs": 6.661338147750939e-16, "max_rel": 6.4396218496303745e-15, "worst_theta_rel": -21.990084179328953, "worst_b_rel": 18.78906278778182},
+      "moments": {"density": 3.3306690738754696e-16, "energy": 4.440892098500626e-16, "heat_weight": 1.1102230246251565e-15},
+      "weights": {"min": 2.7003609402169934e-61, "max": 0.21136311701596375, "sum": 1.0},
+      "representative": {"theta0": {"b_local": 0.12531599999999998, "Gamma0_exact": 0.8856850888548305, "J0sq_quadrature": 0.8856850888548307, "abs_error": 1.1102230246251565e-16, "relative_error": 1.2535189296916448e-16}, "theta_pi": {"b_local": 0.44276814715924695, "Gamma0_exact": 0.6741214459594775, "J0sq_quadrature": 0.6741214459594773, "abs_error": 2.220446049250313e-16, "relative_error": 3.2938368339401376e-16}},
+      "b_active_min": 0.12531599999999998, "b_active_max": 29.140859802108974, "b_env_min": 0.12531599999999998, "b_env_max": 29.14325330047287
+    }
+  },
+  "historical_moment_baseline": {
+    "K0": {"density": 3.3306690738754696e-16, "energy": 3.6415315207705135e-14, "heat_weight": 3.730349362740526e-14},
+    "K1": {"density": 8.881784197001252e-16, "energy": 2.6645352591003757e-15, "heat_weight": 1.9984014443252818e-15},
+    "K2": {"density": 5.551115123125783e-16, "energy": 8.881784197001252e-16, "heat_weight": 1.5543122344752192e-15}
+  },
+  "frozen_objects_unchanged": [
+    "F2.1 reduced physics and transport-channel definitions",
+    "F2.2 geometry/ballooning/local gyroaverage",
+    "F2.3 physical point including ky*rho_i0=0.3",
+    "F2.4 input geometry and cost",
+    "local-B ion-FLR erratum",
+    "K0/K1/K2 ballooning windows/theta basis",
+    "ion Hermite orders",
+    "trapped-electron representation",
+    "bounce quadrature",
+    "quasineutrality elimination",
+    "Gauss-Laguerre representation family"
+  ],
+  "only_repaired_object": "ion Gauss-Laguerre magnetic-moment order N_mu",
+  "new_ion_dimensions": {"K0": 18176, "K1": 91584, "K2": 357120},
+  "no_spectral_work": true
+}
