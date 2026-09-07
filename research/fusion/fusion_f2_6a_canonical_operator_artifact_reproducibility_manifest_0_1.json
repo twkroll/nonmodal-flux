@@ -1,0 +1,59 @@
+{
+  "gate": "Fusion F2.6A — Canonical Matrix-Free Operator Artifact / Reproducibility Freeze 0.1",
+  "date": "2026-09-07",
+  "verdict": "HOLD",
+  "status": "F2.6A HOLD — EXACT OPERATOR EQUIVALENCE NOT ESTABLISHED — RETURN TO MASTER",
+  "target_operator_commit": "4db62c37d3465726be061dc7b49cbc3a81d87a55",
+  "current_base_commit": "c24ff19938d054e9b836a0b6f96cf58d56590680",
+  "frozen_ladder": {
+    "K0": {"Nmu": 16, "Ni": 18176, "Ne": 432},
+    "K1": {"Nmu": 24, "Ni": 91584, "Ne": 1620},
+    "K2": {"Nmu": 40, "Ni": 357120, "Ne": 4032}
+  },
+  "required_interface": ["apply_E(level, x)", "apply_F(level, x)", "solve_E(level, x)"],
+  "canonical_information_available": [
+    "research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_3.md",
+    "research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_diagnostics_0_3.json",
+    "research/master/fusion_f2_6_discrete_algebra_pass_integration_freeze_0_1.md",
+    "research/fusion/fusion_f2_5_structure_preserving_discretization_specification_freeze_0_1.md",
+    "research/fusion/fusion_f2_5r_ion_flr_quadrature_repair_0_1.py",
+    "research/fusion/fusion_f2_5r_ion_flr_quadrature_repair_diagnostics_0_1.json"
+  ],
+  "qualified_abstract_factorization": {
+    "quasineutrality": "C_K phi_K = S_K x_K",
+    "field_reconstruction": "P_K = C_K^{-1} S_K",
+    "R": "R_K = D_K^{-1} S_K^dagger",
+    "E": "E_K = I - R_K C_K^{-1} S_K",
+    "solve_E": "E_K^{-1} y = y + R_K (C_K - S_K R_K)^{-1} S_K y",
+    "generator": "A_K = E_K^{-1} F_K"
+  },
+  "missing_exact_objects": [
+    "coefficient-level weak/SBP ion streaming-plus-mirror implementation and exact split/skew assembly",
+    "complete trapped-electron regularized bounce/orbit projection matrices and field-to-orbit maps",
+    "serialized D_K, S_K, C_K, R_K arrays/sparse factors and exact state/index layouts",
+    "complete coefficient-level source-free drift plus gradient-drive implementation defining F_K",
+    "source-level probe construction and indexing sufficient to bind reported diagnostics to one exact implementation"
+  ],
+  "non_identifiability": "The reported structural diagnostics and residual scales do not uniquely determine the numerical operator; multiple implementations can satisfy them. Reconstructing from prose would introduce new choices.",
+  "ci_audit": {
+    "run_number": 412,
+    "run_id": 34101309653,
+    "head_sha": "4db62c37d3465726be061dc7b49cbc3a81d87a55",
+    "workflow": "Python tests",
+    "conclusion": "success",
+    "pytest": "210 passed",
+    "published_artifacts": 0,
+    "operator_artifact_recovered": false
+  },
+  "executable_operator_artifact_committed": false,
+  "reason_no_artifact": "Exact equivalence cannot be established from canonical information; committing a reconstructed builder would violate the F2.6A handoff.",
+  "regression_test_run": false,
+  "spectral_work": {
+    "eigenvalues": false,
+    "ritz_pairs": false,
+    "spectral_abscissa": false,
+    "pseudospectrum": false
+  },
+  "finite_time_work": false,
+  "required_master_action": "Recover/publish the original F2.6 0_3 source builder or an exact serialized factor set tied to its diagnostics. If that provenance does not exist, authorize a new versioned operator-implementation freeze and re-run the algebraic qualification rather than claiming exact historical equivalence."
+}
