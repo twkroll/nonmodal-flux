@@ -13,102 +13,68 @@ The active post-paper program remains
 
 The first-paper scientific content remains frozen and submission remains parked.
 
-B5.5, F1.2, F1.3, F1.4, the R1 literature audit and F2.1–F2.4 remain protected historical savepoints. Historical F2.5, F2.6 `0_1` HOLD and F2.6 `0_2` FAIL remain immutable audit records.
+B5.5, F1.2, F1.3, F1.4, the R1 literature audit and F2.1–F2.4 remain protected historical savepoints. Historical F2.5, F2.6 `0_1` HOLD and F2.6 `0_2` FAIL remain immutable audit records. F2.5R and F2.6 `0_3` remain MASTER-integrated and frozen as PASS.
 
-MASTER integrated F2.5R and F2.6 `0_3`; their repaired discrete algebra remains qualified.
+F2.7 `0_1` returned HOLD before any eigensolver run because the exact qualified F2.6 `0_3` operator is not canonically available as an executable/serialized numerical artifact. MASTER has integrated that HOLD and released one narrow reproducibility repair, F2.6A.
 
-F2.7 has returned HOLD before any eigensolver run because the exact qualified F2.6 `0_3` operator is not canonically available as an executable/serialized numerical artifact.
+## Frozen F2.7 HOLD
 
-## Controlling physical / numerical objects
-
-The F2-R physical model, F2.3 point and F2.4 input geometry remain frozen.
-
-\[
-\rho_{i0}=v_{Ti}/\Omega_i(B_0),
-\qquad
-J_{0i}=J_0\!\left(\frac{k_\perp v_\perp}{\Omega_i(\theta)}\right),
-\]
-
-\[
-\boxed{
-b_i(\theta)
-=(k_\perp(\theta)\rho_{i0})^2
-\left(\frac{B_0}{B(\theta)}\right)^2,
-\qquad
-\Gamma_{0i}=I_0(b_i)e^{-b_i}.
-}
-\]
-
-The controlling repaired magnetic-moment ladder remains
-
-\[
-\boxed{N_{\mu,K0}=16,\qquad N_{\mu,K1}=24,\qquad N_{\mu,K2}=40.}
-\]
-
-All other F2.5 objects remain unchanged.
-
-## Frozen F2.6 `0_3` qualification
-
-Canonical report:
-
-`research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_3.md`
-
-Canonical diagnostics:
-
-`research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_diagnostics_0_3.json`
-
-F2.6 remains
-
-\[
-\boxed{\text{PASS — discrete operator/channel algebra qualified}.}
-\]
-
-No F2.6 conclusion is revoked by F2.7.
-
-## F2.7 result
-
-Canonical report:
+Canonical result:
 
 `research/fusion/fusion_f2_7_numerical_spectral_qualification_gate_0_1.md`
 
-Machine-readable diagnostics:
+Branch commit `e4453080cae805a4e50d019975f6722130e88903`; Python CI #419 = `SUCCESS`.
 
-`research/fusion/fusion_f2_7_numerical_spectral_qualification_diagnostics_0_1.json`
-
-**Status:** `F2.7 HOLD — MARGINAL OR SPECTRALLY INDETERMINATE — RETURN TO MASTER`
-
-The blocker is one reproducibility object:
+The blocker is
 
 \[
 \boxed{\text{no canonical executable/serialized F2.6 `0_3` realization of }(E_K,F_K).}
 \]
 
-The repository contains the `0_3` report and diagnostics, but no versioned operator implementation or serialized factor set sufficient to reproduce the exact qualified matrix-free maps
+No Ritz pair was requested; no eigenvalue or spectral abscissa was reported. The point is spectrally indeterminate from the canonical repository state, not established marginal/stable/unstable.
 
-\[
-x\mapsto E_Kx,\qquad
-x\mapsto F_Kx,\qquad
-x\mapsto E_K^{-1}x
-\]
+No conclusion of F2.6 `0_3` is revoked.
 
-on K0/K1/K2 without making new implementation choices.
+MASTER integration freeze:
 
-Therefore F2.7 did not request any Ritz pair and does not classify the point as stable or unstable.
-
-## MASTER decision required
-
-MASTER must decide whether to issue a narrow reproducibility/serialization repair that publishes and freezes the exact F2.6 `0_3` matrix-free operator implementation (or equivalent serialized factor set) and then re-release F2.7.
-
-Such a repair must reproduce the already-frozen F2.6 `0_3` structural diagnostics and may not alter F2.1–F2.5R.
+`research/master/fusion_f2_7_hold_operator_artifact_integration_freeze_0_1.md`
 
 ## Active instruction
 
-**Next instruction:** none in this branch.
+**Status:** `FUSION F2.6A CANONICAL MATRIX-FREE OPERATOR ARTIFACT / REPRODUCIBILITY FREEZE READY — AWAIT GO`
 
-A bare `GO` must not resume F2.7, reconstruct a substitute operator, inspect spectra, or start finite-time work until MASTER commits an explicit new handoff.
+**Next instruction:**
 
-## Forbidden while HOLD remains
+`research/master/prompts/fusion_f2_6a_canonical_operator_artifact_reproducibility_gate_0_1.md`
 
-Do not construct a replacement F2-R operator from prose. Do not inspect eigenvalues, growth rates or pseudospectra from a noncanonical implementation. Do not construct propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not change F2.3/F2.4/F2.5R, run GENE, add collisions/damping, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
+On bare `GO`, first read this STATUS and execute only that committed instruction.
 
-**STOP / RETURN TO MASTER.**
+## F2.6A scope
+
+Publish/freeze a versioned executable matrix-free implementation, or equivalent serialized factor set, for the exact already-qualified F2.6 `0_3` maps
+
+\[
+E_Kx,\qquad F_Kx,\qquad E_K^{-1}x
+\]
+
+on K0/K1/K2 with the repaired frozen `N_mu=16/24/40` ladder.
+
+The artifact must reproduce the already-frozen F2.6 `0_3` structural diagnostics before PASS. It must expose a stable reproducible interface sufficient for a later eigensolver to use the exact same operator without re-deriving implementation choices from prose.
+
+If exact equivalence to F2.6 `0_3` cannot be established from canonical information, return `F2.6A HOLD — EXACT OPERATOR EQUIVALENCE NOT ESTABLISHED — RETURN TO MASTER`. Do not invent a substitute operator.
+
+## Forbidden until F2.6A returns
+
+Do not inspect eigenvalues, Ritz pairs, spectral abscissa, growth rates, pseudospectra or eigenvectors. Do not construct propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not change F2.1–F2.5R, the repaired ladder, physical channels, weak/SBP convention, bounce/quasineutrality treatment or physical point. Do not run GENE, add collisions/damping, reopen R1 or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
+
+## Expected return
+
+One of:
+
+- `F2.6A PASS — CANONICAL MATRIX-FREE OPERATOR ARTIFACT FROZEN — RETURN TO MASTER`;
+- `F2.6A HOLD — EXACT OPERATOR EQUIVALENCE NOT ESTABLISHED — RETURN TO MASTER`;
+- `F2.6A FAIL — RETURN TO MASTER`.
+
+No branch-side next gate is self-authorized.
+
+**STOP / AWAIT GO.**
