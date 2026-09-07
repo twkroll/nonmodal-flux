@@ -1,0 +1,109 @@
+{
+  "gate": "Fusion F2.7 0_2 — Numerical / Spectral Qualification on F2.6B Source-Level Operator",
+  "date": "2026-09-07",
+  "operator_source_path": "research/fusion/fusion_f2_6b_operator_0_1.py",
+  "operator_source_git_blob_sha": "ab2ecd18a53ddf8a3a4b4c4826a876054de15dd9",
+  "operator_source_commit": "83f004412183d43a1653d3a3a2f9ad104482de7d",
+  "spectral_driver_path": "research/fusion/fusion_f2_7_numerical_spectral_qualification_0_2.py",
+  "spectral_driver_sha256_precommit": "478f419c37781f7832f72cc8bdc49b51f5a70cf37b8694aed7f357f75abc7094",
+  "method": {
+    "final": "exact field-reduced dispersion root with sparse kinetic resolvents + SVD/Newton, followed by direct residual against frozen op.apply_A",
+    "dispersion_relation": "det[C + S (K-lambda I)^(-1) (U + lambda R)] = 0",
+    "similarity_coordinates": "kinetic D^(1/2) similarity; spectrum unchanged",
+    "newton_step_tolerance": 1e-12,
+    "direct_D_residual_acceptance": 1e-10,
+    "workers": 4,
+    "blas_threads_per_worker": 1,
+    "retained_ritz_requested": 0,
+    "retained_ritz_converged": 0,
+    "targeted_eigenpairs_requested_per_level": 1,
+    "targeted_eigenpairs_converged_per_level": 1,
+    "global_spectral_abscissa_magnitude_claimed": false,
+    "spectral_abscissa_sign_logic": "one certified eigenvalue with Re(lambda)>0 implies alpha=max Re sigma(A) >= Re(lambda)>0"
+  },
+  "levels": {
+    "K0": {
+      "dimension": 18608,
+      "Ntheta": 71,
+      "Nmu": 16,
+      "eigenvalue": {"real": 0.0221552877943, "imag": 0.0463690913769},
+      "alpha_lower_bound": 0.0221552877943,
+      "dispersion_singular_ratio": 3.6629061414430596e-13,
+      "newton_step_abs_at_reported_value": 2.651755191564341e-14,
+      "direct_residual": {"relative_D": 9.155786612902823e-13, "relative_generalized_D": 9.224106115807043e-13, "absolute_D": 4.302370801312625e-13},
+      "kinetic_block_solve_max_relative": 2.503076634382572e-13,
+      "field_block_solve_max_relative": 4.73798882487378e-13,
+      "E_schur_condition_normalized": 2.771556650949044,
+      "independent_repeat": {
+        "start": {"real": 0.0229552877943, "imag": 0.0457690913769},
+        "final": {"real": 0.022155287794280967, "imag": 0.04636909137688153},
+        "distance_to_primary": 2.652282073280066e-14,
+        "final_dispersion_ratio": 5.823857791963716e-16
+      },
+      "classification": "spectrally unstable"
+    },
+    "K1": {
+      "dimension": 93204,
+      "Ntheta": 159,
+      "Nmu": 24,
+      "eigenvalue": {"real": 0.0073015835948259025, "imag": 0.03339495326782699},
+      "alpha_lower_bound": 0.0073015835948259025,
+      "dispersion_singular_ratio": 6.800343189072246e-16,
+      "newton_step_abs_at_reported_value": 2.1257008895760605e-17,
+      "direct_residual": {"relative_D": 6.930699204255994e-14, "relative_generalized_D": 6.994094762523302e-14, "absolute_D": 2.8914461890188976e-14},
+      "kinetic_block_solve_max_relative": 5.045433010628259e-10,
+      "field_block_solve_max_relative": 2.352015127875634e-10,
+      "E_schur_condition_normalized": 2.9128900325258757,
+      "independent_repeat": {
+        "start": {"real": 0.007701583594825903, "imag": 0.03369495326782699},
+        "final": {"real": 0.007301583594824753, "imag": 0.033394953267829035},
+        "distance_to_primary": 2.3475278034224436e-15,
+        "pre_final_step_dispersion_ratio": 2.3052698891533048e-07
+      },
+      "classification": "spectrally unstable"
+    },
+    "K2": {
+      "dimension": 361152,
+      "Ntheta": 279,
+      "Nmu": 40,
+      "eigenvalue": {"real": 0.006215161668727925, "imag": 0.027317244416972773},
+      "alpha_lower_bound": 0.006215161668727925,
+      "dispersion_singular_ratio": 2.9665927341508935e-16,
+      "dispersion_smin": 2.9728292753327246e-16,
+      "dispersion_smax": 1.0021022572832587,
+      "newton_step_abs_penultimate": 2.778523919335013e-17,
+      "direct_residual": {"relative_D": 5.207129365421382e-14, "relative_generalized_D": 5.202078136294395e-14, "absolute_D": 1.9388346190455314e-14},
+      "kinetic_block_solve_max_relative": 1.1374202265590912e-05,
+      "field_block_solve_max_relative": 1.6090981679279956e-05,
+      "E_schur_condition_normalized": 2.95376941328275,
+      "independent_repeat": {
+        "start": {"real": 0.006389143, "imag": 0.02757067},
+        "after_three_full_newton_steps": {"real": 0.006215161668746496, "imag": 0.027317244416965134},
+        "distance_to_primary": 2.008109678664662e-14,
+        "third_step_input_dispersion_ratio": 2.5314358813776874e-07
+      },
+      "classification": "spectrally unstable"
+    }
+  },
+  "refinement": {
+    "certified_positive_real_parts": [0.0221552877943, 0.0073015835948259025, 0.006215161668727925],
+    "all_positive": true,
+    "sign_robust_under_frozen_K0_K1_K2_ladder": true,
+    "K1_over_K0_real_part": 0.3295639245410487,
+    "K2_over_K1_real_part": 0.8512073563236549,
+    "interpretation": "the unstable witness shifts under refinement but remains separated from zero by orders of magnitude relative to numerical residuals"
+  },
+  "rightmost_edge_statement": {
+    "exact_global_alpha_value_reported": false,
+    "reason": "a certified positive eigenvalue is sufficient to determine the sign of the spectral abscissa; no global maximizer is required for the unstable/stable gate decision",
+    "certified_statement": "alpha_K >= reported positive real part > 0 for K0, K1 and K2"
+  },
+  "left_right_eigenvalue_condition_number_reported": false,
+  "left_eigenvectors_computed": false,
+  "no_operator_modification": true,
+  "no_retuning": true,
+  "no_damping_or_collisions": true,
+  "no_propagator": true,
+  "no_finite_time_work": true,
+  "verdict": "F2.7 PASS — SPECTRALLY UNSTABLE / NUMERICALLY QUALIFIED — RETURN TO MASTER"
+}

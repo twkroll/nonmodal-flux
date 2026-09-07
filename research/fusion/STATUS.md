@@ -47,86 +47,95 @@ All other F2.5/F2.5R objects remain unchanged.
 
 ## Frozen F2.6B source-level implementation
 
-Canonical report:
-
-`research/fusion/fusion_f2_6b_source_level_operator_implementation_requalification_gate_0_1.md`
-
 Canonical executable operator:
 
 `research/fusion/fusion_f2_6b_operator_0_1.py`
 
-Canonical requalification driver:
+F2.6B branch commit `83f004412183d43a1653d3a3a2f9ad104482de7d`; Python CI #433 = `SUCCESS`.
 
-`research/fusion/fusion_f2_6b_requalification_0_1.py`
-
-Machine-readable diagnostics:
-
-`research/fusion/fusion_f2_6b_requalification_diagnostics_0_1.json`
-
-Focused regression test:
-
-`tests/test_fusion_f2_6b_operator_0_1.py`
-
-MASTER integration freeze:
-
-`research/master/fusion_f2_6b_source_level_operator_pass_integration_freeze_0_1.md`
-
-Branch commit `83f004412183d43a1653d3a3a2f9ad104482de7d`; Python CI #433 = `SUCCESS`.
-
-F2.6B is explicitly a new source-level realization and does not claim exact source identity with historical F2.6 `0_3`.
-
-The committed public interfaces are
-
-- `build_operator(level)`;
-- `apply_E(op,x)`;
-- `apply_F(op,x)`;
-- `solve_E(op,x)`.
-
-The frozen NumPy C-order state layout is ion `h_i[theta,u,zeta]` followed by trapped-electron `h_e[well,energy,lambda]`, with
+The frozen state dimensions are
 
 \[
 \boxed{N_{\rm total}(K0,K1,K2)=(18608,\ 93204,\ 361152).}
 \]
 
-The complete pre-spectral algebraic requalification passes. Maximum complete-balance relative residuals are
+## F2.7 `0_2` result
+
+Canonical report:
+
+`research/fusion/fusion_f2_7_numerical_spectral_qualification_gate_0_2.md`
+
+Machine-readable diagnostics:
+
+`research/fusion/fusion_f2_7_numerical_spectral_qualification_diagnostics_0_2.json`
+
+Reproducible spectral driver:
+
+`research/fusion/fusion_f2_7_numerical_spectral_qualification_0_2.py`
+
+**Status:** `F2.7 PASS — SPECTRALLY UNSTABLE / NUMERICALLY QUALIFIED — RETURN TO MASTER`
+
+All spectral quantities belong exclusively to the frozen F2.6B source-level realization. No claim is made about the unrecoverable historical F2.6 `0_3` source realization.
+
+Residual-certified unstable eigenvalues are
 
 \[
-\boxed{1.29\times10^{-13},\qquad5.64\times10^{-13},\qquad5.87\times10^{-13}.}
+\lambda_{K0}=0.0221552877943+0.0463690913769\,i,
 \]
 
-No spectrum or finite-time object was inspected.
+\[
+\lambda_{K1}=0.00730158359482590+0.0333949532678270\,i,
+\]
+
+\[
+\lambda_{K2}=0.00621516166872793+0.0273172444169728\,i.
+\]
+
+Therefore
+
+\[
+\boxed{\alpha_{K0}>0,\qquad\alpha_{K1}>0,\qquad\alpha_{K2}>0.}
+\]
+
+The reported eigenvalues are certified positive lower bounds for the spectral abscissa, not claims of globally exact maximizers of `Re(lambda)`. One certified positive eigenvalue suffices to prove the unstable sign classification.
+
+Direct canonical `D`-weighted residuals against the unmodified full F2.6B `apply_A` are
+
+\[
+9.16\times10^{-13},\qquad
+6.93\times10^{-14},\qquad
+5.21\times10^{-14}
+\]
+
+for K0/K1/K2.
+
+For K2 the full 40-`zeta` dispersion matrix satisfies
+
+\[
+\sigma_{\min}/\sigma_{\max}=2.97\times10^{-16}.
+\]
+
+Independent offset-target repetitions converge to the same unstable branch. The K2 repeat is
+
+\[
+\lambda_{K2}^{\rm repeat}
+=0.006215161668746496+0.027317244416965134\,i,
+\]
+
+only approximately `2.01e-14` from the primary K2 eigenvalue.
+
+The unstable sign is robust under the complete frozen K0/K1/K2 refinement ladder.
+
+No damping, collisions, filtering, parameter retuning, wavenumber scan, alternative resolution, propagator, matrix exponential, Gramian, cumulative transport objective, finite-time optimizer, angle, gap or horizon curve was constructed.
 
 ## Active instruction
 
-**Status:** `FUSION F2.7 0_2 NUMERICAL / SPECTRAL QUALIFICATION ON F2.6B OPERATOR READY — AWAIT GO`
+**Next instruction:** none in this branch.
 
-**Next instruction:**
+A bare `GO` must not open finite-time work or any later Fusion gate until MASTER integrates F2.7 `0_2` and commits an explicit new handoff.
 
-`research/master/prompts/fusion_f2_7_rerun_on_f2_6b_source_operator_0_1.md`
+## Forbidden while RETURN TO MASTER remains
 
-On bare `GO`, first read this STATUS and execute only that committed instruction.
+Do not construct propagators, matrix exponentials, Gramians, cumulative objectives, optimizers, principal angles, performance gaps or horizon curves. Do not retune the F2.3 point, change the F2.4 input geometry, modify F2.1–F2.5R or the frozen F2.6B operator, scan parameters/resolutions, add collisions/damping/filters, run GENE, or reopen R1, MODES, CONT, CASCADE, Power Grid, Photonics or Paper-1 work.
 
-## F2.7 0_2 scope
-
-Use the committed F2.6B source-level operator directly and determine the rightmost modal spectral edge / spectral abscissa on K0/K1/K2 with residual certification, an independent eigensolver repetition and frozen-ladder robustness.
-
-All reported spectral quantities must be attributed to the F2.6B implementation, not to the unrecoverable historical F2.6 `0_3` source realization.
-
-A robustly unstable point must be reported without damping or retuning. A marginal or unresolved edge returns HOLD. A new operator inconsistency returns FAIL rather than a silent repair.
-
-## Forbidden until F2.7 0_2 returns
-
-Do not modify the frozen F2.6B operator for spectral convenience. Do not construct propagators, matrix exponentials, Gramians, cumulative objectives, optimizers, angles, gaps or horizon curves. Do not change F2.1–F2.5R, the repaired ladder, physical channels, physical point or input geometry. Do not scan parameters or resolutions outside K0/K1/K2, run GENE, add collisions/damping, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
-
-## Expected return
-
-One of:
-
-- `F2.7 PASS — SPECTRALLY STABLE / NUMERICALLY QUALIFIED — RETURN TO MASTER`;
-- `F2.7 PASS — SPECTRALLY UNSTABLE / NUMERICALLY QUALIFIED — RETURN TO MASTER`;
-- `F2.7 HOLD — MARGINAL OR SPECTRALLY INDETERMINATE — RETURN TO MASTER`;
-- `F2.7 FAIL — RETURN TO MASTER`.
-
-Create new versioned `0_2` outputs. Do not overwrite F2.7 `0_1`. No branch-side next gate is self-authorized.
-
-**STOP / AWAIT GO.**
+**STOP / RETURN TO MASTER.**
