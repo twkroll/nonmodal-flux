@@ -1,0 +1,58 @@
+{
+  "gate": "Fusion F2.6B — Source-Level Matrix-Free Operator Implementation Freeze / Algebraic Requalification Gate 0.1",
+  "historical_identity_claim": false,
+  "implementation_version": "fusion_f2_6b_operator_0_1",
+  "interfaces": ["build_operator", "apply_E", "apply_F", "solve_E"],
+  "levels": {
+    "K0": {
+      "bounce": {"B_abs": 1.3181677971374484e-12, "cos_abs": 8.290035324876044e-12, "one_abs": 1.1102230246251565e-16},
+      "conditioning": {"Cdiag": 16.172001196524153, "E_schur_cholesky_min_diag": 0.22417764483617114, "normalized_E_schur": 2.771556650949044, "normalized_positive_field": 2.771556650948966, "positive_field_cholesky_min_diag": 0.22417764483617109},
+      "criteria": {"ambipolarity": true, "balance": true, "channels": true, "flr": true, "metric": true, "qn": true, "skew": true, "solve_E": true, "weights": true},
+      "dimensions": {"N": 18608, "NE": 12, "Nb": 24, "Ne": 432, "Ni": 18176, "Nlam": 12, "Nmu": 16, "Ntheta": 71, "Nu": 16, "W": 1, "p": 12},
+      "flr": {"active": {"max_abs": 5.208611320028922e-13, "max_rel": 2.3196884819230095e-12}, "envelope": {"max_abs": 6.7809646786543e-13, "max_rel": 3.043867403762884e-12, "points": 1542, "worst_b": 3.5007853244332243, "worst_theta": -9.42477796076938}},
+      "hashes": {"B_orb_data": "316f008ae65098fda4380f0c80ab4837ddc724ca045f5c1534fcf41e09f6ac88", "B_orb_indices": "851c423eed58ca00bc7e37f03ab4204df2f8fea631be5abdbac3a88023a28dc2", "B_orb_indptr": "5331f083e0104b7dbabcf4b70179f14a833a36975f8a713b5660f1f0afa9d4b7", "De": "b00c84dbbda88cd4ef3077b6f12a670bd7d5f13c80a17c3f070c6c81508919b9", "Di": "91fb4662f98f9e0a6d108bdbd2eeeb2815d0124cae189dfdecfec58443985356", "Hschur": "c5742090706b2b12c7f76b3a14144feb1d448ca075eb06a48d1c7aebda9cf966", "J0": "8b5f9ad24b203f3e7931bad818d3f664963f0bc60a0fd00c0766f1484ef8184f", "theta": "88cbe181e1870b515ad513678ff5f1aa2d95f08977b891566a21f4ba402c3aa5"},
+      "manufactured_free_energy": 8.58356479318211,
+      "min_positive_weight": {"electron": 1.8558833143254212e-16, "ion": 3.3952977410055496e-38},
+      "moments": {"density": 4.440892098500626e-16, "energy": 8.881784197001252e-16, "heat_weight": 5.551115123125783e-16},
+      "residuals": {"ambipolarity_abs": 3.705769144237564e-22, "ambipolarity_rel": 1.7608875018414557e-15, "balance_abs": 4.303834439561709e-19, "balance_rel": 1.2860948541526502e-13, "channel_direct": 1.0058516248644817e-21, "channel_hermiticity": 1.96873425487109e-15, "full_conservative_skew": 7.359940742701274e-16, "metric_factorization": 2.217793593718538e-16, "metric_hermiticity": 3.587643381486357e-16, "qn": 7.304623053038721e-17, "solve_E": 4.019412145760236e-17, "stream_mirror_skew": 1.6208804588107397e-15},
+      "state_layout": {"block_order": ["ion", "trapped_electron"], "electron": "well,energy,lambda / C-order", "ion": "theta,u,zeta / C-order"},
+      "verdict": "PASS"
+    },
+    "K1": {
+      "bounce": {"B_abs": 1.3361534101363759e-12, "cos_abs": 8.404776874471054e-12, "one_abs": 0.0},
+      "conditioning": {"Cdiag": 21.63350602446928, "E_schur_cholesky_min_diag": 0.16977611328877784, "normalized_E_schur": 2.9128900325258757, "normalized_positive_field": 2.9128900325258753, "positive_field_cholesky_min_diag": 0.16977611328877784},
+      "criteria": {"ambipolarity": true, "balance": true, "channels": true, "flr": true, "metric": true, "qn": true, "skew": true, "solve_E": true, "weights": true},
+      "dimensions": {"N": 93204, "NE": 18, "Nb": 36, "Ne": 1620, "Ni": 91584, "Nlam": 18, "Nmu": 24, "Ntheta": 159, "Nu": 24, "W": 2, "p": 16},
+      "flr": {"active": {"max_abs": 4.586608870482678e-12, "max_rel": 3.507620701827909e-11}, "envelope": {"max_abs": 5.2380322301814886e-12, "max_rel": 4.016029070230695e-11, "points": 2570, "worst_b": 9.616819678981177, "worst_theta": -15.707963267948966}},
+      "hashes": {"B_orb_data": "d63025635c74c8b7d8a019e42e520eb1690fae4464bc7a63a2753ca723ae206a", "B_orb_indices": "687c1760aab89070c31a3d09fa8d7df40bd037abfba5cb1347ba2c618fc0e06d", "B_orb_indptr": "a28416a5821be76b726d93c2dcbdbc4017ef3f04b0f849aa20ac39280246b7cd", "De": "c482582be065651b84971d7f9818da9f1a9c61df571694317b26f425ed162702", "Di": "221f8e2f52159a511131b6618739f67395484af5172b9d7cca8e32e16693b2b4", "Hschur": "0a2bfa1fbbddf6b3f960d6cdb497a9374aa20267103bd770214baba787254327", "J0": "4e2bfd1ce9d251551f5c54de54665907133b2cca74b39310fb605995601cacb1", "theta": "4b494109c4f4c4ff58ab9dbe82820229864d76603772cc833e12d9901c3b56be"},
+      "manufactured_free_energy": 8.597217496716421,
+      "min_positive_weight": {"electron": 3.434217281658831e-26, "ion": 2.3606361293717607e-60},
+      "moments": {"density": 4.440892098500626e-16, "energy": 1.5543122344752192e-15, "heat_weight": 1.7763568394002505e-15},
+      "residuals": {"ambipolarity_abs": 2.3822801641527197e-22, "ambipolarity_rel": 6.074497122564716e-14, "balance_abs": 2.7553821682610627e-19, "balance_rel": 5.639537136454228e-13, "channel_direct": 2.2003004293910536e-22, "channel_hermiticity": 1.223874730788952e-15, "full_conservative_skew": 1.0756813119346409e-15, "metric_factorization": 1.6614581827258595e-16, "metric_hermiticity": 3.1126773856358933e-15, "qn": 9.057965282732062e-17, "solve_E": 3.0684339563661147e-17, "stream_mirror_skew": 6.435654131902945e-15},
+      "state_layout": {"block_order": ["ion", "trapped_electron"], "electron": "well,energy,lambda / C-order", "ion": "theta,u,zeta / C-order"},
+      "verdict": "PASS"
+    },
+    "K2": {
+      "bounce": {"B_abs": 1.3493650641294153e-12, "cos_abs": 8.487321956351934e-12, "one_abs": 0.0},
+      "conditioning": {"Cdiag": 26.745388672792135, "E_schur_cholesky_min_diag": 0.13662539889459363, "normalized_E_schur": 2.95376941328275, "normalized_positive_field": 2.9537694132827523, "positive_field_cholesky_min_diag": 0.13662539889459363},
+      "criteria": {"ambipolarity": true, "balance": true, "channels": true, "flr": true, "metric": true, "qn": true, "skew": true, "solve_E": true, "weights": true},
+      "dimensions": {"N": 361152, "NE": 24, "Nb": 48, "Ne": 4032, "Ni": 357120, "Nlam": 24, "Nmu": 40, "Ntheta": 279, "Nu": 32, "W": 3, "p": 20},
+      "flr": {"active": {"max_abs": 6.38378239159465e-16, "max_rel": 5.38523930243496e-15}, "envelope": {"max_abs": 6.661338147750939e-16, "max_rel": 6.43993610810365e-15, "points": 3598, "worst_b": 18.790871210803115, "worst_theta": 21.991148575128555}},
+      "hashes": {"B_orb_data": "99b23d7a05e31eca8726d355088b509d068447b0e7f8e2a69424b7df843951d9", "B_orb_indices": "64ef8c974301e9e10a5d3842d8446a1e964f83362d70084cf9bb97f6ac9fb4d7", "B_orb_indptr": "f57e8d3acdb9f64e96e654fc5b0c9dc5286e0b57dee5478b7420c8b02f0f7cd1", "De": "75432b4bf00c85afa0afe9118904db5d7c83b382df987260033ef71b3f3651bc", "Di": "f9da2c083cbe8f26c7cb579159e148685a6e2f70e57c9d6d09ebf1ced15ed70b", "Hschur": "8f232149fef238563e18360bfce717c4427f7e98a9265238bc53a6c0319c2103", "J0": "5d3d53bd185cbd2d98c66c775beea74322baca2c03e6819d04cae4cd5de4c897", "theta": "4cfd50dfe0f976c74119cead28addc30092690512ecb72bebeed9f5e502d0670"},
+      "manufactured_free_energy": 8.603981503255795,
+      "min_positive_weight": {"electron": 4.688278729883748e-36, "ion": 5.220386656017743e-99},
+      "moments": {"density": 1.1102230246251565e-16, "energy": 6.661338147750939e-16, "heat_weight": 6.661338147750939e-16},
+      "residuals": {"ambipolarity_abs": 1.9852334701272664e-23, "ambipolarity_rel": 3.452496209424736e-15, "balance_abs": 6.162826515703072e-20, "balance_rel": 5.86703828704311e-13, "channel_direct": 9.491897529045993e-23, "channel_hermiticity": 8.726917739195067e-15, "full_conservative_skew": 1.4367068185086912e-15, "metric_factorization": 1.1254159349408998e-16, "metric_hermiticity": 1.9399674429023955e-15, "qn": 9.256379886674981e-17, "solve_E": 2.4844779005139578e-17, "stream_mirror_skew": 1.5643371446140159e-15},
+      "state_layout": {"block_order": ["ion", "trapped_electron"], "electron": "well,energy,lambda / C-order", "ion": "theta,u,zeta / C-order"},
+      "verdict": "PASS"
+    }
+  },
+  "no_finite_time_work": true,
+  "no_spectral_work": true,
+  "probe_seeds": [20260907, 20260908, 20260909],
+  "source_git_blob_sha": "ab2ecd18a53ddf8a3a4b4c4826a876054de15dd9",
+  "source_path": "research/fusion/fusion_f2_6b_operator_0_1.py",
+  "structural_convergence": {"manufactured_free_energy": [8.58356479318211, 8.597217496716421, 8.603981503255795], "successive_relative_changes": [0.001590563345564354, 0.0007867669442999824]},
+  "tolerances": {"ambipolarity_abs": 1e-15, "balance_rel": 1e-09, "channel_direct": 1e-12, "channel_hermiticity": 1e-11, "flr_rel": 1e-09, "metric_factorization": 1e-11, "metric_hermiticity": 1e-11, "qn": 1e-12, "skew": 1e-11, "solve_E": 1e-12},
+  "verdict": "PASS"
+}

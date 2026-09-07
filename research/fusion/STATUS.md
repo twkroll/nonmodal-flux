@@ -13,11 +13,11 @@ The active post-paper program remains
 
 The first-paper scientific content remains frozen and submission remains parked.
 
-B5.5, F1.2, F1.3, F1.4, the R1 literature audit and F2.1–F2.4 remain protected historical savepoints. Historical F2.5, F2.6 `0_1` HOLD and F2.6 `0_2` FAIL remain immutable audit records. F2.5R and F2.6 `0_3` remain MASTER-integrated and frozen as PASS/historical qualification.
+B5.5, F1.2, F1.3, F1.4, the R1 literature audit and F2.1–F2.4 remain protected historical savepoints. Historical F2.5, F2.6 `0_1` HOLD and F2.6 `0_2` FAIL remain immutable audit records. F2.5R and historical F2.6 `0_3` remain MASTER-integrated qualified savepoints.
 
-F2.7 `0_1` remains HOLD / spectrally indeterminate because the historical qualified operator is not canonically executable. F2.6A then returned HOLD because exact source-level identity to the historical F2.6 `0_3` realization cannot be established from canonical repository/CI provenance.
+F2.7 `0_1` remains a historical HOLD / spectrally indeterminate result because the historical F2.6 `0_3` source realization was not canonically executable. F2.6A remains a historical HOLD because exact source-level identity to that historical realization cannot be proven.
 
-MASTER has integrated F2.6A and selected a new provenance-clean path: build and freeze a **new versioned source-level implementation** of the frozen F2-R numerical model, then rerun the complete pre-spectral algebraic qualification before any spectral work.
+MASTER then authorized F2.6B to create a new provenance-clean source-level realization of the unchanged frozen F2-R numerical model and re-run the complete pre-spectral algebraic qualification. F2.6B has now completed PASS.
 
 ## Frozen physical / numerical objects
 
@@ -47,60 +47,87 @@ The controlling repaired magnetic-moment ladder remains
 
 All other F2.5/F2.5R objects remain unchanged.
 
-## F2.6A integrated HOLD
+## F2.6B result
 
 Canonical report:
 
-`research/fusion/fusion_f2_6a_canonical_operator_artifact_reproducibility_gate_0_1.md`
+`research/fusion/fusion_f2_6b_source_level_operator_implementation_requalification_gate_0_1.md`
 
-Manifest:
+Canonical executable operator:
 
-`research/fusion/fusion_f2_6a_canonical_operator_artifact_reproducibility_manifest_0_1.json`
+`research/fusion/fusion_f2_6b_operator_0_1.py`
 
-Branch commit `1ac71cd2ad0d5e9c7388c5b21229629484323aa2`; Python CI #426 = `SUCCESS`.
+Canonical requalification driver:
 
-**Status:** `F2.6A HOLD — EXACT OPERATOR EQUIVALENCE NOT ESTABLISHED — MASTER-INTEGRATED`.
+`research/fusion/fusion_f2_6b_requalification_0_1.py`
 
-The canonical F2.6 `0_3` report/diagnostics do not uniquely identify the coefficient-level weak/SBP streaming-mirror assembly, trapped-electron orbit maps, complete `D_K/S_K/C_K/R_K` factor/state layout or full source-level `F_K` action. F2.6 `0_3` CI #412 published no artifacts. No original builder or exact serialized factor archive is canonically recoverable.
+Machine-readable diagnostics:
 
-F2.6A correctly committed no substitute operator. No F2.6 `0_3` scientific conclusion is revoked.
+`research/fusion/fusion_f2_6b_requalification_diagnostics_0_1.json`
 
-MASTER integration freeze:
+Focused regression test:
 
-`research/master/fusion_f2_6a_reproducibility_hold_integration_freeze_0_1.md`
+`tests/test_fusion_f2_6b_operator_0_1.py`
+
+**Status:** `F2.6B PASS — SOURCE-LEVEL MATRIX-FREE OPERATOR IMPLEMENTATION FROZEN / ALGEBRA REQUALIFIED — RETURN TO MASTER`
+
+This F2.6B realization is explicitly new and does not claim source identity with historical F2.6 `0_3`.
+
+The committed public generalized-operator interfaces are
+
+- `build_operator(level)`;
+- `apply_E(op,x)`;
+- `apply_F(op,x)`;
+- `solve_E(op,x)`.
+
+The frozen state layout is ion `h_i[theta,u,zeta]` followed by trapped-electron `h_e[well,energy,lambda]`, NumPy C-order.
+
+The resulting dimensions are
+
+\[
+N_{\rm total}(K0,K1,K2)=(18608,\ 93204,\ 361152).
+\]
+
+The complete K0/K1/K2 requalification passes:
+
+- repaired full-support local-`B` FLR identity;
+- positive Maxwellian/orbit weights and moment checks;
+- quasineutrality and exact Woodbury/Schur `solve_E`;
+- canonical positive Helmholtz metric \(M_K=M_K^\dagger\succ0\);
+- \(B_K=I,\ R_{{\rm in},K}=M_K\);
+- ion streaming/mirror and full conservative phase-space skew structure;
+- independently constructed particle/ion-heat/trapped-electron-heat channel Hermiticity;
+- hydrogenic particle ambipolarity;
+- complete F2.1 discrete free-energy balance.
+
+Maximum complete-balance relative residuals are
+
+\[
+1.29\times10^{-13},\qquad
+5.64\times10^{-13},\qquad
+5.87\times10^{-13}
+\]
+
+for K0/K1/K2.
+
+A fixed manufactured state gives
+
+\[
+2W_K=8.5835647932,\quad8.5972174967,\quad8.6039815033,
+\]
+
+with decreasing successive relative changes.
+
+No spectral or finite-time object was inspected.
 
 ## Active instruction
 
-**Status:** `FUSION F2.6B SOURCE-LEVEL MATRIX-FREE OPERATOR IMPLEMENTATION / ALGEBRAIC REQUALIFICATION READY — AWAIT GO`
+**Next instruction:** none in this branch.
 
-**Next instruction:**
+A bare `GO` must not start F2.7, inspect spectra or open finite-time work until MASTER integrates F2.6B and commits an explicit new handoff.
 
-`research/master/prompts/fusion_f2_6b_source_level_operator_implementation_requalification_gate_0_1.md`
+## Forbidden while RETURN TO MASTER remains
 
-On bare `GO`, first read this STATUS and execute only that committed instruction.
+Do not compute eigenvalues, Ritz values, spectral abscissa, growth rates, pseudospectra or eigenvectors. Do not construct propagators, Gramians, cumulative objectives, optimizers, angles, gaps or horizon curves. Do not change F2.1–F2.5R, the repaired ladder, physical channels, physical point or input geometry. Do not run GENE, add collisions/damping, reopen R1 or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
 
-## F2.6B scope
-
-Create a **new versioned** source-level matrix-free implementation of the frozen F2-R numerical model. Do not claim it is the exact historical F2.6 `0_3` source realization.
-
-Freeze and publish all implementation choices required for reproducibility, including exact state layout/indexing, weak/SBP streaming-mirror split/skew assembly, trapped-electron orbit projection maps, quasineutrality/field factors or deterministic constructors, drift/gradient-drive `F_K` action, independently constructed physical channels and stable `apply_E/apply_F/solve_E` interfaces.
-
-Then rerun the complete F2.6 pre-spectral algebraic qualification on K0/K1/K2. The new implementation must satisfy the frozen full-support FLR, quasineutrality, positive canonical metric, conservative adjoint/skew, physical-channel Hermiticity, ambipolarity and complete F2.1 balance requirements and must be reproducible directly from committed source/metadata.
-
-If a source-level choice cannot be resolved from frozen physics/structure-preserving/reproducibility criteria alone, return HOLD. If the implementation cannot qualify without changing frozen upstream objects, return FAIL.
-
-## Forbidden until F2.6B returns
-
-Do not inspect eigenvalues, Ritz values, spectral abscissa, growth rates, pseudospectra or eigenvectors. Do not construct propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not change F2.1–F2.5R, the repaired ladder, physical channels, physical point or input geometry. Do not use resolutions outside frozen K0/K1/K2. Do not run GENE, add collisions/damping, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
-
-## Expected return
-
-One of:
-
-- `F2.6B PASS — SOURCE-LEVEL MATRIX-FREE OPERATOR IMPLEMENTATION FROZEN / ALGEBRA REQUALIFIED — RETURN TO MASTER`;
-- `F2.6B HOLD — SPECIFIC SOURCE-LEVEL IMPLEMENTATION DECISION REQUIRED — RETURN TO MASTER`;
-- `F2.6B FAIL — RETURN TO MASTER`.
-
-No branch-side next gate is self-authorized.
-
-**STOP / AWAIT GO.**
+**STOP / RETURN TO MASTER.**
