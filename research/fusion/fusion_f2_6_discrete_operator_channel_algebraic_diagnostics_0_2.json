@@ -1,0 +1,66 @@
+{
+  "gate": "Fusion F2.6 resumed after ion-FLR erratum 0.1",
+  "date": "2026-09-07",
+  "verdict": "FAIL",
+  "controlling_erratum": "research/master/fusion_f2_6_ion_flr_convention_erratum_0_1.md",
+  "failure_object": {
+    "name": "frozen ion magnetic-moment quadrature does not resolve local-B FLR over full retained support",
+    "description": "The analytic local-B Gamma0 convention is now unambiguous, but frozen N_mu=8,12,16 does not reproduce <J0^2> uniformly on the expanding K0/K1/K2 ballooning windows. The error worsens with refinement and reaches about 30.5% relative on K2.",
+    "repair_requires_master": "Any repair changes the frozen F2.5 magnetic-moment resolution/integration strategy or its coupling to the ballooning window."
+  },
+  "levels": {
+    "K0": {
+      "dimensions": {"Ntheta": 71, "Ni": 9088, "Ne": 432, "Nmu": 8},
+      "C_QN_cond_diag": 16.17200119652416,
+      "QN_random_relative_residual": 8.47e-17,
+      "ion_moment_max_abs_error": {"density": 3.3306690738754696e-16, "energy": 3.6415315207705135e-14, "heat_weight": 3.730349362740526e-14},
+      "max_kperp_rhoe_nodes": 0.03736662628435615,
+      "representative_flr": {
+        "theta0": {"b_local": 0.12531599999999998, "Gamma0_exact": 0.8856850888548305, "J0sq_quadrature": 0.8856850888548307, "error": 1.1102230246251565e-16},
+        "theta_pi": {"b_local": 0.44276814715924695, "Gamma0_exact": 0.6741214459594775, "J0sq_quadrature": 0.6741214459371465, "error": -2.23310259173104e-11}
+      },
+      "full_support_flr": {"max_abs_error": 8.302808047622179e-05, "max_relative_error": 0.00036977088541096775, "worst_theta": -9.3514372393774, "worst_b_local": 3.4515212855460513, "Gamma0_exact": 0.2245392586383414, "J0sq_quadrature": 0.22445623055786518, "field_block_frobenius_defect_over_C": 3.980729685580955e-06, "max_local_field_block_defect_over_C": 4.1514040238110894e-05},
+      "channel_hermiticity_max": 9.368373559652894e-16,
+      "particle_ambipolarity_abs_probe": 6.938893903907228e-18,
+      "g_form_debug_balance_relative_probe": 6.316071476309437e-15
+    },
+    "K1": {
+      "dimensions": {"Ntheta": 159, "Ni": 45792, "Ne": 1620, "Nmu": 12},
+      "C_QN_cond_diag": 21.633506024469266,
+      "QN_random_relative_residual": 7.75e-17,
+      "ion_moment_max_abs_error": {"density": 8.881784197001252e-16, "energy": 2.6645352591003757e-15, "heat_weight": 1.9984014443252818e-15},
+      "max_kperp_rhoe_nodes": 0.06224285356326398,
+      "representative_flr": {
+        "theta0": {"b_local": 0.12531599999999998, "Gamma0_exact": 0.8856850888548305, "J0sq_quadrature": 0.8856850888548304, "error": -1.1102230246251565e-16},
+        "theta_pi": {"b_local": 0.44276814715924695, "Gamma0_exact": 0.6741214459594775, "J0sq_quadrature": 0.6741214459594782, "error": 6.661338147750939e-16}
+      },
+      "full_support_flr": {"max_abs_error": 0.0017012042148372153, "max_relative_error": 0.01301000213992946, "worst_theta": -15.665759389692623, "worst_b_local": 9.569277068350962, "Gamma0_exact": 0.1307612555739702, "J0sq_quadrature": 0.12906005135913298, "field_block_frobenius_defect_over_C": 0.00010913344571408736, "max_local_field_block_defect_over_C": 0.0008506021074186076},
+      "channel_hermiticity_max": 1.4529629155019876e-15,
+      "particle_ambipolarity_abs_probe": 1.0408340855860843e-17,
+      "g_form_debug_balance_relative_probe": 7.285340796485234e-15
+    },
+    "K2": {
+      "dimensions": {"Ntheta": 279, "Ni": 142848, "Ne": 4032, "Nmu": 16},
+      "C_QN_cond_diag": 26.74538867279215,
+      "QN_random_relative_residual": 8.66e-17,
+      "ion_moment_max_abs_error": {"density": 5.551115123125783e-16, "energy": 8.881784197001252e-16, "heat_weight": 1.5543122344752192e-15},
+      "max_kperp_rhoe_nodes": 0.08713026833178088,
+      "representative_flr": {
+        "theta0": {"b_local": 0.12531599999999998, "Gamma0_exact": 0.8856850888548305, "J0sq_quadrature": 0.8856850888548304, "error": -1.1102230246251565e-16},
+        "theta_pi": {"b_local": 0.44276814715924695, "Gamma0_exact": 0.6741214459594775, "J0sq_quadrature": 0.6741214459594771, "error": -4.440892098500626e-16}
+      },
+      "full_support_flr": {"max_abs_error": 0.023077520762022852, "max_relative_error": 0.30470074778390327, "worst_theta": 19.722736807287365, "worst_b_local": 27.99875075532764, "Gamma0_exact": 0.07573831350879931, "J0sq_quadrature": 0.05266079274677646, "field_block_frobenius_defect_over_C": 0.004009764342013856, "max_local_field_block_defect_over_C": 0.011538760381011426},
+      "channel_hermiticity_max": 2.1308207159363712e-15,
+      "particle_ambipolarity_abs_probe": 2.7755575615628914e-17,
+      "g_form_debug_balance_relative_probe": 2.2857256426978056e-13
+    }
+  },
+  "bounce_lambda_hat_1": {"max_abs_average_error_all_levels": 3e-15, "max_denominator_relative_error_all_levels": 4e-16},
+  "structure_consequence": {
+    "metric_identity": "M_positive - M_g = P_QN^dagger Delta_FLR P_QN",
+    "complete_F2_1_balance_with_canonical_positive_metric": "NOT QUALIFIED",
+    "convergence": "FAILS across K0/K1/K2",
+    "no_regularization_used": true
+  },
+  "no_spectral_work": true
+}

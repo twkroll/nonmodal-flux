@@ -1,6 +1,6 @@
 # Fusion Branch Status
 
-**Last updated:** 2026-09-06  
+**Last updated:** 2026-09-07  
 **Branch:** `main`
 
 ## Current state
@@ -13,101 +13,80 @@ The active post-paper program remains
 
 The first-paper scientific content remains frozen and submission remains parked.
 
-B5.5, F1.2, F1.3, F1.4, the R1 literature audit, F2.1, F2.2, F2.3, F2.4 and F2.5 are complete and MASTER-integrated.
+B5.5, F1.2, F1.3, F1.4, the R1 literature audit, F2.1, F2.2, F2.3, F2.4 and F2.5 remain complete and MASTER-integrated.
 
-F2.6 `0_1` returned `HOLD` before any spectral work. MASTER has now resolved the single blocking ion-FLR convention and re-released F2.6 through a versioned resumption handoff.
+F2.6 `0_1` historically returned `HOLD` on an ion-FLR convention conflict. MASTER resolved that conflict through the local-B ion-FLR erratum and re-released F2.6. The resumed F2.6 `0_2` now returns `FAIL` before any spectral work because the frozen F2.5 ion magnetic-moment quadrature does not resolve the corrected local-B FLR identity over the full K0/K1/K2 retained support.
 
-## Frozen upstream lineage
+## Controlling ion-FLR convention
 
-The primary reduced F2-R candidate remains
-
-\[
-\boxed{\text{finite-ion-FLR electrostatic local-GK ions}+\text{collisionless bounce-averaged trapped electrons}}
-\]
-
-with leading adiabatic passing electrons, the frozen circular `s-alpha` ballooning geometry, the frozen F2.3 CBC-compatible point, and
-
-\[
-\boxed{B=I_{\mathcal H_{F2}},\qquad R_{\rm in}=\mathcal M_{F2}}.
-\]
-
-The F2.5 K0/K1/K2 discretization ladder remains frozen and may not be retuned.
-
-## Historical F2.6 HOLD record
-
-Canonical HOLD report:
-
-`research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_1.md`
-
-Historical diagnostics:
-
-`research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_diagnostics_0_1.json`
-
-The HOLD localized one conflict: local ion gyroaveraging with `Omega_i(theta)` had been paired with a reference-`B0` polarization argument.
-
-F2.6 HOLD commit `ef5a20e728a5a6ca0dfb1cd2cd012f4003a4c0f1`; Python CI #385 = `SUCCESS`.
-
-## MASTER ion-FLR erratum
-
-Controlling clarification:
+MASTER erratum:
 
 `research/master/fusion_f2_6_ion_flr_convention_erratum_0_1.md`
 
-The reference normalization remains
+The controlling convention is
 
 \[
 \rho_{i0}=v_{Ti}/\Omega_i(B_0),
 \qquad
-k_y\rho_{i0}=0.3.
+J_{0i}=J_0\!\left(\frac{k_\perp v_\perp}{\Omega_i(\theta)}\right),
 \]
-
-The already-frozen local gyroaverage remains
-
-\[
-J_{0i}=J_0\!\left(\frac{k_\perp v_\perp}{\Omega_i(\theta)}\right).
-\]
-
-The controlling polarization/free-energy convention is now
 
 \[
 \boxed{
- b_i(\theta)
- =(k_\perp(\theta)\rho_{i0})^2
- \left(\frac{B_0}{B(\theta)}\right)^2,
+b_i(\theta)
+=(k_\perp(\theta)\rho_{i0})^2
+\left(\frac{B_0}{B(\theta)}\right)^2,
 \qquad
 \Gamma_{0i}=I_0(b_i)e^{-b_i}.
 }
 \]
 
-Equivalently, `rho_i(theta)=rho_i0 B0/B(theta)`. This is a narrow convention erratum only: F2.3 parameters, F2.4 input geometry and F2.5 K0/K1/K2 architecture remain unchanged.
+This convention itself is no longer ambiguous.
 
-Historical frozen files are not overwritten; the MASTER erratum supersedes only the inconsistent varying-`B` implementation reading of `b_i` for subsequent work.
+## F2.6 resumed result
+
+Canonical report:
+
+`research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_2.md`
+
+Machine-readable diagnostics:
+
+`research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_diagnostics_0_2.json`
+
+Reproducible pre-spectral check:
+
+`research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_0_2.py`
+
+**Status:** `F2.6 FAIL — RETURN TO MASTER`
+
+The representative local-B FLR checks at `theta=0` and `theta=pi` pass after the MASTER erratum. The failure is instead a full-support frozen-ladder error:
+
+| level | `N_mu` | max `|<J0^2>_K-Gamma0|` | max relative error |
+|---|---:|---:|---:|
+| K0 | 8 | `8.3028e-05` | `3.6977e-04` |
+| K1 | 12 | `1.7012e-03` | `1.3010e-02` |
+| K2 | 16 | `2.3078e-02` | `3.0470e-01` |
+
+Thus the required FLR manufactured identity is not convergent across the predeclared K0/K1/K2 ladder. At K2 the worst active-node discrepancy is approximately `30.5 %` relative.
+
+The associated positive-Helmholtz versus `g`-form field-block defect also grows across the ladder, so the complete F2.1 discrete balance with the canonical independently constructed positive metric cannot be qualified on all three levels.
+
+Other pre-spectral checks remain localized and satisfactory: quasineutrality residuals are at roundoff, Maxwellian moments converge, bounce quadrature is at roundoff for the fixed analytic tests, physical channel forms are Hermitian to roundoff, particle ambipolarity is at roundoff, and `max(k_perp rho_e)<0.1` remains satisfied.
+
+## Why this is FAIL
+
+The earlier `HOLD` ambiguity has been removed by MASTER. Repairing the remaining defect would require changing the frozen F2.5 ion magnetic-moment resolution/integration strategy or its coupling to the ballooning-window ladder.
+
+F2.6 is explicitly forbidden to retune K0/K1/K2 or silently replace the quadrature. Therefore the frozen discretization cannot satisfy the required physical/algebraic qualification under the committed ladder.
 
 ## Active instruction
 
-**Status:** `FUSION F2.6 RESUMPTION AFTER ION-FLR ERRATUM READY — AWAIT GO`
+**Next instruction:** none in this branch.
 
-**Next instruction:**
+A bare `GO` must not reopen or repair F2.5/F2.6, inspect spectra, or start finite-time work until MASTER commits an explicit new handoff.
 
-`research/master/prompts/fusion_f2_6_resume_after_ion_flr_erratum_0_1.md`
+## Forbidden while FAIL remains
 
-On bare `GO`, first read this STATUS and execute only that committed instruction.
+Do not inspect eigenvalues, growth rates, pseudospectra, eigenvectors, propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not change F2.3, F2.4 or F2.5, add damping/collisions, run GENE, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
 
-## F2.6 resumption scope
-
-On the unchanged K0/K1/K2 ladder, rebuild all FLR-dependent discrete objects with the local-B `b_i(theta)`, re-run the manufactured FLR identity and complete the original pre-spectral algebraic qualification: quasineutrality, `M_K>0`, `B_K=I`, `R_in,K=M_K`, physical-channel Hermiticity, ambipolarity, conservative phase-space adjoint/skew structure and the complete F2.1 discrete free-energy balance.
-
-Create versioned `0_2` result and diagnostic files; do not overwrite the historical HOLD files.
-
-## Forbidden until F2.6 returns again
-
-Do not inspect eigenvalues, growth rates, pseudospectra or eigenvectors. Do not construct propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not scan parameters or resolutions beyond K0/K1/K2, run GENE, add collisions/damping, retune F2.3, alter F2.4/F2.5, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
-
-## Governance authority
-
-- `research/master/fusion_f2_6_ion_flr_convention_erratum_0_1.md`
-- `research/master/prompts/fusion_f2_6_resume_after_ion_flr_erratum_0_1.md`
-- `research/master/fusion_f2_5_discretization_specification_integration_freeze_0_1.md`
-- `research/master/prompt_handoff_protocol_0_1.md`
-
-**STOP / AWAIT GO.**
+**STOP / RETURN TO MASTER.**
