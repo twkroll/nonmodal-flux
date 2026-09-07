@@ -1,0 +1,101 @@
+{
+  "gate": "Fusion F2.6 — Discrete Operator / Channel Algebraic Qualification Gate 0.3",
+  "date": "2026-09-07",
+  "verdict": "PASS",
+  "controlling_repair": "research/master/fusion_f2_5r_quadrature_repair_integration_freeze_0_1.md",
+  "controlling_flr": "b_i(theta)=(k_perp(theta) rho_i0)^2 (B0/B(theta))^2; Gamma0i=I0(b_i)e^-b_i",
+  "factorized_operator": {
+    "quasineutrality": "C_K phi_K = S_K x_K",
+    "field_reconstruction": "P_K=C_K^{-1}S_K",
+    "time_derivative_coupling": "E_K=I-R_K C_K^{-1}S_K, with R_K=D_K^{-1}S_K^dagger",
+    "generator": "A_K=E_K^{-1}F_K",
+    "g_form_metric": "M_g,K=D_K-S_K^dagger C_K^{-1}S_K",
+    "canonical_positive_metric": "M_K=M_g,K+P_K^dagger Delta_FLR,K P_K",
+    "delta_flr": "Delta_FLR,K=diag(mV*(<J0i^2>_K-Gamma0i_exact))",
+    "E_inverse": "E_K^{-1}y=y+R_K(C_K-S_KR_K)^{-1}S_K y"
+  },
+  "gradient_coefficients_algebraic_units": {
+    "G_n_species": 0.8,
+    "G_T_i": 2.49,
+    "G_T_e": 2.49,
+    "G_p_i": 3.29,
+    "G_p_e": 3.29,
+    "G_Gamma": 6.58
+  },
+  "probe_policy": {
+    "balance_qn_metric_seeds": [20260907, 20260908, 20260909],
+    "channel_hermiticity_seeds": [100, 101, 102],
+    "stream_skew_seeds": [200, 201, 202],
+    "positive_metric_random_rayleigh_seeds": [300, 301, 302],
+    "probes_per_main_check": 3,
+    "random_rayleigh_probes": 8
+  },
+  "levels": {
+    "K0": {
+      "dimensions": {"Ntheta": 71, "Ni": 18176, "Ne": 432, "Nmu": 16, "Nu": 16, "NEe": 12, "Nlambda": 12, "Nbounce": 24},
+      "flr": {
+        "active": {"max_abs": 5.208888875785078e-13, "max_rel": 2.3198120931604563e-12, "worst_theta": -9.3514372393774, "worst_b": 3.4515212855460513, "field_fro_over_C": 1.6154391375145887e-14, "field_local_over_C": 2.604444437892539e-13},
+        "envelope": {"points": 1535, "max_abs": 6.779854455629675e-13, "max_rel": 3.043327301738056e-12, "worst_theta": -9.424659682694893, "worst_b": 3.5006989870743896}
+      },
+      "moments": {"density": 4.440892098500626e-16, "energy": 8.881784197001252e-16, "heat_weight": 1.1102230246251565e-15},
+      "bounce": {"den_rel_err": 2.2946437931287725e-15, "one_abs_err": 0.0, "cos_abs_err": 1.6653345369377348e-14, "B_abs_err": 2.55351295663786e-15},
+      "C_QN_cond_diag": 16.17200119652416,
+      "QN_random_relative_residual_max": 7.435283646593961e-17,
+      "g_form_normalized_schur_cholesky_min_diag": 0.7208933747259642,
+      "canonical_positive_metric": {"min_ion_polarization_1_minus_Gamma0": 0.11431491114516945, "direct_vs_factorized_relative_max": 2.252394123081204e-16, "hermiticity_probe_max": 1.7822650207663598e-16, "min_D_normalized_random_rayleigh_8probes": 0.9855102360684648},
+      "B_K": "I",
+      "R_in_K": "M_K",
+      "channel_hermiticity_probe_max": {"Gamma_i": 0.0, "Gamma_e": 0.0, "q_i": 0.0, "q_e": 0.0},
+      "particle_ambipolarity": {"abs_max": 8.673617379884035e-19, "relative_max": 8.50207278185089e-16},
+      "conservative_phase_space": {"stream_mirror_skew_relative_max": 2.407500976223652e-15, "full_conservative_skew_relative_max": 2.1665571148757745e-15},
+      "complete_balance": {"abs_residual_max": 7.112366251504909e-17, "relative_residual_max": 1.9246517748162775e-14}
+    },
+    "K1": {
+      "dimensions": {"Ntheta": 159, "Ni": 91584, "Ne": 1620, "Nmu": 24, "Nu": 24, "NEe": 18, "Nlambda": 18, "Nbounce": 36},
+      "flr": {
+        "active": {"max_abs": 4.586581114907062e-12, "max_rel": 3.507599475681452e-11, "worst_theta": -15.665759389692623, "worst_b": 9.569277068350962, "field_fro_over_C": 1.1150719095110379e-13, "field_local_over_C": 2.293290557453531e-12},
+        "envelope": {"points": 2559, "max_abs": 5.2360893398883945e-12, "max_rel": 4.0145085337087465e-11, "worst_theta": -15.707844989874479, "worst_b": 9.61667579463663}
+      },
+      "moments": {"density": 3.3306690738754696e-16, "energy": 1.5543122344752192e-15, "heat_weight": 1.5543122344752192e-15},
+      "bounce": {"den_rel_err": 1.9122031609406437e-15, "one_abs_err": 0.0, "cos_abs_err": 1.3322676295501878e-14, "B_abs_err": 2.220446049250313e-15},
+      "C_QN_cond_diag": 21.633506024469266,
+      "QN_random_relative_residual_max": 7.932837319158694e-17,
+      "g_form_normalized_schur_cholesky_min_diag": 0.7249409073843623,
+      "canonical_positive_metric": {"min_ion_polarization_1_minus_Gamma0": 0.11431491114516945, "direct_vs_factorized_relative_max": 3.3485398819169536e-16, "hermiticity_probe_max": 1.978580977671883e-16, "min_D_normalized_random_rayleigh_8probes": 0.9934535582259408},
+      "B_K": "I",
+      "R_in_K": "M_K",
+      "channel_hermiticity_probe_max": {"Gamma_i": 0.0, "Gamma_e": 0.0, "q_i": 0.0, "q_e": 0.0},
+      "particle_ambipolarity": {"abs_max": 7.995991022080595e-19, "relative_max": 4.678537324158171e-15},
+      "conservative_phase_space": {"stream_mirror_skew_relative_max": 2.8768950115305037e-15, "full_conservative_skew_relative_max": 5.1226499761428896e-15},
+      "complete_balance": {"abs_residual_max": 7.058156142880634e-17, "relative_residual_max": 3.1516715060470526e-13}
+    },
+    "K2": {
+      "dimensions": {"Ntheta": 279, "Ni": 357120, "Ne": 4032, "Nmu": 40, "Nu": 32, "NEe": 24, "Nlambda": 24, "Nbounce": 48},
+      "flr": {
+        "active": {"max_abs": 6.938893903907228e-16, "max_rel": 5.684419263681347e-15, "worst_theta": 21.96377320265051, "worst_b": 18.747351253710843, "field_fro_over_C": 1.208963807544172e-16, "field_local_over_C": 3.469446951953614e-16},
+        "envelope": {"points": 3583, "max_abs": 6.661338147750939e-16, "max_rel": 6.4396218496303745e-15, "worst_theta": -21.990084179328953, "worst_b": 18.78906278778182}
+      },
+      "moments": {"density": 2.220446049250313e-16, "energy": 8.881784197001252e-16, "heat_weight": 8.881784197001252e-16},
+      "bounce": {"den_rel_err": 2.2946437931287725e-15, "one_abs_err": 0.0, "cos_abs_err": 1.7541523789077473e-14, "B_abs_err": 2.7755575615628914e-15},
+      "C_QN_cond_diag": 26.74538867279215,
+      "QN_random_relative_residual_max": 8.283541583493805e-17,
+      "g_form_normalized_schur_cholesky_min_diag": 0.728882357450592,
+      "canonical_positive_metric": {"min_ion_polarization_1_minus_Gamma0": 0.11431491114516945, "direct_vs_factorized_relative_max": 4.45138651658574e-16, "hermiticity_probe_max": 2.98508760445958e-16, "min_D_normalized_random_rayleigh_8probes": 0.9955678177336388},
+      "B_K": "I",
+      "R_in_K": "M_K",
+      "channel_hermiticity_probe_max": {"Gamma_i": 0.0, "Gamma_e": 0.0, "q_i": 0.0, "q_e": 0.0},
+      "particle_ambipolarity": {"abs_max": 4.845028458294598e-19, "relative_max": 1.1309915838894855e-14},
+      "conservative_phase_space": {"stream_mirror_skew_relative_max": 8.857600176903989e-15, "full_conservative_skew_relative_max": 4.813101508180976e-15},
+      "complete_balance": {"abs_residual_max": 5.128276275856436e-17, "relative_residual_max": 1.6059365226318932e-13}
+    }
+  },
+  "manufactured_free_energy_convergence": {"K0": 10.471694776930647, "K1": 10.486288388543658, "K2": 10.49356673284384, "K0_to_K1_rel": 0.0013916851294070987, "K1_to_K2_rel": 0.0006936006112585127},
+  "logical_operator_checks": {
+    "B_K": "identity on full conforming coefficient space",
+    "R_in_K": "canonical M_K",
+    "particle_ambipolarity": "exact algebraic consequence of QN; random residuals reported",
+    "channels": "constructed from physical radial gyrocentre flux integrals before balance comparison",
+    "no_loading_clipping_or_direction_deletion": true
+  },
+  "no_spectral_work": true
+}

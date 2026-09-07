@@ -13,13 +13,13 @@ The active post-paper program remains
 
 The first-paper scientific content remains frozen and submission remains parked.
 
-B5.5, F1.2, F1.3, F1.4, the R1 literature audit and F2.1–F2.4 remain protected historical savepoints. Historical F2.5 and F2.6 `0_1`/`0_2` remain immutable audit records. MASTER has now integrated F2.5R and frozen its repaired ion magnetic-moment quadrature ladder as the controlling downstream specification.
+B5.5, F1.2, F1.3, F1.4, the R1 literature audit and F2.1–F2.4 remain protected historical savepoints. Historical F2.5, F2.6 `0_1` HOLD and F2.6 `0_2` FAIL remain immutable audit records.
+
+MASTER integrated F2.5R, freezing the repaired ion magnetic-moment quadrature ladder, and released F2.6 `0_3`. The rerun now passes the complete pre-spectral discrete operator/channel algebraic qualification.
 
 ## Controlling physical / FLR objects
 
 The F2-R physical model, F2.3 point and F2.4 input geometry remain frozen.
-
-The controlling ion-FLR convention remains
 
 \[
 \rho_{i0}=v_{Ti}/\Omega_i(B_0),
@@ -33,71 +33,60 @@ b_i(\theta)
 =(k_\perp(\theta)\rho_{i0})^2
 \left(\frac{B_0}{B(\theta)}\right)^2,
 \qquad
-\Gamma_{0i}=I_0(b_i)e^{-b_i}.}
+\Gamma_{0i}=I_0(b_i)e^{-b_i}.
+}
 \]
 
-No physical parameter or input-space change has been made.
-
-## Frozen F2.5R repair
-
-Canonical branch result:
-
-`research/fusion/fusion_f2_5r_ion_flr_quadrature_repair_gate_0_1.md`
-
-MASTER integration freeze:
-
-`research/master/fusion_f2_5r_quadrature_repair_integration_freeze_0_1.md`
-
-F2.5R branch commit `cbfd6ca9a906df7bb34bf6270a24b6c63857f545`; Python CI #405 = `SUCCESS`.
-
-The controlling repaired ion Gauss--Laguerre magnetic-moment orders are
+The controlling repaired magnetic-moment ladder is
 
 \[
-\boxed{N_{\mu,K0}=16,\qquad N_{\mu,K1}=24,\qquad N_{\mu,K2}=40.}
+\boxed{
+N_{\mu,K0}=16,\qquad
+N_{\mu,K1}=24,\qquad
+N_{\mu,K2}=40.
+}
 \]
 
-All other F2.5 numerical objects remain unchanged. Historical `N_mu=8/12/16` remains only an audit baseline.
+All other F2.5 numerical objects remain unchanged.
 
-The repaired ion-state dimensions are
+## F2.6 `0_3` result
+
+Canonical report:
+
+`research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_qualification_gate_0_3.md`
+
+Machine-readable diagnostics:
+
+`research/fusion/fusion_f2_6_discrete_operator_channel_algebraic_diagnostics_0_3.json`
+
+**Status:** `F2.6 PASS — DISCRETE OPERATOR/CHANNEL ALGEBRA QUALIFIED — RETURN TO MASTER`
+
+The repaired full-support local-B FLR identity passes on active LGL nodes and on the independent between-node geometry envelope. Quasineutrality residuals are at roundoff. The canonical positive Helmholtz metric is Hermitian and strictly positive without loading or clipping, with
 
 \[
-\boxed{N_i(K0,K1,K2)=(18176,\ 91584,\ 357120).}
+B_K=I,\qquad R_{{\rm in},K}=M_K.
 \]
 
-The selected ladder is the first passing monotone ladder in the predeclared deterministic candidate sequence and passes active-node plus independent between-node local-B FLR manufactured criteria, positive-metric field-block tolerances, positive Gauss--Laguerre weights and Maxwellian moment checks.
+The ion streaming/mirror and full conservative phase-space operators satisfy the required discrete adjoint/skew structure to approximately `1e-14` or better. The physical particle and species-heat channels are independently reconstructed from the radial gyrocentre flux integrals, are Hermitian to roundoff, and hydrogenic particle ambipolarity is satisfied to roundoff.
 
-No spectrum, eigenvector, propagator, Gramian, finite-time objective, optimizer, transport effect or GENE result was inspected.
+The complete F2.1 discrete balance is qualified on K0/K1/K2. Maximum reported relative residuals over deterministic probes are approximately
+
+\[
+1.92\times10^{-14},\qquad
+3.15\times10^{-13},\qquad
+1.61\times10^{-13}.
+\]
+
+No eigenvalue, eigenvector, growth rate, pseudospectrum, propagator, Gramian, finite-time objective, optimizer, angle, performance gap, physical parameter scan or GENE result was inspected.
 
 ## Active instruction
 
-**Status:** `FUSION F2.6 0_3 DISCRETE OPERATOR / CHANNEL ALGEBRAIC QUALIFICATION READY — AWAIT GO`
+**Next instruction:** none in this branch.
 
-**Next instruction:**
+A bare `GO` must not open spectral qualification, finite-time propagation, objective comparison or any new repair until MASTER integrates F2.6 `0_3` and commits an explicit new handoff.
 
-`research/master/prompts/fusion_f2_6_rerun_after_f2_5r_quadrature_repair_0_1.md`
+## Forbidden while RETURN TO MASTER remains
 
-On bare `GO`, first read this STATUS and execute only that committed instruction.
+Do not inspect eigenvalues, growth rates, pseudospectra, eigenvectors, propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not change F2.3/F2.4, the repaired F2.5R ladder or any other F2.5 object. Do not run GENE, add collisions/damping, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
 
-## F2.6 0_3 scope
-
-On the unchanged K0/K1/K2 architecture with repaired `N_mu=16/24/40`, reconstruct the discrete quasineutrality, canonical positive Helmholtz metric, generator and independently defined physical particle/ion-heat/trapped-electron-heat channel operators and complete the pre-spectral algebraic qualification.
-
-Required checks include the full-support local-B FLR identity, quasineutrality, `M_K>0`, `B_K=I`, `R_in,K=M_K`, physical-channel Hermiticity, particle ambipolarity, conservative phase-space adjoint/skew structure and the complete F2.1 discrete free-energy balance.
-
-Create versioned `0_3` result/diagnostic files; do not overwrite historical F2.6 `0_1` or `0_2` files.
-
-## Forbidden until F2.6 0_3 returns
-
-Do not inspect eigenvalues, growth rates, pseudospectra or eigenvectors. Do not construct propagators, Gramians, cumulative objectives, optimizers, angles or gaps. Do not scan physical parameters or use resolutions outside the repaired K0/K1/K2 ladder, run GENE, add collisions/damping, retune F2.3/F2.4, alter the repaired F2.5R ladder or any other F2.5 object, reopen R1, or open MODES/CONT/CASCADE, Power Grid, Photonics or Paper-1 work.
-
-## Expected return
-
-One of:
-
-- `F2.6 PASS — DISCRETE OPERATOR/CHANNEL ALGEBRA QUALIFIED — RETURN TO MASTER`;
-- `F2.6 HOLD — SPECIFIC DISCRETE ALGEBRA/IMPLEMENTATION DECISION REQUIRED — RETURN TO MASTER`;
-- `F2.6 FAIL — RETURN TO MASTER`.
-
-No branch-side next gate is self-authorized.
-
-**STOP / AWAIT GO.**
+**STOP / RETURN TO MASTER.**
